@@ -23,7 +23,7 @@ export function CtaSection() {
       }}
     >
       {/* Surimpression solide — un seul calque dégradé sobre */}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/80 to-black/60" />
 
       {/* Filets discrets en haut/bas */}
       <div className="absolute top-0 inset-x-0 h-px bg-terra/30" />

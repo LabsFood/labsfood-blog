@@ -30,7 +30,7 @@ export function HeroB() {
           <div className="flex items-center gap-3 mb-6">
             <span className="size-6 h-px bg-terra" />
             <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra">
-              Lab&apos;s Food · Depuis 2025
+              Lab&apos;s Food
             </span>
           </div>
 

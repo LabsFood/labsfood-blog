@@ -167,7 +167,7 @@ export function ProductsSection() {
             BLOC 02 — "Bientôt dans le labo" — strip horizontal
             ═══════════════════════════════════════════════════════════ */}
         <div className="mt-32 md:mt-40">
-          <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
+          {/* <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
             <Reveal>
               <div className="flex items-center gap-3 mb-3">
                 <span className="size-6 h-px bg-terra" />
@@ -185,7 +185,7 @@ export function ProductsSection() {
                 [ {COMING_SOON.length.toString().padStart(2, '0')} en préparation ]
               </span>
             </Reveal>
-          </div>
+          </div> */}
           {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {COMING_SOON.map((item, i) => {
               const tint = CATEGORY_TINT[item.category] ?? 'from-navy/10 to-navy/5'

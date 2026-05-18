@@ -12,8 +12,9 @@ const NAV = [
   { label: 'À propos', href: '/a-propos' },
   // { label: 'Services', href: '/services' },
   // { label: 'Produits', href: '/produits' },
-  { label: 'Devenir chef', href: '/devenir-chef' },
+  // { label: 'Devenir chef', href: '/devenir-chef' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Nos Services', href: '/contact' },
 ]
 
 export function Header() {
@@ -112,18 +113,18 @@ export function Header() {
               <span className="absolute inset-0 rounded-full bg-whatsapp/30 animate-ping" />
               <span className="relative size-1.5 rounded-full bg-whatsapp" />
             </span>
-            <span className="hidden xl:inline">Ouvert · 7j/7</span>
+            <span className="hidden xl:inline">Service client whatsapp · 7j/7</span>
           </a>
 
           <span className="h-5 w-px bg-navy/15" aria-hidden />
 
-          <Link
+          {/* <Link
             href="/produits/kossam"
             className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-navy text-cream text-xs font-medium tracking-wide hover:bg-terra transition-colors duration-500"
           >
             Commander Kossam
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:rotate-45" />
-          </Link>
+          </Link> */}
         </div>
 
         {/* ─── Burger mobile ─── */}
