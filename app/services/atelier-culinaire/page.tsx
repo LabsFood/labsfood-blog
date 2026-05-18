@@ -72,7 +72,7 @@ export default function AtelierPage() {
               ))}
             </div>
             <div className="md:col-span-1">
-              <Button asChild size="lg" className="w-full">
+              <Button asChild variant="whatsapp" size="lg" className="w-full">
                 <a
                   href={whatsappLink(
                     "Bonjour Lab's Food, je souhaite réserver un atelier culinaire.",

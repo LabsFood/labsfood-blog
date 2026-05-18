@@ -10,8 +10,8 @@ export function KossamReviewsCarousel() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="absolute inset-y-0 left-0 w-20 z-10 bg-gradient-to-r from-cream to-transparent pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-20 z-10 bg-gradient-to-l from-cream to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-20 z-10 bg-gradient-to-r from-cream-soft to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-20 z-10 bg-gradient-to-l from-cream-soft to-transparent pointer-events-none" />
 
       <motion.div
         className="flex gap-5 w-max"

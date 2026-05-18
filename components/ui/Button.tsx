@@ -16,6 +16,8 @@ const buttonVariants = cva(
           'bg-transparent border border-navy/20 text-navy hover:bg-navy hover:text-cream hover:border-navy',
         outline:
           'bg-transparent border border-cream/40 text-cream hover:bg-cream hover:text-navy hover:border-cream',
+        whatsapp:
+          'bg-whatsapp text-white hover:bg-whatsapp-deep shadow-[0_8px_24px_-8px_rgba(37,211,102,0.6)] hover:shadow-[0_12px_32px_-8px_rgba(37,211,102,0.75)] hover:-translate-y-0.5',
         link: 'text-terra underline-offset-4 hover:underline px-0 py-0',
       },
       size: {

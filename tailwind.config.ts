@@ -40,6 +40,11 @@ const config: Config = {
           mid: '#3A4A5A',
           soft: '#7B8794',
         },
+        whatsapp: {
+          DEFAULT: '#25D366',
+          deep: '#1DA851',
+          dark: '#128C7E',
+        },
         border: 'rgba(0,35,75,0.10)',
       },
       fontFamily: {
