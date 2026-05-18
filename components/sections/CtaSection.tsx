@@ -1,15 +1,15 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { ArrowUpRight, MessageCircle, Clock, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
-import { whatsappLink } from '@/lib/utils'
+import { whatsappLink, WHATSAPP_NUMBER_DISPLAY } from '@/lib/utils'
 
 /**
- * CTA "On reste en contact" — section full-bleed avec image en background fixed
- * (effet parallax au scroll). Surimpression dégradée navy/terra pour la lisibilité.
+ * CTA "On reste en contact" — section full-bleed avec image fixed (parallax).
+ * Design épuré : pas de blur décoratif, pas de glassmorphism, surimpression
+ * solide pour un rendu propre et lisible.
  */
 export function CtaSection() {
   return (
@@ -22,32 +22,34 @@ export function CtaSection() {
         backgroundAttachment: 'fixed',
       }}
     >
-      {/* Calques de surimpression */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy/95 via-navy/80 to-terra/40" />
-      <div className="absolute inset-0 bg-grain opacity-[0.08]" />
-      <div className="absolute -top-32 right-0 size-[500px] bg-terra/25 blur-3xl rounded-full" />
-      <div className="absolute -bottom-32 left-0 size-[500px] bg-teal/40 blur-3xl rounded-full" />
+      {/* Surimpression solide — un seul calque dégradé sobre */}
+      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/45" />
 
-      {/* Filets d'ouverture */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/40 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/40 to-transparent" />
+      {/* Filets discrets en haut/bas */}
+      <div className="absolute top-0 inset-x-0 h-px bg-terra/30" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-terra/30" />
 
       <div className="container-wide relative py-24 md:py-32 lg:py-40 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Colonne texte */}
+          {/* ─── Colonne texte ─── */}
           <div className="lg:col-span-7">
             <Reveal>
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terra-soft inline-flex items-center gap-3">
-                <span className="size-1.5 rounded-full bg-terra animate-pulse" />
-                On reste en contact
-              </span>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="size-6 h-px bg-terra" />
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terra-soft">
+                  On reste en contact
+                </span>
+              </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-cream mt-6 text-balance leading-[0.95]">
+              <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-cream text-balance leading-[0.95]">
                 Une envie,
                 <br />
-                <span className="italic gradient-text-terra">une table à dresser</span>&nbsp;?
+                <span className="italic gradient-text-terra">
+                  une table à dresser
+                </span>{' '}
+                ?
               </h2>
             </Reveal>
 
@@ -81,9 +83,9 @@ export function CtaSection() {
               </div>
             </Reveal>
 
-            {/* Bandeau de réassurance */}
+            {/* Bandeau de réassurance — clean */}
             <Reveal delay={0.4}>
-              <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl">
+              <div className="mt-16 pt-8 border-t border-cream/15 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
                 <Reassure icon={Clock} title="7j/7 · 24h/24" sub="Réponse rapide" />
                 <Reassure
                   icon={MessageCircle}
@@ -99,23 +101,20 @@ export function CtaSection() {
             </Reveal>
           </div>
 
-          {/* Colonne carte téléphone */}
+          {/* ─── Colonne carte téléphone — design solide ─── */}
           <div className="lg:col-span-5">
             <Reveal axis="x" amount={50} delay={0.2}>
-              <motion.div
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative rounded-3xl bg-cream/[0.08] backdrop-blur-xl border border-cream/20 p-8 md:p-10 shadow-2xl"
-              >
-                <div className="absolute -top-4 -right-4 size-12 rounded-full bg-whatsapp grid place-items-center shadow-xl ring-4 ring-navy">
+              <div className="relative rounded-3xl bg-cream text-navy p-8 md:p-10 shadow-2xl">
+                {/* Pastille WhatsApp en haut */}
+                <div className="absolute -top-4 -right-4 size-12 rounded-full bg-whatsapp grid place-items-center shadow-xl ring-4 ring-cream">
                   <MessageCircle className="size-5 text-white" />
                 </div>
 
-                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-terra-soft">
+                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-terra">
                   WhatsApp — service client
                 </div>
-                <div className="font-display text-3xl md:text-4xl text-cream mt-3">
-                  +33 7 66 14 78 98
+                <div className="font-display text-3xl md:text-4xl text-navy mt-3">
+                  {WHATSAPP_NUMBER_DISPLAY}
                 </div>
 
                 <div className="mt-8 space-y-3">
@@ -127,20 +126,36 @@ export function CtaSection() {
                   ].map((t) => (
                     <div
                       key={t}
-                      className="flex items-center gap-3 text-sm text-cream/85"
+                      className="flex items-center gap-3 text-sm text-ink/85"
                     >
-                      <span className="size-1.5 rounded-full bg-terra-soft shrink-0" />
+                      <span className="size-1.5 rounded-full bg-terra shrink-0" />
                       {t}
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-cream/15 text-xs text-cream/55">
+                <div className="mt-8 pt-6 border-t border-navy/10 text-xs text-ink/60">
                   Messages écrits uniquement.
                   <br />
                   Pas de notes vocales, merci.
                 </div>
-              </motion.div>
+
+                <Button
+                  asChild
+                  variant="whatsapp"
+                  size="md"
+                  className="w-full mt-6 justify-center"
+                >
+                  <a
+                    href={whatsappLink("Bonjour Lab's Food, ")}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <MessageCircle className="size-4" />
+                    Démarrer la conversation
+                  </a>
+                </Button>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -160,7 +175,7 @@ function Reassure({
 }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="size-10 rounded-full bg-cream/[0.08] border border-cream/15 grid place-items-center">
+      <div className="size-10 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
         <Icon className="size-4 text-terra-soft" />
       </div>
       <div>
