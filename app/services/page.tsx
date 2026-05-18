@@ -47,6 +47,8 @@ export default function ServicesPage() {
           </>
         }
         lede="Deux formules pensées pour deux moments de vie. Un atelier pour transmettre, un batch pour bien manger sans y penser."
+        image="/assets/photo-11.jpeg"
+        imagePosition="center 30%"
       />
 
       <section className="section bg-cream">

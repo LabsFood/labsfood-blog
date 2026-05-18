@@ -25,6 +25,8 @@ export default function ProduitsPage() {
           </>
         }
         lede="Le Kossam est notre signature. D'autres créations artisanales sont en cours dans le labo, déjà disponibles à la pré-commande."
+        image="/assets/photo-1.jpeg"
+        imagePosition="center 40%"
       />
 
       {/* Produit dispo */}

@@ -29,8 +29,21 @@ export function ProductsSection() {
   const kossam = PRODUCTS[0]
 
   return (
-    <section id="produits" className="section bg-cream relative">
-      <div className="container-wide">
+    <section id="produits" className="section bg-cream-deep relative overflow-hidden">
+      {/* Photo de fond très estompée pour casser le blanc */}
+      <Image
+        src="/assets/photo-2.jpeg"
+        alt=""
+        fill
+        className="object-cover opacity-[0.08] pointer-events-none"
+        sizes="100vw"
+      />
+      {/* Voile cream pour adoucir la photo */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cream-deep via-cream-deep/95 to-cream-deep pointer-events-none" />
+      {/* Filet supérieur */}
+      <div className="absolute top-0 inset-x-0 h-px bg-navy/10" />
+
+      <div className="container-wide relative">
         <SectionHeader
           eyebrow="Le labo · Nos produits"
           title={

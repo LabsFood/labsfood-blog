@@ -23,6 +23,8 @@ export default function ContactPage() {
           </>
         }
         lede="Service client disponible toute la semaine sur WhatsApp — messages écrits uniquement, pas de notes vocales. Préférable pour une réponse rapide."
+        image="/assets/photo-13.jpeg"
+        imagePosition="center 50%"
       />
 
       <section className="section bg-cream">

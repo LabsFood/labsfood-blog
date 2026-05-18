@@ -6,6 +6,7 @@ import { WHATSAPP_NUMBER_DISPLAY, whatsappLink } from '@/lib/utils'
 
 const EXPLORE = [
   { label: 'Accueil', href: '/' },
+  { label: 'À propos', href: '/a-propos' },
   { label: 'Services', href: '/services' },
   { label: 'Atelier culinaire', href: '/services/atelier-culinaire' },
   { label: 'Batch cooking', href: '/services/batch-cooking' },

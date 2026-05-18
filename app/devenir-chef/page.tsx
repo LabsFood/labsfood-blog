@@ -44,6 +44,8 @@ export default function DevenirChefPage() {
           </>
         }
         lede="Lab's Food est une plateforme qui permet aux passionnés de cuisine de proposer leurs propres ateliers, gratuitement pour le moment. Voici comment ça marche."
+        image="/assets/photo-8.jpeg"
+        imagePosition="center 35%"
       />
 
       {/* Perks */}
