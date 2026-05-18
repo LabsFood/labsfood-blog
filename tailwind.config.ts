@@ -1,0 +1,116 @@
+import type { Config } from 'tailwindcss'
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
+const config: Config = {
+  darkMode: ['class'],
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // Palette principale Lab's Food
+        navy: {
+          DEFAULT: '#00234B',
+          deep: '#001833',
+          mid: '#0A3160',
+          soft: '#1A4577',
+        },
+        terra: {
+          DEFAULT: '#D96941',
+          deep: '#B8542F',
+          soft: '#E8895F',
+          pale: '#F4D4C2',
+        },
+        teal: {
+          DEFAULT: '#193C40',
+          deep: '#0E2426',
+          soft: '#2A5559',
+          pale: '#D1DCDD',
+        },
+        cream: {
+          DEFAULT: '#F7F1E8',
+          soft: '#FBF7F0',
+          deep: '#EDE3D1',
+        },
+        ink: {
+          DEFAULT: '#0F1F2E',
+          mid: '#3A4A5A',
+          soft: '#7B8794',
+        },
+        border: 'rgba(0,35,75,0.10)',
+      },
+      fontFamily: {
+        display: ['var(--font-fraunces)', ...fontFamily.serif],
+        sans: ['var(--font-montserrat)', ...fontFamily.sans],
+        mono: ['var(--font-mono)', ...fontFamily.mono],
+      },
+      fontSize: {
+        '8xl': ['6rem', { lineHeight: '1' }],
+        '9xl': ['8rem', { lineHeight: '1' }],
+        '10xl': ['10rem', { lineHeight: '0.9' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '100': '25rem',
+        '120': '30rem',
+      },
+      animation: {
+        'fade-up': 'fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-in': 'fade-in 0.6s ease forwards',
+        'shimmer': 'shimmer 3s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'marquee': 'marquee 40s linear infinite',
+        'spin-slow': 'spin 20s linear infinite',
+      },
+      keyframes: {
+        'fade-up': {
+          from: { opacity: '0', transform: 'translateY(30px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-in': {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      backgroundImage: {
+        'terra-gradient':
+          'linear-gradient(135deg, #D96941 0%, #E8895F 100%)',
+        'navy-gradient':
+          'linear-gradient(180deg, #00234B 0%, #001833 100%)',
+        'teal-gradient':
+          'linear-gradient(135deg, #193C40 0%, #2A5559 100%)',
+        'hero-radial':
+          'radial-gradient(circle at 20% 30%, rgba(217,105,65,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(25,60,64,0.4) 0%, transparent 60%)',
+        'grain':
+          "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E\")",
+      },
+      borderRadius: {
+        lg: '1rem',
+        md: '0.75rem',
+        sm: '0.5rem',
+      },
+      transitionTimingFunction: {
+        'expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+  plugins: [require('tailwindcss-animate')],
+}
+
+export default config
