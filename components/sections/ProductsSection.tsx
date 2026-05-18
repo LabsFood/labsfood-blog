@@ -186,9 +186,7 @@ export function ProductsSection() {
               </span>
             </Reveal>
           </div>
-
-          {/* Grille de cartes produits "à venir" */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {COMING_SOON.map((item, i) => {
               const tint = CATEGORY_TINT[item.category] ?? 'from-navy/10 to-navy/5'
               return (
@@ -201,19 +199,15 @@ export function ProductsSection() {
                   className="group"
                 >
                   <div className="aspect-[3/4] rounded-2xl bg-cream-soft border border-navy/8 overflow-hidden relative">
-                    {/* Placeholder coloré par catégorie */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${tint}`}
                     />
-                    {/* Pastille Soon */}
                     <div className="absolute top-3 right-3 inline-flex items-center px-2 py-1 rounded-full bg-cream/90 text-terra font-mono text-[0.55rem] uppercase tracking-[0.2em]">
                       Soon
                     </div>
-                    {/* Numéro */}
                     <div className="absolute bottom-3 left-3 font-mono text-[0.6rem] tabular-nums text-navy/30">
                       [{String(i + 1).padStart(2, '0')}]
                     </div>
-                    {/* Hover overlay */}
                     <div className="absolute inset-0 grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-navy/85">
                       <div className="text-center px-4">
                         <Sparkles className="size-4 text-terra-soft mx-auto mb-2" />
@@ -234,10 +228,9 @@ export function ProductsSection() {
                 </motion.div>
               )
             })}
-          </div>
+          </div> */}
 
-          {/* Bouton WhatsApp être prévenu */}
-          <Reveal delay={0.15}>
+          {/* <Reveal delay={0.15}>
             <div className="mt-10 flex items-center justify-center">
               <Button asChild variant="whatsapp" size="md">
                 <a
@@ -252,12 +245,9 @@ export function ProductsSection() {
                 </a>
               </Button>
             </div>
-          </Reveal>
+          </Reveal> */}
         </div>
 
-        {/* ═══════════════════════════════════════════════════════════
-            BLOC 03 — Bandeau livraison / qualité
-            ═══════════════════════════════════════════════════════════ */}
         <Reveal>
           <div className="mt-24 md:mt-32 border-t border-navy/10 pt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
             <Info

@@ -292,7 +292,7 @@ export default function AProposPage() {
       {/* ═══════════════════════════════════════════════════════════
           CTA — découvrir les services + WhatsApp
           ═══════════════════════════════════════════════════════════ */}
-      <section className="section bg-cream-deep relative overflow-hidden">
+      {/* <section className="section bg-cream-deep relative overflow-hidden">
         <Image
           src="/assets/photo-9.jpeg"
           alt=""
@@ -338,7 +338,7 @@ export default function AProposPage() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

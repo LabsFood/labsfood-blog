@@ -48,17 +48,14 @@ const SOCIAL = [
 export function Footer() {
   return (
     <footer className="relative">
-      {/* ── CTA STRIPE — barre flottante ────────────────────────────── */}
-      <section className="relative px-4 -mb-24 z-10">
+      {/* <section className="relative px-4 -mb-24 z-10">
         <div className="container-wide">
           <div className="relative bg-terra rounded-3xl overflow-hidden p-10 lg:p-14 text-cream shadow-[0_30px_70px_-30px_rgba(217,105,65,0.6)]">
-            {/* Motif de points décoratif bas-droite */}
             <div className="absolute right-8 bottom-8 grid grid-cols-6 gap-2 opacity-25 pointer-events-none">
               {Array.from({ length: 36 }).map((_, i) => (
                 <span key={i} className="w-1.5 h-1.5 rounded-full bg-cream" />
               ))}
             </div>
-            {/* Mot watermark géant */}
             <span
               aria-hidden="true"
               className="absolute -top-6 -right-6 font-display font-bold text-cream/[0.08] leading-none select-none pointer-events-none"
@@ -100,7 +97,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── FOOTER PRINCIPAL ────────────────────────────────────────── */}
       <div className="bg-navy text-cream/85 pt-40 pb-10 relative overflow-hidden">

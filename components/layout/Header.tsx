@@ -10,8 +10,8 @@ import { cn, whatsappLink } from '@/lib/utils'
 const NAV = [
   { label: 'Accueil', href: '/' },
   { label: 'À propos', href: '/a-propos' },
-  { label: 'Services', href: '/services' },
-  { label: 'Produits', href: '/produits' },
+  // { label: 'Services', href: '/services' },
+  // { label: 'Produits', href: '/produits' },
   { label: 'Devenir chef', href: '/devenir-chef' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -46,9 +46,9 @@ export function Header() {
       <div className="container-wide flex items-center justify-between h-20">
         {/* ─── Identité ─── */}
         <Link href="/" className="flex items-center gap-3 group">
-          <span className="relative size-11 rounded-full bg-navy grid place-items-center overflow-hidden transition-transform duration-500 ease-expo group-hover:rotate-[8deg]">
+          <span className="relative size-11 rounded-full grid place-items-center overflow-hidden transition-transform duration-500 ease-expo group-hover:rotate-[8deg]">
             <Image
-              src="/logo.png"
+              src="/logoLab.png"
               alt=""
               width={30}
               height={30}
@@ -60,9 +60,9 @@ export function Header() {
             <span className="font-display text-[1.15rem] tracking-tight text-navy">
               Lab&apos;s Food
             </span>
-            <span className="font-display italic text-xs text-terra mt-0.5">
+            {/* <span className="font-display italic text-xs text-terra mt-0.5">
               maison culinaire
-            </span>
+            </span> */}
           </span>
         </Link>
 
