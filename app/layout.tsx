@@ -92,7 +92,7 @@ export default function RootLayout({
     >
       <body className="bg-cream text-ink font-sans antialiased">
         <SplashScreen />
-        <AnnouncementBar />
+        {/* <AnnouncementBar /> */}
         <Header />
         <main className="pt-20">{children}</main>
         <Footer />

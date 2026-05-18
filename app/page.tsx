@@ -1,6 +1,6 @@
 import { HeroA } from '@/components/sections/HeroA'
-// import { HeroB } from '@/components/sections/HeroB'
-// import { HeroC } from '@/components/sections/HeroC'
+import { HeroB } from '@/components/sections/HeroB'
+import { HeroC } from '@/components/sections/HeroC'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 import { ProductsSection } from '@/components/sections/ProductsSection'
 import { FounderSection } from '@/components/sections/FounderSection'
@@ -17,8 +17,8 @@ import { CtaSection } from '@/components/sections/CtaSection'
 export default function HomePage() {
   return (
     <>
-      <HeroA />
-      {/* <HeroB /> */}
+      {/* <HeroA /> */}
+      <HeroB />
       {/* <HeroC /> */}
 
       <ServicesSection />
