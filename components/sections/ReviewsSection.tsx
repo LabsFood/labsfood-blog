@@ -12,10 +12,11 @@ export function ReviewsSection() {
 
   return (
     <section className="section bg-navy text-cream relative overflow-hidden">
-      {/* Décor en fond */}
+      {/* Grain subtil — pas de blur */}
       <div className="absolute inset-0 bg-grain opacity-[0.05] pointer-events-none" />
-      <div className="absolute -top-40 left-1/3 size-[700px] bg-terra/15 blur-3xl rounded-full pointer-events-none" />
-      <div className="absolute -bottom-40 right-0 size-[600px] bg-teal/30 blur-3xl rounded-full pointer-events-none" />
+      {/* Filets éditoriaux haut/bas */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/20 to-transparent" />
 
       <div className="container-wide relative">
         <SectionHeader
@@ -109,7 +110,8 @@ function MarqueeRow({
 
 function ReviewCard({ r }: { r: { author: string; text: string } }) {
   return (
-    <article className="w-[340px] md:w-[400px] shrink-0 rounded-3xl bg-cream/[0.04] backdrop-blur-sm border border-cream/15 p-7 hover:bg-cream/[0.07] hover:border-terra/40 transition-all duration-500">
+    <article className="w-[340px] md:w-[400px] shrink-0 rounded-3xl bg-cream text-navy border border-terra/0 p-7 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.35)] hover:border-terra/60 hover:-translate-y-1 transition-all duration-500 ease-expo">
+      {/* En-tête : quote + étoiles */}
       <div className="flex items-center justify-between mb-4">
         <Quote className="size-5 text-terra" />
         <div className="flex gap-0.5">
@@ -118,16 +120,20 @@ function ReviewCard({ r }: { r: { author: string; text: string } }) {
           ))}
         </div>
       </div>
-      <p className="text-cream/95 leading-relaxed text-[0.95rem]">{r.text}</p>
-      <div className="mt-6 pt-4 border-t border-cream/10 flex items-center gap-3">
-        <div className="size-9 rounded-full bg-terra/20 text-terra-soft grid place-items-center font-display text-base">
+
+      {/* Citation */}
+      <p className="text-ink leading-relaxed text-[0.95rem]">{r.text}</p>
+
+      {/* Footer : auteur */}
+      <div className="mt-6 pt-4 border-t border-navy/10 flex items-center gap-3">
+        <div className="size-9 rounded-full bg-terra text-cream grid place-items-center font-display text-base shrink-0">
           {r.author[0]}
         </div>
-        <div className="flex flex-col">
-          <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cream/80">
+        <div className="flex flex-col leading-tight">
+          <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-navy">
             {r.author}
           </span>
-          <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/45">
+          <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink/50 mt-0.5">
             Client vérifié
           </span>
         </div>
