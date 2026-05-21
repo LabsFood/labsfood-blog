@@ -129,3 +129,26 @@ export const FOUNDER = {
   certifications: ['HACCP'],
   languages: ['Français', 'Portugais', 'Anglais'],
 }
+
+/**
+ * Chefs disponibles pour l'assistance culinaire.
+ * Extensible : ajouter un objet par chef partenaire validé.
+ */
+export const CHEFS = [
+  {
+    id: 'ivy',
+    n: '01',
+    name: 'Ivy',
+    title: "Fondatrice & Cheffe · Lab's Food",
+    photo: '/IvyOfficielle.png',
+    region: "Côte d'Azur",
+    zone: "Nice · Cannes · Antibes · Monaco",
+    bio: "Ingénieure de formation, passionnée de gastronomie et de voyages. Après avoir exploré 21 pays et leurs cuisines, Ivy a fondé Lab's Food pour partager une vision : cuisiner, c'est voyager.",
+    certifications: ['HACCP'],
+    languages: ['FR', 'PT', 'EN'],
+    specialties: ['Cuisines du monde', 'Cuisine africaine', 'Dressage & présentation'],
+    countries: 21,
+    available: true,
+    whatsappMessage: "Bonjour Ivy, je souhaite vous contacter pour une assistance culinaire — voici mon événement : ",
+  },
+] as const
