@@ -23,7 +23,7 @@ const LINKS = {
   services: [
     { label: 'Atelier culinaire', href: '/services/atelier-culinaire' },
     { label: 'Batch cooking', href: '/services/batch-cooking' },
-    { label: 'Devenir chef', href: '/devenir-chef' },
+    { label: 'Assistance culinaire', href: '/services/assistance-culinaire' },
     { label: 'Tous les services', href: '/services' },
   ],
   produits: [

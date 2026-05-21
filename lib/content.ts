@@ -39,6 +39,20 @@ export const SERVICES = [
     accent: 'navy',
     external: true,
   },
+  {
+    slug: 'assistance-culinaire',
+    name: 'Assistance culinaire',
+    short: 'Un coup de main professionnel en cuisine pour vos événements et vos équipes.',
+    description:
+      "Un grand dîner, une fête de famille, un traiteur ou un restaurant qui a besoin de renfort ? Lab's Food intervient en cuisine — aide à la préparation, dressage, coordination. Le rôle est défini selon vos besoins.",
+    bullets: [
+      'Particuliers : grands dîners & fêtes de famille',
+      'Professionnels : traiteurs, chefs, restaurants',
+      'Rôle défini selon le volume et le besoin',
+      'Devis personnalisé après discussion',
+    ],
+    accent: 'teal',
+  },
 ] as const
 
 export const PRODUCTS = [

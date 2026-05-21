@@ -9,6 +9,9 @@ import {
   MapPin,
   Gift,
   ListChecks,
+  ChefHat,
+  CalendarCheck,
+  Building2,
 } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Reveal } from '@/components/ui/Reveal'
@@ -21,13 +24,13 @@ const services = [
     name: 'Atelier culinaire',
     description:
       "Apprenez à cuisiner une spécialité du monde lors d'une expérience interactive et intime. Une cheffe vient chez vous — vous repartez avec la fiche recette et un cadeau surprise.",
-    price: '80€',
-    priceNote: 'forfait — jusqu’à 4 pers.',
+    price: '80€' as string | null,
+    priceNote: "forfait — jusqu'à 4 pers.",
     image: '/assets/photo-7.jpeg',
     href: '/services/atelier-culinaire',
     accent: 'terra' as const,
     features: [
-      { icon: Users, label: 'Jusqu’à 10 pers.' },
+      { icon: Users, label: "Jusqu'à 10 pers." },
       { icon: Clock, label: '~ 2h d’atelier' },
       { icon: Gift, label: 'Cadeau surprise' },
     ],
@@ -38,7 +41,7 @@ const services = [
     name: 'Batch cooking',
     description:
       "Une cheffe vient préparer une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser — sur-mesure et à votre rythme.",
-    price: 'sur-mesure',
+    price: 'sur-mesure' as string | null,
     priceNote: "Côte d'Azur",
     image: '/assets/photo-9.jpeg',
     href: '/services/batch-cooking',
@@ -49,6 +52,23 @@ const services = [
       { icon: MapPin, label: "Côte d'Azur" },
     ],
   },
+  {
+    slug: 'assistance-culinaire',
+    n: '03',
+    name: 'Assistance culinaire',
+    description:
+      "Un grand dîner, une fête de famille, un événement traiteur ? Lab's Food vient en renfort en cuisine — aide à la préparation, dressage, coordination. Vous gérez vos invités, on gère les fourneaux.",
+    price: null,
+    priceNote: 'Sur devis · contactez-nous',
+    image: '/assets/photo-5.jpeg',
+    href: '/services/assistance-culinaire',
+    accent: 'teal' as const,
+    features: [
+      { icon: ChefHat, label: 'Rôle défini selon le besoin' },
+      { icon: CalendarCheck, label: 'Événements & dîners' },
+      { icon: Building2, label: 'Particuliers & professionnels' },
+    ],
+  },
 ]
 
 export function ServicesSection() {
@@ -57,20 +77,16 @@ export function ServicesSection() {
       id="services"
       className="section bg-cream relative overflow-hidden"
     >
-      {/* Halos décoratifs très discrets */}
-      <div className="absolute -top-32 -left-32 size-[450px] bg-terra/8 blur-3xl rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 -right-40 size-[500px] bg-teal/8 blur-3xl rounded-full pointer-events-none" />
-
       <div className="container-wide relative">
         <SectionHeader
           eyebrow="Nos services"
           title={
             <>
-              Apprendre la cuisine,{' '}
-              <span className="italic gradient-text-terra">ou la déléguer</span>.
+              Apprendre, déléguer,{' '}
+              <span className="italic gradient-text-terra">ou se faire épauler</span>.
             </>
           }
-          lede="Deux services pensés pour deux moments de vie. Choisissez votre angle."
+          lede="Trois services pensés pour trois moments de vie. Choisissez votre angle."
           align="center"
         />
 
@@ -85,7 +101,7 @@ export function ServicesSection() {
         <Reveal>
           <div className="mt-24 md:mt-28 pt-10 border-t border-navy/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <p className="font-display italic text-2xl md:text-3xl text-navy max-w-xl text-balance">
-              Et ce n&apos;est qu&apos;un début —{' '}
+              Et ce n&apos;est qu&apos;un début &mdash;{' '}
               <span className="gradient-text-terra">d&apos;autres formules</span>{' '}
               arrivent.
             </p>
@@ -138,12 +154,7 @@ function ServiceRow({
           <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Numéro géant en filigrane */}
-          <div
-            className={cn(
-              'absolute top-6 left-6 font-display text-7xl md:text-8xl leading-none tabular-nums',
-              service.accent === 'terra' ? 'text-cream/30' : 'text-cream/30',
-            )}
-          >
+          <div className="absolute top-6 left-6 font-display text-7xl md:text-8xl leading-none tabular-nums text-cream/30">
             {service.n}
           </div>
 
@@ -159,10 +170,14 @@ function ServiceRow({
             <span
               className={cn(
                 'font-mono text-[0.65rem] uppercase tracking-[0.3em]',
-                service.accent === 'terra' ? 'text-terra' : 'text-navy/65',
+                service.accent === 'terra'
+                  ? 'text-terra'
+                  : service.accent === 'teal'
+                  ? 'text-teal'
+                  : 'text-navy/65',
               )}
             >
-              Service · {service.n}
+              Service &middot; {service.n}
             </span>
             <span className="size-1 rounded-full bg-navy/20" />
             <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-ink/45">
@@ -172,14 +187,7 @@ function ServiceRow({
 
           <h3 className="font-display text-4xl md:text-5xl text-navy leading-tight">
             {service.name}
-            <span
-              className={cn(
-                'italic-fraunces',
-                service.accent === 'terra' ? 'text-terra' : 'text-terra',
-              )}
-            >
-              .
-            </span>
+            <span className="italic-fraunces text-terra">.</span>
           </h3>
 
           <p className="mt-6 lede max-w-md text-pretty">{service.description}</p>
@@ -191,34 +199,59 @@ function ServiceRow({
                 key={f.label}
                 className="flex items-center gap-3 text-sm text-ink/80"
               >
-                <span className="size-7 rounded-full bg-cream-soft border border-navy/10 grid place-items-center shrink-0">
-                  <f.icon className="size-3.5 text-terra" />
+                <span
+                  className={cn(
+                    'size-7 rounded-full border grid place-items-center shrink-0',
+                    service.accent === 'teal'
+                      ? 'bg-teal/10 border-teal/15'
+                      : 'bg-cream-soft border-navy/10',
+                  )}
+                >
+                  <f.icon
+                    className={cn(
+                      'size-3.5',
+                      service.accent === 'teal' ? 'text-teal' : 'text-terra',
+                    )}
+                  />
                 </span>
                 {f.label}
               </li>
             ))}
           </ul>
 
-          {/* Footer ligne : prix + CTA */}
+          {/* Footer ligne : prix (si dispo) + CTA */}
           <div className="mt-10 pt-6 border-t border-navy/10 flex items-end justify-between gap-6">
-            <div>
-              <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-ink/55">
-                À partir de
+            {service.price !== null ? (
+              <div>
+                <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-ink/55">
+                  À partir de
+                </div>
+                <div
+                  className={cn(
+                    'font-display text-4xl mt-1 leading-none',
+                    service.accent === 'terra' ? 'text-terra' : 'text-navy',
+                  )}
+                >
+                  {service.price}
+                </div>
               </div>
-              <div
-                className={cn(
-                  'font-display text-4xl mt-1 leading-none',
-                  service.accent === 'terra' ? 'text-terra' : 'text-navy',
-                )}
-              >
-                {service.price}
+            ) : (
+              <div>
+                <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-ink/55">
+                  Tarif
+                </div>
+                <div className="font-display text-2xl mt-1 leading-none text-teal">
+                  Sur devis
+                </div>
               </div>
-            </div>
+            )}
             <Link
               href={service.href}
               className={cn(
                 'group inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all',
-                service.accent === 'terra'
+                service.accent === 'teal'
+                  ? 'bg-teal text-cream hover:bg-teal-deep'
+                  : service.accent === 'terra'
                   ? 'bg-terra text-cream hover:bg-terra-deep'
                   : 'bg-navy text-cream hover:bg-navy-mid',
               )}
