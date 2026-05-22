@@ -17,7 +17,8 @@
 
   body {
     @apply bg-cream text-ink font-sans;
-    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+    /* Pas de font-feature-settings global — ces features peuvent interférer
+       avec les axes des variable fonts (Fraunces). Appliquer par élément si besoin. */
   }
 
   ::selection {

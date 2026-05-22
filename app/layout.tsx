@@ -8,6 +8,9 @@ import { Footer } from '@/components/layout/Footer'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
 import { SplashScreen } from '@/components/layout/SplashScreen'
 
+// ── Fraunces — police display (fichiers locaux, variable font) ───────────────
+// display: 'block' → le texte reste invisible jusqu'au chargement de Fraunces,
+// éliminant le flash de police (FOUT) très visible sur une police display.
 const fraunces = localFont({
   src: [
     {
@@ -22,16 +25,21 @@ const fraunces = localFont({
     },
   ],
   variable: '--font-fraunces',
-  display: 'swap',
+  display: 'block',
+  preload: true,
+  fallback: ['Georgia', 'Times New Roman', 'serif'],
 })
 
+// ── Montserrat — police corps (auto-hébergée via next/font/google) ────────────
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-montserrat',
   display: 'swap',
+  preload: true,
 })
 
+// ── DM Mono — police labels / références ─────────────────────────────────────
 const dmMono = DM_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
