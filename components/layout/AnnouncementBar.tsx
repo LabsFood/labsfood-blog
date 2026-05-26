@@ -20,7 +20,7 @@ export function AnnouncementBar() {
   if (!open) return null
 
   return (
-    <div className="relative bg-terra text-cream">
+    <div className="relative bg-navy-mid text-cream">
       <div className="container-wide flex items-center justify-center gap-2 py-2.5 text-xs sm:text-sm font-medium">
         <span className="hidden sm:inline">🌿</span>
         <span>

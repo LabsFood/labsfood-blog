@@ -8,7 +8,7 @@
        Primaire  : #00234B   navy
        Secondaire: #2C3E50   ardoise
        Fond      : #F4F6F7   gris froid neutre
-       Accent    : #D96941   terra */
+       Accent    : #2C3E50   navy-mid */
     --background: 210 14% 96%;   /* #F4F6F7 en HSL */
     --foreground: 213 65% 14%;   /* #0F1F2E en HSL */
     --radius: 1rem;
@@ -27,7 +27,7 @@
   }
 
   ::selection {
-    @apply bg-terra/90 text-cream;
+    @apply bg-navy-mid/90 text-cream;
   }
 
   h1,
@@ -87,7 +87,7 @@
   }
 
   .eyebrow {
-    @apply inline-block font-mono text-[0.7rem] md:text-xs uppercase tracking-[0.25em] text-terra;
+    @apply inline-block font-mono text-[0.7rem] md:text-xs uppercase tracking-[0.25em] text-navy-mid;
   }
 
   .lede {
@@ -95,11 +95,11 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm tracking-wide transition-all duration-300 ease-expo focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-terra/40;
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm tracking-wide transition-all duration-300 ease-expo focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-mid/40;
   }
 
   .btn-primary {
-    @apply btn bg-terra text-cream hover:bg-terra-deep shadow-[0_8px_24px_-8px_rgba(217, 105, 65, 0.6)] hover:shadow-[0_12px_32px_-8px_rgba(217, 105, 65, 0.7)] hover:-translate-y-0.5;
+    @apply btn bg-navy-mid text-cream hover:bg-navy-deep shadow-[0_8px_24px_-8px_rgba(44, 62, 80, 0.6)] hover:shadow-[0_12px_32px_-8px_rgba(44, 62, 80, 0.7)] hover:-translate-y-0.5;
   }
 
   .btn-secondary {
@@ -123,22 +123,22 @@
   }
 
   .divider-dot {
-    @apply inline-block size-1 rounded-full bg-terra mx-3 align-middle;
+    @apply inline-block size-1 rounded-full bg-navy-mid mx-3 align-middle;
   }
 
   .section {
     @apply py-20 md:py-28 lg:py-36;
   }
 
-  .gradient-text-terra {
-    background: linear-gradient(120deg, #D96941 0%, #E8895F 60%, #F4D4C2 100%);
+  .gradient-text-navy-mid {
+    background: linear-gradient(120deg, #2C3E50 0%, #3D5166 60%, #E5E8EC 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .gradient-text-cream {
-    background: linear-gradient(120deg, #F7F1E8 0%, #EDE3D1 100%);
+    background: linear-gradient(120deg, #F4F6F7 0%, #E5E8EC 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

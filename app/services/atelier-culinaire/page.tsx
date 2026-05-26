@@ -45,7 +45,7 @@ export default function AtelierPage() {
         title={
           <>
             Une cuisine du monde,{' '}
-            <span className="italic gradient-text-terra">apprise pas à pas</span>{' '}
+            <span className="italic gradient-text-navy-mid">apprise pas à pas</span>{' '}
             chez vous.
           </>
         }
@@ -57,7 +57,7 @@ export default function AtelierPage() {
         <div className="container-wide -mt-16 md:-mt-20 relative z-10">
           <div className="rounded-3xl bg-cream-soft border border-navy/10 shadow-2xl p-8 md:p-10 grid md:grid-cols-4 gap-6 items-center">
             <div className="md:col-span-1">
-              <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-terra">
+              <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
                 Forfait privé
               </div>
               <div className="font-display text-5xl text-navy mt-2">80€</div>
@@ -66,7 +66,7 @@ export default function AtelierPage() {
             <div className="md:col-span-2 grid grid-cols-2 gap-4">
               {FEATURES.map((f) => (
                 <div key={f.label} className="flex items-center gap-3 text-sm">
-                  <f.icon className="size-4 text-terra shrink-0" />
+                  <f.icon className="size-4 text-navy-mid shrink-0" />
                   <span className="text-ink/80">{f.label}</span>
                 </div>
               ))}
@@ -99,7 +99,7 @@ export default function AtelierPage() {
             <span className="eyebrow">Comment ça marche</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Trois étapes, et c&apos;est l&apos;embarquement{' '}
-              <span className="italic gradient-text-terra">gustatif</span>.
+              <span className="italic gradient-text-navy-mid">gustatif</span>.
             </h2>
           </div>
 
@@ -109,7 +109,7 @@ export default function AtelierPage() {
                 key={s.n}
                 className="rounded-2xl bg-cream-soft border border-navy/5 p-8 hover:shadow-lg transition-shadow"
               >
-                <div className="font-mono text-xs uppercase tracking-[0.25em] text-terra">
+                <div className="font-mono text-xs uppercase tracking-[0.25em] text-navy-mid">
                   Étape {s.n}
                 </div>
                 <h3 className="font-display text-2xl text-navy mt-4">{s.title}</h3>
@@ -125,10 +125,10 @@ export default function AtelierPage() {
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="container-wide relative grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
-            <span className="eyebrow text-terra-soft">Tarifs</span>
+            <span className="eyebrow text-navy-soft">Tarifs</span>
             <h2 className="display-md text-cream mt-4 text-balance">
               Simple, transparent,{' '}
-              <span className="italic gradient-text-terra">tout compris</span>.
+              <span className="italic gradient-text-navy-mid">tout compris</span>.
             </h2>
             <p className="mt-6 text-cream/75 leading-relaxed">
               Hors coût des ingrédients. Option : on s&apos;occupe des courses pour
@@ -151,7 +151,7 @@ export default function AtelierPage() {
                   <div className="font-display text-lg text-cream">{row.label}</div>
                   <div className="text-xs text-cream/55 mt-0.5">{row.note}</div>
                 </div>
-                <div className="font-display text-2xl text-terra-soft">{row.price}</div>
+                <div className="font-display text-2xl text-navy-soft">{row.price}</div>
               </div>
             ))}
           </div>
@@ -176,7 +176,7 @@ export default function AtelierPage() {
             <span className="eyebrow">Inclus dans l’atelier</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Tout pour que vous repartiez{' '}
-              <span className="italic gradient-text-terra">avec votre recette</span>.
+              <span className="italic gradient-text-navy-mid">avec votre recette</span>.
             </h2>
             <ul className="mt-8 grid sm:grid-cols-2 gap-4">
               {[
@@ -188,7 +188,7 @@ export default function AtelierPage() {
                 'Expérience interactive et conviviale',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1 size-5 rounded-full bg-terra/15 text-terra grid place-items-center shrink-0">
+                  <span className="mt-1 size-5 rounded-full bg-navy-mid/15 text-navy-mid grid place-items-center shrink-0">
                     <Check className="size-3" />
                   </span>
                   <span className="text-ink/85 leading-relaxed">{item}</span>
@@ -203,11 +203,11 @@ export default function AtelierPage() {
       <section className="section bg-cream-soft">
         <div className="container-wide">
           <div className="rounded-3xl bg-navy text-cream relative overflow-hidden p-10 md:p-16 grid lg:grid-cols-12 gap-8 items-center">
-            <div className="absolute -top-10 -right-10 size-72 rounded-full bg-terra/20 blur-3xl" />
+            <div className="absolute -top-10 -right-10 size-72 rounded-full bg-navy-mid/20 blur-3xl" />
             <div className="lg:col-span-8 relative">
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="size-4 text-terra-soft" />
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-terra-soft">
+                <Sparkles className="size-4 text-navy-soft" />
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-navy-soft">
                   Vous êtes passionné de cuisine ?
                 </span>
               </div>

@@ -44,7 +44,7 @@ function Field({
   return (
     <label className={cn('flex flex-col gap-2', className)}>
       <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy/80">
-        {label} {required && <span className="text-terra">*</span>}
+        {label} {required && <span className="text-navy-mid">*</span>}
       </span>
       {textarea ? (
         <textarea
@@ -52,7 +52,7 @@ function Field({
           required={required}
           placeholder={placeholder}
           rows={4}
-          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-terra/40 focus:border-terra transition-all resize-none"
+          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all resize-none"
         />
       ) : (
         <input
@@ -60,7 +60,7 @@ function Field({
           name={name}
           required={required}
           placeholder={placeholder}
-          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-terra/40 focus:border-terra transition-all"
+          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all"
         />
       )}
       {hint && <span className="text-[0.7rem] text-ink/55">{hint}</span>}
@@ -146,7 +146,7 @@ export function ChefForm() {
     return (
       <div className="rounded-3xl bg-navy text-cream p-10 md:p-16 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
-        <div className="absolute -top-20 -right-20 size-72 bg-terra/25 blur-3xl rounded-full" />
+        <div className="absolute -top-20 -right-20 size-72 bg-navy-mid/25 blur-3xl rounded-full" />
         <div className="absolute -bottom-20 -left-20 size-72 bg-teal/30 blur-3xl rounded-full" />
         <div className="relative">
           <motion.div
@@ -158,7 +158,7 @@ export function ChefForm() {
             <Check className="size-10 text-white" strokeWidth={3} />
           </motion.div>
           <h2 className="font-display text-3xl md:text-5xl text-cream">
-            Merci, votre candidature est <span className="italic gradient-text-terra">partie</span> !
+            Merci, votre candidature est <span className="italic gradient-text-navy-mid">partie</span> !
           </h2>
           <p className="mt-6 text-cream/75 max-w-xl mx-auto leading-relaxed">
             Nous revenons vers vous très rapidement sur WhatsApp ou par email pour
@@ -193,22 +193,22 @@ export function ChefForm() {
                   disabled={i > step}
                   className={cn(
                     'relative shrink-0 size-10 rounded-full grid place-items-center transition-all duration-500 border',
-                    done && 'bg-terra text-cream border-terra cursor-pointer hover:scale-105',
+                    done && 'bg-navy-mid text-cream border-navy-mid cursor-pointer hover:scale-105',
                     active &&
-                      'bg-navy text-cream border-navy ring-4 ring-terra/20 scale-110',
+                      'bg-navy text-cream border-navy ring-4 ring-navy-mid/20 scale-110',
                     !done && !active && 'bg-cream border-navy/15 text-navy/40',
                   )}
                 >
                   {done ? <Check className="size-4" /> : <Icon className="size-4" />}
                   {active && (
-                    <span className="absolute -bottom-1 -right-1 size-2.5 rounded-full bg-terra animate-pulse" />
+                    <span className="absolute -bottom-1 -right-1 size-2.5 rounded-full bg-navy-mid animate-pulse" />
                   )}
                 </button>
                 {i < total - 1 && (
                   <div
                     className={cn(
                       'flex-1 h-px transition-colors duration-500',
-                      i < step ? 'bg-terra' : 'bg-navy/15',
+                      i < step ? 'bg-navy-mid' : 'bg-navy/15',
                     )}
                   />
                 )}
@@ -220,14 +220,14 @@ export function ChefForm() {
         {/* Mobile : barre de progression simple */}
         <div className="md:hidden mb-5">
           <div className="flex items-center justify-between font-mono text-[0.65rem] uppercase tracking-[0.25em] mb-2">
-            <span className="text-terra">
+            <span className="text-navy-mid">
               Étape {step + 1} sur {total}
             </span>
             <span className="text-ink/55 tabular-nums">{Math.round(progress)}%</span>
           </div>
           <div className="h-1 rounded-full bg-navy/10 overflow-hidden">
             <motion.div
-              className="h-full bg-terra rounded-full"
+              className="h-full bg-navy-mid rounded-full"
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             />
@@ -240,7 +240,7 @@ export function ChefForm() {
             <current.icon className="size-5" />
           </div>
           <div className="min-w-0">
-            <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-terra hidden md:block">
+            <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid hidden md:block">
               Étape {step + 1} sur {total} — {Math.round(progress)}%
             </div>
             <h3 className="font-display text-2xl md:text-3xl text-navy mt-1">
@@ -293,7 +293,7 @@ export function ChefForm() {
           )}
 
           {status === 'error' && (
-            <div className="flex items-center gap-2 text-xs text-terra-deep">
+            <div className="flex items-center gap-2 text-xs text-navy-deep">
               <AlertCircle className="size-4" />
               Une erreur est survenue.
             </div>
@@ -462,12 +462,12 @@ function StepCommitments() {
         candidature.
       </p>
 
-      <label className="flex items-start gap-4 p-5 rounded-2xl bg-cream border border-navy/10 hover:border-terra/40 cursor-pointer transition-colors">
+      <label className="flex items-start gap-4 p-5 rounded-2xl bg-cream border border-navy/10 hover:border-navy-mid/40 cursor-pointer transition-colors">
         <input
           type="checkbox"
           name="quality"
           required
-          className="mt-1 size-4 rounded border-navy/30 text-terra focus:ring-terra shrink-0"
+          className="mt-1 size-4 rounded border-navy/30 text-navy-mid focus:ring-navy-mid shrink-0"
         />
         <div>
           <div className="font-display text-base text-navy">
@@ -475,23 +475,23 @@ function StepCommitments() {
           </div>
           <p className="text-sm text-ink/70 mt-1 leading-relaxed">
             Je m&apos;engage à respecter la charte qualité Lab&apos;s Food et la véracité
-            des informations transmises. <span className="text-terra">*</span>
+            des informations transmises. <span className="text-navy-mid">*</span>
           </p>
         </div>
       </label>
 
-      <label className="flex items-start gap-4 p-5 rounded-2xl bg-cream border border-navy/10 hover:border-terra/40 cursor-pointer transition-colors">
+      <label className="flex items-start gap-4 p-5 rounded-2xl bg-cream border border-navy/10 hover:border-navy-mid/40 cursor-pointer transition-colors">
         <input
           type="checkbox"
           name="rights"
           required
-          className="mt-1 size-4 rounded border-navy/30 text-terra focus:ring-terra shrink-0"
+          className="mt-1 size-4 rounded border-navy/30 text-navy-mid focus:ring-navy-mid shrink-0"
         />
         <div>
           <div className="font-display text-base text-navy">Droit à l&apos;image</div>
           <p className="text-sm text-ink/70 mt-1 leading-relaxed">
             J&apos;accepte le droit à l&apos;image pour la publication de photos de mes
-            ateliers sur les supports Lab&apos;s Food. <span className="text-terra">*</span>
+            ateliers sur les supports Lab&apos;s Food. <span className="text-navy-mid">*</span>
           </p>
         </div>
       </label>

@@ -78,7 +78,7 @@ export default function AProposPage() {
         title={
           <>
             Une maison culinaire,{' '}
-            <span className="italic gradient-text-terra">née d&apos;un voyage</span>.
+            <span className="italic gradient-text-navy-mid">née d&apos;un voyage</span>.
           </>
         }
         lede="Lab's Food, c'est l'histoire d'Ivy : ingénieure de formation, étudiante, mais surtout passionnée de gastronomie. Après 21 pays explorés, une conviction — le plus beau des voyages se passe souvent autour d'une assiette."
@@ -90,13 +90,13 @@ export default function AProposPage() {
           NOTRE HISTOIRE — portrait + citation
           ═══════════════════════════════════════════════════════════ */}
       <section className="section bg-cream relative overflow-hidden">
-        <div className="absolute -top-32 right-0 size-[500px] bg-terra/8 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute -top-32 right-0 size-[500px] bg-navy-mid/8 blur-3xl rounded-full pointer-events-none" />
 
         <div className="container-wide relative grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Portrait Ivy */}
           <Reveal className="lg:col-span-5">
             <div className="relative">
-              <div className="absolute -top-6 -left-6 size-28 rounded-full bg-terra/15 -z-0" />
+              <div className="absolute -top-6 -left-6 size-28 rounded-full bg-navy-mid/15 -z-0" />
               <div className="absolute -bottom-8 -right-4 size-44 rounded-full bg-teal/10 -z-0" />
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
@@ -109,7 +109,7 @@ export default function AProposPage() {
               </div>
               {/* Carte d'identité flottante */}
               <div className="absolute -bottom-6 left-6 bg-cream rounded-2xl px-5 py-3 shadow-xl border border-navy/8">
-                <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-terra">
+                <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-navy-mid">
                   {FOUNDER.title}
                 </div>
                 <div className="font-display text-2xl text-navy leading-none mt-1">
@@ -121,15 +121,15 @@ export default function AProposPage() {
 
           {/* Citation + bio */}
           <Reveal delay={0.15} className="lg:col-span-7">
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra inline-flex items-center gap-3">
-              <span className="size-6 h-px bg-terra" />
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3">
+              <span className="size-6 h-px bg-navy-mid" />
               Notre histoire
             </span>
 
-            <Quote className="size-10 text-terra mt-8 -mb-2" />
+            <Quote className="size-10 text-navy-mid mt-8 -mb-2" />
             <p className="font-display italic text-3xl md:text-4xl text-navy leading-tight max-w-xl">
               Le plus beau des voyages se passe souvent{' '}
-              <span className="gradient-text-terra">autour d&apos;une assiette</span>.
+              <span className="gradient-text-navy-mid">autour d&apos;une assiette</span>.
             </p>
 
             <div className="mt-10 space-y-5 max-w-xl">
@@ -168,13 +168,13 @@ export default function AProposPage() {
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <Reveal>
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra inline-flex items-center gap-3">
-                <span className="size-6 h-px bg-terra" />
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3">
+                <span className="size-6 h-px bg-navy-mid" />
                 Ce qui nous tient à cœur
               </span>
               <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
                 Quatre principes,{' '}
-                <span className="italic gradient-text-terra">une seule promesse</span>.
+                <span className="italic gradient-text-navy-mid">une seule promesse</span>.
               </h2>
             </Reveal>
           </div>
@@ -183,8 +183,8 @@ export default function AProposPage() {
             {VALUES.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08}>
                 <div className="h-full rounded-3xl bg-cream-soft border border-navy/8 p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-expo">
-                  <div className="size-12 rounded-full bg-terra/15 grid place-items-center mb-5">
-                    <v.icon className="size-5 text-terra" />
+                  <div className="size-12 rounded-full bg-navy-mid/15 grid place-items-center mb-5">
+                    <v.icon className="size-5 text-navy-mid" />
                   </div>
                   <h3 className="font-display text-xl text-navy">{v.title}</h3>
                   <p className="mt-3 text-sm text-ink/70 leading-relaxed">
@@ -213,13 +213,13 @@ export default function AProposPage() {
         <div className="container-wide relative">
           <div className="max-w-3xl mb-16">
             <Reveal>
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra inline-flex items-center gap-3">
-                <span className="size-6 h-px bg-terra" />
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3">
+                <span className="size-6 h-px bg-navy-mid" />
                 Le chemin
               </span>
               <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
                 D&apos;un sac à dos{' '}
-                <span className="italic gradient-text-terra">à une maison</span>.
+                <span className="italic gradient-text-navy-mid">à une maison</span>.
               </h2>
             </Reveal>
           </div>
@@ -233,11 +233,11 @@ export default function AProposPage() {
               {TIMELINE.map((step, i) => (
                 <Reveal key={i} delay={i * 0.1}>
                   <div className="relative">
-                    <div className="size-14 mx-auto md:mx-0 rounded-full bg-terra text-cream grid place-items-center font-display text-xl shadow-lg ring-4 ring-cream-deep relative z-10">
+                    <div className="size-14 mx-auto md:mx-0 rounded-full bg-navy-mid text-cream grid place-items-center font-display text-xl shadow-lg ring-4 ring-cream-deep relative z-10">
                       {String(i + 1).padStart(2, '0')}
                     </div>
                     <div className="mt-5 text-center md:text-left">
-                      <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-terra">
+                      <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-navy-mid">
                         {step.year}
                       </div>
                       <h3 className="font-display text-xl text-navy mt-2">
@@ -271,13 +271,13 @@ export default function AProposPage() {
                 />
               </div>
               <div className="relative">
-                <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra-soft">
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-soft">
                   Mot de la cheffe
                 </span>
                 <p className="font-display italic text-2xl md:text-3xl text-cream mt-6 leading-snug max-w-2xl">
                   «&nbsp;J&apos;ai imaginé Lab&apos;s Food comme un passeport vers la table.
                   Embarquez avec nous,{' '}
-                  <span className="gradient-text-terra">et bon voyage gustatif&nbsp;!</span>
+                  <span className="gradient-text-navy-mid">et bon voyage gustatif&nbsp;!</span>
                   &nbsp;»
                 </p>
                 <p className="mt-6 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
@@ -305,12 +305,12 @@ export default function AProposPage() {
         <div className="container-wide relative">
           <div className="max-w-3xl mx-auto text-center">
             <Reveal>
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra">
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid">
                 Et maintenant ?
               </span>
               <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
                 Embarquez avec{' '}
-                <span className="italic gradient-text-terra">nous</span>.
+                <span className="italic gradient-text-navy-mid">nous</span>.
               </h2>
               <p className="lede mt-6 max-w-xl mx-auto">
                 Découvrez nos services, commandez du Kossam, ou rejoignez la
@@ -358,7 +358,7 @@ function StatCard({
 }) {
   return (
     <div className="px-4 md:px-8 first:pl-0 last:pr-0">
-      <Icon className="size-5 text-terra-soft mb-4" />
+      <Icon className="size-5 text-navy-soft mb-4" />
       <div className="font-display text-4xl md:text-5xl text-cream tabular-nums leading-none">
         {value}
       </div>

@@ -19,7 +19,7 @@ export default function ContactPage() {
         title={
           <>
             On vous répond{' '}
-            <span className="italic gradient-text-terra">7j/7, 24h/24</span>.
+            <span className="italic gradient-text-navy-mid">7j/7, 24h/24</span>.
           </>
         }
         lede="Service client disponible toute la semaine sur WhatsApp — messages écrits uniquement, pas de notes vocales. Préférable pour une réponse rapide."
@@ -44,7 +44,7 @@ export default function ContactPage() {
               href={whatsappLink("Bonjour Lab's Food, ")}
               target="_blank"
               rel="noreferrer"
-              className="block rounded-3xl bg-terra text-cream p-8 hover:bg-terra-deep transition-colors group"
+              className="block rounded-3xl bg-navy-mid text-cream p-8 hover:bg-navy-deep transition-colors group"
             >
               <MessageCircle className="size-6 mb-5" />
               <div className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-cream/80">
@@ -60,7 +60,7 @@ export default function ContactPage() {
               href={`mailto:${SITE.email}`}
               className="block rounded-3xl bg-cream-soft border border-navy/10 p-8 hover:shadow-lg transition-shadow"
             >
-              <Mail className="size-6 text-terra mb-5" />
+              <Mail className="size-6 text-navy-mid mb-5" />
               <div className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-ink/65">
                 Email
               </div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
             <div className="rounded-3xl bg-navy text-cream p-8">
               <div className="grid grid-cols-1 gap-5">
                 <div className="flex items-start gap-3">
-                  <Clock className="size-5 text-terra-soft mt-0.5 shrink-0" />
+                  <Clock className="size-5 text-navy-soft mt-0.5 shrink-0" />
                   <div>
                     <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
                       Horaires
@@ -84,7 +84,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <MapPin className="size-5 text-terra-soft mt-0.5 shrink-0" />
+                  <MapPin className="size-5 text-navy-soft mt-0.5 shrink-0" />
                   <div>
                     <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
                       Zone d&apos;intervention
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 rel="noreferrer"
                 className="flex-1 rounded-2xl bg-cream-soft border border-navy/10 p-5 flex items-center gap-3 hover:bg-navy hover:text-cream hover:border-navy transition-all group"
               >
-                <Instagram className="size-5 text-terra group-hover:text-terra-soft" />
+                <Instagram className="size-5 text-navy-mid group-hover:text-navy-soft" />
                 <div>
                   <div className="font-mono text-[0.65rem] uppercase tracking-[0.2em] opacity-65">
                     Instagram
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 rel="noreferrer"
                 className="flex-1 rounded-2xl bg-cream-soft border border-navy/10 p-5 flex items-center gap-3 hover:bg-navy hover:text-cream hover:border-navy transition-all group"
               >
-                <Music2 className="size-5 text-terra group-hover:text-terra-soft" />
+                <Music2 className="size-5 text-navy-mid group-hover:text-navy-soft" />
                 <div>
                   <div className="font-mono text-[0.65rem] uppercase tracking-[0.2em] opacity-65">
                     TikTok

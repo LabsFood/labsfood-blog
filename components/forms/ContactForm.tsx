@@ -18,7 +18,7 @@ export function ContactForm() {
   if (status === 'success') {
     return (
       <div className="rounded-3xl bg-navy text-cream p-10 text-center">
-        <div className="mx-auto size-14 rounded-full bg-terra grid place-items-center mb-5">
+        <div className="mx-auto size-14 rounded-full bg-navy-mid grid place-items-center mb-5">
           <Check className="size-7 text-cream" />
         </div>
         <h3 className="font-display text-2xl text-cream">Message bien reçu !</h3>
@@ -35,23 +35,23 @@ export function ContactForm() {
       <div className="grid md:grid-cols-2 gap-5">
         <label className="flex flex-col gap-2">
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy/80">
-            Nom & prénom <span className="text-terra">*</span>
+            Nom & prénom <span className="text-navy-mid">*</span>
           </span>
           <input
             name="name"
             required
-            className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-terra/40 focus:border-terra transition-all"
+            className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all"
           />
         </label>
         <label className="flex flex-col gap-2">
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy/80">
-            Email <span className="text-terra">*</span>
+            Email <span className="text-navy-mid">*</span>
           </span>
           <input
             type="email"
             name="email"
             required
-            className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-terra/40 focus:border-terra transition-all"
+            className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all"
           />
         </label>
       </div>
@@ -61,7 +61,7 @@ export function ContactForm() {
         </span>
         <select
           name="subject"
-          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-terra/40 focus:border-terra transition-all"
+          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all"
         >
           <option>Réserver un atelier</option>
           <option>Batch cooking</option>
@@ -72,13 +72,13 @@ export function ContactForm() {
       </label>
       <label className="flex flex-col gap-2">
         <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy/80">
-          Votre message <span className="text-terra">*</span>
+          Votre message <span className="text-navy-mid">*</span>
         </span>
         <textarea
           name="message"
           required
           rows={6}
-          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-terra/40 focus:border-terra transition-all resize-none"
+          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all resize-none"
         />
       </label>
       <Button type="submit" size="lg" disabled={status === 'submitting'} className="w-full sm:w-auto">

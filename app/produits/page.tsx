@@ -21,7 +21,7 @@ export default function ProduitsPage() {
         title={
           <>
             Le labo,{' '}
-            <span className="italic gradient-text-terra">au quotidien</span>.
+            <span className="italic gradient-text-navy-mid">au quotidien</span>.
           </>
         }
         lede="Le Kossam est notre signature. D'autres créations artisanales sont en cours dans le labo, déjà disponibles à la pré-commande."
@@ -53,7 +53,7 @@ export default function ProduitsPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
               <div className="relative h-full flex flex-col justify-between p-8 md:p-12">
                 <div className="flex items-start justify-between">
-                  <span className="font-mono text-xs uppercase tracking-[0.25em] text-terra-soft">
+                  <span className="font-mono text-xs uppercase tracking-[0.25em] text-navy-soft">
                     Produit · 01
                   </span>
                   <span className="size-12 rounded-full bg-cream text-navy grid place-items-center group-hover:scale-110 transition-transform">
@@ -71,7 +71,7 @@ export default function ProduitsPage() {
                         key={f.size}
                         className="px-4 py-2 rounded-full border border-cream/30 backdrop-blur-sm text-sm flex items-center gap-2"
                       >
-                        <span className="font-mono text-xs text-terra-soft">
+                        <span className="font-mono text-xs text-navy-soft">
                           {f.size}
                         </span>
                         <span className="font-display text-base">{f.price}</span>
@@ -84,11 +84,11 @@ export default function ProduitsPage() {
 
             <div className="rounded-3xl bg-teal text-cream p-8 md:p-10 flex flex-col justify-between min-h-[440px]">
               <div>
-                <Sparkles className="size-5 text-terra-soft" />
+                <Sparkles className="size-5 text-navy-soft" />
                 <h3 className="font-display text-3xl mt-4">Livraison</h3>
                 <p className="mt-3 text-cream/75 text-sm leading-relaxed">
                   Le Kossam, c&apos;est uniquement{' '}
-                  <span className="text-terra-soft">sur la Côte d&apos;Azur</span>.
+                  <span className="text-navy-soft">sur la Côte d&apos;Azur</span>.
                   <br />
                   <br />
                   Les autres produits, on livre dans toute l&apos;Europe avec la Poste.
@@ -111,10 +111,10 @@ export default function ProduitsPage() {
         <div className="container-wide relative">
           <div className="flex items-end justify-between gap-6 mb-12 flex-wrap">
             <div className="max-w-2xl">
-              <span className="eyebrow text-terra-soft">Le labo · Bientôt</span>
+              <span className="eyebrow text-navy-soft">Le labo · Bientôt</span>
               <h2 className="display-md text-cream mt-4 text-balance">
                 Les prochaines{' '}
-                <span className="italic gradient-text-terra">surprises</span> qui sortent du
+                <span className="italic gradient-text-navy-mid">surprises</span> qui sortent du
                 labo.
               </h2>
             </div>
@@ -130,7 +130,7 @@ export default function ProduitsPage() {
                   <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-terra-soft border border-terra-soft/30 px-2.5 py-1 rounded-full">
+                  <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-navy-soft border border-navy-soft/30 px-2.5 py-1 rounded-full">
                     Soon
                   </span>
                 </div>

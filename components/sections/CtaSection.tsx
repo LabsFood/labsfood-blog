@@ -26,8 +26,8 @@ export function CtaSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/80 to-black/60" />
 
       {/* Filets discrets en haut/bas */}
-      <div className="absolute top-0 inset-x-0 h-px bg-terra/30" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-terra/30" />
+      <div className="absolute top-0 inset-x-0 h-px bg-navy-mid/30" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-navy-mid/30" />
 
       <div className="container-wide relative py-24 md:py-32 lg:py-40 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -35,8 +35,8 @@ export function CtaSection() {
           <div className="lg:col-span-7">
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
-                <span className="size-6 h-px bg-terra" />
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terra-soft">
+                <span className="size-6 h-px bg-navy-mid" />
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-navy-soft">
                   On reste en contact
                 </span>
               </div>
@@ -46,7 +46,7 @@ export function CtaSection() {
               <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-cream text-balance leading-[0.95]">
                 Une envie,
                 <br />
-                <span className="italic gradient-text-terra">
+                <span className="italic gradient-text-navy-mid">
                   une table à dresser
                 </span>{' '}
                 ?
@@ -110,7 +110,7 @@ export function CtaSection() {
                   <MessageCircle className="size-5 text-white" />
                 </div>
 
-                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-terra">
+                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
                   WhatsApp — service client
                 </div>
                 <div className="font-display text-3xl md:text-4xl text-navy mt-3">
@@ -128,7 +128,7 @@ export function CtaSection() {
                       key={t}
                       className="flex items-center gap-3 text-sm text-ink/85"
                     >
-                      <span className="size-1.5 rounded-full bg-terra shrink-0" />
+                      <span className="size-1.5 rounded-full bg-navy-mid shrink-0" />
                       {t}
                     </div>
                   ))}
@@ -176,7 +176,7 @@ function Reassure({
   return (
     <div className="flex items-center gap-3">
       <div className="size-10 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-        <Icon className="size-4 text-terra-soft" />
+        <Icon className="size-4 text-navy-soft" />
       </div>
       <div>
         <div className="font-display text-base text-cream leading-none">

@@ -27,7 +27,7 @@ export default function BatchCookingPage() {
         title={
           <>
             Une semaine de repas,{' '}
-            <span className="italic gradient-text-terra">préparée chez vous</span>.
+            <span className="italic gradient-text-navy-mid">préparée chez vous</span>.
           </>
         }
         lede="Une cheffe professionnelle vient cuisiner directement à votre domicile. En 2 heures minimum, votre semaine est prête."
@@ -39,7 +39,7 @@ export default function BatchCookingPage() {
             <div className="md:col-span-2 grid grid-cols-2 gap-5">
               {FEATURES.map((f) => (
                 <div key={f.label} className="flex items-center gap-3 text-sm">
-                  <f.icon className="size-4 text-terra shrink-0" />
+                  <f.icon className="size-4 text-navy-mid shrink-0" />
                   <span className="text-ink/80">{f.label}</span>
                 </div>
               ))}
@@ -65,7 +65,7 @@ export default function BatchCookingPage() {
             <span className="eyebrow">Pourquoi le batch ?</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Bien manger toute la semaine,{' '}
-              <span className="italic gradient-text-terra">sans la charge mentale</span>.
+              <span className="italic gradient-text-navy-mid">sans la charge mentale</span>.
             </h2>
             <p className="mt-6 lede text-pretty">
               Le batch cooking, c&apos;est cuisiner une fois pour toute la semaine — sauf
@@ -80,7 +80,7 @@ export default function BatchCookingPage() {
                 'Idéal pour familles, couples actifs, sportifs',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1 size-5 rounded-full bg-terra/15 text-terra grid place-items-center shrink-0">
+                  <span className="mt-1 size-5 rounded-full bg-navy-mid/15 text-navy-mid grid place-items-center shrink-0">
                     <Check className="size-3" />
                   </span>
                   <span className="text-ink/85">{item}</span>
@@ -111,7 +111,7 @@ export default function BatchCookingPage() {
         <div className="container-wide relative text-center max-w-2xl mx-auto">
           <h2 className="display-md text-cream text-balance">
             Le site complet du{' '}
-            <span className="italic gradient-text-terra">batch cooking</span> Lab&apos;s Food
+            <span className="italic gradient-text-navy-mid">batch cooking</span> Lab&apos;s Food
           </h2>
           <p className="mt-6 text-cream/75">
             Toutes les formules, la prise de rendez-vous et le détail des menus se trouvent

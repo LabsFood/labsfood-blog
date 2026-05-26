@@ -11,23 +11,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ── Palette principale Lab's Food ──────────────────────────────────
-        // Primaire  : #00234B  (navy profond)
-        // Secondaire: #2C3E50  (ardoise — états secondaires, footer, hover)
-        // Fond      : #F4F6F7  (gris froid neutre — remplace la crème chaude)
-        // Accent    : #D96941  (terra — chaleur, CTA, gradients)
+        // ── Palette officielle Lab's Food ──────────────────────────────────
+        // Primaire   : #00234B  navy
+        // Secondaire : #2C3E50  navy.mid (sert aussi d'accent visuel)
+        // Fond       : #F4F6F7  cream (gris froid neutre)
 
         navy: {
           DEFAULT: '#00234B',   // primaire
           deep:    '#001833',   // plus sombre (hover fort, ombres)
-          mid:     '#2C3E50',   // secondaire (sections, footer alternatif)
+          mid:     '#2C3E50',   // secondaire / accent (sections, italic, CTA)
           soft:    '#3D5166',   // dérivé de #2C3E50, textes secondaires navy
-        },
-        terra: {
-          DEFAULT: '#D96941',
-          deep:    '#B8542F',
-          soft:    '#E8895F',
-          pale:    '#F4D4C2',
         },
         teal: {
           DEFAULT: '#193C40',
@@ -99,14 +92,14 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        'terra-gradient':
-          'linear-gradient(135deg, #D96941 0%, #E8895F 100%)',
         'navy-gradient':
           'linear-gradient(180deg, #00234B 0%, #001833 100%)',
+        'navy-mid-gradient':
+          'linear-gradient(135deg, #2C3E50 0%, #3D5166 100%)',
         'teal-gradient':
           'linear-gradient(135deg, #193C40 0%, #2A5559 100%)',
         'hero-radial':
-          'radial-gradient(circle at 20% 30%, rgba(217,105,65,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(25,60,64,0.4) 0%, transparent 60%)',
+          'radial-gradient(circle at 20% 30%, rgba(44, 62, 80, 0.15) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(25, 60, 64, 0.4) 0%, transparent 60%)',
         'grain':
           "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E\")",
       },

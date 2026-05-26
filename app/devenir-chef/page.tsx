@@ -40,7 +40,7 @@ export default function DevenirChefPage() {
         title={
           <>
             Donnez des cours de cuisine{' '}
-            <span className="italic gradient-text-terra">à domicile</span>.
+            <span className="italic gradient-text-navy-mid">à domicile</span>.
           </>
         }
         lede="Lab's Food est une plateforme qui permet aux passionnés de cuisine de proposer leurs propres ateliers, gratuitement pour le moment. Voici comment ça marche."
@@ -57,7 +57,7 @@ export default function DevenirChefPage() {
                 key={p.title}
                 className="rounded-2xl bg-cream-soft border border-navy/5 p-6 hover:shadow-lg transition-shadow"
               >
-                <div className="size-10 rounded-full bg-terra/15 text-terra grid place-items-center mb-5">
+                <div className="size-10 rounded-full bg-navy-mid/15 text-navy-mid grid place-items-center mb-5">
                   <p.icon className="size-5" />
                 </div>
                 <h3 className="font-display text-xl text-navy">{p.title}</h3>
@@ -70,7 +70,7 @@ export default function DevenirChefPage() {
             <span className="eyebrow">Une plateforme bienveillante</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Une accréditation pour les chefs{' '}
-              <span className="italic gradient-text-terra">formés et certifiés</span>.
+              <span className="italic gradient-text-navy-mid">formés et certifiés</span>.
             </h2>
             <p className="mt-6 lede text-pretty">
               Pour vous démarquer, une accréditation visible est attribuée aux chefs ayant
@@ -91,7 +91,7 @@ export default function DevenirChefPage() {
             </h2>
             <p className="mt-4 text-ink/70">
               Tous les champs marqués d&apos;une étoile{' '}
-              <span className="text-terra">*</span> sont obligatoires. Les justificatifs
+              <span className="text-navy-mid">*</span> sont obligatoires. Les justificatifs
               peuvent être complétés a posteriori si besoin.
             </p>
           </div>

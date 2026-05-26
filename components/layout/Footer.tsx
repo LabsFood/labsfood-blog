@@ -50,7 +50,7 @@ export function Footer() {
     <footer className="relative">
       {/* <section className="relative px-4 -mb-24 z-10">
         <div className="container-wide">
-          <div className="relative bg-terra rounded-3xl overflow-hidden p-10 lg:p-14 text-cream shadow-[0_30px_70px_-30px_rgba(217,105,65,0.6)]">
+          <div className="relative bg-navy-mid rounded-3xl overflow-hidden p-10 lg:p-14 text-cream shadow-[0_30px_70px_-30px_rgba(44, 62, 80,0.6)]">
             <div className="absolute right-8 bottom-8 grid grid-cols-6 gap-2 opacity-25 pointer-events-none">
               {Array.from({ length: 36 }).map((_, i) => (
                 <span key={i} className="w-1.5 h-1.5 rounded-full bg-cream" />
@@ -104,7 +104,7 @@ export function Footer() {
         {/* Motif de points décoratif haut-gauche */}
         <div className="absolute top-44 left-8 grid grid-cols-6 gap-2 opacity-15 pointer-events-none hidden md:grid">
           {Array.from({ length: 36 }).map((_, i) => (
-            <span key={i} className="w-1.5 h-1.5 rounded-full bg-terra" />
+            <span key={i} className="w-1.5 h-1.5 rounded-full bg-navy-mid" />
           ))}
         </div>
 
@@ -121,7 +121,7 @@ export function Footer() {
                   <span className="font-display text-2xl text-cream tracking-tight">
                     Lab&apos;s Food
                   </span>
-                  <span className="font-display italic text-xs text-terra mt-1">
+                  <span className="font-display italic text-xs text-navy-mid mt-1">
                     maison culinaire
                   </span>
                 </span>
@@ -135,7 +135,7 @@ export function Footer() {
               >
                 La cuisine,
                 <br />
-                <span className="text-terra italic font-medium">
+                <span className="text-navy-mid italic font-medium">
                   comme un voyage.
                 </span>
               </p>
@@ -147,7 +147,7 @@ export function Footer() {
 
             {/* Newsletter */}
             <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-cream/10">
-              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-terra mb-4">
+              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-navy-mid mb-4">
                 Newsletter du labo
               </p>
               <h4 className="font-display text-2xl text-cream font-bold mb-3 leading-tight">
@@ -162,11 +162,11 @@ export function Footer() {
                   type="email"
                   required
                   placeholder="votre@email.fr"
-                  className="flex-1 px-5 py-3.5 bg-cream/[0.06] border border-cream/15 rounded-full text-cream placeholder:text-cream/35 text-sm outline-none focus:border-terra focus:bg-cream/[0.1] transition-all"
+                  className="flex-1 px-5 py-3.5 bg-cream/[0.06] border border-cream/15 rounded-full text-cream placeholder:text-cream/35 text-sm outline-none focus:border-navy-mid focus:bg-cream/[0.1] transition-all"
                 />
                 <button
                   type="submit"
-                  className="bg-terra hover:bg-terra-deep text-cream font-semibold uppercase text-xs tracking-[0.08em] rounded-full px-6 py-3.5 transition-all hover:shadow-[0_10px_24px_-8px_rgba(217,105,65,0.6)] flex items-center justify-center gap-2"
+                  className="bg-navy-mid hover:bg-navy-deep text-cream font-semibold uppercase text-xs tracking-[0.08em] rounded-full px-6 py-3.5 transition-all hover:shadow-[0_10px_24px_-8px_rgba(44, 62, 80,0.6)] flex items-center justify-center gap-2"
                 >
                   S&apos;inscrire
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -182,7 +182,7 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-14 border-b border-cream/10">
             {/* Contact */}
             <div className="lg:col-span-4">
-              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-terra mb-5">
+              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-navy-mid mb-5">
                 Nous contacter
               </p>
               <ul className="space-y-4">
@@ -204,7 +204,7 @@ export function Footer() {
                     href={`mailto:${SITE.email}`}
                     className="group flex items-center gap-3 text-cream/85 hover:text-cream transition-colors"
                   >
-                    <span className="w-9 h-9 rounded-full border border-cream/15 flex items-center justify-center group-hover:bg-terra group-hover:border-terra transition-colors shrink-0">
+                    <span className="w-9 h-9 rounded-full border border-cream/15 flex items-center justify-center group-hover:bg-navy-mid group-hover:border-navy-mid transition-colors shrink-0">
                       <Mail className="w-4 h-4" />
                     </span>
                     <span className="text-sm">{SITE.email}</span>
@@ -237,7 +237,7 @@ export function Footer() {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={label}
-                      className="group w-11 h-11 rounded-full bg-cream/[0.06] border border-cream/15 flex items-center justify-center text-cream/85 hover:bg-terra hover:border-terra hover:text-cream transition-all duration-300 hover:-translate-y-1"
+                      className="group w-11 h-11 rounded-full bg-cream/[0.06] border border-cream/15 flex items-center justify-center text-cream/85 hover:bg-navy-mid hover:border-navy-mid hover:text-cream transition-all duration-300 hover:-translate-y-1"
                     >
                       <Icon className="w-4 h-4" />
                     </a>
@@ -288,7 +288,7 @@ export function Footer() {
               <p>© {new Date().getFullYear()} Lab&apos;s Food</p>
               <span className="hidden md:inline opacity-30">·</span>
               <p className="flex items-center gap-2">
-                <span className="inline-block size-1.5 rounded-full bg-terra" />
+                <span className="inline-block size-1.5 rounded-full bg-navy-mid" />
                 Maison certifiée HACCP
               </p>
             </div>
@@ -331,7 +331,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center gap-1.5 text-sm text-cream/65 hover:text-terra transition-colors"
+        className="group inline-flex items-center gap-1.5 text-sm text-cream/65 hover:text-navy-mid transition-colors"
       >
         <span>{label}</span>
         <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />

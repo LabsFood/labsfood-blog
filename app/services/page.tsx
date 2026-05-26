@@ -21,7 +21,7 @@ const SERVICES = [
     image: '/assets/photo-7.jpeg',
     href: '/services/atelier-culinaire',
     cta: "Découvrir l'atelier",
-    accent: 'terra',
+    accent: 'navy-mid',
   },
   {
     slug: 'batch-cooking',
@@ -57,7 +57,7 @@ export default function ServicesPage() {
         title={
           <>
             Apprendre, déléguer,{' '}
-            <span className="italic gradient-text-terra">ou se faire épauler</span>.
+            <span className="italic gradient-text-navy-mid">ou se faire épauler</span>.
           </>
         }
         lede="Trois formules pensées pour trois moments de vie. Un atelier pour transmettre, un batch pour bien manger, une assistance pour les grands événements."
@@ -90,8 +90,8 @@ export default function ServicesPage() {
                   <h2 className="font-display text-4xl text-navy">{s.title}</h2>
                   <p className="mt-5 leading-relaxed text-ink/75">{s.short}</p>
                   <div className="mt-8 pt-6 border-t border-navy/10 flex items-center justify-between">
-                    <span className="font-display text-lg text-terra">{s.price}</span>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-navy group-hover:text-terra transition-colors">
+                    <span className="font-display text-lg text-navy-mid">{s.price}</span>
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-navy group-hover:text-navy-mid transition-colors">
                       {s.cta} <ArrowUpRight className="size-4" />
                     </span>
                   </div>

@@ -86,7 +86,7 @@ export default function AssistanceCulinaireePage() {
         title={
           <>
             Un coup de main{' '}
-            <span className="italic gradient-text-terra">professionnel</span>
+            <span className="italic gradient-text-navy-mid">professionnel</span>
             <br />
             dans votre cuisine.
           </>
@@ -100,7 +100,7 @@ export default function AssistanceCulinaireePage() {
         <div className="container-wide py-12 grid md:grid-cols-3 gap-8">
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-              <ChefHat className="size-5 text-terra-soft" />
+              <ChefHat className="size-5 text-navy-soft" />
             </div>
             <div>
               <div className="font-display text-lg text-cream leading-tight">Rôle sur-mesure</div>
@@ -109,7 +109,7 @@ export default function AssistanceCulinaireePage() {
           </div>
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-              <Building2 className="size-5 text-terra-soft" />
+              <Building2 className="size-5 text-navy-soft" />
             </div>
             <div>
               <div className="font-display text-lg text-cream leading-tight">Particuliers &amp; pros</div>
@@ -118,7 +118,7 @@ export default function AssistanceCulinaireePage() {
           </div>
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-              <MessageCircle className="size-5 text-terra-soft" />
+              <MessageCircle className="size-5 text-navy-soft" />
             </div>
             <div>
               <div className="font-display text-lg text-cream leading-tight">Devis rapide</div>
@@ -135,7 +135,7 @@ export default function AssistanceCulinaireePage() {
             <span className="eyebrow">Pour qui ?</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Dès que la cuisine{' '}
-              <span className="italic gradient-text-terra">dépasse vos bras</span>.
+              <span className="italic gradient-text-navy-mid">dépasse vos bras</span>.
             </h2>
             <p className="mt-6 lede max-w-2xl text-pretty">
               L&apos;assistance culinaire est pensée pour toutes les situations où vous avez
@@ -184,7 +184,7 @@ export default function AssistanceCulinaireePage() {
             <span className="eyebrow">Nos missions</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               On s&apos;adapte à votre cuisine,{' '}
-              <span className="italic gradient-text-terra">pas l&apos;inverse</span>.
+              <span className="italic gradient-text-navy-mid">pas l&apos;inverse</span>.
             </h2>
             <p className="mt-6 text-ink/75 leading-relaxed max-w-xl">
               Chaque mission est cadrée en amont : rôle, horaires, volume, spécificités.
@@ -212,7 +212,7 @@ export default function AssistanceCulinaireePage() {
             <span className="eyebrow">Comment ça marche</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Simple comme un{' '}
-              <span className="italic gradient-text-terra">message WhatsApp</span>.
+              <span className="italic gradient-text-navy-mid">message WhatsApp</span>.
             </h2>
           </div>
           <div className="mt-14 grid md:grid-cols-3 gap-6">
@@ -243,7 +243,7 @@ export default function AssistanceCulinaireePage() {
               <span className="eyebrow">Choisissez votre chef</span>
               <h2 className="display-md text-navy mt-4 text-balance">
                 Des profils vérifiés,{' '}
-                <span className="italic gradient-text-terra">près de chez vous</span>.
+                <span className="italic gradient-text-navy-mid">près de chez vous</span>.
               </h2>
             </div>
             <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/40">
@@ -295,7 +295,7 @@ export default function AssistanceCulinaireePage() {
                     </div>
                     <h3 className="font-display text-5xl md:text-6xl text-navy mt-2 leading-none">
                       {chef.name}
-                      <span className="italic-fraunces text-terra">.</span>
+                      <span className="italic-fraunces text-navy-mid">.</span>
                     </h3>
 
                     {/* Tags spécialités */}
@@ -374,11 +374,11 @@ export default function AssistanceCulinaireePage() {
         <div className="absolute inset-0 bg-grain opacity-[0.04]" />
         <div className="container-wide relative grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8">
-            <span className="eyebrow text-terra-soft">Pas encore décidé ?</span>
+            <span className="eyebrow text-navy-soft">Pas encore décidé ?</span>
             <h2 className="font-display text-4xl md:text-6xl text-cream mt-4 text-balance leading-[0.95]">
               Décrivez-nous votre événement,
               <br />
-              <span className="italic text-terra-soft">on revient vite.</span>
+              <span className="italic text-navy-soft">on revient vite.</span>
             </h2>
             <p className="mt-6 text-cream/70 max-w-xl leading-relaxed">
               Dîner de 30 couverts, renfort traiteur, événement d&apos;entreprise — chaque
@@ -386,7 +386,7 @@ export default function AssistanceCulinaireePage() {
               vers le bon profil.
             </p>
             <div className="flex items-center gap-2 mt-4 text-sm text-cream/55">
-              <ClipboardList className="size-4 text-terra-soft" />
+              <ClipboardList className="size-4 text-navy-soft" />
               Le client est responsable des ingrédients et du matériel de base.
             </div>
           </div>

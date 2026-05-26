@@ -22,7 +22,7 @@ export const SERVICES = [
       'Fiche recette + cadeau surprise inclus',
       'Option gestion des courses (+20€)',
     ],
-    accent: 'terra',
+    accent: 'navy-mid',
   },
   {
     slug: 'batch-cooking',

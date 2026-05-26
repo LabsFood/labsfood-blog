@@ -15,8 +15,8 @@ export function ReviewsSection() {
       {/* Grain subtil — pas de blur */}
       <div className="absolute inset-0 bg-grain opacity-[0.05] pointer-events-none" />
       {/* Filets éditoriaux haut/bas */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/30 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/20 to-transparent" />
 
       <div className="container-wide relative">
         <SectionHeader
@@ -24,7 +24,7 @@ export function ReviewsSection() {
           title={
             <>
               Ce que les premiers gourmands{' '}
-              <span className="italic gradient-text-terra">en disent</span>.
+              <span className="italic gradient-text-navy-mid">en disent</span>.
             </>
           }
           lede="10 témoignages reçus de la part de notre communauté autour de la première signature de la maison."
@@ -68,7 +68,7 @@ function Stat({
       {stars && (
         <div className="flex justify-center gap-0.5 mt-1">
           {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="size-3 fill-terra text-terra" />
+            <Star key={i} className="size-3 fill-navy-mid text-navy-mid" />
           ))}
         </div>
       )}
@@ -110,13 +110,13 @@ function MarqueeRow({
 
 function ReviewCard({ r }: { r: { author: string; text: string } }) {
   return (
-    <article className="w-[340px] md:w-[400px] shrink-0 rounded-3xl bg-cream text-navy border border-terra/0 p-7 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.35)] hover:border-terra/60 hover:-translate-y-1 transition-all duration-500 ease-expo">
+    <article className="w-[340px] md:w-[400px] shrink-0 rounded-3xl bg-cream text-navy border border-navy-mid/0 p-7 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.35)] hover:border-navy-mid/60 hover:-translate-y-1 transition-all duration-500 ease-expo">
       {/* En-tête : quote + étoiles */}
       <div className="flex items-center justify-between mb-4">
-        <Quote className="size-5 text-terra" />
+        <Quote className="size-5 text-navy-mid" />
         <div className="flex gap-0.5">
           {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="size-3 fill-terra text-terra" />
+            <Star key={i} className="size-3 fill-navy-mid text-navy-mid" />
           ))}
         </div>
       </div>
@@ -126,7 +126,7 @@ function ReviewCard({ r }: { r: { author: string; text: string } }) {
 
       {/* Footer : auteur */}
       <div className="mt-6 pt-4 border-t border-navy/10 flex items-center gap-3">
-        <div className="size-9 rounded-full bg-terra text-cream grid place-items-center font-display text-base shrink-0">
+        <div className="size-9 rounded-full bg-navy-mid text-cream grid place-items-center font-display text-base shrink-0">
           {r.author[0]}
         </div>
         <div className="flex flex-col leading-tight">

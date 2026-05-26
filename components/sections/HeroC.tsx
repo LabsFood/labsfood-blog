@@ -17,7 +17,7 @@ const PILLARS = [
     title: 'Cuisine du monde, chez vous',
     href: '/services/atelier-culinaire',
     bg: '/assets/photo-3.jpeg',
-    accent: 'bg-terra',
+    accent: 'bg-navy-mid',
   },
   {
     label: '02',
@@ -50,7 +50,7 @@ export function HeroC() {
           <span className="eyebrow">Lab&apos;s Food — Maison culinaire</span>
           <h1 className="display-lg text-navy mt-6 text-balance">
             Trois manières de{' '}
-            <span className="italic gradient-text-terra">savourer</span> notre passion
+            <span className="italic gradient-text-navy-mid">savourer</span> notre passion
             de la cuisine.
           </h1>
         </motion.div>
@@ -87,7 +87,7 @@ export function HeroC() {
                 </div>
 
                 <div>
-                  <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-terra-soft">
+                  <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft">
                     {p.eyebrow}
                   </span>
                   <h3 className="font-display text-3xl md:text-4xl text-cream mt-3 text-balance">

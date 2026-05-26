@@ -29,7 +29,7 @@ export function SectionHeader({
         <span
           className={cn(
             'eyebrow',
-            invert ? 'text-terra-soft' : 'text-terra',
+            invert ? 'text-navy-soft' : 'text-navy-mid',
           )}
         >
           {eyebrow}

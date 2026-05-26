@@ -48,12 +48,12 @@ export function SplashScreen() {
           >
             <div className="relative size-20">
               <motion.div
-                className="absolute inset-0 rounded-full border border-terra/30"
+                className="absolute inset-0 rounded-full border border-navy-mid/30"
                 animate={{ scale: [1, 1.3, 1.6], opacity: [0.8, 0.3, 0] }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
               />
               <motion.div
-                className="absolute inset-0 rounded-full border border-terra/30"
+                className="absolute inset-0 rounded-full border border-navy-mid/30"
                 animate={{ scale: [1, 1.3, 1.6], opacity: [0.8, 0.3, 0] }}
                 transition={{
                   duration: 1.8,
@@ -62,7 +62,7 @@ export function SplashScreen() {
                   delay: 0.6,
                 }}
               />
-              <div className="absolute inset-0 rounded-full bg-terra grid place-items-center">
+              <div className="absolute inset-0 rounded-full bg-navy-mid grid place-items-center">
                 <Image
                   src="/logo.png"
                   alt=""
@@ -76,7 +76,7 @@ export function SplashScreen() {
 
             <div className="text-center">
               <div className="font-display text-3xl text-cream">Lab&apos;s Food</div>
-              <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra-soft mt-2">
+              <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-soft mt-2">
                 Maison culinaire
               </div>
             </div>

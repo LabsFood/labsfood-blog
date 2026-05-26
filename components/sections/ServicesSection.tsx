@@ -28,7 +28,7 @@ const services = [
     priceNote: "forfait — jusqu'à 4 pers.",
     image: '/assets/photo-7.jpeg',
     href: '/services/atelier-culinaire',
-    accent: 'terra' as const,
+    accent: 'navy-mid' as const,
     features: [
       { icon: Users, label: "Jusqu'à 10 pers." },
       { icon: Clock, label: '~ 2h d’atelier' },
@@ -83,7 +83,7 @@ export function ServicesSection() {
           title={
             <>
               Apprendre, déléguer,{' '}
-              <span className="italic gradient-text-terra">ou se faire épauler</span>.
+              <span className="italic gradient-text-navy-mid">ou se faire épauler</span>.
             </>
           }
           lede="Trois services pensés pour trois moments de vie. Choisissez votre angle."
@@ -102,7 +102,7 @@ export function ServicesSection() {
           <div className="mt-24 md:mt-28 pt-10 border-t border-navy/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <p className="font-display italic text-2xl md:text-3xl text-navy max-w-xl text-balance">
               Et ce n&apos;est qu&apos;un début &mdash;{' '}
-              <span className="gradient-text-terra">d&apos;autres formules</span>{' '}
+              <span className="gradient-text-navy-mid">d&apos;autres formules</span>{' '}
               arrivent.
             </p>
             <Link
@@ -170,8 +170,8 @@ function ServiceRow({
             <span
               className={cn(
                 'font-mono text-[0.65rem] uppercase tracking-[0.3em]',
-                service.accent === 'terra'
-                  ? 'text-terra'
+                service.accent === 'navy-mid'
+                  ? 'text-navy-mid'
                   : service.accent === 'teal'
                   ? 'text-teal'
                   : 'text-navy/65',
@@ -187,7 +187,7 @@ function ServiceRow({
 
           <h3 className="font-display text-4xl md:text-5xl text-navy leading-tight">
             {service.name}
-            <span className="italic-fraunces text-terra">.</span>
+            <span className="italic-fraunces text-navy-mid">.</span>
           </h3>
 
           <p className="mt-6 lede max-w-md text-pretty">{service.description}</p>
@@ -210,7 +210,7 @@ function ServiceRow({
                   <f.icon
                     className={cn(
                       'size-3.5',
-                      service.accent === 'teal' ? 'text-teal' : 'text-terra',
+                      service.accent === 'teal' ? 'text-teal' : 'text-navy-mid',
                     )}
                   />
                 </span>
@@ -229,7 +229,7 @@ function ServiceRow({
                 <div
                   className={cn(
                     'font-display text-4xl mt-1 leading-none',
-                    service.accent === 'terra' ? 'text-terra' : 'text-navy',
+                    service.accent === 'navy-mid' ? 'text-navy-mid' : 'text-navy',
                   )}
                 >
                   {service.price}
@@ -251,8 +251,8 @@ function ServiceRow({
                 'group inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all',
                 service.accent === 'teal'
                   ? 'bg-teal text-cream hover:bg-teal-deep'
-                  : service.accent === 'terra'
-                  ? 'bg-terra text-cream hover:bg-terra-deep'
+                  : service.accent === 'navy-mid'
+                  ? 'bg-navy-mid text-cream hover:bg-navy-deep'
                   : 'bg-navy text-cream hover:bg-navy-mid',
               )}
             >

@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button'
 /**
  * HERO A — "Cinematic / Editorial"
  * Vidéo plein écran du Kossam en arrière-plan, overlay navy profond,
- * typographie display géante, accent terra.
+ * typographie display géante, accent navy-mid.
  */
 export function HeroA() {
   return (
@@ -33,7 +33,7 @@ export function HeroA() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="eyebrow text-terra-soft mb-8"
+          className="eyebrow text-navy-soft mb-8"
         >
           Maison culinaire — Fondée par Ivy
         </motion.span>
@@ -45,7 +45,7 @@ export function HeroA() {
           className="display-xl text-cream max-w-5xl text-balance"
         >
           Le plus beau{' '}
-          <span className="italic font-light gradient-text-terra">des voyages</span>
+          <span className="italic font-light gradient-text-navy-mid">des voyages</span>
           <br />
           se passe autour d&apos;une assiette.
         </motion.h1>

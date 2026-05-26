@@ -48,8 +48,8 @@ export function PageHero({
       <div className="absolute inset-0 bg-grain opacity-[0.05]" />
 
       {/* Filets */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/30 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-terra/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/20 to-transparent" />
 
       <div className="container-wide relative">
         <div
@@ -59,8 +59,8 @@ export function PageHero({
           )}
         >
           {eyebrow && (
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra-soft inline-flex items-center gap-3">
-              <span className="size-6 h-px bg-terra-soft" />
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-soft inline-flex items-center gap-3">
+              <span className="size-6 h-px bg-navy-soft" />
               {eyebrow}
             </span>
           )}

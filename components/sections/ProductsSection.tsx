@@ -19,10 +19,10 @@ import { whatsappLink } from '@/lib/utils'
 
 // Mapping catégorie → couleur d'accent (placeholder visuel)
 const CATEGORY_TINT: Record<string, string> = {
-  Boisson: 'from-terra/20 to-terra/5',
+  Boisson: 'from-navy-mid/20 to-navy-mid/5',
   Épice: 'from-navy/15 to-navy/5',
   Condiment: 'from-teal/20 to-teal/5',
-  Pâtisserie: 'from-terra/15 to-cream-deep',
+  Pâtisserie: 'from-navy-mid/15 to-cream-deep',
 }
 
 export function ProductsSection() {
@@ -49,7 +49,7 @@ export function ProductsSection() {
           title={
             <>
               Une signature{' '}
-              <span className="italic gradient-text-terra">qui infuse</span>,
+              <span className="italic gradient-text-navy-mid">qui infuse</span>,
               <br className="hidden md:block" /> des créations qui s&apos;annoncent.
             </>
           }
@@ -99,13 +99,13 @@ export function ProductsSection() {
 
             {/* Texte produit */}
             <div className="lg:col-span-5 lg:pl-6">
-              <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra mb-4">
+              <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid mb-4">
                 Produit · 01 — Signature
               </div>
 
               <h3 className="font-display text-5xl md:text-6xl text-navy leading-none">
                 {kossam.name}
-                <span className="italic-fraunces text-terra">.</span>
+                <span className="italic-fraunces text-navy-mid">.</span>
               </h3>
 
               <p className="font-display italic text-xl text-navy/80 mt-4 max-w-md">
@@ -148,7 +148,7 @@ export function ProductsSection() {
                 </Button>
                 <Link
                   href="/produits/kossam"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium text-navy hover:text-terra transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium text-navy hover:text-navy-mid transition-colors"
                 >
                   Découvrir la fiche
                   <ArrowUpRight className="size-4" />
@@ -156,7 +156,7 @@ export function ProductsSection() {
               </div>
 
               <div className="mt-6 flex items-center gap-2 text-xs text-ink/60">
-                <MapPin className="size-3.5 text-terra" />
+                <MapPin className="size-3.5 text-navy-mid" />
                 Livraison sur la Côte d&apos;Azur · paiement à la livraison
               </div>
             </div>
@@ -170,14 +170,14 @@ export function ProductsSection() {
           {/* <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
             <Reveal>
               <div className="flex items-center gap-3 mb-3">
-                <span className="size-6 h-px bg-terra" />
-                <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra">
+                <span className="size-6 h-px bg-navy-mid" />
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid">
                   Bientôt dans le labo
                 </span>
               </div>
               <h3 className="font-display text-3xl md:text-5xl text-navy text-balance max-w-2xl">
                 Les prochaines{' '}
-                <span className="italic gradient-text-terra">sorties</span>.
+                <span className="italic gradient-text-navy-mid">sorties</span>.
               </h3>
             </Reveal>
             <Reveal delay={0.1}>
@@ -202,7 +202,7 @@ export function ProductsSection() {
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${tint}`}
                     />
-                    <div className="absolute top-3 right-3 inline-flex items-center px-2 py-1 rounded-full bg-cream/90 text-terra font-mono text-[0.55rem] uppercase tracking-[0.2em]">
+                    <div className="absolute top-3 right-3 inline-flex items-center px-2 py-1 rounded-full bg-cream/90 text-navy-mid font-mono text-[0.55rem] uppercase tracking-[0.2em]">
                       Soon
                     </div>
                     <div className="absolute bottom-3 left-3 font-mono text-[0.6rem] tabular-nums text-navy/30">
@@ -210,7 +210,7 @@ export function ProductsSection() {
                     </div>
                     <div className="absolute inset-0 grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-navy/85">
                       <div className="text-center px-4">
-                        <Sparkles className="size-4 text-terra-soft mx-auto mb-2" />
+                        <Sparkles className="size-4 text-navy-soft mx-auto mb-2" />
                         <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-cream/80">
                           En préparation
                         </div>
@@ -283,8 +283,8 @@ function Info({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="size-10 rounded-full bg-terra/10 grid place-items-center shrink-0">
-        <Icon className="size-4 text-terra" />
+      <div className="size-10 rounded-full bg-navy-mid/10 grid place-items-center shrink-0">
+        <Icon className="size-4 text-navy-mid" />
       </div>
       <div>
         <div className="font-display text-lg text-navy leading-none">{title}</div>

@@ -18,7 +18,7 @@ export function FounderSection() {
           className="lg:col-span-5"
         >
           <div className="relative">
-            <div className="absolute -top-6 -left-6 size-32 rounded-full bg-terra/15" />
+            <div className="absolute -top-6 -left-6 size-32 rounded-full bg-navy-mid/15" />
             <div className="absolute -bottom-8 -right-4 size-48 rounded-full bg-teal/10" />
             <div className="relative rounded-3xl overflow-hidden bg-navy aspect-[4/5]">
               <Image
@@ -29,7 +29,7 @@ export function FounderSection() {
               />
             </div>
             <div className="absolute -bottom-6 left-6 bg-cream rounded-2xl px-5 py-3 shadow-xl border border-navy/5">
-              <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-terra">
+              <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
                 {FOUNDER.title}
               </div>
               <div className="font-display text-xl text-navy">{FOUNDER.name}</div>
@@ -46,7 +46,7 @@ export function FounderSection() {
         >
           <span className="eyebrow">Notre histoire</span>
           <h2 className="display-md text-navy mt-4 text-balance">
-            <span className="italic gradient-text-terra">21 pays, </span>
+            <span className="italic gradient-text-navy-mid">21 pays, </span>
             une conviction : la cuisine fait voyager mieux qu&apos;un visa.
           </h2>
           <p className="mt-6 lede text-pretty">{FOUNDER.bio}</p>
@@ -54,17 +54,17 @@ export function FounderSection() {
 
           <div className="grid sm:grid-cols-3 gap-5 mt-10">
             <div className="rounded-2xl border border-navy/10 p-5">
-              <Globe2 className="size-5 text-terra mb-3" />
+              <Globe2 className="size-5 text-navy-mid mb-3" />
               <div className="font-display text-2xl text-navy">{FOUNDER.countries}</div>
               <div className="text-xs text-ink/60 mt-0.5">pays explorés</div>
             </div>
             <div className="rounded-2xl border border-navy/10 p-5">
-              <ShieldCheck className="size-5 text-terra mb-3" />
+              <ShieldCheck className="size-5 text-navy-mid mb-3" />
               <div className="font-display text-2xl text-navy">HACCP</div>
               <div className="text-xs text-ink/60 mt-0.5">certifiée</div>
             </div>
             <div className="rounded-2xl border border-navy/10 p-5">
-              <MessagesSquare className="size-5 text-terra mb-3" />
+              <MessagesSquare className="size-5 text-navy-mid mb-3" />
               <div className="font-display text-2xl text-navy">3</div>
               <div className="text-xs text-ink/60 mt-0.5">langues : FR / PT / EN</div>
             </div>

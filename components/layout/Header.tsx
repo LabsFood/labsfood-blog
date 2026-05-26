@@ -61,7 +61,7 @@ export function Header() {
             <span className="font-display text-[1.15rem] tracking-tight text-navy">
               Lab&apos;s Food
             </span>
-            {/* <span className="font-display italic text-xs text-terra mt-0.5">
+            {/* <span className="font-display italic text-xs text-navy-mid mt-0.5">
               maison culinaire
             </span> */}
           </span>
@@ -87,7 +87,7 @@ export function Header() {
                 >
                   {item.label}
                   {active && (
-                    <span className="absolute left-1/2 -translate-x-1/2 bottom-0 size-1 rounded-full bg-terra" />
+                    <span className="absolute left-1/2 -translate-x-1/2 bottom-0 size-1 rounded-full bg-navy-mid" />
                   )}
                 </Link>
                 {i < NAV.length - 1 && (
@@ -120,7 +120,7 @@ export function Header() {
 
           {/* <Link
             href="/produits/kossam"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-navy text-cream text-xs font-medium tracking-wide hover:bg-terra transition-colors duration-500"
+            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-navy text-cream text-xs font-medium tracking-wide hover:bg-navy-mid transition-colors duration-500"
           >
             Commander Kossam
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:rotate-45" />
@@ -158,7 +158,7 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   'group flex items-baseline gap-5 py-5 border-b border-navy/10 transition-colors',
-                  active ? 'text-terra' : 'text-navy',
+                  active ? 'text-navy-mid' : 'text-navy',
                 )}
               >
                 <span className="font-mono text-[0.65rem] tabular-nums text-navy/35">
@@ -166,7 +166,7 @@ export function Header() {
                 </span>
                 <span className="font-display text-3xl">{item.label}</span>
                 {active && (
-                  <span className="ml-auto size-1.5 rounded-full bg-terra self-center" />
+                  <span className="ml-auto size-1.5 rounded-full bg-navy-mid self-center" />
                 )}
               </Link>
             )

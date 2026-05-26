@@ -15,7 +15,7 @@ export function HeroB() {
   return (
     <section className="relative pt-32 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-cream">
       {/* Halos décoratifs très doux */}
-      <div className="absolute top-32 right-0 size-[500px] bg-terra/8 blur-3xl rounded-full -z-0 pointer-events-none" />
+      <div className="absolute top-32 right-0 size-[500px] bg-navy-mid/8 blur-3xl rounded-full -z-0 pointer-events-none" />
       <div className="absolute bottom-0 left-0 size-[400px] bg-teal/8 blur-3xl rounded-full -z-0 pointer-events-none" />
 
       <div className="container-wide relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -28,8 +28,8 @@ export function HeroB() {
         >
           {/* Eyebrow + ligne décorative */}
           <div className="flex items-center gap-3 mb-6">
-            <span className="size-6 h-px bg-terra" />
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-terra">
+            <span className="size-6 h-px bg-navy-mid" />
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid">
               Lab&apos;s Food
             </span>
           </div>
@@ -38,9 +38,9 @@ export function HeroB() {
           <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] text-navy leading-[0.95] tracking-tight">
             Lab&apos;s Food,
             <br />
-            <span className="gradient-text-terra">la maison qui</span>
+            <span className="gradient-text-navy-mid">la maison qui</span>
             <br />
-            <span className="gradient-text-terra">vous fait voyager.</span>
+            <span className="gradient-text-navy-mid">vous fait voyager.</span>
           </h1>
 
           {/* Tagline brand-first */}
@@ -53,13 +53,13 @@ export function HeroB() {
           {/* Mini-stats inline — l'âme de la maison */}
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
             <div className="flex items-baseline gap-2">
-              <Globe2 className="size-4 text-terra self-center" />
+              <Globe2 className="size-4 text-navy-mid self-center" />
               <span className="font-display text-2xl text-navy tabular-nums">21</span>
               <span className="text-xs text-ink/60">pays explorés</span>
             </div>
             <span className="hidden sm:block size-1 rounded-full bg-navy/20" />
             <div className="flex items-baseline gap-2">
-              <ShieldCheck className="size-4 text-terra self-center" />
+              <ShieldCheck className="size-4 text-navy-mid self-center" />
               <span className="font-display text-2xl text-navy">HACCP</span>
               <span className="text-xs text-ink/60">maison certifiée</span>
             </div>
@@ -128,7 +128,7 @@ export function HeroB() {
               />
             </div>
             <div>
-              <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-terra">
+              <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-navy-mid">
                 La cheffe
               </div>
               <div className="font-display text-lg text-navy leading-none mt-1">
@@ -144,7 +144,7 @@ export function HeroB() {
             transition={{ duration: 1, delay: 0.7 }}
             className="absolute bottom-[28%] right-[5%] z-10"
           >
-            <div className="relative size-28 grid place-items-center bg-terra text-cream rounded-full shadow-2xl">
+            <div className="relative size-28 grid place-items-center bg-navy-mid text-cream rounded-full shadow-2xl">
               <svg
                 viewBox="0 0 100 100"
                 className="absolute inset-0 size-full animate-spin-slow"
