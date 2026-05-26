@@ -11,10 +11,10 @@ import {
   HandHeart,
   Quote,
   MessageCircle,
+  MapPin,
 } from 'lucide-react'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
-import { Button } from '@/components/ui/Button'
 import { FOUNDER } from '@/lib/content'
 import { whatsappLink } from '@/lib/utils'
 
@@ -28,167 +28,203 @@ const VALUES = [
   {
     icon: HandHeart,
     title: 'Transmettre',
-    body: "Partager les savoirs, créer du lien autour d'une assiette. La cuisine est un langage universel — on l'apprend ensemble.",
-  },
-  {
-    icon: Heart,
-    title: 'Honorer les saveurs',
-    body: "Chaque recette porte une histoire. On respecte les traditions et on les réinvente avec soin.",
+    text: 'Partager les savoir-faire culinaires découverts de pays en pays.',
   },
   {
     icon: Sparkles,
-    title: 'Surprendre',
-    body: "Le voyage culinaire, c'est aussi l'inattendu. Une note acidulée, un cadeau surprise, une saveur d'ailleurs.",
+    title: 'Émerveiller',
+    text: 'Chaque assiette est une invitation à goûter une culture nouvelle.',
+  },
+  {
+    icon: Heart,
+    title: 'Recevoir',
+    text: "Créer un moment, qu'il soit privé ou professionnel — toujours sincère.",
   },
   {
     icon: ShieldCheck,
-    title: 'Rassurer',
-    body: 'Certifiée HACCP, transparente sur les ingrédients et les méthodes. La confiance avant tout.',
+    title: 'Rigoureux',
+    text: 'HACCP, hygiène et qualité ne sont jamais des options.',
   },
-]
+] as const
 
-const TIMELINE = [
+const STORY = [
   {
-    year: '21 pays',
-    title: 'L\'exploration',
-    body: 'Ivy parcourt 21 pays, à la rencontre de cultures et de saveurs qui la marqueront durablement.',
+    n: '01',
+    year: '2018',
+    title: 'Premier voyage culinaire',
+    text: "Premier départ. Premiers carnets de recettes. La conviction qu'une assiette raconte un pays mieux qu'un livre.",
   },
   {
+    n: '02',
+    year: '2020',
+    title: '21 pays explorés',
+    text: "Italie, Portugal, Liban, Maroc, Sénégal, Japon… Chaque cuisine devient une école, chaque chef rencontré une inspiration.",
+  },
+  {
+    n: '03',
+    year: '2024',
+    title: "Lancement de Lab's Food",
+    text: "La maison culinaire prend forme : ateliers, batch cooking, assistance. Trois services nés d'une seule passion.",
+  },
+  {
+    n: '04',
     year: '2025',
-    title: 'La naissance',
-    body: "L'idée prend forme : créer une maison culinaire qui fait voyager, sans la contrainte du visa.",
+    title: 'Le Kossam',
+    text: "Première création signature — un savoir-faire camerounais réinventé, déjà adopté par la Côte d'Azur.",
   },
-  {
-    year: 'Aujourd\'hui',
-    title: 'Lab\'s Food',
-    body: 'Ateliers à domicile, batch cooking sur-mesure, et produits artisanaux comme le Kossam.',
-  },
-  {
-    year: 'Demain',
-    title: 'Le labo grandit',
-    body: 'Kossam Bissap, Luxury Kossam, ail noir, marinade verte BIO, cakes, cocktails… ce n\'est qu\'un début.',
-  },
-]
+] as const
 
-export default function AProposPage() {
+export default function AboutPage() {
   return (
     <>
       <PageHero
         eyebrow="À propos"
         title={
           <>
-            Une maison culinaire,{' '}
-            <span className="italic">née d&apos;un voyage</span>.
+            Une maison née d&apos;
+            <em className="not-italic">
+              <span className="font-display italic gradient-text-navy-mid">
+                21 voyages
+              </span>
+            </em>
+            ,
+            <br />
+            d&apos;une assiette à la fois.
           </>
         }
-        lede="Lab's Food, c'est l'histoire d'Ivy : ingénieure de formation, étudiante, mais surtout passionnée de gastronomie. Après 21 pays explorés, une conviction — le plus beau des voyages se passe souvent autour d'une assiette."
-        image="/assets/photo-14.jpeg"
-        imagePosition="center 40%"
+        lede="Lab's Food, c'est avant tout l'histoire d'Ivy — ingénieure de formation, passionnée de gastronomie et d'évasion."
+        image="/assets/photo-11.jpeg"
+        imagePosition="center 30%"
+        size="lg"
       />
 
-      {/* ═══════════════════════════════════════════════════════════
-          NOTRE HISTOIRE — portrait + citation
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="section bg-cream relative overflow-hidden">
-        <div className="absolute -top-32 right-0 size-[500px] bg-navy-mid/8 blur-3xl rounded-full pointer-events-none" />
-
-        <div className="container-wide relative grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Portrait Ivy */}
-          <Reveal className="lg:col-span-5">
-            <div className="relative">
-              <div className="absolute -top-6 -left-6 size-28 rounded-full bg-navy-mid/15 -z-0" />
-              <div className="absolute -bottom-8 -right-4 size-44 rounded-full bg-teal/10 -z-0" />
+      {/* ── Bloc Portrait + Bio ───────────────────────────────────────── */}
+      <section id="histoire" className="bg-cream py-24 md:py-32">
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Portrait */}
+          <Reveal axis="x" amount={30}>
+            <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
-                  src="/assets/photo-9.jpeg"
-                  alt={FOUNDER.name}
+                  src="/IvyOfficielle.png"
+                  alt="Ivy — Fondatrice & cheffe"
                   fill
-                  className="object-cover"
-                  priority
+                  className="object-cover object-top"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cream/80">
+                    Fondatrice &amp; cheffe
+                  </div>
+                  <div className="font-display text-5xl text-cream mt-2 leading-none">
+                    Ivy
+                    <span className="italic-fraunces text-navy-mid">.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pastilles flottantes */}
+              <div className="absolute -top-6 -right-6 size-28 rounded-full bg-cream border-4 border-cream-deep shadow-xl grid place-items-center rotate-[-8deg]">
+                <div className="text-center">
+                  <div className="font-display text-3xl text-navy leading-none">
+                    {FOUNDER.countries}
+                  </div>
+                  <div className="font-mono text-[0.55rem] uppercase tracking-[0.2em] text-navy-mid mt-1">
+                    pays
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Bio */}
+          <Reveal>
+            <div className="lg:col-span-7">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
+                <span className="size-6 h-px bg-navy-mid" />
+                L&apos;histoire
+              </p>
+
+              <h2
+                className="font-display text-navy leading-[0.98] tracking-tight text-balance"
+                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
+              >
+                Ingénieure le jour,{' '}
+                <em className="not-italic">
+                  <span className="font-display italic gradient-text-navy-mid">
+                    cuisinière du monde
+                  </span>
+                </em>{' '}
+                toujours.
+              </h2>
+
+              <div className="mt-8 space-y-5 text-ink/75 leading-relaxed max-w-xl text-pretty">
+                <p>{FOUNDER.bio}</p>
+                <p className="italic font-display text-2xl text-navy">
+                  « {FOUNDER.mission} »
+                </p>
+              </div>
+
+              {/* Infos rapides */}
+              <div className="mt-10 pt-8 border-t border-navy/10 grid grid-cols-2 md:grid-cols-3 gap-6">
+                <InfoBlock
+                  icon={Globe2}
+                  label="Pays explorés"
+                  value={`${FOUNDER.countries} pays`}
+                />
+                <InfoBlock
+                  icon={Languages}
+                  label="Langues"
+                  value={FOUNDER.languages.join(' · ')}
+                />
+                <InfoBlock
+                  icon={ShieldCheck}
+                  label="Certification"
+                  value={FOUNDER.certifications.join(', ')}
                 />
               </div>
-              {/* Carte d'identité flottante */}
-              <div className="absolute -bottom-6 left-6 bg-cream rounded-2xl px-5 py-3 shadow-xl border border-navy/8">
-                <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-navy-mid">
-                  {FOUNDER.title}
-                </div>
-                <div className="font-display text-2xl text-navy leading-none mt-1">
-                  {FOUNDER.name}
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Citation + bio */}
-          <Reveal delay={0.15} className="lg:col-span-7">
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3">
-              <span className="size-6 h-px bg-navy-mid" />
-              Notre histoire
-            </span>
-
-            <Quote className="size-10 text-navy-mid mt-8 -mb-2" />
-            <p className="font-display italic text-3xl md:text-4xl text-navy leading-tight max-w-xl">
-              Le plus beau des voyages se passe souvent{' '}
-              <span>autour d&apos;une assiette</span>.
-            </p>
-
-            <div className="mt-10 space-y-5 max-w-xl">
-              <p className="lede text-pretty">{FOUNDER.bio}</p>
-              <p className="lede text-pretty">{FOUNDER.mission}</p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          STATS — bande navy
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-20 bg-navy text-cream overflow-hidden">
-        <div className="absolute inset-0 bg-grain opacity-[0.05]" />
-        <div className="container-wide relative grid grid-cols-3 divide-x divide-cream/15">
-          <StatCard
-            icon={Globe2}
-            value={FOUNDER.countries.toString()}
-            label="pays explorés"
-          />
-          <StatCard icon={ShieldCheck} value="HACCP" label="maison certifiée" />
-          <StatCard
-            icon={Languages}
-            value={FOUNDER.languages.length.toString()}
-            label="langues parlées"
-            sub={FOUNDER.languages.join(' · ')}
-          />
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          NOS VALEURS
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="section bg-cream">
+      {/* ── Bloc Valeurs ─────────────────────────────────────────────── */}
+      <section className="bg-cream-soft py-24 md:py-32 border-y border-navy/8">
         <div className="container-wide">
-          <div className="max-w-3xl mb-16">
-            <Reveal>
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-5">
                 <span className="size-6 h-px bg-navy-mid" />
-                Ce qui nous tient à cœur
-              </span>
-              <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
-                Quatre principes,{' '}
-                <span className="italic">une seule promesse</span>.
-              </h2>
-            </Reveal>
-          </div>
+                Nos valeurs
+                <span className="size-6 h-px bg-navy-mid" />
+              </p>
+              <h3
+                className="font-display text-navy leading-tight text-balance"
+                style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}
+              >
+                Quatre piliers qui font{' '}
+                <em className="not-italic">
+                  <span className="font-display italic gradient-text-navy-mid">
+                    Lab&apos;s Food.
+                  </span>
+                </em>
+              </h3>
+            </div>
+          </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {VALUES.map((v, i) => (
-              <Reveal key={v.title} delay={i * 0.08}>
-                <div className="h-full rounded-3xl bg-cream-soft border border-navy/8 p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-expo">
-                  <div className="size-12 rounded-full bg-navy-mid/15 grid place-items-center mb-5">
-                    <v.icon className="size-5 text-navy-mid" />
+              <Reveal key={v.title} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="inline-flex size-16 md:size-20 rounded-full bg-navy-mid text-cream items-center justify-center mb-5 shadow-lg">
+                    <v.icon className="size-6 md:size-7" />
                   </div>
-                  <h3 className="font-display text-xl text-navy">{v.title}</h3>
-                  <p className="mt-3 text-sm text-ink/70 leading-relaxed">
-                    {v.body}
+                  <h4 className="font-display text-lg md:text-xl text-navy mb-3">
+                    {v.title}
+                  </h4>
+                  <p className="text-sm text-ink/70 leading-relaxed text-pretty">
+                    {v.text}
                   </p>
                 </div>
               </Reveal>
@@ -197,177 +233,164 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          TIMELINE — étapes clés
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="section bg-cream-deep relative overflow-hidden">
-        <Image
-          src="/assets/photo-7.jpeg"
-          alt=""
-          fill
-          className="object-cover opacity-[0.06] pointer-events-none"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-cream-deep via-cream-deep/95 to-cream-deep pointer-events-none" />
-
-        <div className="container-wide relative">
-          <div className="max-w-3xl mb-16">
-            <Reveal>
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3">
+      {/* ── Bloc Frise temporelle ───────────────────────────────────── */}
+      <section className="bg-cream py-24 md:py-32">
+        <div className="container-wide">
+          <Reveal>
+            <div className="max-w-3xl mb-16">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
                 <span className="size-6 h-px bg-navy-mid" />
-                Le chemin
-              </span>
-              <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
-                D&apos;un sac à dos{' '}
-                <span className="italic">à une maison</span>.
+                Notre parcours
+              </p>
+              <h2
+                className="font-display text-navy leading-tight text-balance"
+                style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+              >
+                De la première recette
+                <br />
+                <em className="not-italic">
+                  <span className="font-display italic gradient-text-navy-mid">
+                    à la maison d&apos;aujourd&apos;hui.
+                  </span>
+                </em>
               </h2>
-            </Reveal>
-          </div>
-
-          {/* Timeline horizontale */}
-          <div className="relative">
-            {/* Ligne horizontale */}
-            <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-px bg-navy/15" />
-
-            <div className="grid md:grid-cols-4 gap-8">
-              {TIMELINE.map((step, i) => (
-                <Reveal key={i} delay={i * 0.1}>
-                  <div className="relative">
-                    <div className="size-14 mx-auto md:mx-0 rounded-full bg-navy-mid text-cream grid place-items-center font-display text-xl shadow-lg ring-4 ring-cream-deep relative z-10">
-                      {String(i + 1).padStart(2, '0')}
-                    </div>
-                    <div className="mt-5 text-center md:text-left">
-                      <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-navy-mid">
-                        {step.year}
-                      </div>
-                      <h3 className="font-display text-xl text-navy mt-2">
-                        {step.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-ink/70 leading-relaxed">
-                        {step.body}
-                      </p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
             </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {STORY.map((step, i) => (
+              <Reveal key={step.n} delay={i * 0.12}>
+                <div className="relative rounded-2xl bg-cream-soft border border-navy/8 p-8 h-full hover:shadow-lg transition-shadow group">
+                  <div className="font-display text-5xl text-navy/15 tabular-nums leading-none mb-6">
+                    {step.n}
+                  </div>
+                  <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid mb-2">
+                    {step.year}
+                  </div>
+                  <h4 className="font-display text-xl text-navy mb-3">
+                    {step.title}
+                  </h4>
+                  <p className="text-sm text-ink/70 leading-relaxed text-pretty">
+                    {step.text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          MOT DE LA CHEFFE — bloc éditorial
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="section bg-cream">
-        <div className="container-narrow">
+      {/* ── Citation pleine largeur ─────────────────────────────────── */}
+      <section className="relative bg-navy text-cream py-32 md:py-40 overflow-hidden">
+        <Image
+          src="/assets/photo-12.jpeg"
+          alt=""
+          fill
+          className="object-cover opacity-30"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/85 to-navy" />
+        <div className="absolute inset-0 bg-grain opacity-[0.05] mix-blend-overlay" />
+
+        <div className="relative container-wide">
           <Reveal>
-            <div className="rounded-3xl bg-navy text-cream p-10 md:p-16 relative overflow-hidden">
-              <div className="absolute top-0 right-0 size-1/3 opacity-20">
+            <Quote className="size-12 text-navy-mid mb-8" />
+            <blockquote
+              className="font-display italic text-cream leading-[1.15] text-balance max-w-4xl"
+              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+            >
+              « Le plus beau des voyages se passe souvent autour d&apos;une
+              assiette. »
+            </blockquote>
+            <div className="mt-10 flex items-center gap-4">
+              <div className="size-12 rounded-full overflow-hidden bg-cream">
                 <Image
-                  src="/assets/photo-2.jpeg"
-                  alt=""
-                  fill
-                  className="object-cover"
+                  src="/IvyOfficielle.png"
+                  alt="Ivy"
+                  width={48}
+                  height={48}
+                  className="object-cover w-full h-full"
                 />
               </div>
-              <div className="relative">
-                <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white">
-                  Mot de la cheffe
-                </span>
-                <p className="font-display italic text-2xl md:text-3xl text-cream mt-6 leading-snug max-w-2xl">
-                  «&nbsp;J&apos;ai imaginé Lab&apos;s Food comme un passeport vers la table.
-                  Embarquez avec nous,{' '}
-                  <span>et bon voyage gustatif&nbsp;!</span>
-                  &nbsp;»
-                </p>
-                <p className="mt-6 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
-                  — Ivy, fondatrice
-                </p>
+              <div>
+                <div className="font-display text-xl text-cream">Ivy</div>
+                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55 mt-0.5">
+                  Fondatrice &amp; cheffe Lab&apos;s Food
+                </div>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          CTA — découvrir les services + WhatsApp
-          ═══════════════════════════════════════════════════════════ */}
-      {/* <section className="section bg-cream-deep relative overflow-hidden">
-        <Image
-          src="/assets/photo-9.jpeg"
-          alt=""
-          fill
-          className="object-cover opacity-[0.07] pointer-events-none"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-cream-deep via-cream-deep/95 to-cream-deep pointer-events-none" />
-
-        <div className="container-wide relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <Reveal>
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid">
-                Et maintenant ?
-              </span>
-              <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
-                Embarquez avec{' '}
-                <span className="italic gradient-text-navy-mid">nous</span>.
-              </h2>
-              <p className="lede mt-6 max-w-xl mx-auto">
-                Découvrez nos services, commandez du Kossam, ou rejoignez la
-                communauté des chefs partenaires. À vous de choisir.
+      {/* ── CTA ──────────────────────────────────────────────────────── */}
+      <section className="bg-cream py-20 md:py-28">
+        <div className="container-wide">
+          <div className="rounded-3xl bg-cream-soft border border-navy/10 p-10 md:p-16 grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <h3
+                className="font-display text-navy leading-tight text-balance"
+                style={{ fontSize: 'clamp(1.6rem, 3vw, 2.5rem)' }}
+              >
+                Envie d&apos;
+                <em className="not-italic">
+                  <span className="font-display italic gradient-text-navy-mid">
+                    en parler
+                  </span>
+                </em>{' '}
+                directement avec Ivy ?
+              </h3>
+              <p className="mt-4 text-ink/70 max-w-xl text-pretty">
+                Que ce soit pour un atelier, un événement ou simplement échanger
+                — la conversation commence sur WhatsApp.
               </p>
-
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-                <Button asChild size="lg">
-                  <Link href="/services">
-                    Découvrir nos services
-                    <ArrowUpRight className="size-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="whatsapp" size="lg">
-                  <a
-                    href={whatsappLink("Bonjour Lab's Food, ")}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MessageCircle className="size-4" />
-                    Discuter sur WhatsApp
-                  </a>
-                </Button>
-              </div>
-            </Reveal>
+            </div>
+            <div className="lg:col-span-4 flex flex-col gap-3">
+              <a
+                href={whatsappLink("Bonjour Ivy, j'ai vu votre page À propos et j'aimerais en savoir plus — ")}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors"
+              >
+                <MessageCircle className="size-4" />
+                Discuter avec Ivy
+                <ArrowUpRight className="size-4" />
+              </a>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-navy/20 text-navy hover:bg-navy hover:text-cream text-sm font-medium transition-all"
+              >
+                Voir nos services
+                <ArrowUpRight className="size-4" />
+              </Link>
+            </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   )
 }
 
 /* ─────────────────────────────────────────────────────────────────────── */
 
-function StatCard({
+function InfoBlock({
   icon: Icon,
-  value,
   label,
-  sub,
+  value,
 }: {
   icon: React.ElementType
-  value: string
   label: string
-  sub?: string
+  value: string
 }) {
   return (
-    <div className="px-4 md:px-8 first:pl-0 last:pr-0">
-      <Icon className="size-8 text-white mb-4" />
-      <div className="font-display text-4xl md:text-5xl text-cream tabular-nums leading-none">
-        {value}
+    <div>
+      <div className="flex items-center gap-1.5 mb-1.5">
+        <Icon className="size-3 text-navy-mid" />
+        <span className="font-mono text-[0.55rem] uppercase tracking-[0.2em] text-ink/45">
+          {label}
+        </span>
       </div>
-      <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55 mt-3">
-        {label}
-      </div>
-      {sub && (
-        <div className="text-xs text-cream/70 mt-2 hidden md:block">{sub}</div>
-      )}
+      <div className="font-display text-base text-navy leading-tight">{value}</div>
     </div>
   )
 }

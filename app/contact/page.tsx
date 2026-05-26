@@ -1,8 +1,21 @@
 import type { Metadata } from 'next'
-import { Mail, MessageCircle, Instagram, Music2, Clock, MapPin } from 'lucide-react'
+import {
+  Mail,
+  MessageCircle,
+  Instagram,
+  Music2,
+  Linkedin,
+  Clock,
+  MapPin,
+  ArrowUpRight,
+} from 'lucide-react'
 import { PageHero } from '@/components/ui/PageHero'
 import { ContactForm } from '@/components/forms/ContactForm'
-import { WHATSAPP_NUMBER_DISPLAY, whatsappLink } from '@/lib/utils'
+import {
+  WHATSAPP_NUMBER_DISPLAY,
+  whatsappLink,
+  SOCIAL_LINKS,
+} from '@/lib/utils'
 import { SITE } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -15,121 +28,247 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
+        eyebrow="Restons en contact"
         title={
           <>
-            On vous répond{' '}
-            <span className="italic">7j/7, 24h/24</span>.
+            Une envie,{' '}
+            <em className="not-italic">
+              <span className="font-display italic gradient-text-navy-mid">
+                un événement
+              </span>
+            </em>
+            ,
+            <br />
+            une simple curiosité ?
           </>
         }
-        lede="Notre équipe est à votre disposition 24h/24 et 7j/7 via WhatsApp uniquement. Pour une assistance optimale et une réactivité maximale, merci de privilégier l'envoi d'un message écrit."
-        image="/assets/photo-13.jpeg"
-        imagePosition="center 50%"
+        lede="Service client 7j/7 — 24h/24 sur WhatsApp. Messages écrits uniquement pour une réponse rapide et précise."
+        image="/assets/photo-8.jpeg"
+        imagePosition="center 40%"
       />
 
-      <section className="section bg-cream">
-        <div className="container-wide grid lg:grid-cols-12 gap-10">
-          {/* Form */}
-          <div className="lg:col-span-7 rounded-3xl bg-cream-soft border border-navy/10 p-8 md:p-10">
-            <span className="eyebrow">Formulaire</span>
-            <h2 className="display-md text-navy mt-4 mb-8 text-balance">
-              Écrivez-nous.
-            </h2>
-            <ContactForm />
-          </div>
-
-          {/* Infos */}
-          <div className="lg:col-span-5 space-y-5">
-            <a
+      {/* ── 3 moyens de contact en cartes ─────────────────────────────── */}
+      <section className="bg-cream py-20 md:py-28">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-3 gap-6">
+            <ContactCard
+              icon={MessageCircle}
+              kicker="Canal privilégié"
+              title="WhatsApp"
+              body={WHATSAPP_NUMBER_DISPLAY}
+              note="Réponse 7j/7 — messages uniquement"
               href={whatsappLink("Bonjour Lab's Food, ")}
-              target="_blank"
-              rel="noreferrer"
-              className="block rounded-3xl bg-navy-mid text-cream p-8 hover:bg-navy-deep transition-colors group"
-            >
-              <MessageCircle className="size-6 mb-5" />
-              <div className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-cream/80">
-                WhatsApp · privilégié
-              </div>
-              <div className="font-display text-2xl mt-1">{WHATSAPP_NUMBER_DISPLAY}</div>
-              <div className="mt-4 text-sm text-cream/85">
-                Réponse rapide en messages écrits, 7j/7.
-              </div>
-            </a>
-
-            <a
+              ctaLabel="Discuter sur WhatsApp"
+              variant="whatsapp"
+            />
+            <ContactCard
+              icon={Mail}
+              kicker="Email professionnel"
+              title="Par email"
+              body={SITE.email}
+              note="Réponse sous 24h ouvrées"
               href={`mailto:${SITE.email}`}
-              className="block rounded-3xl bg-cream-soft border border-navy/10 p-8 hover:shadow-lg transition-shadow"
-            >
-              <Mail className="size-6 text-navy-mid mb-5" />
-              <div className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-ink/65">
-                Email
-              </div>
-              <div className="font-display text-2xl text-navy mt-1">{SITE.email}</div>
-            </a>
+              ctaLabel="Envoyer un email"
+              variant="default"
+            />
+            <ContactCard
+              icon={MapPin}
+              kicker="Zones d'intervention"
+              title="Sur place"
+              body="Côte d'Azur · Île-de-France"
+              note="Europe via partenaires"
+              href="#formulaire"
+              ctaLabel="Voir le formulaire"
+              variant="default"
+            />
+          </div>
+        </div>
+      </section>
 
-            <div className="rounded-3xl bg-navy text-cream p-8">
-              <div className="grid grid-cols-1 gap-5">
-                <div className="flex items-start gap-3">
-                  <Clock className="size-5 text-navy-soft mt-0.5 shrink-0" />
-                  <div>
-                    <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
-                      Horaires
-                    </div>
-                    <div className="text-sm mt-1 text-cream/90">
-                      WhatsApp : 7j/7 · 24h/24
-                    </div>
-                    <div className="text-sm text-cream/65">
-                      Email : réponse sous 48h
-                    </div>
+      {/* ── Formulaire + carte info ────────────────────────────────── */}
+      <section
+        id="formulaire"
+        className="bg-cream-soft py-24 md:py-32 border-y border-navy/8"
+      >
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Texte gauche */}
+          <div className="lg:col-span-5">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
+              <span className="size-6 h-px bg-navy-mid" />
+              Formulaire de contact
+            </p>
+            <h2
+              className="font-display text-navy leading-[0.98] tracking-tight text-balance"
+              style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
+            >
+              Écrivez-nous,{' '}
+              <em className="not-italic">
+                <span className="font-display italic gradient-text-navy-mid">
+                  on revient vite.
+                </span>
+              </em>
+            </h2>
+            <p className="mt-6 text-ink/75 leading-relaxed max-w-md text-pretty">
+              Décrivez votre demande : type d&apos;événement, dates, nombre de
+              personnes, attentes particulières. Plus c&apos;est précis, mieux
+              on peut vous orienter.
+            </p>
+
+            {/* Infos pratiques */}
+            <div className="mt-10 pt-8 border-t border-navy/10 space-y-5">
+              <div className="flex items-start gap-4">
+                <span className="size-10 rounded-full bg-navy/5 grid place-items-center shrink-0">
+                  <Clock className="size-4 text-navy-mid" />
+                </span>
+                <div>
+                  <div className="font-display text-base text-navy">
+                    Disponibilité
+                  </div>
+                  <div className="text-sm text-ink/65 mt-0.5">
+                    Service client 7j/7 — 24h/24 sur WhatsApp
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="size-5 text-navy-soft mt-0.5 shrink-0" />
-                  <div>
-                    <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
-                      Zone d&apos;intervention
-                    </div>
-                    <div className="text-sm mt-1 text-cream/90">
-                      Côte d&apos;Azur, bientot toute la France
-                    </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="size-10 rounded-full bg-navy/5 grid place-items-center shrink-0">
+                  <MapPin className="size-4 text-navy-mid" />
+                </span>
+                <div>
+                  <div className="font-display text-base text-navy">
+                    Zones couvertes
+                  </div>
+                  <div className="text-sm text-ink/65 mt-0.5">
+                    Côte d&apos;Azur · Île-de-France (77) · Europe via La Poste
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex gap-3">
-              <a
-                href="https://www.instagram.com/labs_food"
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 rounded-2xl bg-cream-soft border border-navy/10 p-5 flex items-center gap-3 hover:bg-navy hover:text-cream hover:border-navy transition-all group"
-              >
-                <Instagram className="size-5 text-navy-mid group-hover:text-navy-soft" />
-                <div>
-                  <div className="font-mono text-[0.65rem] uppercase tracking-[0.2em] opacity-65">
-                    Instagram
-                  </div>
-                  <div className="text-sm font-medium">@labs_food</div>
-                </div>
-              </a>
-              <a
-                href="https://www.tiktok.com/@labs_food"
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 rounded-2xl bg-cream-soft border border-navy/10 p-5 flex items-center gap-3 hover:bg-navy hover:text-cream hover:border-navy transition-all group"
-              >
-                <Music2 className="size-5 text-navy-mid group-hover:text-navy-soft" />
-                <div>
-                  <div className="font-mono text-[0.65rem] uppercase tracking-[0.2em] opacity-65">
-                    TikTok
-                  </div>
-                  <div className="text-sm font-medium">@labs_food</div>
-                </div>
-              </a>
+            {/* Réseaux sociaux */}
+            <div className="mt-10">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/45 mb-4">
+                — Suivez-nous
+              </p>
+              <div className="flex items-center gap-3">
+                <SocialChip
+                  Icon={Instagram}
+                  label="Instagram"
+                  href={SOCIAL_LINKS.instagram}
+                />
+                <SocialChip
+                  Icon={Music2}
+                  label="TikTok"
+                  href={SOCIAL_LINKS.tiktok}
+                />
+                <SocialChip
+                  Icon={Linkedin}
+                  label="LinkedIn"
+                  href={SOCIAL_LINKS.linkedin}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Formulaire droite */}
+          <div className="lg:col-span-7">
+            <div className="bg-cream rounded-3xl border border-navy/10 p-8 md:p-10 shadow-xl">
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── Bandeau brand bas ───────────────────────────────────────── */}
+      <section className="bg-navy text-cream py-16 md:py-20">
+        <div className="container-wide text-center">
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid mb-4">
+            — Maison certifiée HACCP
+          </p>
+          <p
+            className="font-display italic text-cream/85 max-w-3xl mx-auto text-balance"
+            style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)' }}
+          >
+            « Chez Lab&apos;s Food, chaque message est lu, chaque demande
+            écoutée. La cuisine, comme un voyage — sans tracasserie de visa. »
+          </p>
+        </div>
+      </section>
     </>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────── */
+
+function ContactCard({
+  icon: Icon,
+  kicker,
+  title,
+  body,
+  note,
+  href,
+  ctaLabel,
+  variant,
+}: {
+  icon: React.ElementType
+  kicker: string
+  title: string
+  body: string
+  note: string
+  href: string
+  ctaLabel: string
+  variant: 'whatsapp' | 'default'
+}) {
+  return (
+    <a
+      href={href}
+      target={href.startsWith('http') ? '_blank' : undefined}
+      rel={href.startsWith('http') ? 'noreferrer' : undefined}
+      className="group relative block bg-cream-soft border border-navy/8 rounded-3xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+    >
+      <div
+        className={`size-12 rounded-xl grid place-items-center mb-5 transition-colors ${
+          variant === 'whatsapp'
+            ? 'bg-whatsapp text-white'
+            : 'bg-navy text-cream'
+        }`}
+      >
+        <Icon className="size-5" />
+      </div>
+      <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid mb-2">
+        {kicker}
+      </div>
+      <h3 className="font-display text-2xl text-navy mb-3">{title}</h3>
+      <div className="font-display text-lg text-navy/85 tabular-nums">
+        {body}
+      </div>
+      <div className="text-xs text-ink/55 mt-1">{note}</div>
+
+      <div className="mt-8 pt-6 border-t border-navy/10 flex items-center justify-between text-sm font-medium text-navy">
+        {ctaLabel}
+        <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5" />
+      </div>
+    </a>
+  )
+}
+
+function SocialChip({
+  Icon,
+  label,
+  href,
+}: {
+  Icon: React.ElementType
+  label: string
+  href: string
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+      className="size-11 rounded-full bg-navy/5 border border-navy/15 grid place-items-center text-navy hover:bg-navy hover:text-cream hover:border-navy transition-all duration-300 hover:-translate-y-1"
+    >
+      <Icon className="size-4" />
+    </a>
   )
 }
