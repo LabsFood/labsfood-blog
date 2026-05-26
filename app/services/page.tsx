@@ -12,21 +12,9 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    slug: 'atelier-culinaire',
-    title: 'Atelier culinaire',
-    eyebrow: 'Service · 01',
-    short:
-      "Une cheffe vient chez vous pour un atelier privé et interactif. Vous choisissez la cuisine, vous repartez avec la recette et un cadeau surprise.",
-    price: "à partir de 80€ — jusqu'à 4 pers.",
-    image: '/assets/photo-7.jpeg',
-    href: '/services/atelier-culinaire',
-    cta: "Découvrir l'atelier",
-    accent: 'navy-mid',
-  },
-  {
     slug: 'batch-cooking',
     title: 'Batch cooking',
-    eyebrow: 'Service · 02',
+    eyebrow: 'Service · 01',
     short:
       "En 2h minimum, une cheffe vous prépare une semaine entière de repas variés et équilibrés directement à votre domicile.",
     price: "Disponible sur la Côte d'Azur",
@@ -38,15 +26,28 @@ const SERVICES = [
   {
     slug: 'assistance-culinaire',
     title: 'Assistance culinaire',
-    eyebrow: 'Service · 03',
+    eyebrow: 'Service · 02',
     short:
       "Un grand dîner, une fête de famille, un événement traiteur ? Lab's Food intervient en renfort en cuisine — le rôle s'adapte à votre besoin.",
     price: 'Sur devis · contactez-nous',
-    image: '/assets/photo-5.jpeg',
+    image: '/assets/photo-8.jpeg',
     href: '/services/assistance-culinaire',
     cta: 'Découvrir le service',
     accent: 'teal',
   },
+  {
+    slug: 'atelier-culinaire',
+    title: 'Atelier culinaire',
+    eyebrow: 'Service · 03',
+    short:
+      "Une cheffe vient chez vous pour un atelier privé et interactif. Vous choisissez la cuisine, vous repartez avec la recette et un cadeau surprise.",
+    price: "à partir de 80€ — jusqu'à 4 pers.",
+    image: '/assets/photo-15.jpeg',
+    href: '/services/atelier-culinaire',
+    cta: "Découvrir l'atelier",
+    accent: 'navy-mid',
+  },
+
 ] as const
 
 export default function ServicesPage() {
@@ -57,7 +58,7 @@ export default function ServicesPage() {
         title={
           <>
             Apprendre, déléguer,{' '}
-            <span className="italic gradient-text-navy-mid">ou se faire épauler</span>.
+            <span className="italic">ou se faire épauler</span>.
           </>
         }
         lede="Trois formules pensées pour trois moments de vie. Un atelier pour transmettre, un batch pour bien manger, une assistance pour les grands événements."

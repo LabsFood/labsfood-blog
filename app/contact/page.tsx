@@ -19,10 +19,10 @@ export default function ContactPage() {
         title={
           <>
             On vous répond{' '}
-            <span className="italic gradient-text-navy-mid">7j/7, 24h/24</span>.
+            <span className="italic">7j/7, 24h/24</span>.
           </>
         }
-        lede="Service client disponible toute la semaine sur WhatsApp — messages écrits uniquement, pas de notes vocales. Préférable pour une réponse rapide."
+        lede="Notre équipe est à votre disposition 24h/24 et 7j/7 via WhatsApp uniquement. Pour une assistance optimale et une réactivité maximale, merci de privilégier l'envoi d'un message écrit."
         image="/assets/photo-13.jpeg"
         imagePosition="center 50%"
       />
@@ -90,10 +90,7 @@ export default function ContactPage() {
                       Zone d&apos;intervention
                     </div>
                     <div className="text-sm mt-1 text-cream/90">
-                      Kossam : Côte d&apos;Azur
-                    </div>
-                    <div className="text-sm text-cream/65">
-                      Autres produits : toute l&apos;Europe (La Poste)
+                      Côte d&apos;Azur, bientot toute la France
                     </div>
                   </div>
                 </div>

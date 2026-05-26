@@ -27,7 +27,7 @@ export function ReviewsSection() {
               <span className="italic gradient-text-navy-mid">en disent</span>.
             </>
           }
-          lede="10 témoignages reçus de la part de notre communauté autour de la première signature de la maison."
+          lede="+50 témoignages reçus de la part de notre communauté autour de la première signature de la maison."
           align="center"
           invert
         />
@@ -35,7 +35,7 @@ export function ReviewsSection() {
         {/* Mini stats */}
         <Reveal>
           <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-10 mb-16">
-            <Stat value="10+" label="avis recueillis" />
+            <Stat value="50+" label="avis recueillis" />
             <Stat value="5.0" label="note moyenne" stars />
             <Stat value="100%" label="recommandé" />
           </div>

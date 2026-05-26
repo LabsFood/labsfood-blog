@@ -19,29 +19,12 @@ import { cn } from '@/lib/utils'
 
 const services = [
   {
-    slug: 'atelier-culinaire',
-    n: '01',
-    name: 'Atelier culinaire',
-    description:
-      "Apprenez à cuisiner une spécialité du monde lors d'une expérience interactive et intime. Une cheffe vient chez vous — vous repartez avec la fiche recette et un cadeau surprise.",
-    price: '80€' as string | null,
-    priceNote: "forfait — jusqu'à 4 pers.",
-    image: '/assets/photo-7.jpeg',
-    href: '/services/atelier-culinaire',
-    accent: 'navy-mid' as const,
-    features: [
-      { icon: Users, label: "Jusqu'à 10 pers." },
-      { icon: Clock, label: '~ 2h d’atelier' },
-      { icon: Gift, label: 'Cadeau surprise' },
-    ],
-  },
-  {
     slug: 'batch-cooking',
-    n: '02',
+    n: '01',
     name: 'Batch cooking',
     description:
-      "Une cheffe vient préparer une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser — sur-mesure et à votre rythme.",
-    price: 'sur-mesure' as string | null,
+      "Une cheffe vient préparer une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser, sur-mesure et à votre rythme.",
+    price: "~ 50€" as string | null,
     priceNote: "Côte d'Azur",
     image: '/assets/photo-9.jpeg',
     href: '/services/batch-cooking',
@@ -54,21 +37,39 @@ const services = [
   },
   {
     slug: 'assistance-culinaire',
-    n: '03',
+    n: '02',
     name: 'Assistance culinaire',
     description:
-      "Un grand dîner, une fête de famille, un événement traiteur ? Lab's Food vient en renfort en cuisine — aide à la préparation, dressage, coordination. Vous gérez vos invités, on gère les fourneaux.",
+      "Un grand dîner, une fête de famille, un événement traiteur ? Lab's Food vient en renfort en cuisine , vous aide à la préparation, dressage, coordination. Vous gérez vos invités, on gère les fourneaux.",
     price: null,
     priceNote: 'Sur devis · contactez-nous',
-    image: '/assets/photo-5.jpeg',
+    image: '/assets/photo-8.jpeg',
     href: '/services/assistance-culinaire',
     accent: 'teal' as const,
     features: [
-      { icon: ChefHat, label: 'Rôle défini selon le besoin' },
+      { icon: ChefHat, label: 'Recherche des chefs' },
       { icon: CalendarCheck, label: 'Événements & dîners' },
       { icon: Building2, label: 'Particuliers & professionnels' },
     ],
   },
+  {
+    slug: 'atelier-culinaire',
+    n: '03',
+    name: 'Atelier culinaire',
+    description:
+      "Apprenez à cuisiner une spécialité du monde lors d'une expérience interactive et intime. Une cheffe vient chez vous, ensuite repartez avec la fiche recette et un cadeau surprise.",
+    price: '80€' as string | null,
+    priceNote: "forfait — jusqu'à 4 pers.",
+    image: '/assets/photo-15.jpeg',
+    href: '/services/atelier-culinaire',
+    accent: 'navy-mid' as const,
+    features: [
+      { icon: Users, label: "Jusqu'à 4 pers." },
+      { icon: Clock, label: '~ 2h d’atelier' },
+      { icon: Gift, label: 'Cadeau surprise' },
+    ],
+  },
+
 ]
 
 export function ServicesSection() {
@@ -173,8 +174,8 @@ function ServiceRow({
                 service.accent === 'navy-mid'
                   ? 'text-navy-mid'
                   : service.accent === 'teal'
-                  ? 'text-teal'
-                  : 'text-navy/65',
+                    ? 'text-teal'
+                    : 'text-navy/65',
               )}
             >
               Service &middot; {service.n}
@@ -190,7 +191,7 @@ function ServiceRow({
             <span className="italic-fraunces text-navy-mid">.</span>
           </h3>
 
-          <p className="mt-6 lede max-w-md text-pretty">{service.description}</p>
+          <p className="mt-6 lede  text-justify">{service.description}</p>
 
           {/* Features inline */}
           <ul className="mt-8 flex flex-col gap-3">
@@ -252,8 +253,8 @@ function ServiceRow({
                 service.accent === 'teal'
                   ? 'bg-teal text-cream hover:bg-teal-deep'
                   : service.accent === 'navy-mid'
-                  ? 'bg-navy-mid text-cream hover:bg-navy-deep'
-                  : 'bg-navy text-cream hover:bg-navy-mid',
+                    ? 'bg-navy-mid text-cream hover:bg-navy-deep'
+                    : 'bg-navy text-cream hover:bg-navy-mid',
               )}
             >
               Découvrir

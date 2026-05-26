@@ -21,16 +21,16 @@ const LINKS = {
     { label: 'Contact', href: '/contact' },
   ],
   services: [
-    { label: 'Atelier culinaire', href: '/services/atelier-culinaire' },
     { label: 'Batch cooking', href: '/services/batch-cooking' },
     { label: 'Assistance culinaire', href: '/services/assistance-culinaire' },
+    { label: 'Atelier culinaire', href: '/services/atelier-culinaire' },
     { label: 'Tous les services', href: '/services' },
   ],
   produits: [
-    { label: 'Kossam', href: '/produits/kossam' },
     { label: 'Tous les produits', href: '/produits' },
-    { label: 'Bientôt — Bissap', href: '/produits' },
-    { label: 'Bientôt — Luxury Kossam', href: '/produits' },
+    { label: 'Kossam', href: '/produits/kossam' },
+    { label: 'Bientôt Köni', href: '/produits' },
+    { label: 'Bientôt Luxury Kossam', href: '/produits' },
   ],
   legal: [
     { label: 'Mentions légales', href: '/contact' },
@@ -114,17 +114,7 @@ export function Footer() {
             {/* Déclaration de marque */}
             <div className="lg:col-span-7">
               <Link href="/" className="inline-flex items-center gap-3 mb-7">
-                <span className="size-11 rounded-full bg-cream grid place-items-center">
-                  <Image src="/logo.png" alt="" width={28} height={28} />
-                </span>
-                <span className="flex flex-col leading-none">
-                  <span className="font-display text-2xl text-cream tracking-tight">
-                    Lab&apos;s Food
-                  </span>
-                  <span className="font-display italic text-xs text-navy-mid mt-1">
-                    maison culinaire
-                  </span>
-                </span>
+                <Image src="/whiteLogo.png" alt="" width={150} height={150} />
               </Link>
               <p
                 className="font-display font-bold text-cream leading-[0.95]"
@@ -133,20 +123,12 @@ export function Footer() {
                   letterSpacing: '-0.025em',
                 }}
               >
-                La cuisine,
-                <br />
-                <span className="text-navy-mid italic font-medium">
-                  comme un voyage.
-                </span>
-              </p>
-              <p className="mt-6 text-cream/65 max-w-md text-base leading-relaxed">
-                Fondée par Ivy après 21 pays explorés — Lab&apos;s Food vous fait
-                voyager culinairement parlant, sans tracasserie de visa.
+                we create what we love
               </p>
             </div>
 
             {/* Newsletter */}
-            <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-cream/10">
+            {/* <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-cream/10">
               <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-navy-mid mb-4">
                 Newsletter du labo
               </p>
@@ -175,14 +157,14 @@ export function Footer() {
               <p className="text-xs text-cream/45">
                 Pas de spam. Désabonnement en 1 clic.
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Middle : contact + 3 colonnes de liens */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-14 border-b border-cream/10">
             {/* Contact */}
             <div className="lg:col-span-4">
-              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-navy-mid mb-5">
+              <p className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-white mb-5">
                 Nous contacter
               </p>
               <ul className="space-y-4">
@@ -220,7 +202,7 @@ export function Footer() {
                   <span className="w-9 h-9 rounded-full border border-cream/15 flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4" />
                   </span>
-                  <span className="text-sm">Côte d&apos;Azur · Europe (La Poste)</span>
+                  <span className="text-sm">Côte d&apos;Azur · Bientot toute la France</span>
                 </li>
               </ul>
 
@@ -331,7 +313,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center gap-1.5 text-sm text-cream/65 hover:text-navy-mid transition-colors"
+        className="group inline-flex items-center gap-1.5 text-sm text-cream/65 hover:text-white transition-colors"
       >
         <span>{label}</span>
         <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />

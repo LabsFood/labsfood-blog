@@ -22,7 +22,7 @@ export function FounderSection() {
             <div className="absolute -bottom-8 -right-4 size-48 rounded-full bg-teal/10" />
             <div className="relative rounded-3xl overflow-hidden bg-navy aspect-[4/5]">
               <Image
-                src="/IvyOfficielle.png"
+                src="/assets/photo-9.jpeg"
                 alt={FOUNDER.name}
                 fill
                 className="object-cover"
@@ -45,19 +45,19 @@ export function FounderSection() {
           className="lg:col-span-7"
         >
           <span className="eyebrow">Notre histoire</span>
-          <h2 className="display-md text-navy mt-4 text-balance">
+          {/* <h2 className="display-md text-navy mt-4 text-balance">
             <span className="italic gradient-text-navy-mid">21 pays, </span>
             une conviction : la cuisine fait voyager mieux qu&apos;un visa.
-          </h2>
+          </h2> */}
           <p className="mt-6 lede text-pretty">{FOUNDER.bio}</p>
           <p className="mt-4 lede text-pretty">{FOUNDER.mission}</p>
 
-          <div className="grid sm:grid-cols-3 gap-5 mt-10">
-            <div className="rounded-2xl border border-navy/10 p-5">
+          <div className="grid sm:grid-cols-2 gap-5 mt-10">
+            {/* <div className="rounded-2xl border border-navy/10 p-5">
               <Globe2 className="size-5 text-navy-mid mb-3" />
               <div className="font-display text-2xl text-navy">{FOUNDER.countries}</div>
               <div className="text-xs text-ink/60 mt-0.5">pays explorés</div>
-            </div>
+            </div> */}
             <div className="rounded-2xl border border-navy/10 p-5">
               <ShieldCheck className="size-5 text-navy-mid mb-3" />
               <div className="font-display text-2xl text-navy">HACCP</div>
@@ -66,7 +66,7 @@ export function FounderSection() {
             <div className="rounded-2xl border border-navy/10 p-5">
               <MessagesSquare className="size-5 text-navy-mid mb-3" />
               <div className="font-display text-2xl text-navy">3</div>
-              <div className="text-xs text-ink/60 mt-0.5">langues : FR / PT / EN</div>
+              <div className="text-xs text-ink/60 mt-0.5">façons de communiquer: FR / PT / EN</div>
             </div>
           </div>
 

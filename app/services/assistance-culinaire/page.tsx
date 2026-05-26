@@ -354,7 +354,7 @@ export default function AssistanceCulinaireePage() {
                       </a>
                     </Button>
                     <div className="text-xs text-ink/50">
-                      Réponse 7j/7 · Messages écrits uniquement
+                      Réponse 7j/7
                     </div>
                   </div>
                 </div>

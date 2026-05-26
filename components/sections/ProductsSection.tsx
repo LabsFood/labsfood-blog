@@ -76,10 +76,10 @@ export function ProductsSection() {
                   <source src="/assets/kossam-main.mp4" type="video/mp4" />
                 </video>
                 {/* Étiquette en haut */}
-                <div className="absolute top-5 left-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/90 text-navy font-mono text-[0.6rem] uppercase tracking-[0.25em]">
+                {/* <div className="absolute top-5 left-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/90 text-navy font-mono text-[0.6rem] uppercase tracking-[0.25em]">
                   <span className="size-1.5 rounded-full bg-whatsapp animate-pulse" />
                   En stock
-                </div>
+                </div> */}
                 {/* Numérotation discrète */}
                 <div className="absolute bottom-5 right-5 font-display text-7xl text-cream/30 leading-none">
                   01
@@ -89,7 +89,7 @@ export function ProductsSection() {
               {/* Mini photo secondaire en chevauchement */}
               <div className="hidden md:block absolute -bottom-12 -left-8 w-44 h-56 rounded-2xl overflow-hidden border-4 border-cream shadow-xl">
                 <Image
-                  src="/assets/photo-2.jpeg"
+                  src="/assets/photo-10.jpeg"
                   alt=""
                   fill
                   className="object-cover"
@@ -253,12 +253,7 @@ export function ProductsSection() {
             <Info
               icon={MapPin}
               title="Kossam"
-              body="Livraison sur la Côte d'Azur uniquement"
-            />
-            <Info
-              icon={Truck}
-              title="Autres produits"
-              body="Toute l'Europe via La Poste"
+              body="Livraison sur la Côte d'Azur et bientot toute la France"
             />
             <Info
               icon={ShieldCheck}

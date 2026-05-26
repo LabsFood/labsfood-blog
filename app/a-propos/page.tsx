@@ -78,7 +78,7 @@ export default function AProposPage() {
         title={
           <>
             Une maison culinaire,{' '}
-            <span className="italic gradient-text-navy-mid">née d&apos;un voyage</span>.
+            <span className="italic">née d&apos;un voyage</span>.
           </>
         }
         lede="Lab's Food, c'est l'histoire d'Ivy : ingénieure de formation, étudiante, mais surtout passionnée de gastronomie. Après 21 pays explorés, une conviction — le plus beau des voyages se passe souvent autour d'une assiette."
@@ -100,7 +100,7 @@ export default function AProposPage() {
               <div className="absolute -bottom-8 -right-4 size-44 rounded-full bg-teal/10 -z-0" />
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
-                  src="/IvyOfficielle.png"
+                  src="/assets/photo-9.jpeg"
                   alt={FOUNDER.name}
                   fill
                   className="object-cover"
@@ -129,7 +129,7 @@ export default function AProposPage() {
             <Quote className="size-10 text-navy-mid mt-8 -mb-2" />
             <p className="font-display italic text-3xl md:text-4xl text-navy leading-tight max-w-xl">
               Le plus beau des voyages se passe souvent{' '}
-              <span className="gradient-text-navy-mid">autour d&apos;une assiette</span>.
+              <span>autour d&apos;une assiette</span>.
             </p>
 
             <div className="mt-10 space-y-5 max-w-xl">
@@ -174,7 +174,7 @@ export default function AProposPage() {
               </span>
               <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
                 Quatre principes,{' '}
-                <span className="italic gradient-text-navy-mid">une seule promesse</span>.
+                <span className="italic">une seule promesse</span>.
               </h2>
             </Reveal>
           </div>
@@ -219,7 +219,7 @@ export default function AProposPage() {
               </span>
               <h2 className="font-display text-4xl md:text-6xl text-navy mt-6 text-balance">
                 D&apos;un sac à dos{' '}
-                <span className="italic gradient-text-navy-mid">à une maison</span>.
+                <span className="italic">à une maison</span>.
               </h2>
             </Reveal>
           </div>
@@ -271,16 +271,16 @@ export default function AProposPage() {
                 />
               </div>
               <div className="relative">
-                <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-soft">
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white">
                   Mot de la cheffe
                 </span>
                 <p className="font-display italic text-2xl md:text-3xl text-cream mt-6 leading-snug max-w-2xl">
                   «&nbsp;J&apos;ai imaginé Lab&apos;s Food comme un passeport vers la table.
                   Embarquez avec nous,{' '}
-                  <span className="gradient-text-navy-mid">et bon voyage gustatif&nbsp;!</span>
+                  <span>et bon voyage gustatif&nbsp;!</span>
                   &nbsp;»
                 </p>
-                <p className="mt-6 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
+                <p className="mt-6 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
                   — Ivy, fondatrice
                 </p>
               </div>
@@ -358,7 +358,7 @@ function StatCard({
 }) {
   return (
     <div className="px-4 md:px-8 first:pl-0 last:pr-0">
-      <Icon className="size-5 text-navy-soft mb-4" />
+      <Icon className="size-8 text-white mb-4" />
       <div className="font-display text-4xl md:text-5xl text-cream tabular-nums leading-none">
         {value}
       </div>

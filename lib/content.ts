@@ -59,7 +59,7 @@ export const PRODUCTS = [
   {
     slug: 'kossam',
     name: 'Kossam',
-    tagline: 'Boisson lactée fermentée — savoir-faire camerounais',
+    tagline: 'Boisson lactée faite avec beaucoup d’amour pour vous',
     status: 'available' as const,
     formats: [
       { size: '0.5L', price: '7€' },
@@ -80,12 +80,12 @@ export const PRODUCTS = [
 ] as const
 
 export const COMING_SOON = [
-  { name: 'Kossam Bissap', category: 'Boisson' },
+  { name: 'Köni', category: 'Boisson' },
   { name: 'Luxury Kossam', category: 'Boisson' },
   { name: 'Ail noir', category: 'Épice' },
-  { name: 'Marinade verte 100% BIO', category: 'Condiment' },
-  { name: 'Cakes', category: 'Pâtisserie' },
-  { name: 'Cocktails', category: 'Boisson' },
+  // { name: 'Marinade verte 100% BIO', category: 'Condiment' },
+  // { name: 'Cakes', category: 'Pâtisserie' },
+  // { name: 'Cocktails', category: 'Boisson' },
 ] as const
 
 export const REVIEWS = [
@@ -160,7 +160,7 @@ export const CHEFS = [
     n: '02',
     name: "D'Avilla",
     title: "Chef partenaire · Lab's Food",
-    photo: '/DavillaOfficielle.jpg',
+    photo: '/davila.jpeg',
     region: 'Seine-et-Marne · Île-de-France',
     zone: 'Secteur 77127 et alentours',
     bio: "Aujourd'hui, j'accumule 2 ans d'expérience en restauration en tant qu'équipière polyvalente. Traiteurs, restaurateurs — je suis disposée à vous donner un coup de main en cuisine. Contactez-moi pour que l'on travaille ensemble.",

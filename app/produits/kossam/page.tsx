@@ -61,10 +61,10 @@ export default function KossamPage() {
           {/* Badge breadcrumb */}
           <Reveal>
             <div className="flex items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/10 backdrop-blur-md border border-cream/20 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/85">
+              {/* <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/10 backdrop-blur-md border border-cream/20 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/85">
                 <span className="size-1.5 rounded-full bg-whatsapp animate-pulse" />
                 Disponible
-              </span>
+              </span> */}
               <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft">
                 Produit · 01 — Signature
               </span>
@@ -91,7 +91,7 @@ export default function KossamPage() {
                 <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
                   <div className="flex items-center gap-1.5">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="size-3.5 fill-navy-mid text-navy-mid" />
+                      <Star key={i} className="size-3.5 fill-yellow-500 text-yellow-500" />
                     ))}
                     <span className="ml-2 text-cream/80 font-mono text-[0.7rem] uppercase tracking-[0.2em]">
                       10 avis · 5.0
@@ -114,7 +114,7 @@ export default function KossamPage() {
                   HACCP
                 </div>
 
-                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft">
+                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
                   Disponible en deux formats
                 </div>
 
@@ -153,14 +153,14 @@ export default function KossamPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <MessageCircle className="size-4" />
+                    {/* <MessageCircle className="size-4" /> */}
                     Commander sur WhatsApp
                   </a>
                 </Button>
 
                 <div className="mt-5 pt-5 border-t border-cream/15 flex items-center gap-2 text-xs text-cream/65">
-                  <MapPin className="size-3.5 text-navy-soft" />
-                  Livraison sur la Côte d&apos;Azur uniquement
+                  <MapPin className="size-3.5 text-white" />
+                  Livraison sur la Côte d&apos;Azur uniquement, bientot toute la France
                 </div>
               </div>
             </Reveal>
@@ -308,12 +308,12 @@ export default function KossamPage() {
         <div className="container-wide relative">
           <div className="flex items-end justify-between gap-6 mb-12 flex-wrap">
             <Reveal className="max-w-2xl">
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft">
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
                 Recettes en vidéo
               </span>
               <h2 className="font-display text-4xl md:text-5xl text-cream mt-4 text-balance">
                 Trois idées pour{' '}
-                <span className="italic gradient-text-navy-mid">commencer</span>.
+                <span className="italic">commencer</span>.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -345,12 +345,11 @@ export default function KossamPage() {
                   </div>
 
                   <div className="relative h-full flex flex-col justify-end p-6">
-                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft">
+                    {/* <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
                       Recette {String(n).padStart(2, '0')}
-                    </span>
+                    </span> */}
                     <h3 className="font-display text-2xl text-cream mt-2">
-                      Inspiration n°{n}
-                    </h3>
+                      Recette {String(n).padStart(2, '0')}                    </h3>
                   </div>
                 </div>
               </Reveal>
@@ -399,7 +398,7 @@ export default function KossamPage() {
               <div className="absolute -bottom-10 -left-10 size-60 bg-navy-mid/20 blur-3xl rounded-full" />
               <div className="relative">
                 <div className="size-12 rounded-full bg-navy-mid/20 grid place-items-center mb-5">
-                  <ShieldCheck className="size-5 text-navy-soft" />
+                  <ShieldCheck className="size-8 text-white" />
                 </div>
                 <h3 className="font-display text-3xl text-cream">
                   Confiance & qualité
@@ -407,14 +406,14 @@ export default function KossamPage() {
                 <p className="mt-2 text-sm text-cream/60">
                   Lab&apos;s Food respecte les normes
                 </p>
-                <p className="mt-6 text-cream/85 leading-relaxed">
+                <p className="mt-6 text-white leading-relaxed">
                   Lab&apos;s Food est{' '}
-                  <span className="text-navy-soft font-medium">certifiée HACCP</span>.
+                  <span className="text-white font-bold">certifiée HACCP</span>.
                   Chaque produit est préparé dans le respect des normes d&apos;hygiène
                   alimentaire.
                 </p>
                 <div className="mt-6 pt-6 border-t border-cream/15">
-                  <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft mb-2">
+                  <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
                     Allergènes
                   </div>
                   <p className="text-sm text-cream/75">

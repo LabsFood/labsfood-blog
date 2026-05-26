@@ -20,11 +20,11 @@ const PERKS = [
     title: 'Liberté totale',
     body: 'Vous fixez vos tarifs, vos disponibilités, votre zone de déplacement.',
   },
-  {
-    icon: ShieldCheck,
-    title: 'Encadré & sécurisé',
-    body: 'Charte qualité, accréditation HACCP visible, profil professionnel.',
-  },
+  // {
+  //   icon: ShieldCheck,
+  //   title: 'Encadré & sécurisé',
+  //   body: 'Charte qualité, accréditation HACCP visible, profil professionnel.',
+  // },
   {
     icon: MessageCircle,
     title: 'On gère la mise en relation',

@@ -16,7 +16,7 @@ export function CtaSection() {
     <section
       className="relative min-h-[90vh] flex items-center text-cream overflow-hidden"
       style={{
-        backgroundImage: "url('/assets/photo-12.jpeg')",
+        backgroundImage: "url('/assets/photo-10.jpeg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -44,9 +44,8 @@ export function CtaSection() {
 
             <Reveal delay={0.1}>
               <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-cream text-balance leading-[0.95]">
-                Une envie,
-                <br />
-                <span className="italic gradient-text-navy-mid">
+                Une envie{' '}
+                <span className="italic">
                   une table à dresser
                 </span>{' '}
                 ?
@@ -55,8 +54,7 @@ export function CtaSection() {
 
             <Reveal delay={0.2}>
               <p className="lede text-cream/85 mt-8 max-w-xl text-pretty">
-                Notre service client est disponible 7j/7 — 24h/24 sur WhatsApp.
-                Messages écrits uniquement, pour une réponse rapide.
+                Notre équipe est à votre disposition 24h/24 et 7j/7 via WhatsApp uniquement. Pour une assistance optimale et une réactivité maximale, merci de privilégier l'envoi d'un message écrit.
               </p>
             </Reveal>
 
@@ -76,7 +74,7 @@ export function CtaSection() {
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <Link href="/contact">
-                    Formulaire de contact
+                    Contactez-Nous
                     <ArrowUpRight className="size-4" />
                   </Link>
                 </Button>
@@ -134,11 +132,6 @@ export function CtaSection() {
                   ))}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-navy/10 text-xs text-ink/60">
-                  Messages écrits uniquement.
-                  <br />
-                  Pas de notes vocales, merci.
-                </div>
 
                 <Button
                   asChild
@@ -176,7 +169,7 @@ function Reassure({
   return (
     <div className="flex items-center gap-3">
       <div className="size-10 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-        <Icon className="size-4 text-navy-soft" />
+        <Icon className="size-4 text-white" />
       </div>
       <div>
         <div className="font-display text-base text-cream leading-none">

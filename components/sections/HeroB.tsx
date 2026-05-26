@@ -35,40 +35,40 @@ export function HeroB() {
           </div>
 
           {/* Titre — la marque d'abord */}
-          <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] text-navy leading-[0.95] tracking-tight">
+          <h1 className=" text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-navy leading-[0.95] tracking-tight">
             Lab&apos;s Food,
             <br />
-            <span className="gradient-text-navy-mid">la maison qui</span>
+            <span className="font-display font-bold">We create</span>
             <br />
-            <span className="gradient-text-navy-mid">vous fait voyager.</span>
+            <span className="font-display font-bold">What you love.</span>
           </h1>
 
           {/* Tagline brand-first */}
-          <p className="lede mt-10 max-w-xl text-pretty">
+          {/* <p className="lede mt-10 max-w-xl text-pretty">
             Fondée par <span className="font-medium text-navy">Ivy</span> après
             l&apos;exploration de 21 pays, Lab&apos;s Food est une maison culinaire
             qui invite à voyager autour d&apos;une assiette — sans tracasserie de visa.
-          </p>
+          </p> */}
 
           {/* Mini-stats inline — l'âme de la maison */}
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <div className="flex items-baseline gap-2">
+          <div className="mt-8 flex flex-wrap items-center  gap-y-4">
+            {/* <div className="flex items-baseline gap-2">
               <Globe2 className="size-4 text-navy-mid self-center" />
               <span className="font-display text-2xl text-navy tabular-nums">21</span>
               <span className="text-xs text-ink/60">pays explorés</span>
-            </div>
+            </div> */}
             <span className="hidden sm:block size-1 rounded-full bg-navy/20" />
             <div className="flex items-baseline gap-2">
               <ShieldCheck className="size-4 text-navy-mid self-center" />
               <span className="font-display text-2xl text-navy">HACCP</span>
-              <span className="text-xs text-ink/60">maison certifiée</span>
+              {/* <span className="text-xs text-ink/60">maison certifiée</span> */}
             </div>
           </div>
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-4 mt-12">
             <Button asChild size="lg">
-              <Link href="/services">
+              <Link href="/produits">
                 Nos Produits
                 <ArrowUpRight className="size-4" />
               </Link>
@@ -89,7 +89,7 @@ export function HeroB() {
           {/* Photo principale — atelier en haut à droite */}
           <div className="absolute top-0 right-0 w-[62%] h-[58%] rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/assets/photo-7.jpeg"
+              src="/assets/photo-4.jpeg"
               alt=""
               fill
               className="object-cover"
@@ -157,7 +157,7 @@ export function HeroB() {
                 </defs>
                 <text className="text-[10.5px] fill-cream font-mono tracking-[0.2em] uppercase">
                   <textPath href="#circle-text">
-                    Lab&apos;s Food · Maison culinaire ·{' '}
+                    Lab&apos;s Food·Maison culinaire·
                   </textPath>
                 </text>
               </svg>

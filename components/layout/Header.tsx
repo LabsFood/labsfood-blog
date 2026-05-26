@@ -11,9 +11,9 @@ const NAV = [
   { label: 'Accueil', href: '/' },
   { label: 'À propos', href: '/a-propos' },
   // { label: 'Services', href: '/services' },
-  // { label: 'Produits', href: '/produits' },
+  { label: 'Produits', href: '/produits' },
   // { label: 'Devenir chef', href: '/devenir-chef' },
-  { label: 'Nos Services', href: '/services' },
+  { label: 'Services', href: '/services' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -47,24 +47,20 @@ export function Header() {
       <div className="container-wide flex items-center justify-between h-20">
         {/* ─── Identité ─── */}
         <Link href="/" className="flex items-center gap-3 group">
-          <span className="relative size-11 rounded-full grid place-items-center overflow-hidden transition-transform duration-500 ease-expo group-hover:rotate-[8deg]">
+          <span className="relative  rounded-full grid place-items-center overflow-hidden transition-transform duration-500 ease-expo group-hover:rotate-[8deg]">
             <Image
-              src="/logoLab.png"
+              src="/mainLogo.png"
               alt=""
-              width={30}
-              height={30}
-              className="object-contain"
+              width={150}
+              height={150}
               priority
             />
           </span>
-          <span className="flex flex-col leading-none">
+          {/* <span className="flex flex-col leading-none">
             <span className="font-display text-[1.15rem] tracking-tight text-navy">
               Lab&apos;s Food
             </span>
-            {/* <span className="font-display italic text-xs text-navy-mid mt-0.5">
-              maison culinaire
-            </span> */}
-          </span>
+          </span> */}
         </Link>
 
         {/* ─── Nav centrale (desktop) ─── */}
