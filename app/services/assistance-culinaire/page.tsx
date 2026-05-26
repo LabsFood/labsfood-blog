@@ -12,9 +12,9 @@ import {
   Users,
   ClipboardList,
   MapPin,
-  Globe2,
+  Navigation,
   Languages,
-  ShieldCheck,
+  BadgeCheck,
   Star,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -324,7 +324,7 @@ export default function AssistanceCulinaireePage() {
                         value={chef.region}
                       />
                       <InfoBlock
-                        icon={Globe2}
+                        icon={Navigation}
                         label="Zone"
                         value={chef.zone}
                       />
@@ -334,9 +334,9 @@ export default function AssistanceCulinaireePage() {
                         value={chef.languages.join(' · ')}
                       />
                       <InfoBlock
-                        icon={ShieldCheck}
-                        label="Certification"
-                        value={chef.certifications.join(', ')}
+                        icon={BadgeCheck}
+                        label="Expérience"
+                        value={chef.badges.join(' · ')}
                       />
                     </div>
                   </div>

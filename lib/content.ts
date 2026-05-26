@@ -133,6 +133,11 @@ export const FOUNDER = {
 /**
  * Chefs disponibles pour l'assistance culinaire.
  * Extensible : ajouter un objet par chef partenaire validé.
+ *
+ * Champs :
+ *  - badges   : certifications, expérience, distinctions (flexible)
+ *  - languages: codes ISO 2 lettres ['FR', 'EN', 'PT'...]
+ *  - zone     : ville(s) / code(s) postal(aux) d'intervention
  */
 export const CHEFS = [
   {
@@ -144,11 +149,25 @@ export const CHEFS = [
     region: "Côte d'Azur",
     zone: "Nice · Cannes · Antibes · Monaco",
     bio: "Ingénieure de formation, passionnée de gastronomie et de voyages. Après avoir exploré 21 pays et leurs cuisines, Ivy a fondé Lab's Food pour partager une vision : cuisiner, c'est voyager.",
-    certifications: ['HACCP'],
+    badges: ['HACCP', '21 pays explorés'],
     languages: ['FR', 'PT', 'EN'],
     specialties: ['Cuisines du monde', 'Cuisine africaine', 'Dressage & présentation'],
-    countries: 21,
     available: true,
     whatsappMessage: "Bonjour Ivy, je souhaite vous contacter pour une assistance culinaire — voici mon événement : ",
+  },
+  {
+    id: 'davilla',
+    n: '02',
+    name: "D'Avilla",
+    title: "Chef partenaire · Lab's Food",
+    photo: '/DavillaOfficielle.jpg',
+    region: 'Seine-et-Marne · Île-de-France',
+    zone: 'Secteur 77127 et alentours',
+    bio: "Aujourd'hui, j'accumule 2 ans d'expérience en restauration en tant qu'équipière polyvalente. Traiteurs, restaurateurs — je suis disposée à vous donner un coup de main en cuisine. Contactez-moi pour que l'on travaille ensemble.",
+    badges: ["2 ans d'expérience", 'Restauration'],
+    languages: ['FR', 'EN'],
+    specialties: ['Cuisine africaine', 'Cuisine européenne'],
+    available: true,
+    whatsappMessage: "Bonjour Lab's Food, je souhaite contacter D'Avilla pour une assistance culinaire — voici mon événement : ",
   },
 ] as const
