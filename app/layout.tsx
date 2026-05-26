@@ -102,7 +102,7 @@ export default function RootLayout({
         <SplashScreen />
         {/* <AnnouncementBar /> */}
         <Header />
-        <main className="pt-20">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

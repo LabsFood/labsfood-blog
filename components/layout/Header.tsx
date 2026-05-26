@@ -9,13 +9,11 @@ import { cn, whatsappLink } from '@/lib/utils'
 
 const NAV = [
   { label: 'Accueil', href: '/' },
-  { label: 'À propos', href: '/a-propos' },
-  // { label: 'Services', href: '/services' },
-  { label: 'Produits', href: '/produits' },
-  // { label: 'Devenir chef', href: '/devenir-chef' },
   { label: 'Services', href: '/services' },
+  { label: 'Produits', href: '/produits' },
+  { label: 'À propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
-]
+] as const
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -25,7 +23,7 @@ export function Header() {
   useEffect(() => setOpen(false), [pathname])
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
+    const onScroll = () => setScrolled(window.scrollY > 80)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -36,158 +34,179 @@ export function Header() {
   }, [open])
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-expo',
-        scrolled
-          ? 'bg-cream/95 border-b border-navy/10 shadow-[0_1px_0_rgba(0,35,75,0.04)]'
-          : 'bg-transparent',
-      )}
-    >
-      <div className="container-wide flex items-center justify-between h-20">
-        {/* ─── Identité ─── */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <span className="relative  rounded-full grid place-items-center overflow-hidden transition-transform duration-500 ease-expo group-hover:rotate-[8deg]">
-            <Image
-              src="/mainLogo.png"
-              alt=""
-              width={150}
-              height={150}
-              priority
-            />
-          </span>
-          {/* <span className="flex flex-col leading-none">
-            <span className="font-display text-[1.15rem] tracking-tight text-navy">
-              Lab&apos;s Food
+    <>
+      <header
+        className={cn(
+          'fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-expo',
+          scrolled
+            ? 'bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,35,75,0.06)] py-2'
+            : 'bg-transparent py-4',
+        )}
+      >
+        <div className="container-wide flex items-center justify-between gap-8">
+          {/* ─── Logo ─── */}
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
+            <span className="relative size-12 rounded-full grid place-items-center bg-cream/90 transition-transform duration-500 ease-expo group-hover:rotate-[8deg]">
+              <Image
+                src="/logoLab.png"
+                alt="Lab's Food"
+                width={32}
+                height={32}
+                className="object-contain"
+                priority
+              />
             </span>
-          </span> */}
-        </Link>
+            <span
+              className={cn(
+                'hidden sm:flex flex-col leading-none transition-colors duration-500',
+                scrolled ? 'text-navy' : 'text-cream',
+              )}
+            >
+              <span className="font-display text-xl tracking-tight">
+                Lab&apos;s Food
+              </span>
+              <span className="font-display italic text-[0.7rem] text-navy-mid mt-0.5">
+                maison culinaire
+              </span>
+            </span>
+          </Link>
 
-        {/* ─── Nav centrale (desktop) ─── */}
-        <nav className="hidden lg:flex items-center" aria-label="Navigation principale">
-          {NAV.map((item, i) => {
-            const active =
-              item.href === '/'
-                ? pathname === '/'
-                : pathname?.startsWith(item.href)
-            return (
-              <div key={item.href} className="flex items-center">
+          {/* ─── Nav desktop ─── */}
+          <nav
+            className="hidden lg:flex items-center gap-1"
+            aria-label="Navigation principale"
+          >
+            {NAV.map((item) => {
+              const active =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname?.startsWith(item.href)
+              return (
                 <Link
+                  key={item.href}
                   href={item.href}
                   className={cn(
-                    'relative px-4 py-2 text-md transition-colors duration-300',
-                    active
-                      ? 'text-navy font-medium'
-                      : 'text-navy/70 hover:text-navy',
+                    'relative px-4 py-2 text-sm font-medium transition-colors duration-300 group/link',
+                    scrolled
+                      ? active
+                        ? 'text-navy'
+                        : 'text-navy/65 hover:text-navy'
+                      : active
+                        ? 'text-cream'
+                        : 'text-cream/75 hover:text-cream',
                   )}
                 >
                   {item.label}
-                  {active && (
-                    <span className="absolute left-1/2 -translate-x-1/2 bottom-0 size-1 rounded-full bg-navy-mid" />
-                  )}
-                </Link>
-                {i < NAV.length - 1 && (
                   <span
-                    className="size-1 rounded-full bg-navy/15"
-                    aria-hidden
+                    className={cn(
+                      'absolute left-4 right-4 -bottom-0.5 h-px origin-left scale-x-0 transition-transform duration-500 ease-expo group-hover/link:scale-x-100',
+                      scrolled ? 'bg-navy-mid' : 'bg-cream',
+                      active && 'scale-x-100',
+                    )}
                   />
-                )}
-              </div>
-            )
-          })}
-        </nav>
+                </Link>
+              )
+            })}
+          </nav>
 
-        {/* ─── Actions droite ─── */}
-        <div className="hidden lg:flex items-center gap-5">
-          <a
-            href={whatsappLink("Bonjour Lab's Food, ")}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-md font-medium text-navy/75 hover:text-whatsapp-deep transition-colors group"
-          >
-            {/* <span className="relative grid place-items-center size-5">
-              <span className="absolute inset-0 rounded-full bg-whatsapp/30 animate-ping" />
-              <span className="relative size-1.5 rounded-full bg-whatsapp" />
-            </span> */}
-            <span className="hidden xl:inline">Service client whatsapp · 7j/7</span>
-          </a>
-
-          <span className="h-5 w-px bg-navy/15" aria-hidden />
-
-          {/* <Link
-            href="/produits/kossam"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-navy text-cream text-xs font-medium tracking-wide hover:bg-navy-mid transition-colors duration-500"
-          >
-            Commander Kossam
-            <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:rotate-45" />
-          </Link> */}
-        </div>
-
-        {/* ─── Burger mobile ─── */}
-        <button
-          aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
-          className="lg:hidden size-10 grid place-items-center rounded-full border border-navy/20 text-navy hover:bg-navy hover:text-cream transition-colors"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="size-4" /> : <Menu className="size-4" />}
-        </button>
-      </div>
-
-      {/* ─── Drawer mobile ─── */}
-      <div
-        className={cn(
-          'lg:hidden fixed inset-x-0 top-20 bottom-0 bg-cream transition-all duration-500 ease-expo',
-          open
-            ? 'opacity-100 pointer-events-auto translate-y-0'
-            : 'opacity-0 pointer-events-none -translate-y-2',
-        )}
-      >
-        <div className="container-wide flex flex-col py-8">
-          {NAV.map((item, i) => {
-            const active =
-              item.href === '/'
-                ? pathname === '/'
-                : pathname?.startsWith(item.href)
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  'group flex items-baseline gap-5 py-5 border-b border-navy/10 transition-colors',
-                  active ? 'text-navy-mid' : 'text-navy',
-                )}
-              >
-                <span className="font-mono text-[0.65rem] tabular-nums text-navy/35">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="font-display text-3xl">{item.label}</span>
-                {active && (
-                  <span className="ml-auto size-1.5 rounded-full bg-navy-mid self-center" />
-                )}
-              </Link>
-            )
-          })}
-
-          <div className="mt-10 grid grid-cols-2 gap-3">
+          {/* ─── CTA droite (desktop) ─── */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
               href={whatsappLink("Bonjour Lab's Food, ")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-whatsapp text-white text-xs font-medium"
+              className={cn(
+                'group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full text-sm font-medium transition-all duration-500',
+                scrolled
+                  ? 'bg-navy text-cream hover:bg-navy-mid'
+                  : 'bg-cream/10 text-cream border border-cream/30 hover:bg-cream hover:text-navy backdrop-blur-sm',
+              )}
             >
-              <MessageCircle className="size-3.5" />
-              WhatsApp
+              Discuter
+              <span className="size-8 rounded-full grid place-items-center bg-whatsapp text-white">
+                <MessageCircle className="size-3.5" />
+              </span>
             </a>
-            <Link
-              href="/produits/kossam"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-navy text-cream text-xs font-medium"
+          </div>
+
+          {/* ─── Burger mobile ─── */}
+          <button
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+            className={cn(
+              'lg:hidden size-11 grid place-items-center rounded-full border transition-colors',
+              scrolled
+                ? 'border-navy/20 text-navy hover:bg-navy hover:text-cream'
+                : 'border-cream/30 text-cream hover:bg-cream hover:text-navy',
+            )}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="size-4" /> : <Menu className="size-4" />}
+          </button>
+        </div>
+      </header>
+
+      {/* ─── Drawer mobile (full-screen navy) ─── */}
+      <div
+        className={cn(
+          'lg:hidden fixed inset-0 z-40 bg-navy text-cream transition-all duration-500 ease-expo',
+          open
+            ? 'opacity-100 pointer-events-auto'
+            : 'opacity-0 pointer-events-none',
+        )}
+      >
+        <div className="container-wide pt-32 pb-12 h-full flex flex-col">
+          <nav className="flex-1 flex flex-col" aria-label="Menu mobile">
+            {NAV.map((item, i) => {
+              const active =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname?.startsWith(item.href)
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    'group flex items-baseline gap-5 py-5 border-b border-cream/10 transition-all duration-500',
+                    open ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+                  )}
+                  style={{ transitionDelay: open ? `${i * 70}ms` : '0ms' }}
+                >
+                  <span className="font-mono text-[0.7rem] tabular-nums text-cream/35">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    className={cn(
+                      'font-display text-4xl transition-colors',
+                      active ? 'text-cream' : 'text-cream/70 group-hover:text-cream',
+                    )}
+                  >
+                    {item.label}
+                  </span>
+                  {active && (
+                    <span className="ml-auto size-2 rounded-full bg-navy-mid self-center" />
+                  )}
+                </Link>
+              )
+            })}
+          </nav>
+
+          <div className="mt-10 flex flex-col gap-3">
+            <a
+              href={whatsappLink("Bonjour Lab's Food, ")}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-whatsapp text-white text-sm font-medium"
             >
-              Commander
-              <ArrowUpRight className="size-3.5" />
-            </Link>
+              <MessageCircle className="size-4" />
+              Discuter sur WhatsApp
+              <ArrowUpRight className="size-4" />
+            </a>
+            <p className="text-center text-xs text-cream/45">
+              Service client 7j/7 — Messages écrits uniquement
+            </p>
           </div>
         </div>
       </div>
-    </header>
+    </>
   )
 }

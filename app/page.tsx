@@ -1,31 +1,33 @@
-import { HeroA } from '@/components/sections/HeroA'
-import { HeroB } from '@/components/sections/HeroB'
-import { HeroC } from '@/components/sections/HeroC'
-import { ServicesSection } from '@/components/sections/ServicesSection'
+import { HeroD } from '@/components/sections/HeroD'
+import { IntroSection } from '@/components/sections/IntroSection'
+import { ShowcaseSection } from '@/components/sections/ShowcaseSection'
+import { GallerySection } from '@/components/sections/GallerySection'
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
+import { CtaFinalSection } from '@/components/sections/CtaFinalSection'
 import { ProductsSection } from '@/components/sections/ProductsSection'
-import { FounderSection } from '@/components/sections/FounderSection'
-import { ReviewsSection } from '@/components/sections/ReviewsSection'
-import { CtaSection } from '@/components/sections/CtaSection'
 
-// ── Hero à utiliser ──────────────────────────────────────────────────────────
-// 3 variantes disponibles :
-//   HeroA — cinématique vidéo plein écran
-//   HeroB — split asymétrique éditorial
-//   HeroC — triptyque magazine
-// Décommenter celui que tu veux essayer ↑.
-
+/**
+ * Home — Redesign benchland-inspired
+ *
+ * Architecture :
+ *   1. HeroD             Hero full-bleed avec image + crown + h1 italic
+ *   2. IntroSection      Bienvenue (photo Ivy + texte) + 4 valeurs
+ *   3. ShowcaseSection   3 services en lignes éditoriales alternées (navy)
+ *   4. ProductsSection   Kossam + bientôt (mis à jour précédemment)
+ *   5. GallerySection    Marquee mots + mosaïque photos
+ *   6. TestimonialsSection  Carrousel témoignages éditorial
+ *   7. CtaFinalSection   CTA WhatsApp full-bleed
+ */
 export default function HomePage() {
   return (
     <>
-      {/* <HeroA /> */}
-      <HeroB />
-      {/* <HeroC /> */}
-
-      <ServicesSection />
+      <HeroD />
+      <IntroSection />
+      <ShowcaseSection />
       <ProductsSection />
-      <FounderSection />
-      <ReviewsSection />
-      <CtaSection />
+      <GallerySection />
+      <TestimonialsSection />
+      <CtaFinalSection />
     </>
   )
 }
