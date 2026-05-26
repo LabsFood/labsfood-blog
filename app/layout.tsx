@@ -80,7 +80,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F7F1E8' },
+    { media: '(prefers-color-scheme: light)', color: '#F4F6F7' },
     { media: '(prefers-color-scheme: dark)', color: '#00234B' },
   ],
   width: 'device-width',
@@ -96,7 +96,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${fraunces.variable} ${montserrat.variable} ${dmMono.variable}`}
+      className={`${fraunces.variable} ${montserrat.variable} `}
     >
       <body className="bg-cream text-ink font-sans antialiased">
         <SplashScreen />

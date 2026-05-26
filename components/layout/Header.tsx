@@ -13,8 +13,8 @@ const NAV = [
   // { label: 'Services', href: '/services' },
   // { label: 'Produits', href: '/produits' },
   // { label: 'Devenir chef', href: '/devenir-chef' },
+  { label: 'Nos Services', href: '/services' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Nos Services', href: '/contact' },
 ]
 
 export function Header() {
@@ -79,7 +79,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'relative px-4 py-2 text-sm transition-colors duration-300',
+                    'relative px-4 py-2 text-md transition-colors duration-300',
                     active
                       ? 'text-navy font-medium'
                       : 'text-navy/70 hover:text-navy',
@@ -107,12 +107,12 @@ export function Header() {
             href={whatsappLink("Bonjour Lab's Food, ")}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-medium text-navy/75 hover:text-whatsapp-deep transition-colors group"
+            className="inline-flex items-center gap-2 text-md font-medium text-navy/75 hover:text-whatsapp-deep transition-colors group"
           >
-            <span className="relative grid place-items-center size-5">
+            {/* <span className="relative grid place-items-center size-5">
               <span className="absolute inset-0 rounded-full bg-whatsapp/30 animate-ping" />
               <span className="relative size-1.5 rounded-full bg-whatsapp" />
-            </span>
+            </span> */}
             <span className="hidden xl:inline">Service client whatsapp · 7j/7</span>
           </a>
 

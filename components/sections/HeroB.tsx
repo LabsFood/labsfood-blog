@@ -38,9 +38,9 @@ export function HeroB() {
           <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] text-navy leading-[0.95] tracking-tight">
             Lab&apos;s Food,
             <br />
-            <span className="italic gradient-text-terra">la maison qui</span>
+            <span className="gradient-text-terra">la maison qui</span>
             <br />
-            <span className="italic gradient-text-terra">vous fait voyager.</span>
+            <span className="gradient-text-terra">vous fait voyager.</span>
           </h1>
 
           {/* Tagline brand-first */}
@@ -69,12 +69,12 @@ export function HeroB() {
           <div className="flex flex-wrap items-center gap-4 mt-12">
             <Button asChild size="lg">
               <Link href="/services">
-                Découvrir la maison
+                Nos Produits
                 <ArrowUpRight className="size-4" />
               </Link>
             </Button>
             <Button asChild variant="ghost" size="lg">
-              <Link href="#services">Nos services</Link>
+              <Link href="/services">Nos services</Link>
             </Button>
           </div>
         </motion.div>

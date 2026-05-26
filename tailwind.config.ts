@@ -11,39 +11,44 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Palette principale Lab's Food
+        // ── Palette principale Lab's Food ──────────────────────────────────
+        // Primaire  : #00234B  (navy profond)
+        // Secondaire: #2C3E50  (ardoise — états secondaires, footer, hover)
+        // Fond      : #F4F6F7  (gris froid neutre — remplace la crème chaude)
+        // Accent    : #D96941  (terra — chaleur, CTA, gradients)
+
         navy: {
-          DEFAULT: '#00234B',
-          deep: '#001833',
-          mid: '#0A3160',
-          soft: '#1A4577',
+          DEFAULT: '#00234B',   // primaire
+          deep:    '#001833',   // plus sombre (hover fort, ombres)
+          mid:     '#2C3E50',   // secondaire (sections, footer alternatif)
+          soft:    '#3D5166',   // dérivé de #2C3E50, textes secondaires navy
         },
         terra: {
           DEFAULT: '#D96941',
-          deep: '#B8542F',
-          soft: '#E8895F',
-          pale: '#F4D4C2',
+          deep:    '#B8542F',
+          soft:    '#E8895F',
+          pale:    '#F4D4C2',
         },
         teal: {
           DEFAULT: '#193C40',
-          deep: '#0E2426',
-          soft: '#2A5559',
-          pale: '#D1DCDD',
+          deep:    '#0E2426',
+          soft:    '#2A5559',
+          pale:    '#D1DCDD',
         },
         cream: {
-          DEFAULT: '#F7F1E8',
-          soft: '#FBF7F0',
-          deep: '#EDE3D1',
+          DEFAULT: '#F4F6F7',   // fond principal (gris froid neutre)
+          soft:    '#FAFBFC',   // fond alternatif clair (cards sur cream)
+          deep:    '#E5E8EC',   // fond de contraste léger (sections alternées)
         },
         ink: {
           DEFAULT: '#0F1F2E',
-          mid: '#3A4A5A',
-          soft: '#7B8794',
+          mid:     '#3A4A5A',
+          soft:    '#7B8794',
         },
         whatsapp: {
           DEFAULT: '#25D366',
-          deep: '#1DA851',
-          dark: '#128C7E',
+          deep:    '#1DA851',
+          dark:    '#128C7E',
         },
         border: 'rgba(0,35,75,0.10)',
       },
