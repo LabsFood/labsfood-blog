@@ -168,7 +168,7 @@ export default function AssistanceCulinaireePage() {
           <div className="lg:col-span-5 relative">
             <div className="rounded-3xl overflow-hidden aspect-[4/5] bg-navy">
               <Image
-                src="/assets/photo-7.jpeg"
+                src="/assets/smile.jpeg"
                 alt="Assistance culinaire Lab's Food"
                 fill
                 className="object-cover"
