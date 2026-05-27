@@ -21,7 +21,7 @@ export function HeroD() {
           alt="Lab's Food — We create what you love!"
           fill
           priority
-          quality={92}
+          quality={100}
           className="object-cover animate-zoom-slow"
           sizes="100vw"
         />
@@ -39,7 +39,7 @@ export function HeroD() {
       {/* ─── Contenu centré ─── */}
       <div className="relative h-full flex flex-col items-center justify-center text-center text-cream px-6">
         {/* Crown logo (whiteLogo sur fond sombre) */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -55,7 +55,7 @@ export function HeroD() {
               className="object-contain"
             />
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Kicker */}
         <motion.p
@@ -65,7 +65,7 @@ export function HeroD() {
           className="font-mono text-[0.7rem] md:text-xs uppercase tracking-[0.4em] text-cream/80 mb-5 inline-flex items-center gap-3"
         >
           <span className="size-8 h-px bg-cream/40" />
-          Maison culinaire — depuis 21 pays
+          Maison culinaire — par Siyaptze
           <span className="size-8 h-px bg-cream/40" />
         </motion.p>
 
@@ -92,9 +92,8 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="mt-8 max-w-2xl text-cream/85 text-lg md:text-xl leading-relaxed text-pretty"
         >
-          Fondée par Ivy après l&apos;exploration de 21 pays, Lab&apos;s Food
-          est une maison culinaire qui invite à voyager autour d&apos;une assiette
-          — sans tracasserie de visa.
+          Fondée par Ivy, Lab&apos;s Food est une maison culinaire qui invite
+          à voyager autour d&apos;une assiette — sans tracasserie de visa.
         </motion.p>
 
         {/* Stats inline */}
@@ -104,7 +103,7 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.7 }}
           className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
         >
-          <Stat value="21" label="pays explorés" />
+          <Stat value="+150" label="gourmands régalés" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
           <Stat value="03" label="services maison" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />

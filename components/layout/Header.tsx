@@ -47,28 +47,16 @@ export function Header() {
         <div className="container-wide flex items-center justify-between gap-8">
           {/* ─── Logo (mainLogo bleu sur cream / whiteLogo blanc sur transparent) ─── */}
           <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <span className="relative size-14 transition-transform duration-500 ease-expo group-hover:rotate-[6deg]">
+            <span className="relative transition-transform duration-500 ease-expo group-hover:rotate-[6deg]">
               <Image
                 src={scrolled ? '/mainLogo.png' : '/whiteLogo.png'}
                 alt="Lab's Food"
-                fill
-                sizes="56px"
-                className="object-contain"
+                width={200}
+                height={200}
+                // sizes="200px"
+                // className="w-full"
                 priority
               />
-            </span>
-            <span
-              className={cn(
-                'hidden sm:flex flex-col leading-none transition-colors duration-500',
-                scrolled ? 'text-navy' : 'text-cream',
-              )}
-            >
-              <span className="font-display text-xl tracking-tight">
-                Lab&apos;s Food
-              </span>
-              <span className="font-display italic text-[0.7rem] mt-0.5 opacity-75">
-                We create what you love!
-              </span>
             </span>
           </Link>
 
@@ -144,16 +132,18 @@ export function Header() {
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
         </div>
-      </header>
+      </header >
 
       {/* ─── Drawer mobile (full-screen navy) ─── */}
-      <div
-        className={cn(
-          'lg:hidden fixed inset-0 z-40 bg-navy text-cream transition-all duration-500 ease-expo',
-          open
-            ? 'opacity-100 pointer-events-auto'
-            : 'opacity-0 pointer-events-none',
-        )}
+      < div
+        className={
+          cn(
+            'lg:hidden fixed inset-0 z-40 bg-navy text-cream transition-all duration-500 ease-expo',
+            open
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none',
+          )
+        }
       >
         <div className="container-wide pt-32 pb-12 h-full flex flex-col">
           <nav className="flex-1 flex flex-col" aria-label="Menu mobile">
@@ -207,7 +197,7 @@ export function Header() {
             </p>
           </div>
         </div>
-      </div>
+      </ div>
     </>
   )
 }

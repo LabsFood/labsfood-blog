@@ -23,12 +23,12 @@ export function Loader({ fullscreen = false, label = 'Chargement', className }: 
       <div className="relative size-24">
         <div className="absolute inset-0 rounded-full border-2 border-navy/10" />
         <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-navy-mid border-r-navy-mid animate-spin [animation-duration:1.2s]" />
-        <div className="absolute inset-2 rounded-full bg-navy grid place-items-center">
+        <div className="absolute inset-2 rounded-full grid place-items-center">
           <Image
-            src="/logo.png"
+            src="/logoLab.png"
             alt=""
-            width={36}
-            height={36}
+            width={100}
+            height={100}
             className="object-contain animate-float"
             priority
           />

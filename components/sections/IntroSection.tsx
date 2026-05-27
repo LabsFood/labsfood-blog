@@ -13,7 +13,7 @@ const VALUES = [
   {
     icon: Leaf,
     title: 'Cuisine du voyage',
-    text: "Inspirations puisées dans 21 pays — chaque assiette raconte une culture.",
+    text: "Inspirations puisées dans les cuisines du monde — chaque assiette raconte une culture.",
   },
   {
     icon: Heart,
@@ -102,9 +102,8 @@ export function IntroSection() {
             <div className="mt-10 space-y-5 text-ink/75 leading-relaxed max-w-xl text-pretty">
               <p>
                 Ingénieure de formation, mais avant tout passionnée de
-                gastronomie et d&apos;évasion. Après avoir exploré les cultures
-                et les saveurs de 21 pays, Ivy a fondé Lab&apos;s Food avec une
-                conviction simple : <em>le plus beau des voyages se passe
+                gastronomie et d&apos;évasion. Ivy a fondé Lab&apos;s Food avec
+                une conviction simple : <em>le plus beau des voyages se passe
                 souvent autour d&apos;une assiette</em>.
               </p>
               <p>

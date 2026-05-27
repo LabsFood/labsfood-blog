@@ -56,8 +56,8 @@ export function HeroA() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="lede text-cream/75 max-w-xl mt-8"
         >
-          Ateliers de cuisine du monde, batch cooking à domicile, et produits artisanaux
-          inspirés des saveurs de 21 pays.
+          Ateliers de cuisine du monde, batch cooking à domicile, et produits
+          artisanaux inspirés des saveurs d&apos;ici et d&apos;ailleurs.
         </motion.p>
 
         <motion.div
@@ -87,8 +87,8 @@ export function HeroA() {
           className="mt-16 pt-8 border-t border-cream/15 grid grid-cols-3 max-w-2xl gap-8"
         >
           {[
-            { value: '21', label: 'pays explorés' },
-            { value: '+200', label: 'recettes' },
+            { value: '+150', label: 'gourmands régalés' },
+            { value: '03', label: 'services maison' },
             { value: 'HACCP', label: 'certifiée' },
           ].map((stat) => (
             <div key={stat.label}>
