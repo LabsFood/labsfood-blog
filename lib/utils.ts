@@ -23,4 +23,5 @@ export function whatsappLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, '')}?text=${encoded}`
 }
 
-export const BATCH_COOKING_URL = 'https://batch-cooking-web.vercel.app/'
+// Site dédié batch cooking (Taplink) — fourni par la cliente
+export const BATCH_COOKING_URL = 'https://labsfood.taplink.site/'

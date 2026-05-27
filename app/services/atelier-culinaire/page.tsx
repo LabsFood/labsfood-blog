@@ -213,21 +213,19 @@ export default function AtelierPage() {
       {/* ── Inclus dans l'atelier ───────────────────────────────────── */}
       <section className="bg-cream py-24 md:py-32">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
-          <Reveal axis="x">
-            <div className="lg:col-span-5 relative">
-              <div className="rounded-3xl overflow-hidden aspect-[4/5] bg-navy">
-                <Image
-                  src="/assets/info-atelier.jpeg"
-                  alt="Atelier culinaire Lab's Food"
-                  width={800}
-                  height={1000}
-                  className="object-cover w-full h-full"
-                />
-              </div>
+          <Reveal axis="x" className="lg:col-span-5 relative">
+            <div className="rounded-3xl overflow-hidden aspect-[4/5] bg-navy">
+              <Image
+                src="/assets/info-atelier.jpeg"
+                alt="Atelier culinaire Lab's Food"
+                width={800}
+                height={1000}
+                className="object-cover w-full h-full"
+              />
             </div>
           </Reveal>
-          <Reveal>
-            <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
+            <div>
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
                 <span className="size-6 h-px bg-navy-mid" />
                 Inclus dans l&apos;atelier

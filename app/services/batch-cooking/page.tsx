@@ -85,8 +85,8 @@ export default function BatchCookingPage() {
       {/* ── Bloc Pourquoi ────────────────────────────────────────────── */}
       <section className="bg-cream py-24 md:py-32">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
-          <Reveal>
-            <div className="lg:col-span-6 order-2 lg:order-1">
+          <Reveal className="lg:col-span-6 order-2 lg:order-1">
+            <div>
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
                 <span className="size-6 h-px bg-navy-mid" />
                 Pourquoi le batch ?
@@ -120,8 +120,8 @@ export default function BatchCookingPage() {
             </div>
           </Reveal>
 
-          <Reveal axis="x">
-            <div className="lg:col-span-6 order-1 lg:order-2 relative h-[480px] md:h-[600px]">
+          <Reveal axis="x" className="lg:col-span-6 order-1 lg:order-2">
+            <div className="relative h-[480px] md:h-[600px]">
               <div className="absolute top-0 right-0 w-[70%] h-[60%] rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src="/assets/photo-9.jpeg"
