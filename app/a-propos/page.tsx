@@ -78,7 +78,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
-                  src="/assets/photo-6.jpeg"
+                  src="/assets/placehold.jpeg"
                   alt="Siyaptze — Fondatrice de Lab's Food"
                   fill
                   className="object-cover object-top"
