@@ -7,7 +7,7 @@ import {
   ChefHat,
   CalendarCheck,
   Building2,
-  
+
   Utensils,
   Users,
   ClipboardList,
@@ -417,15 +417,15 @@ export default function AssistanceCulinaireePage() {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="section bg-navy relative overflow-hidden">
+      <section className="section bg-orange-deep relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.04]" />
         <div className="container-wide relative grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8">
-            <span className="eyebrow text-navy-soft">Pas encore décidé ?</span>
+            <span className="eyebrow text-cream">Pas encore décidé ?</span>
             <h2 className="font-display text-4xl md:text-6xl text-cream mt-4 text-balance leading-[0.95]">
               Décrivez-nous votre événement,
               <br />
-              <span className="italic text-navy-soft">on revient vite.</span>
+              <span className="italic text-cream">on revient vite.</span>
             </h2>
             <p className="mt-6 text-cream/70 max-w-xl leading-relaxed">
               Dîner de 30 couverts, renfort traiteur, événement d&apos;entreprise — chaque
@@ -433,7 +433,7 @@ export default function AssistanceCulinaireePage() {
               vers le bon profil.
             </p>
             <div className="flex items-center gap-2 mt-4 text-sm text-cream/55">
-              <ClipboardList className="size-4 text-navy-soft" />
+              <ClipboardList className="size-4 text-cream" />
               Le client est responsable des ingrédients et du matériel de base.
             </div>
           </div>
