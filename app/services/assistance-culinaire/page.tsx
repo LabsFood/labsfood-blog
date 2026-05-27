@@ -265,7 +265,7 @@ export default function AssistanceCulinaireePage() {
                     src={chef.photo}
                     alt={chef.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     sizes="(min-width: 1024px) 33vw, 100vw"
                   />
                   {/* Overlay dégradé bas */}

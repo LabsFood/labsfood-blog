@@ -194,7 +194,7 @@ export const CHEFS = [
     n: '01',
     name: 'Ivy',
     title: "Fondatrice & Cheffe · Lab's Food",
-    photo: '/IvyOfficielle.png',
+    photo: '/assets/placehold.jpeg',
     region: "Côte d'Azur",
     zone: "Nice · Cannes · Antibes · Monaco",
     bio: "Ingénieure de formation, passionnée de gastronomie et de voyages. Ivy a fondé Lab's Food pour partager une vision : cuisiner, c'est voyager.",
