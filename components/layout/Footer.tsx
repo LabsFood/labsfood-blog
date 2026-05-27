@@ -37,10 +37,10 @@ const LINKS = {
     { label: 'Bientôt — Luxury Kossam', href: '/produits' },
   ],
   legal: [
-    { label: 'Mentions légales', href: '/contact' },
-    { label: 'CGV', href: '/contact' },
-    { label: 'Confidentialité', href: '/contact' },
-    { label: 'Cookies', href: '/contact' },
+    { label: 'Mentions légales', href: '/cgu' },
+    { label: 'CGU', href: '/cgu' },
+    { label: 'Confidentialité', href: '/confidentialite' },
+    { label: 'Cookies', href: '/confidentialite' },
   ],
 }
 

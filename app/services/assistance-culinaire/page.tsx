@@ -341,20 +341,24 @@ export default function AssistanceCulinaireePage() {
                     </div>
                   </div>
 
-                  {/* CTA */}
+                  {/* CTA — Lien de prise de RDV (Calendly/YouCanBookMe).
+                      Cf. onglet 5 du doc : pas de numéro affiché en public,
+                      le restaurateur choisit un créneau et laisse son numéro. */}
                   <div className="flex flex-wrap items-center gap-4">
-                    <Button asChild variant="whatsapp" size="lg">
+                    <Button asChild variant="primary" size="lg">
                       <a
-                        href={whatsappLink(chef.whatsappMessage)}
+                        href={chef.bookingLink}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <MessageCircle className="size-4" />
-                        Contacter {chef.name}
+                        <CalendarCheck className="size-4" />
+                        Réserver un appel avec {chef.name}
+                        <ArrowUpRight className="size-4" />
                       </a>
                     </Button>
-                    <div className="text-xs text-ink/50">
-                      Réponse 7j/7
+                    <div className="text-xs text-ink/55 italic max-w-[18rem]">
+                      Vous choisissez un créneau, on échange par téléphone — sans
+                      diffusion publique des numéros.
                     </div>
                   </div>
                 </div>

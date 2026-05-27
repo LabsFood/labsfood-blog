@@ -120,15 +120,64 @@ export const REVIEWS = [
 ] as const
 
 export const FOUNDER = {
-  name: 'Ivy',
-  title: 'Fondatrice & cheffe',
-  bio: "Ingénieure de formation et étudiante, mais avant tout une véritable passionnée de gastronomie et d'évasion. Après avoir exploré les cultures et les saveurs de 21 pays, j'ai eu une conviction : le plus beau des voyages se passe souvent autour d'une assiette.",
+  name: 'Siyaptze',
+  nick: 'Ivy',
+  title: 'Fondatrice de Lab\'s Food',
+  /**
+   * Bio officielle — fournie par la cliente (Updates LabsFood Main, onglet 3)
+   * Structurée en paragraphes courts pour le rendu éditorial.
+   */
+  bioParagraphs: [
+    "Je m'appelle Siyaptze. Ingénieure de formation et toujours étudiante pour me spécialiser dans la gestion de projets et l'excellence opérationnelle, je connais parfaitement ce que signifie vivre à 100 à l'heure. C'est justement parce que je voyais les personnes autour de moi, submergées par ce même rythme effréné, galérer pour bien manger que j'ai imaginé Lab's Food.",
+    "Le véritable déclic s'est produit lors de la grossesse de ma tante. À cette époque, mon agenda était un marathon ininterrompu. Je courais 7 jours sur 7 : la semaine, je jonglais entre l'école et mon entreprise d'alternance, et le week-end, je travaillais dans un restaurant d'où je rentrais souvent vers 23 heures. J'étais épuisée, et ma tante habitait à deux heures de route.",
+    "Pourtant, je me battais pour dégager du temps et aller lui préparer ses repas. À chaque fois, la voir s'illuminer, la voir me remercier avec un sourire si profond m'a bouleversée. Elle me disait « MERCI » comme si j'avais fait quelque chose d'exceptionnel. Et j'ai réalisé qu'elle avait raison : soulager la charge mentale d'une personne par la cuisine, c'est exceptionnel.",
+    "Ce sourire a été mon moteur. J'ai laissé derrière moi ce rythme épuisant pour créer Lab's Food, un projet que je mène de front avec mes études. Après tout, optimiser le temps et l'organisation, c'est le cœur de mon métier !",
+    "J'ai commencé par le batch cooking à domicile. Puis, face à la réalité de l'entrepreneuriat et pour faire tourner l'entreprise, je me suis adaptée. J'ai ajouté l'assistance et les ateliers culinaires à domicile, avant de faire un pari audacieux : lancer une gamme de produits d'exception.",
+    "C'est ainsi qu'est arrivé notre fameux Kossam. Le succès a été immédiat ! Aujourd'hui, c'est plus de 150 gourmands régalés et fidélisés. Une vraie fierté qui me pousse à aller encore plus loin.",
+    "Aujourd'hui, Lab's Food n'est plus seulement une entreprise, c'est une véritable plateforme dédiée à votre bien-être gourmand. Je vois grand pour la suite, et je vous invite à rester connectés, car de magnifiques choses se préparent en coulisses…",
+    "En attendant, je vous laisse parcourir mes services sur-mesure et découvrir nos produits d'exception. Laissez-moi entrer dans votre cuisine, je m'occupe du reste !",
+  ],
+  /**
+   * Pull-quote phare extraite de la bio (déclic).
+   */
+  signaturePull:
+    "Soulager la charge mentale d'une personne par la cuisine, c'est exceptionnel.",
   mission:
-    "Vous faire voyager culinairement parlant, sans aucune tracasserie de visa. Lab's Food crée le lien entre passionnés de cuisine qui veulent transmettre, et gourmands qui veulent découvrir.",
-  countries: 21,
+    "Lab's Food, c'est une plateforme dédiée à votre bien-être gourmand — entrer dans votre cuisine pour vous y faire respirer.",
+  gourmandsServed: 150,
   certifications: ['HACCP'],
-  languages: ['Français', 'Portugais', 'Anglais'],
+  languages: ['Français', 'Anglais', 'Portugais'],
 }
+
+/**
+ * Chronologie LAB'S FOOD en 4 temps (Updates LabsFood Main, onglet 4)
+ */
+export const TIMELINE = [
+  {
+    year: '2020',
+    place: 'Cameroun',
+    title: 'Les premiers pas',
+    body: "L'aventure Lab's Food commence ! Ma première mission à l'époque ? Conquérir les cœurs et les estomacs, principalement avec mon riz sauté et mes pâtisseries (crêpes, cakes…).",
+  },
+  {
+    year: '2021',
+    place: 'Brésil',
+    title: "L'école de la résilience",
+    body: "Nouveau continent, nouveau défi. Je me lance dans la commercialisation de douceurs… et c'est un échec total ! Je ne maîtrise pas les codes locaux. Une claque, mais surtout une formidable leçon qui m'a forgée.",
+  },
+  {
+    year: '2025',
+    place: 'France',
+    title: 'La révélation',
+    body: "Je pose mes valises et je repense mon modèle. Je teste mon concept de batch cooking à domicile et je fais découvrir mon fameux Kossam gratuitement. Les retours sont incroyables, l'évidence est là : ça marche.",
+  },
+  {
+    year: '2026',
+    place: 'La concrétisation',
+    title: 'Naissance officielle',
+    body: "L'année où tout prend forme. Je structure l'ensemble de mes services, j'allie mes compétences en gestion de projets et excellence opérationnelle à ma passion, et je fonde officiellement l'entreprise. Lab's Food est prête à révolutionner votre quotidien !",
+  },
+] as const
 
 /**
  * Chefs disponibles pour l'assistance culinaire.
@@ -153,7 +202,12 @@ export const CHEFS = [
     languages: ['FR', 'PT', 'EN'],
     specialties: ['Cuisines du monde', 'Cuisine africaine', 'Dressage & présentation'],
     available: true,
-    whatsappMessage: "Bonjour Ivy, je souhaite vous contacter pour une assistance culinaire — voici mon événement : ",
+    /**
+     * Lien de prise de rendez-vous (Calendly / YouCanBookMe).
+     * Cf. onglet 5 du doc client : on n'affiche jamais le numéro perso en public.
+     * À remplacer par le vrai lien du chef quand disponible.
+     */
+    bookingLink: 'https://calendly.com/labs-food-ivy',
   },
   {
     id: 'davilla',
@@ -168,6 +222,6 @@ export const CHEFS = [
     languages: ['FR', 'EN'],
     specialties: ['Cuisine africaine', 'Cuisine européenne'],
     available: true,
-    whatsappMessage: "Bonjour Lab's Food, je souhaite contacter D'Avilla pour une assistance culinaire — voici mon événement : ",
+    bookingLink: 'https://calendly.com/labs-food-davilla',
   },
 ] as const

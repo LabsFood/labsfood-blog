@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   ArrowLeft,
@@ -12,13 +12,449 @@ import {
   User,
   IdCard,
   ChefHat,
-  FileText,
   ShieldCheck,
+  Eye,
+  Upload,
+  Link as LinkIcon,
 } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
-// ── Types ───────────────────────────────────────────────────────────────────
+/**
+ * Formulaire chef partenaire — refonte selon doc client
+ * "Updates LabsFood Main" onglet 6
+ *
+ * 5 sections :
+ *   1. Coordonnées (confidentiel)
+ *   2. Profil public (vitrine)
+ *   3. Expérience & compétences
+ *   4. Pièce d'identité (CNI / titre de séjour)
+ *   5. Consentements légaux
+ */
+
+// ─── Données fixes des sections ──────────────────────────────────────────
+const STEPS = [
+  { n: '01', title: 'Coordonnées', icon: User, sub: 'Strictement confidentiel' },
+  { n: '02', title: 'Profil public', icon: Eye, sub: 'Votre vitrine' },
+  { n: '03', title: 'Expérience', icon: ChefHat, sub: 'Compétences & missions' },
+  { n: '04', title: 'Pièce d\'identité', icon: IdCard, sub: 'CNI ou titre de séjour' },
+  { n: '05', title: 'Consentements', icon: ShieldCheck, sub: 'Validation finale' },
+] as const
+
+const PROFILE_TYPES = [
+  { value: 'etudiant', label: 'Étudiant(e) à la recherche d\'un job / d\'extras' },
+  { value: 'pro', label: 'Professionnel(le) de la restauration' },
+  { value: 'reconversion', label: 'Passionné(e) en reconversion' },
+  { value: 'autre', label: 'Autre (préciser)' },
+] as const
+
+const STATUS_OPTIONS = [
+  {
+    value: 'extras',
+    label: 'Contrats courts / Extras',
+    note: 'CDD d\'usage ou job étudiant',
+  },
+  {
+    value: 'auto',
+    label: 'Auto-entrepreneur',
+    note: 'Je facture mes prestations',
+  },
+] as const
+
+const EXPERIENCE_LEVELS = [
+  { value: 'debutant', label: 'Débutant(e)', note: 'Aucune exp. pro, mais motivé(e)' },
+  { value: 'quelques', label: 'Quelques expériences', note: 'Jobs d\'été, petits extras' },
+  { value: 'expert', label: 'Expérimenté(e)', note: '1 à 3 ans' },
+  { value: 'confirme', label: 'Confirmé(e)', note: '+ de 3 ans' },
+] as const
+
+const MISSION_TYPES = [
+  { value: 'plonge', label: 'Plonge et nettoyage' },
+  { value: 'preparations', label: 'Préparations de base (épluchage, découpe)' },
+  { value: 'commis', label: 'Aide-cuisinier / Commis' },
+  { value: 'service', label: 'Service en salle / Runner' },
+] as const
+
+// ─── Composant principal ──────────────────────────────────────────────────
+
+export function ChefForm() {
+  const [step, setStep] = useState(0)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const goNext = () => setStep((s) => Math.min(STEPS.length - 1, s + 1))
+  const goPrev = () => setStep((s) => Math.max(0, s - 1))
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setError(null)
+    setSubmitting(true)
+    try {
+      // TODO: brancher l'envoi (API route, email, etc.)
+      await new Promise((r) => setTimeout(r, 1000))
+      setSubmitted(true)
+    } catch {
+      setError("Une erreur est survenue. Réessayez ou contactez-nous sur WhatsApp.")
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  if (submitted) {
+    return <SubmittedConfirmation />
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="flex flex-col gap-10">
+      {/* ─── Stepper ─── */}
+      <Stepper currentStep={step} />
+
+      {/* ─── Contenu de l'étape ─── */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={step}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.35 }}
+          className="min-h-[400px]"
+        >
+          {step === 0 && <SectionCoordonnees />}
+          {step === 1 && <SectionProfilPublic />}
+          {step === 2 && <SectionExperience />}
+          {step === 3 && <SectionIdentite />}
+          {step === 4 && <SectionConsentements />}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* ─── Erreur éventuelle ─── */}
+      {error && (
+        <div className="flex items-start gap-3 p-4 rounded-2xl bg-navy-mid/10 border border-navy-mid/20 text-navy-mid text-sm">
+          <AlertCircle className="size-4 shrink-0 mt-0.5" />
+          {error}
+        </div>
+      )}
+
+      {/* ─── Navigation ─── */}
+      <div className="flex items-center justify-between gap-4 pt-6 border-t border-navy/10">
+        <button
+          type="button"
+          onClick={goPrev}
+          disabled={step === 0}
+          className={cn(
+            'inline-flex items-center gap-2 px-5 py-3 rounded-full border border-navy/20 text-navy text-sm font-medium transition-all',
+            step === 0
+              ? 'opacity-30 cursor-not-allowed'
+              : 'hover:bg-navy hover:text-cream hover:border-navy',
+          )}
+        >
+          <ArrowLeft className="size-4" />
+          Précédent
+        </button>
+
+        <div className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-ink/40 tabular-nums">
+          {String(step + 1).padStart(2, '0')}
+          <span className="mx-1 text-ink/20">/</span>
+          {String(STEPS.length).padStart(2, '0')}
+        </div>
+
+        {step < STEPS.length - 1 ? (
+          <button
+            type="button"
+            onClick={goNext}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-navy text-cream text-sm font-medium hover:bg-navy-mid transition-all"
+          >
+            Suivant
+            <ArrowRight className="size-4" />
+          </button>
+        ) : (
+          <button
+            type="submit"
+            disabled={submitting}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-navy-mid text-cream text-sm font-medium hover:bg-navy-deep transition-all disabled:opacity-50"
+          >
+            {submitting ? (
+              <>
+                <Loader2 className="size-4 animate-spin" />
+                Envoi…
+              </>
+            ) : (
+              <>
+                Envoyer ma candidature
+                <ArrowUpRight className="size-4" />
+              </>
+            )}
+          </button>
+        )}
+      </div>
+    </form>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   STEPPER (entête de progression)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+function Stepper({ currentStep }: { currentStep: number }) {
+  const step = STEPS[currentStep]
+  return (
+    <div>
+      <div className="flex items-center gap-2 mb-6 overflow-x-auto scrollbar-hide">
+        {STEPS.map((s, i) => (
+          <div key={s.n} className="flex items-center gap-2 shrink-0">
+            <div
+              className={cn(
+                'size-9 rounded-full grid place-items-center font-mono text-xs transition-all',
+                i < currentStep
+                  ? 'bg-navy-mid text-cream'
+                  : i === currentStep
+                    ? 'bg-navy text-cream ring-4 ring-navy/15'
+                    : 'bg-cream-soft text-ink/40 border border-navy/10',
+              )}
+            >
+              {i < currentStep ? <Check className="size-4" /> : s.n}
+            </div>
+            {i < STEPS.length - 1 && (
+              <div
+                className={cn(
+                  'w-6 md:w-12 h-px',
+                  i < currentStep ? 'bg-navy-mid' : 'bg-navy/15',
+                )}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="flex items-center gap-3 mb-2">
+        <span className="size-10 rounded-xl bg-navy-mid/10 text-navy-mid grid place-items-center">
+          <step.icon className="size-5" />
+        </span>
+        <div>
+          <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+            Section {step.n}
+          </div>
+          <h3 className="font-display text-2xl text-navy leading-tight">
+            {step.title}
+          </h3>
+        </div>
+      </div>
+      <p className="text-sm text-ink/60 italic">{step.sub}</p>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION 01 — Coordonnées (Strictement confidentiel)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+function SectionCoordonnees() {
+  return (
+    <div className="flex flex-col gap-5">
+      <Notice tone="confidential">
+        Ces informations ne seront <strong>jamais affichées</strong> sur le site.
+        Elles servent uniquement à l&apos;administration de Lab&apos;s Food.
+      </Notice>
+
+      <div className="grid sm:grid-cols-2 gap-5">
+        <Field
+          label="Nom et prénom"
+          name="fullName"
+          required
+          placeholder="ex. Siyaptze Doe"
+        />
+        <Field
+          label="Numéro de téléphone"
+          name="phone"
+          type="tel"
+          required
+          placeholder="+33 6 12 34 56 78"
+        />
+      </div>
+
+      <Field
+        label="Adresse e-mail"
+        name="email"
+        type="email"
+        required
+        placeholder="vous@exemple.fr"
+      />
+      <Field
+        label="Adresse complète"
+        name="address"
+        required
+        placeholder="ex. 2 Avenue du Pont, 77127 Lieusaint, France"
+        hint="Numéro, rue, code postal, ville, pays"
+      />
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION 02 — Profil public (Vitrine)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+function SectionProfilPublic() {
+  return (
+    <div className="flex flex-col gap-5">
+      <Notice tone="public">
+        Ces informations <strong>apparaîtront sur la plateforme</strong> pour
+        permettre aux restaurateurs et particuliers de vous découvrir.
+      </Notice>
+
+      <div className="grid sm:grid-cols-3 gap-5">
+        <Field label="Prénom" name="firstName" required placeholder="ex. Siyaptze" />
+        <Field
+          label="Département"
+          name="department"
+          required
+          placeholder="75, 93, 77…"
+          hint="Code département"
+        />
+        <Field
+          label="Ville principale"
+          name="city"
+          required
+          placeholder="Lieusaint, Paris…"
+        />
+      </div>
+
+      <FileField
+        label="Photo de profil"
+        name="photo"
+        required
+        accept="image/jpeg,image/png,image/webp"
+        hint="Photo claire, lumineuse et souriante qui donne envie de travailler avec vous"
+      />
+
+      <RadioGroup
+        label="Quel est votre profil principal ?"
+        name="profileType"
+        required
+        options={PROFILE_TYPES}
+      />
+
+      <RadioGroup
+        label="Quel est votre statut ?"
+        name="status"
+        required
+        options={STATUS_OPTIONS}
+      />
+
+      <Field
+        label="Votre petit pitch"
+        name="pitch"
+        textarea
+        required
+        placeholder="En 2 ou 3 phrases, dites-nous ce qui fait votre force !"
+        hint="Texte court — c'est ce qui s'affichera sur votre carte publique."
+      />
+
+      <CalendlyField />
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION 03 — Expérience et compétences
+   ═══════════════════════════════════════════════════════════════════════ */
+
+function SectionExperience() {
+  return (
+    <div className="flex flex-col gap-5">
+      <RadioGroup
+        label="Votre niveau d'expérience en restauration"
+        name="experience"
+        required
+        options={EXPERIENCE_LEVELS}
+      />
+
+      <CheckboxGroup
+        label="Pour quel(s) type(s) de mission(s) postulez-vous ?"
+        name="missions"
+        required
+        hint="Plusieurs choix possibles"
+        options={MISSION_TYPES}
+      />
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION 04 — Pièce d'identité
+   ═══════════════════════════════════════════════════════════════════════ */
+
+function SectionIdentite() {
+  return (
+    <div className="flex flex-col gap-5">
+      <Notice tone="confidential">
+        Ces documents sont <strong>strictement confidentiels</strong> et ne
+        servent qu&apos;à valider votre identité auprès de Lab&apos;s Food.
+      </Notice>
+
+      <FileField
+        label="CNI ou Titre de séjour"
+        name="idDocument"
+        required
+        accept="image/*,application/pdf"
+        hint="Recto-verso ou PDF. Formats acceptés : JPG, PNG, PDF."
+      />
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION 05 — Consentements légaux
+   ═══════════════════════════════════════════════════════════════════════ */
+
+function SectionConsentements() {
+  return (
+    <div className="flex flex-col gap-5">
+      <p className="text-sm text-ink/70">
+        Pour finaliser votre inscription, veuillez valider les éléments
+        suivants :
+      </p>
+
+      <ConsentCheckbox
+        name="acceptCgu"
+        required
+        title="Conditions Générales d'Utilisation"
+      >
+        Je reconnais avoir pris connaissance et j&apos;accepte les{' '}
+        <a
+          href="/cgu"
+          target="_blank"
+          className="underline text-navy-mid hover:text-navy-deep"
+        >
+          Conditions Générales d&apos;Utilisation
+        </a>{' '}
+        et la{' '}
+        <a
+          href="/confidentialite"
+          target="_blank"
+          className="underline text-navy-mid hover:text-navy-deep"
+        >
+          Politique de confidentialité
+        </a>{' '}
+        de Lab&apos;s Food. Je comprends que la plateforme agit uniquement comme
+        un outil de mise en relation.
+      </ConsentCheckbox>
+
+      <ConsentCheckbox name="acceptImage" required title="Droit à l'image">
+        J&apos;autorise expressément et à titre gratuit Lab&apos;s Food à
+        diffuser la photographie fournie, mon prénom et mon département
+        d&apos;intervention sur sa plateforme publique, dans le seul but de me
+        mettre en relation avec des professionnels de la restauration et des
+        particuliers.
+      </ConsentCheckbox>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   COMPOSANTS RÉUTILISABLES
+   ═══════════════════════════════════════════════════════════════════════ */
+
 type FieldProps = {
   label: string
   name: string
@@ -27,10 +463,8 @@ type FieldProps = {
   placeholder?: string
   textarea?: boolean
   hint?: string
-  className?: string
 }
 
-// ── Champ atomique ──────────────────────────────────────────────────────────
 function Field({
   label,
   name,
@@ -39,469 +473,287 @@ function Field({
   placeholder,
   textarea,
   hint,
-  className,
 }: FieldProps) {
+  const id = `field-${name}`
   return (
-    <label className={cn('flex flex-col gap-2', className)}>
-      <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy/80">
+    <label htmlFor={id} className="flex flex-col gap-2">
+      <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
         {label} {required && <span className="text-navy-mid">*</span>}
       </span>
       {textarea ? (
         <textarea
+          id={id}
           name={name}
           required={required}
           placeholder={placeholder}
-          rows={4}
-          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all resize-none"
+          rows={3}
+          className="px-4 py-3 rounded-xl bg-cream-soft border border-navy/15 text-navy placeholder:text-ink/35 text-sm outline-none focus:border-navy-mid focus:bg-cream transition-all resize-none"
         />
       ) : (
         <input
-          type={type}
+          id={id}
           name={name}
+          type={type}
           required={required}
           placeholder={placeholder}
-          className="w-full rounded-xl border border-navy/15 bg-cream-soft px-4 py-3 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-navy-mid/40 focus:border-navy-mid transition-all"
+          className="px-4 py-3 rounded-xl bg-cream-soft border border-navy/15 text-navy placeholder:text-ink/35 text-sm outline-none focus:border-navy-mid focus:bg-cream transition-all"
         />
       )}
-      {hint && <span className="text-[0.7rem] text-ink/55">{hint}</span>}
+      {hint && <span className="text-xs text-ink/55 italic">{hint}</span>}
     </label>
   )
 }
 
-// ── Définition des étapes ───────────────────────────────────────────────────
-const STEPS = [
-  {
-    id: 'contact',
-    title: 'Vos coordonnées',
-    description: 'Pour vous contacter et configurer votre bouton de réservation.',
-    icon: User,
-  },
-  {
-    id: 'profile',
-    title: 'Votre profil',
-    description: 'Pour créer un lien de confiance avec les visiteurs.',
-    icon: IdCard,
-  },
-  {
-    id: 'workshop',
-    title: 'Votre atelier',
-    description: 'Le cœur de votre offre — ce qui donnera faim aux clients.',
-    icon: ChefHat,
-  },
-  {
-    id: 'documents',
-    title: 'Documents',
-    description: 'Justificatifs requis pour valider votre profil.',
-    icon: FileText,
-  },
-  {
-    id: 'commitments',
-    title: 'Engagements',
-    description: 'Validation finale et envoi de votre candidature.',
-    icon: ShieldCheck,
-  },
-] as const
-
-type StepStatus = 'idle' | 'submitting' | 'success' | 'error'
-
-// ── Composant principal ─────────────────────────────────────────────────────
-export function ChefForm() {
-  const [step, setStep] = useState(0)
-  const [status, setStatus] = useState<StepStatus>('idle')
-  const [direction, setDirection] = useState<1 | -1>(1)
-
-  const total = STEPS.length
-  const current = STEPS[step]
-  const progress = ((step + 1) / total) * 100
-  const isLast = step === total - 1
-
-  function next() {
-    if (step < total - 1) {
-      setDirection(1)
-      setStep((s) => s + 1)
-      window.scrollTo({ top: document.getElementById('chef-form-top')?.offsetTop ?? 0, behavior: 'smooth' })
-    }
-  }
-  function prev() {
-    if (step > 0) {
-      setDirection(-1)
-      setStep((s) => s - 1)
-    }
-  }
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    if (!isLast) {
-      next()
-      return
-    }
-    setStatus('submitting')
-    // TODO: brancher l'endpoint
-    await new Promise((r) => setTimeout(r, 1200))
-    setStatus('success')
-  }
-
-  // ── Écran de succès ──
-  if (status === 'success') {
-    return (
-      <div className="rounded-3xl bg-navy text-cream p-10 md:p-16 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-grain opacity-[0.05]" />
-        <div className="absolute -top-20 -right-20 size-72 bg-navy-mid/25 blur-3xl rounded-full" />
-        <div className="absolute -bottom-20 -left-20 size-72 bg-teal/30 blur-3xl rounded-full" />
-        <div className="relative">
-          <motion.div
-            initial={{ scale: 0, rotate: -90 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto size-20 rounded-full bg-whatsapp grid place-items-center mb-8 shadow-2xl"
-          >
-            <Check className="size-10 text-white" strokeWidth={3} />
-          </motion.div>
-          <h2 className="font-display text-3xl md:text-5xl text-cream">
-            Merci, votre candidature est <span className="italic gradient-text-navy-mid">partie</span> !
-          </h2>
-          <p className="mt-6 text-cream/75 max-w-xl mx-auto leading-relaxed">
-            Nous revenons vers vous très rapidement sur WhatsApp ou par email pour
-            finaliser votre intégration et planifier l&apos;envoi des pièces
-            administratives.
-          </p>
-        </div>
-      </div>
-    )
-  }
-
+function FileField({
+  label,
+  name,
+  required,
+  accept,
+  hint,
+}: {
+  label: string
+  name: string
+  required?: boolean
+  accept?: string
+  hint?: string
+}) {
+  const [fileName, setFileName] = useState<string | null>(null)
+  const id = `file-${name}`
   return (
-    <div id="chef-form-top" className="rounded-3xl bg-cream-soft border border-navy/8 overflow-hidden shadow-sm">
-      {/* ─── En-tête stepper ─── */}
-      <div className="px-6 md:px-10 pt-8 pb-6 bg-gradient-to-br from-cream-soft via-cream-soft to-cream-deep/30 border-b border-navy/8">
-        {/* Indicateurs d'étapes desktop */}
-        <ol className="hidden md:flex items-center gap-2 mb-6">
-          {STEPS.map((s, i) => {
-            const done = i < step
-            const active = i === step
-            const Icon = s.icon
-            return (
-              <li key={s.id} className="flex-1 flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (i < step) {
-                      setDirection(-1)
-                      setStep(i)
-                    }
-                  }}
-                  disabled={i > step}
-                  className={cn(
-                    'relative shrink-0 size-10 rounded-full grid place-items-center transition-all duration-500 border',
-                    done && 'bg-navy-mid text-cream border-navy-mid cursor-pointer hover:scale-105',
-                    active &&
-                      'bg-navy text-cream border-navy ring-4 ring-navy-mid/20 scale-110',
-                    !done && !active && 'bg-cream border-navy/15 text-navy/40',
-                  )}
-                >
-                  {done ? <Check className="size-4" /> : <Icon className="size-4" />}
-                  {active && (
-                    <span className="absolute -bottom-1 -right-1 size-2.5 rounded-full bg-navy-mid animate-pulse" />
-                  )}
-                </button>
-                {i < total - 1 && (
-                  <div
-                    className={cn(
-                      'flex-1 h-px transition-colors duration-500',
-                      i < step ? 'bg-navy-mid' : 'bg-navy/15',
-                    )}
-                  />
-                )}
-              </li>
-            )
-          })}
-        </ol>
-
-        {/* Mobile : barre de progression simple */}
-        <div className="md:hidden mb-5">
-          <div className="flex items-center justify-between font-mono text-[0.65rem] uppercase tracking-[0.25em] mb-2">
-            <span className="text-navy-mid">
-              Étape {step + 1} sur {total}
-            </span>
-            <span className="text-ink/55 tabular-nums">{Math.round(progress)}%</span>
+    <div className="flex flex-col gap-2">
+      <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+        {label} {required && <span className="text-navy-mid">*</span>}
+      </span>
+      <label
+        htmlFor={id}
+        className="group flex items-center gap-4 px-4 py-4 rounded-xl bg-cream-soft border-2 border-dashed border-navy/20 hover:border-navy-mid hover:bg-cream transition-all cursor-pointer"
+      >
+        <span className="size-11 rounded-full bg-navy-mid/10 grid place-items-center shrink-0 group-hover:bg-navy-mid group-hover:text-cream transition-colors">
+          <Upload className="size-4 text-navy-mid group-hover:text-cream transition-colors" />
+        </span>
+        <div className="flex-1 min-w-0">
+          <div className="text-sm font-medium text-navy truncate">
+            {fileName || 'Cliquer pour téléverser un fichier'}
           </div>
-          <div className="h-1 rounded-full bg-navy/10 overflow-hidden">
-            <motion.div
-              className="h-full bg-navy-mid rounded-full"
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          <div className="text-xs text-ink/55 mt-0.5">
+            {accept?.includes('image') && !accept.includes('pdf') && 'JPG, PNG, WebP'}
+            {accept?.includes('pdf') && 'JPG, PNG, PDF'}
+          </div>
+        </div>
+        <input
+          id={id}
+          type="file"
+          name={name}
+          accept={accept}
+          required={required}
+          onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+          className="sr-only"
+        />
+      </label>
+      {hint && <span className="text-xs text-ink/55 italic">{hint}</span>}
+    </div>
+  )
+}
+
+function CalendlyField() {
+  return (
+    <div className="flex flex-col gap-2">
+      <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+        Lien de prise de rendez-vous <span className="text-navy-mid">*</span>
+      </span>
+      <div className="relative">
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-navy-mid">
+          <LinkIcon className="size-4" />
+        </span>
+        <input
+          type="url"
+          name="calendlyLink"
+          required
+          placeholder="https://calendly.com/votre-pseudo"
+          className="w-full pl-11 pr-4 py-3 rounded-xl bg-cream-soft border border-navy/15 text-navy placeholder:text-ink/35 text-sm outline-none focus:border-navy-mid focus:bg-cream transition-all"
+        />
+      </div>
+      <div className="text-xs text-ink/55 italic bg-cream-soft border border-navy/8 rounded-lg p-3 mt-1">
+        <strong className="text-navy not-italic">Important :</strong>{' '}
+        Insérez ici votre lien Calendly (ou équivalent : YouCanBookMe…). C&apos;est
+        via ce lien que les professionnels réserveront un appel de présentation
+        avec vous — votre numéro personnel ne sera{' '}
+        <strong className="not-italic">jamais affiché</strong> publiquement.
+      </div>
+    </div>
+  )
+}
+
+type RadioOption = { value: string; label: string; note?: string }
+
+function RadioGroup({
+  label,
+  name,
+  options,
+  required,
+}: {
+  label: string
+  name: string
+  options: readonly RadioOption[]
+  required?: boolean
+}) {
+  return (
+    <fieldset className="flex flex-col gap-3">
+      <legend className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid mb-1">
+        {label} {required && <span className="text-navy-mid">*</span>}
+      </legend>
+      <div className="grid sm:grid-cols-2 gap-3">
+        {options.map((opt) => (
+          <label
+            key={opt.value}
+            className="group relative flex items-start gap-3 p-4 rounded-xl bg-cream-soft border border-navy/10 cursor-pointer hover:border-navy-mid hover:bg-cream transition-all has-[:checked]:border-navy-mid has-[:checked]:bg-cream"
+          >
+            <input
+              type="radio"
+              name={name}
+              value={opt.value}
+              required={required}
+              className="mt-1 size-4 accent-navy-mid shrink-0"
             />
-          </div>
-        </div>
-
-        {/* Titre étape */}
-        <div className="flex items-start gap-4">
-          <div className="hidden md:grid size-12 rounded-2xl bg-navy text-cream place-items-center shrink-0">
-            <current.icon className="size-5" />
-          </div>
-          <div className="min-w-0">
-            <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid hidden md:block">
-              Étape {step + 1} sur {total} — {Math.round(progress)}%
+            <div className="min-w-0">
+              <div className="font-medium text-navy text-sm leading-tight">
+                {opt.label}
+              </div>
+              {opt.note && (
+                <div className="text-xs text-ink/55 mt-1 italic">
+                  {opt.note}
+                </div>
+              )}
             </div>
-            <h3 className="font-display text-2xl md:text-3xl text-navy mt-1">
-              {current.title}
-            </h3>
-            <p className="text-sm text-ink/65 mt-1">{current.description}</p>
-          </div>
-        </div>
+          </label>
+        ))}
       </div>
+    </fieldset>
+  )
+}
 
-      {/* ─── Formulaire ─── */}
-      <form onSubmit={onSubmit}>
-        <div className="px-6 md:px-10 py-10 min-h-[400px]">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={step}
-              custom={direction}
-              initial={{ opacity: 0, x: direction * 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction * -30 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {step === 0 && <StepContact />}
-              {step === 1 && <StepProfile />}
-              {step === 2 && <StepWorkshop />}
-              {step === 3 && <StepDocuments />}
-              {step === 4 && <StepCommitments />}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Footer navigation */}
-        <div className="px-6 md:px-10 py-6 bg-cream border-t border-navy/8 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
-          {step > 0 ? (
-            <Button
-              type="button"
-              variant="ghost"
-              size="md"
-              onClick={prev}
-              disabled={status === 'submitting'}
-            >
-              <ArrowLeft className="size-4" />
-              Précédent
-            </Button>
-          ) : (
-            <p className="text-xs text-ink/55 max-w-xs">
-              En envoyant ce formulaire, vous acceptez d&apos;être contacté par
-              l&apos;équipe Lab&apos;s Food.
-            </p>
-          )}
-
-          {status === 'error' && (
-            <div className="flex items-center gap-2 text-xs text-navy-deep">
-              <AlertCircle className="size-4" />
-              Une erreur est survenue.
-            </div>
-          )}
-
-          <Button
-            type="submit"
-            size="md"
-            variant={isLast ? 'whatsapp' : 'primary'}
-            disabled={status === 'submitting'}
+function CheckboxGroup({
+  label,
+  name,
+  options,
+  hint,
+  required,
+}: {
+  label: string
+  name: string
+  options: readonly { value: string; label: string }[]
+  hint?: string
+  required?: boolean
+}) {
+  return (
+    <fieldset className="flex flex-col gap-3">
+      <legend className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid mb-1">
+        {label} {required && <span className="text-navy-mid">*</span>}
+        {hint && (
+          <span className="ml-2 normal-case tracking-normal text-ink/55 italic font-sans">
+            ({hint})
+          </span>
+        )}
+      </legend>
+      <div className="grid sm:grid-cols-2 gap-3">
+        {options.map((opt) => (
+          <label
+            key={opt.value}
+            className="flex items-center gap-3 p-4 rounded-xl bg-cream-soft border border-navy/10 cursor-pointer hover:border-navy-mid hover:bg-cream transition-all has-[:checked]:border-navy-mid has-[:checked]:bg-cream"
           >
-            {status === 'submitting' ? (
-              <>
-                <Loader2 className="size-4 animate-spin" />
-                Envoi en cours...
-              </>
-            ) : isLast ? (
-              <>
-                Envoyer ma candidature
-                <ArrowUpRight className="size-4" />
-              </>
-            ) : (
-              <>
-                Étape suivante
-                <ArrowRight className="size-4" />
-              </>
-            )}
-          </Button>
-        </div>
-      </form>
-    </div>
-  )
-}
-
-// ─── Étapes ──────────────────────────────────────────────────────────────────
-
-function StepContact() {
-  return (
-    <div className="grid md:grid-cols-2 gap-5">
-      <Field label="Nom" name="lastname" required />
-      <Field label="Prénom" name="firstname" required />
-      <Field label="Email" name="email" type="email" required />
-      <Field label="Téléphone" name="phone" required />
-      <Field
-        label="Numéro WhatsApp"
-        name="whatsapp"
-        hint="Laissez vide si identique au téléphone"
-      />
-      <Field
-        label="Rayon de déplacement"
-        name="radius"
-        placeholder="10 km, 20 km, 50 km..."
-        required
-      />
-      <Field label="Adresse" name="address" required className="md:col-span-2" />
-    </div>
-  )
-}
-
-function StepProfile() {
-  return (
-    <div className="grid md:grid-cols-2 gap-5">
-      <Field
-        label="Langues parlées"
-        name="languages"
-        placeholder="Français, Anglais, Portugais..."
-        required
-      />
-      <Field
-        label="Photo de profil"
-        name="photo"
-        type="file"
-        required
-        hint="JPG ou PNG, 5 Mo max"
-      />
-      <Field
-        label="Courte biographie"
-        name="bio"
-        textarea
-        required
-        hint="2-3 lignes pour vous présenter aux visiteurs"
-        className="md:col-span-2"
-      />
-    </div>
-  )
-}
-
-function StepWorkshop() {
-  return (
-    <div className="grid md:grid-cols-2 gap-5">
-      <Field
-        label="Type de cuisine"
-        name="cuisine"
-        placeholder="Asiatique, Africaine, Pâtisserie..."
-        required
-      />
-      <Field
-        label="Durée de l’atelier"
-        name="duration"
-        placeholder="2 heures"
-        required
-      />
-      <Field
-        label="Taille du groupe"
-        name="group"
-        placeholder="De 2 à 6 personnes"
-        required
-      />
-      <Field
-        label="Prix"
-        name="price"
-        placeholder="80€ / groupe ou 25€ / pers."
-        required
-      />
-      <Field
-        label="Description de l’atelier"
-        name="description"
-        textarea
-        required
-        hint="Ce que les clients vont apprendre, le déroulé, les éventuels cadeaux"
-        className="md:col-span-2"
-      />
-      <Field
-        label="Consignes spéciales / matériel requis"
-        name="requirements"
-        textarea
-        className="md:col-span-2"
-      />
-      <Field
-        label="Photos de l’atelier"
-        name="atelierPhotos"
-        type="file"
-        hint="Plusieurs photos possibles, 10 Mo max au total"
-        className="md:col-span-2"
-      />
-    </div>
-  )
-}
-
-function StepDocuments() {
-  return (
-    <div className="grid md:grid-cols-2 gap-5">
-      <Field label="CNI ou titre de séjour" name="id" type="file" required />
-      <Field label="Kbis" name="kbis" type="file" />
-      <Field
-        label="Certificat HACCP"
-        name="haccp"
-        type="file"
-        hint="Si obtenu — donne droit à une accréditation visible"
-      />
-      <Field
-        label="Attestations de formations"
-        name="trainings"
-        type="file"
-        hint="Optionnel"
-      />
-    </div>
-  )
-}
-
-function StepCommitments() {
-  return (
-    <div className="space-y-5">
-      <p className="text-sm text-ink/75 leading-relaxed">
-        Dernière étape ! Acceptez les engagements ci-dessous pour finaliser votre
-        candidature.
-      </p>
-
-      <label className="flex items-start gap-4 p-5 rounded-2xl bg-cream border border-navy/10 hover:border-navy-mid/40 cursor-pointer transition-colors">
-        <input
-          type="checkbox"
-          name="quality"
-          required
-          className="mt-1 size-4 rounded border-navy/30 text-navy-mid focus:ring-navy-mid shrink-0"
-        />
-        <div>
-          <div className="font-display text-base text-navy">
-            Charte qualité Lab&apos;s Food
-          </div>
-          <p className="text-sm text-ink/70 mt-1 leading-relaxed">
-            Je m&apos;engage à respecter la charte qualité Lab&apos;s Food et la véracité
-            des informations transmises. <span className="text-navy-mid">*</span>
-          </p>
-        </div>
-      </label>
-
-      <label className="flex items-start gap-4 p-5 rounded-2xl bg-cream border border-navy/10 hover:border-navy-mid/40 cursor-pointer transition-colors">
-        <input
-          type="checkbox"
-          name="rights"
-          required
-          className="mt-1 size-4 rounded border-navy/30 text-navy-mid focus:ring-navy-mid shrink-0"
-        />
-        <div>
-          <div className="font-display text-base text-navy">Droit à l&apos;image</div>
-          <p className="text-sm text-ink/70 mt-1 leading-relaxed">
-            J&apos;accepte le droit à l&apos;image pour la publication de photos de mes
-            ateliers sur les supports Lab&apos;s Food. <span className="text-navy-mid">*</span>
-          </p>
-        </div>
-      </label>
-
-      <div className="p-5 rounded-2xl bg-whatsapp/10 border border-whatsapp/30 flex items-start gap-3">
-        <Check className="size-5 text-whatsapp-deep shrink-0 mt-0.5" />
-        <p className="text-sm text-ink/85 leading-relaxed">
-          Tout est prêt. Cliquez sur <span className="font-semibold">Envoyer ma candidature</span> pour finaliser. Nous vous recontactons rapidement sur WhatsApp.
-        </p>
+            <input
+              type="checkbox"
+              name={name}
+              value={opt.value}
+              className="size-4 accent-navy-mid shrink-0 rounded"
+            />
+            <span className="font-medium text-navy text-sm">{opt.label}</span>
+          </label>
+        ))}
       </div>
+    </fieldset>
+  )
+}
+
+function ConsentCheckbox({
+  name,
+  title,
+  required,
+  children,
+}: {
+  name: string
+  title: string
+  required?: boolean
+  children: React.ReactNode
+}) {
+  return (
+    <label className="group flex items-start gap-4 p-5 rounded-2xl bg-cream-soft border border-navy/10 cursor-pointer hover:border-navy-mid hover:bg-cream transition-all has-[:checked]:border-navy-mid has-[:checked]:bg-cream">
+      <input
+        type="checkbox"
+        name={name}
+        required={required}
+        className="mt-1 size-5 accent-navy-mid shrink-0 rounded"
+      />
+      <div>
+        <div className="font-display text-base text-navy mb-1">
+          {title} {required && <span className="text-navy-mid">*</span>}
+        </div>
+        <div className="text-xs text-ink/70 leading-relaxed">{children}</div>
+      </div>
+    </label>
+  )
+}
+
+function Notice({
+  tone,
+  children,
+}: {
+  tone: 'confidential' | 'public'
+  children: React.ReactNode
+}) {
+  const isConfidential = tone === 'confidential'
+  return (
+    <div
+      className={cn(
+        'flex items-start gap-3 p-4 rounded-2xl border text-sm',
+        isConfidential
+          ? 'bg-navy/5 border-navy/15 text-navy/85'
+          : 'bg-navy-mid/10 border-navy-mid/20 text-navy/85',
+      )}
+    >
+      <span className="shrink-0 size-8 rounded-full bg-cream grid place-items-center mt-0.5">
+        {isConfidential ? (
+          <ShieldCheck className="size-4 text-navy" />
+        ) : (
+          <Eye className="size-4 text-navy-mid" />
+        )}
+      </span>
+      <p className="leading-relaxed">{children}</p>
+    </div>
+  )
+}
+
+function SubmittedConfirmation() {
+  return (
+    <div className="text-center py-20">
+      <div className="inline-flex size-20 rounded-full bg-navy-mid text-cream items-center justify-center mb-6 shadow-xl">
+        <Check className="size-8" />
+      </div>
+      <h3
+        className="font-display text-navy leading-tight text-balance"
+        style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}
+      >
+        Candidature{' '}
+        <em className="not-italic">
+          <span className="font-display italic gradient-text-navy-mid">
+            bien reçue !
+          </span>
+        </em>
+      </h3>
+      <p className="mt-6 text-ink/70 max-w-md mx-auto leading-relaxed">
+        Merci pour votre candidature. Notre équipe va examiner votre profil et
+        revient vers vous très vite — sous 48 à 72h ouvrées maximum.
+      </p>
     </div>
   )
 }

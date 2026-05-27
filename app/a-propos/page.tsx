@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {
   ArrowUpRight,
-  Globe2,
   ShieldCheck,
   Languages,
   Heart,
@@ -11,66 +10,40 @@ import {
   HandHeart,
   Quote,
   MessageCircle,
+  Users,
   MapPin,
 } from 'lucide-react'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
-import { FOUNDER } from '@/lib/content'
+import { FOUNDER, TIMELINE } from '@/lib/content'
 import { whatsappLink } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: "À propos — Lab's Food, par Ivy",
+  title: "À propos — Lab's Food, par Siyaptze",
   description:
-    "L'histoire de Lab's Food, maison culinaire fondée par Ivy après l'exploration de 21 pays. Notre mission : vous faire voyager autour d'une assiette.",
+    "L'histoire de Lab's Food, plateforme dédiée au bien-être gourmand fondée par Siyaptze (Ivy). +150 gourmands régalés et fidélisés à ce jour.",
 }
 
 const VALUES = [
   {
     icon: HandHeart,
-    title: 'Transmettre',
-    text: 'Partager les savoir-faire culinaires découverts de pays en pays.',
+    title: 'Soulager',
+    text: "Alléger la charge mentale de ceux qui n'ont plus le temps de bien manger.",
   },
   {
     icon: Sparkles,
     title: 'Émerveiller',
-    text: 'Chaque assiette est une invitation à goûter une culture nouvelle.',
+    text: 'Chaque assiette doit arracher un sourire — comme celui de ma tante.',
   },
   {
     icon: Heart,
-    title: 'Recevoir',
-    text: "Créer un moment, qu'il soit privé ou professionnel — toujours sincère.",
+    title: 'Transmettre',
+    text: 'Partager les techniques, les recettes, les produits qui font la différence.',
   },
   {
     icon: ShieldCheck,
-    title: 'Rigoureux',
-    text: 'HACCP, hygiène et qualité ne sont jamais des options.',
-  },
-] as const
-
-const STORY = [
-  {
-    n: '01',
-    year: '2018',
-    title: 'Premier voyage culinaire',
-    text: "Premier départ. Premiers carnets de recettes. La conviction qu'une assiette raconte un pays mieux qu'un livre.",
-  },
-  {
-    n: '02',
-    year: '2020',
-    title: '21 pays explorés',
-    text: "Italie, Portugal, Liban, Maroc, Sénégal, Japon… Chaque cuisine devient une école, chaque chef rencontré une inspiration.",
-  },
-  {
-    n: '03',
-    year: '2024',
-    title: "Lancement de Lab's Food",
-    text: "La maison culinaire prend forme : ateliers, batch cooking, assistance. Trois services nés d'une seule passion.",
-  },
-  {
-    n: '04',
-    year: '2025',
-    title: 'Le Kossam',
-    text: "Première création signature — un savoir-faire camerounais réinventé, déjà adopté par la Côte d'Azur.",
+    title: 'Rigoureuse',
+    text: "HACCP, hygiène et qualité ne sont jamais des options.",
   },
 ] as const
 
@@ -78,36 +51,34 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="À propos"
+        eyebrow="Notre histoire"
         title={
           <>
-            Une maison née d&apos;
+            Lab&apos;s Food, c&apos;est l&apos;histoire d&apos;
             <em className="not-italic">
               <span className="font-display italic gradient-text-navy-mid">
-                21 voyages
+                un sourire
               </span>
             </em>
-            ,
-            <br />
-            d&apos;une assiette à la fois.
+            ,<br />et d&apos;une conviction.
           </>
         }
-        lede="Lab's Food, c'est avant tout l'histoire d'Ivy — ingénieure de formation, passionnée de gastronomie et d'évasion."
+        lede="Siyaptze, ingénieure de formation, a fondé Lab's Food pour soulager la charge mentale de ceux qui n'ont plus le temps de bien manger."
         image="/assets/photo-11.jpeg"
         imagePosition="center 30%"
         size="lg"
       />
 
-      {/* ── Bloc Portrait + Bio ───────────────────────────────────────── */}
+      {/* ── Bloc Portrait + Bio complète ─────────────────────────────── */}
       <section id="histoire" className="bg-cream py-24 md:py-32">
-        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* Portrait */}
+        <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          {/* Portrait sticky */}
           <Reveal axis="x" amount={30}>
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 lg:sticky lg:top-32 relative">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
                   src="/IvyOfficielle.png"
-                  alt="Ivy — Fondatrice & cheffe"
+                  alt="Siyaptze — Fondatrice de Lab's Food"
                   fill
                   className="object-cover object-top"
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -115,67 +86,109 @@ export default function AboutPage() {
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cream/80">
-                    Fondatrice &amp; cheffe
+                    {FOUNDER.title}
                   </div>
                   <div className="font-display text-5xl text-cream mt-2 leading-none">
-                    Ivy
+                    {FOUNDER.name}
                     <span className="italic-fraunces text-navy-mid">.</span>
+                  </div>
+                  <div className="font-display italic text-base text-cream/70 mt-1">
+                    « {FOUNDER.nick} » pour les intimes
                   </div>
                 </div>
               </div>
 
-              {/* Pastilles flottantes */}
-              <div className="absolute -top-6 -right-6 size-28 rounded-full bg-cream border-4 border-cream-deep shadow-xl grid place-items-center rotate-[-8deg]">
+              {/* Pastille gourmands */}
+              <div className="absolute -top-6 -right-6 size-32 rounded-full bg-cream border-4 border-cream-deep shadow-xl grid place-items-center rotate-[-8deg]">
                 <div className="text-center">
-                  <div className="font-display text-3xl text-navy leading-none">
-                    {FOUNDER.countries}
+                  <div className="font-display text-2xl text-navy leading-none">
+                    +{FOUNDER.gourmandsServed}
                   </div>
-                  <div className="font-mono text-[0.55rem] uppercase tracking-[0.2em] text-navy-mid mt-1">
-                    pays
+                  <div className="font-mono text-[0.5rem] uppercase tracking-[0.2em] text-navy-mid mt-1 leading-tight">
+                    gourmands
+                    <br />
+                    régalés
                   </div>
                 </div>
               </div>
             </div>
           </Reveal>
 
-          {/* Bio */}
+          {/* Bio (paragraphes + pull-quote) */}
           <Reveal>
             <div className="lg:col-span-7">
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
                 <span className="size-6 h-px bg-navy-mid" />
-                L&apos;histoire
+                Notre histoire
               </p>
 
               <h2
-                className="font-display text-navy leading-[0.98] tracking-tight text-balance"
-                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
+                className="font-display text-navy leading-[0.98] tracking-tight text-balance mb-12"
+                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)' }}
               >
-                Ingénieure le jour,{' '}
+                Je m&apos;appelle{' '}
                 <em className="not-italic">
                   <span className="font-display italic gradient-text-navy-mid">
-                    cuisinière du monde
+                    Siyaptze.
                   </span>
-                </em>{' '}
-                toujours.
+                </em>
               </h2>
 
-              <div className="mt-8 space-y-5 text-ink/75 leading-relaxed max-w-xl text-pretty">
-                <p>{FOUNDER.bio}</p>
-                <p className="italic font-display text-2xl text-navy">
-                  « {FOUNDER.mission} »
+              {/* Paragraphes de bio */}
+              <div className="space-y-6 text-ink/80 leading-relaxed text-pretty">
+                {FOUNDER.bioParagraphs.slice(0, 3).map((p, i) => (
+                  <p key={i} className={i === 0 ? 'text-lg' : ''}>
+                    {p}
+                  </p>
+                ))}
+              </div>
+
+              {/* Pull-quote signature */}
+              <blockquote className="my-12 py-8 px-8 md:px-10 border-l-4 border-navy-mid bg-cream-soft rounded-r-2xl">
+                <Quote className="size-6 text-navy-mid mb-4" />
+                <p className="font-display italic text-2xl md:text-3xl text-navy leading-tight">
+                  « {FOUNDER.signaturePull} »
                 </p>
+              </blockquote>
+
+              <div className="space-y-6 text-ink/80 leading-relaxed text-pretty">
+                {FOUNDER.bioParagraphs.slice(3).map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+
+              {/* 2 CTAs — fournis par la cliente */}
+              <div className="mt-12 pt-8 border-t border-navy/10 flex flex-wrap gap-4">
+                <Link
+                  href="/services"
+                  className="group inline-flex items-center gap-3 pl-7 pr-3 py-3 rounded-full bg-navy text-cream hover:bg-navy-mid text-sm font-medium transition-all"
+                >
+                  Découvrir les services à domicile
+                  <span className="size-9 rounded-full bg-cream/15 grid place-items-center transition-transform group-hover:rotate-45">
+                    <ArrowUpRight className="size-4" />
+                  </span>
+                </Link>
+                <Link
+                  href="/produits/kossam"
+                  className="group inline-flex items-center gap-3 pl-7 pr-3 py-3 rounded-full bg-cream-deep text-navy hover:bg-navy hover:text-cream text-sm font-medium transition-all border border-navy/15"
+                >
+                  Craquer pour le fameux Kossam
+                  <span className="size-9 rounded-full bg-navy/10 grid place-items-center transition-transform group-hover:rotate-45">
+                    <ArrowUpRight className="size-4" />
+                  </span>
+                </Link>
               </div>
 
               {/* Infos rapides */}
-              <div className="mt-10 pt-8 border-t border-navy/10 grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
                 <InfoBlock
-                  icon={Globe2}
-                  label="Pays explorés"
-                  value={`${FOUNDER.countries} pays`}
+                  icon={Users}
+                  label="Gourmands régalés"
+                  value={`+${FOUNDER.gourmandsServed}`}
                 />
                 <InfoBlock
                   icon={Languages}
-                  label="Langues"
+                  label="Langues parlées"
                   value={FOUNDER.languages.join(' · ')}
                 />
                 <InfoBlock
@@ -233,49 +246,104 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Bloc Frise temporelle ───────────────────────────────────── */}
-      <section className="bg-cream py-24 md:py-32">
+      {/* ══════════════════════════════════════════════════════════════
+          CHRONOLOGIE — Lab's Food en 4 temps (onglet 4 du doc)
+          ══════════════════════════════════════════════════════════════ */}
+      <section id="chronologie" className="bg-cream py-24 md:py-32 scroll-mt-20">
         <div className="container-wide">
           <Reveal>
-            <div className="max-w-3xl mb-16">
+            <div className="max-w-3xl mb-20">
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
                 <span className="size-6 h-px bg-navy-mid" />
-                Notre parcours
+                Chronologie
               </p>
               <h2
-                className="font-display text-navy leading-tight text-balance"
-                style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+                className="font-display text-navy leading-[0.98] tracking-tight text-balance"
+                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
               >
-                De la première recette
-                <br />
+                Lab&apos;s Food en{' '}
                 <em className="not-italic">
                   <span className="font-display italic gradient-text-navy-mid">
-                    à la maison d&apos;aujourd&apos;hui.
+                    quatre temps.
                   </span>
                 </em>
               </h2>
+              <p className="mt-6 text-ink/70 leading-relaxed text-pretty max-w-xl">
+                Du premier riz sauté au Cameroun à la naissance officielle de la
+                maison en France — l&apos;histoire d&apos;une intuition qui a
+                pris six ans pour devenir une plateforme.
+              </p>
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {STORY.map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.12}>
-                <div className="relative rounded-2xl bg-cream-soft border border-navy/8 p-8 h-full hover:shadow-lg transition-shadow group">
-                  <div className="font-display text-5xl text-navy/15 tabular-nums leading-none mb-6">
-                    {step.n}
+          {/* Frise verticale avec ligne médiane */}
+          <div className="relative">
+            {/* Ligne médiane (desktop) */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-navy/15 -translate-x-1/2" />
+
+            <div className="space-y-12 md:space-y-20">
+              {TIMELINE.map((step, i) => (
+                <Reveal key={step.year} delay={i * 0.1}>
+                  <div
+                    className={`md:grid md:grid-cols-2 md:gap-16 items-center ${
+                      i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''
+                    }`}
+                  >
+                    {/* Côté contenu */}
+                    <div className="relative">
+                      {/* Pastille année (desktop) */}
+                      <div
+                        className={`hidden md:flex absolute top-1/2 -translate-y-1/2 size-14 rounded-full bg-navy text-cream items-center justify-center font-display text-sm shadow-xl border-4 border-cream z-10 ${
+                          i % 2 === 0
+                            ? '-right-[3.5rem] translate-x-1/2'
+                            : '-left-[3.5rem] -translate-x-1/2'
+                        }`}
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </div>
+
+                      <div className="rounded-3xl bg-cream-soft border border-navy/8 p-8 md:p-10 hover:shadow-xl transition-shadow">
+                        <div className="flex items-baseline gap-3 mb-2">
+                          <span className="font-display text-5xl md:text-6xl text-navy tabular-nums leading-none">
+                            {step.year}
+                          </span>
+                          <span className="size-1.5 rounded-full bg-navy-mid" />
+                          <span className="font-mono text-xs uppercase tracking-[0.2em] text-navy-mid">
+                            {step.place}
+                          </span>
+                        </div>
+                        <h3 className="font-display text-2xl md:text-3xl text-navy mt-4">
+                          {step.title}
+                        </h3>
+                        <p className="mt-4 text-ink/75 leading-relaxed text-pretty">
+                          {step.body}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Côté vide (visuel) */}
+                    <div className="hidden md:block" />
                   </div>
-                  <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid mb-2">
-                    {step.year}
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Pastille finale */}
+            <Reveal delay={0.5}>
+              <div className="mt-16 text-center">
+                <div className="inline-flex flex-col items-center">
+                  <div className="size-20 rounded-full bg-navy-mid text-cream grid place-items-center shadow-2xl mb-4">
+                    <Sparkles className="size-7" />
                   </div>
-                  <h4 className="font-display text-xl text-navy mb-3">
-                    {step.title}
-                  </h4>
-                  <p className="text-sm text-ink/70 leading-relaxed text-pretty">
-                    {step.text}
+                  <p className="font-display italic text-2xl text-navy max-w-md text-balance">
+                    Et la suite ?{' '}
+                    <span className="gradient-text-navy-mid">
+                      De magnifiques choses se préparent en coulisses…
+                    </span>
                   </p>
                 </div>
-              </Reveal>
-            ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -286,7 +354,7 @@ export default function AboutPage() {
           src="/assets/photo-12.jpeg"
           alt=""
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-25"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/85 to-navy" />
@@ -299,23 +367,25 @@ export default function AboutPage() {
               className="font-display italic text-cream leading-[1.15] text-balance max-w-4xl"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
-              « Le plus beau des voyages se passe souvent autour d&apos;une
-              assiette. »
+              « Laissez-moi entrer dans votre cuisine, je m&apos;occupe du
+              reste ! »
             </blockquote>
             <div className="mt-10 flex items-center gap-4">
               <div className="size-12 rounded-full overflow-hidden bg-cream">
                 <Image
                   src="/IvyOfficielle.png"
-                  alt="Ivy"
+                  alt="Siyaptze"
                   width={48}
                   height={48}
                   className="object-cover w-full h-full"
                 />
               </div>
               <div>
-                <div className="font-display text-xl text-cream">Ivy</div>
+                <div className="font-display text-xl text-cream">
+                  Siyaptze
+                </div>
                 <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55 mt-0.5">
-                  Fondatrice &amp; cheffe Lab&apos;s Food
+                  Fondatrice de Lab&apos;s Food
                 </div>
               </div>
             </div>
@@ -323,7 +393,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────── */}
+      {/* ── CTA contact direct ───────────────────────────────────────── */}
       <section className="bg-cream py-20 md:py-28">
         <div className="container-wide">
           <div className="rounded-3xl bg-cream-soft border border-navy/10 p-10 md:p-16 grid lg:grid-cols-12 gap-8 items-center">
@@ -341,13 +411,15 @@ export default function AboutPage() {
                 directement avec Ivy ?
               </h3>
               <p className="mt-4 text-ink/70 max-w-xl text-pretty">
-                Que ce soit pour un atelier, un événement ou simplement échanger
-                — la conversation commence sur WhatsApp.
+                Que ce soit pour un atelier, un événement ou simplement
+                échanger — la conversation commence sur WhatsApp.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">
               <a
-                href={whatsappLink("Bonjour Ivy, j'ai vu votre page À propos et j'aimerais en savoir plus — ")}
+                href={whatsappLink(
+                  "Bonjour Ivy, j'ai vu votre page À propos et j'aimerais en savoir plus — ",
+                )}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors"
@@ -357,10 +429,10 @@ export default function AboutPage() {
                 <ArrowUpRight className="size-4" />
               </a>
               <Link
-                href="/services"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-navy/20 text-navy hover:bg-navy hover:text-cream text-sm font-medium transition-all"
               >
-                Voir nos services
+                Formulaire de contact
                 <ArrowUpRight className="size-4" />
               </Link>
             </div>
