@@ -21,7 +21,11 @@ export default function ProduitsPage() {
         title={
           <>
             Le labo,{' '}
-            <span className="italic">au quotidien</span>.
+            <em className="not-italic">
+              <span className="font-display italic gradient-text-navy-mid">
+                au quotidien.
+              </span>
+            </em>
           </>
         }
         lede="Le Kossam est notre signature. D'autres créations artisanales sont en cours dans le labo, déjà disponibles à la pré-commande."
@@ -30,9 +34,12 @@ export default function ProduitsPage() {
       />
 
       {/* Produit dispo */}
-      <section className="section bg-cream">
+      <section className="bg-cream py-24 md:py-32">
         <div className="container-wide">
-          <span className="eyebrow">Disponibles</span>
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-10">
+            <span className="size-6 h-px bg-navy-mid" />
+            Disponibles dès aujourd&apos;hui
+          </p>
           {/* <h2 className="display-md text-navy mt-4 mb-12">En stock dès aujourd&apos;hui</h2> */}
 
           <div className="grid lg:grid-cols-3 gap-6">
@@ -105,16 +112,26 @@ export default function ProduitsPage() {
       </section>
 
       {/* Coming soon grid */}
-      <section className="section bg-navy text-cream relative overflow-hidden">
+      <section className="bg-navy text-cream py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="container-wide relative">
-          <div className="flex items-end justify-between gap-6 mb-12 flex-wrap">
+          <div className="flex items-end justify-between gap-6 mb-14 flex-wrap">
             <div className="max-w-2xl">
-              <span className="eyebrow text-white">Chez Lab's Food</span>
-              <h2 className="display-md text-cream mt-4 text-balance">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
+                <span className="size-6 h-px bg-navy-mid" />
+                Chez Lab&apos;s Food
+              </p>
+              <h2
+                className="font-display text-cream leading-[0.98] tracking-tight text-balance"
+                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
+              >
                 Les prochaines{' '}
-                <span className="italic">surprises</span> qui sortent du
-                labo.
+                <em className="not-italic">
+                  <span className="font-display italic gradient-text-navy-mid">
+                    surprises
+                  </span>
+                </em>{' '}
+                qui sortent du labo.
               </h2>
             </div>
           </div>
