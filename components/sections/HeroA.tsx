@@ -45,7 +45,7 @@ export function HeroA() {
           className="display-xl text-cream max-w-5xl text-balance"
         >
           Le plus beau{' '}
-          <span className="italic font-light gradient-text-navy-mid">des voyages</span>
+          <span className="italic font-light text-navy-mid">des voyages</span>
           <br />
           se passe autour d&apos;une assiette.
         </motion.h1>

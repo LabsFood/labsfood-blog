@@ -79,7 +79,7 @@ export function HeroD() {
         >
           We create{' '}
           <em className="not-italic">
-            <span className="font-display italic gradient-text-navy-mid">
+            <span className="font-display italic text-navy-mid">
               what you love!
             </span>
           </em>

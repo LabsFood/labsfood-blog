@@ -44,7 +44,7 @@ export default function BatchCookingPage() {
           <>
             Une semaine de repas,{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 préparée chez vous.
               </span>
             </em>
@@ -97,7 +97,7 @@ export default function BatchCookingPage() {
               >
                 Bien manger toute la semaine,{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     sans la charge mentale.
                   </span>
                 </em>
@@ -179,7 +179,7 @@ export default function BatchCookingPage() {
             Toute l&apos;offre batch cooking,
             <br />
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 sur son propre site.
               </span>
             </em>

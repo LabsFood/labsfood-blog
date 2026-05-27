@@ -71,7 +71,7 @@ export default function ConfidentialitePage() {
           <>
             Politique de{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 Confidentialité
               </span>
             </em>

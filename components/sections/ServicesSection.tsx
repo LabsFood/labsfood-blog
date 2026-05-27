@@ -84,7 +84,7 @@ export function ServicesSection() {
           title={
             <>
               Apprendre, déléguer,{' '}
-              <span className="italic gradient-text-navy-mid">ou se faire épauler</span>.
+              <span className="italic text-navy-mid">ou se faire épauler</span>.
             </>
           }
           lede="Trois services pensés pour trois moments de vie. Choisissez votre angle."
@@ -103,7 +103,7 @@ export function ServicesSection() {
           <div className="mt-24 md:mt-28 pt-10 border-t border-navy/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <p className="font-display italic text-2xl md:text-3xl text-navy max-w-xl text-balance">
               Et ce n&apos;est qu&apos;un début &mdash;{' '}
-              <span className="gradient-text-navy-mid">d&apos;autres formules</span>{' '}
+              <span className="text-navy-mid">d&apos;autres formules</span>{' '}
               arrivent.
             </p>
             <Link

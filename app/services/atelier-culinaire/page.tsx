@@ -65,7 +65,7 @@ export default function AtelierPage() {
           <>
             Une cuisine du monde,{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 apprise pas à pas
               </span>
             </em>{' '}
@@ -134,7 +134,7 @@ export default function AtelierPage() {
               >
                 Trois étapes, et c&apos;est l&apos;embarquement{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     gustatif.
                   </span>
                 </em>
@@ -173,7 +173,7 @@ export default function AtelierPage() {
             >
               Simple, transparent,{' '}
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   tout compris.
                 </span>
               </em>
@@ -238,7 +238,7 @@ export default function AtelierPage() {
               >
                 Tout pour que vous repartiez{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     avec votre recette.
                   </span>
                 </em>
@@ -278,7 +278,7 @@ export default function AtelierPage() {
               >
                 Rejoignez nos{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     chefs partenaires.
                   </span>
                 </em>

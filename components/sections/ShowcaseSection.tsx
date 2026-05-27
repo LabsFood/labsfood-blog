@@ -95,7 +95,7 @@ export function ShowcaseSection() {
             >
               Apprendre, déléguer,{' '}
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   ou se faire épauler.
                 </span>
               </em>
@@ -133,7 +133,7 @@ export function ShowcaseSection() {
         >
           <p className="font-display italic text-2xl md:text-3xl text-cream/80 max-w-xl text-balance">
             Et ce n&apos;est qu&apos;un début —{' '}
-            <span className="gradient-text-navy-mid">d&apos;autres formules</span>{' '}
+            <span className="text-navy-mid">d&apos;autres formules</span>{' '}
             arrivent.
           </p>
           <Link

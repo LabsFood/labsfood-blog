@@ -40,7 +40,7 @@ export function TestimonialsSection() {
             >
               Des mots,{' '}
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   des sourires
                 </span>
               </em>

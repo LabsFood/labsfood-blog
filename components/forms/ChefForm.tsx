@@ -745,7 +745,7 @@ function SubmittedConfirmation() {
       >
         Candidature{' '}
         <em className="not-italic">
-          <span className="font-display italic gradient-text-navy-mid">
+          <span className="font-display italic text-navy-mid">
             bien reçue !
           </span>
         </em>

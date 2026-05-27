@@ -57,7 +57,7 @@ export default function AboutPage() {
           <>
             Lab&apos;s Food, c&apos;est l&apos;histoire d&apos;
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 un sourire
               </span>
             </em>
@@ -129,7 +129,7 @@ export default function AboutPage() {
               >
                 Je m&apos;appelle{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     Siyaptze.
                   </span>
                 </em>
@@ -219,7 +219,7 @@ export default function AboutPage() {
               >
                 Quatre piliers qui font{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     Lab&apos;s Food.
                   </span>
                 </em>
@@ -264,7 +264,7 @@ export default function AboutPage() {
               >
                 Lab&apos;s Food en{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     quatre temps.
                   </span>
                 </em>
@@ -338,7 +338,7 @@ export default function AboutPage() {
                   </div>
                   <p className="font-display italic text-2xl text-navy max-w-md text-balance">
                     Et la suite ?{' '}
-                    <span className="gradient-text-navy-mid">
+                    <span className="text-navy-mid">
                       De magnifiques choses se préparent en coulisses…
                     </span>
                   </p>
@@ -405,7 +405,7 @@ export default function AboutPage() {
               >
                 Envie d&apos;
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     en parler
                   </span>
                 </em>{' '}

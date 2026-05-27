@@ -33,7 +33,7 @@ export default function ContactPage() {
           <>
             Une envie,{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 un événement
               </span>
             </em>
@@ -103,7 +103,7 @@ export default function ContactPage() {
             >
               Écrivez-nous,{' '}
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   on revient vite.
                 </span>
               </em>

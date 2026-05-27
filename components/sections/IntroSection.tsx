@@ -92,7 +92,7 @@ export function IntroSection() {
             >
               Une maison culinaire née d&apos;
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   une conviction
                 </span>
               </em>
@@ -145,7 +145,7 @@ export function IntroSection() {
               Ce qui fait de Lab&apos;s Food
               <br />
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   une maison à part.
                 </span>
               </em>

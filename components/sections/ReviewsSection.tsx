@@ -24,7 +24,7 @@ export function ReviewsSection() {
           title={
             <>
               Ce que les premiers gourmands{' '}
-              <span className="italic gradient-text-navy-mid">en disent</span>.
+              <span className="italic text-navy-mid">en disent</span>.
             </>
           }
           lede="+50 témoignages reçus de la part de notre communauté autour de la première signature de la maison."

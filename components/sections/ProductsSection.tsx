@@ -50,7 +50,7 @@ export function ProductsSection() {
           title={
             <>
               Une signature{' '}
-              <span className="italic gradient-text-mint">qui infuse</span>,
+              <span className="italic text-mint-ink">qui infuse</span>,
               <br className="hidden md:block" /> des créations qui s&apos;annoncent.
             </>
           }
@@ -178,7 +178,7 @@ export function ProductsSection() {
               </div>
               <h3 className="font-display text-3xl md:text-5xl text-navy text-balance max-w-2xl">
                 Les prochaines{' '}
-                <span className="italic gradient-text-mint">sorties</span>.
+                <span className="italic text-mint-ink">sorties</span>.
               </h3>
             </Reveal>
             <Reveal delay={0.1}>

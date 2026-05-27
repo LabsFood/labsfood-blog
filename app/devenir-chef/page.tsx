@@ -48,7 +48,7 @@ export default function DevenirChefPage() {
           <>
             Donnez des cours de cuisine{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 à domicile.
               </span>
             </em>
@@ -74,7 +74,7 @@ export default function DevenirChefPage() {
               >
                 Quatre raisons de devenir{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic text-navy-mid">
                     chef partenaire.
                   </span>
                 </em>
@@ -117,7 +117,7 @@ export default function DevenirChefPage() {
             >
               Une accréditation pour les chefs{' '}
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   formés et certifiés.
                 </span>
               </em>
@@ -161,7 +161,7 @@ export default function DevenirChefPage() {
             >
               Rejoignez{' '}
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   l&apos;aventure.
                 </span>
               </em>

@@ -82,7 +82,7 @@ export default function ServicesPage() {
           <>
             Apprendre, déléguer,{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 ou se faire épauler.
               </span>
             </em>
@@ -115,7 +115,7 @@ export default function ServicesPage() {
             >
               On vous oriente vers le{' '}
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   bon service
                 </span>
               </em>{' '}

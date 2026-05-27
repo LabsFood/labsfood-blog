@@ -180,7 +180,7 @@ export default function KossamPage() {
               Description
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance">
-              Une <span className="italic gradient-text-mint">expérience sensorielle</span>{' '}
+              Une <span className="italic text-mint-ink">expérience sensorielle</span>{' '}
               avant tout.
             </h2>
 
@@ -262,7 +262,7 @@ export default function KossamPage() {
               </span>
               <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance max-w-3xl">
                 Du verre frais aux{' '}
-                <span className="italic gradient-text-mint">sauces salées</span>, le
+                <span className="italic text-mint-ink">sauces salées</span>, le
                 Kossam s&apos;invite partout.
               </h2>
             </Reveal>
@@ -437,7 +437,7 @@ export default function KossamPage() {
               Avis clients
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance max-w-3xl">
-              Ce que la <span className="italic gradient-text-mint">communauté</span> en
+              Ce que la <span className="italic text-mint-ink">communauté</span> en
               dit.
             </h2>
           </Reveal>

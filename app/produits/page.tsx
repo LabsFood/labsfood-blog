@@ -22,7 +22,7 @@ export default function ProduitsPage() {
           <>
             Le labo,{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-mint">
+              <span className="font-display italic text-mint-ink">
                 au quotidien.
               </span>
             </em>
@@ -127,7 +127,7 @@ export default function ProduitsPage() {
               >
                 Les prochaines{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-mint">
+                  <span className="font-display italic text-mint-ink">
                     surprises
                   </span>
                 </em>{' '}

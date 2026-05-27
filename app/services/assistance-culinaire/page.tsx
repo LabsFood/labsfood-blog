@@ -87,7 +87,7 @@ export default function AssistanceCulinaireePage() {
         title={
           <>
             Un coup de main{' '}
-            <span className="italic gradient-text-navy-mid">professionnel</span>
+            <span className="italic text-navy-mid">professionnel</span>
             <br />
             dans votre cuisine.
           </>
@@ -136,7 +136,7 @@ export default function AssistanceCulinaireePage() {
             <span className="eyebrow">Pour qui ?</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Dès que la cuisine{' '}
-              <span className="italic gradient-text-navy-mid">dépasse vos bras</span>.
+              <span className="italic text-navy-mid">dépasse vos bras</span>.
             </h2>
             <p className="mt-6 lede max-w-2xl text-pretty">
               L&apos;assistance culinaire est pensée pour toutes les situations où vous avez
@@ -185,7 +185,7 @@ export default function AssistanceCulinaireePage() {
             <span className="eyebrow">Nos missions</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               On s&apos;adapte à votre cuisine,{' '}
-              <span className="italic gradient-text-navy-mid">pas l&apos;inverse</span>.
+              <span className="italic text-navy-mid">pas l&apos;inverse</span>.
             </h2>
             <p className="mt-6 text-ink/75 leading-relaxed max-w-xl">
               Chaque mission est cadrée en amont : rôle, horaires, volume, spécificités.
@@ -213,7 +213,7 @@ export default function AssistanceCulinaireePage() {
             <span className="eyebrow">Comment ça marche</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Simple comme un{' '}
-              <span className="italic gradient-text-navy-mid">message WhatsApp</span>.
+              <span className="italic text-navy-mid">message WhatsApp</span>.
             </h2>
           </div>
           <div className="mt-14 grid md:grid-cols-3 gap-6">
@@ -244,7 +244,7 @@ export default function AssistanceCulinaireePage() {
               <span className="eyebrow">Choisissez votre chef</span>
               <h2 className="display-md text-navy mt-4 text-balance">
                 Des profils vérifiés,{' '}
-                <span className="italic gradient-text-navy-mid">près de chez vous</span>.
+                <span className="italic text-navy-mid">près de chez vous</span>.
               </h2>
             </div>
             <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/40">

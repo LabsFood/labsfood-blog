@@ -62,7 +62,7 @@ export function GallerySection() {
           >
             La maison Lab&apos;s Food,{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic text-navy-mid">
                 au quotidien.
               </span>
             </em>

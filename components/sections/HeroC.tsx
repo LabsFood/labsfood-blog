@@ -50,7 +50,7 @@ export function HeroC() {
           <span className="eyebrow">Lab&apos;s Food — Maison culinaire</span>
           <h1 className="display-lg text-navy mt-6 text-balance">
             Trois manières de{' '}
-            <span className="italic gradient-text-navy-mid">savourer</span> notre passion
+            <span className="italic text-navy-mid">savourer</span> notre passion
             de la cuisine.
           </h1>
         </motion.div>

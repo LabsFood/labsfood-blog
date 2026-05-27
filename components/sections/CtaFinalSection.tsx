@@ -55,7 +55,7 @@ export function CtaFinalSection() {
               Une envie,
               <br />
               <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
+                <span className="font-display italic text-navy-mid">
                   une table à dresser
                 </span>
               </em>
