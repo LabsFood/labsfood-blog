@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, MessageCircle, Clock, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, Clock, ShieldCheck } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { whatsappLink, WHATSAPP_NUMBER_DISPLAY } from '@/lib/utils'
 
 /**
@@ -85,7 +86,7 @@ export function CtaFinalSection() {
                 rel="noreferrer"
                 className="group inline-flex items-center gap-3 pl-7 pr-3 py-3 rounded-full bg-whatsapp text-white font-medium text-sm transition-all hover:scale-[1.02] shadow-2xl"
               >
-                <MessageCircle className="size-4" />
+                <WhatsAppIcon className="size-4" />
                 Discuter sur WhatsApp
                 <span className="size-10 rounded-full bg-white/15 grid place-items-center transition-transform group-hover:rotate-45">
                   <ArrowUpRight className="size-4" />
@@ -110,7 +111,7 @@ export function CtaFinalSection() {
             >
               <Reassure icon={Clock} title="7j/7 · 24h/24" sub="Réponse rapide" />
               <Reassure
-                icon={MessageCircle}
+                icon={WhatsAppIcon}
                 title="WhatsApp"
                 sub="Canal privilégié"
               />
@@ -133,7 +134,7 @@ export function CtaFinalSection() {
             <div className="relative rounded-3xl bg-cream text-navy p-8 md:p-10 shadow-2xl">
               {/* Pastille WhatsApp */}
               <div className="absolute -top-5 -right-5 size-14 rounded-full bg-whatsapp grid place-items-center shadow-xl ring-4 ring-cream">
-                <MessageCircle className="size-6 text-white" />
+                <WhatsAppIcon className="size-6 text-white" />
               </div>
 
               <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
@@ -173,7 +174,7 @@ export function CtaFinalSection() {
                 rel="noreferrer"
                 className="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-whatsapp text-white text-sm font-medium hover:bg-whatsapp-deep transition-colors"
               >
-                <MessageCircle className="size-4" />
+                <WhatsAppIcon className="size-4" />
                 Démarrer la conversation
               </a>
             </div>

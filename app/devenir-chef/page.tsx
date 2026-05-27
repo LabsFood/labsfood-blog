@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import {
   ShieldCheck,
-  MessageCircle,
+  
   Compass,
   Heart,
   Sparkles,
@@ -33,9 +33,9 @@ const PERKS = [
     body: 'Charte qualité, accréditation HACCP visible, profil professionnel.',
   },
   {
-    icon: MessageCircle,
+    icon: Sparkles,
     title: 'Mise en relation',
-    body: 'Bouton de réservation direct vers votre WhatsApp ou site web.',
+    body: 'Lien de réservation Calendly via votre profil — pas de numéro public.',
   },
 ] as const
 

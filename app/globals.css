@@ -36,7 +36,7 @@
   h4,
   h5 {
     @apply font-display tracking-tight text-navy;
-    font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50, 'WONK' 0;
   }
 }
 
@@ -63,7 +63,7 @@
   .italic-fraunces {
     font-family: var(--font-fraunces), serif;
     font-style: italic;
-    font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50, 'WONK' 0;
   }
 
   .container-wide {
@@ -132,6 +132,22 @@
 
   .gradient-text-navy-mid {
     background: linear-gradient(120deg, #2C3E50 0%, #3D5166 60%, #E5E8EC 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Gradient mint — accent gamme Produits */
+  .gradient-text-mint {
+    background: linear-gradient(120deg, #0F5A4A 0%, #2A8E78 50%, #A8E5D8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Gradient orange — accent Services */
+  .gradient-text-orange {
+    background: linear-gradient(120deg, #C56812 0%, #E67E22 50%, #F0A763 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

@@ -6,8 +6,9 @@ import {
   Clock,
   Users,
   ChefHat,
-  MessageCircle,
+  
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
@@ -130,7 +131,7 @@ export default function ServicesPage() {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors"
             >
-              <MessageCircle className="size-4" />
+              <WhatsAppIcon className="size-4" />
               Décrire ma demande
               <ArrowUpRight className="size-4" />
             </a>
@@ -181,7 +182,7 @@ function ServiceRow({
             {service.n}
           </div>
           <div className="absolute top-6 right-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/10 backdrop-blur-md border border-cream/20">
-            <span className="size-1.5 rounded-full bg-navy-mid" />
+            <span className="size-1.5 rounded-full bg-orange" />
             <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-cream">
               {service.kicker}
             </span>
@@ -210,7 +211,7 @@ function ServiceRow({
                 key={b}
                 className="flex items-start gap-3 text-sm text-ink/85"
               >
-                <span className="mt-1.5 size-1.5 rounded-full bg-navy-mid shrink-0" />
+                <span className="mt-1.5 size-1.5 rounded-full bg-orange shrink-0" />
                 {b}
               </li>
             ))}
@@ -227,7 +228,7 @@ function ServiceRow({
             </div>
             <Link
               href={service.href}
-              className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-navy text-cream hover:bg-navy-mid text-sm font-medium transition-all"
+              className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange text-cream hover:bg-orange-deep text-sm font-medium transition-all shadow-lg shadow-orange/30"
             >
               Découvrir
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:rotate-45" />

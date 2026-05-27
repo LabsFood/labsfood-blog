@@ -22,7 +22,7 @@ export default function ProduitsPage() {
           <>
             Le labo,{' '}
             <em className="not-italic">
-              <span className="font-display italic gradient-text-navy-mid">
+              <span className="font-display italic gradient-text-mint">
                 au quotidien.
               </span>
             </em>
@@ -36,8 +36,8 @@ export default function ProduitsPage() {
       {/* Produit dispo */}
       <section className="bg-cream py-24 md:py-32">
         <div className="container-wide">
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-10">
-            <span className="size-6 h-px bg-navy-mid" />
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-mint-ink inline-flex items-center gap-3 mb-10">
+            <span className="size-6 h-px bg-mint-ink" />
             Disponibles dès aujourd&apos;hui
           </p>
           {/* <h2 className="display-md text-navy mt-4 mb-12">En stock dès aujourd&apos;hui</h2> */}
@@ -117,8 +117,8 @@ export default function ProduitsPage() {
         <div className="container-wide relative">
           <div className="flex items-end justify-between gap-6 mb-14 flex-wrap">
             <div className="max-w-2xl">
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
-                <span className="size-6 h-px bg-navy-mid" />
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-mint-ink inline-flex items-center gap-3 mb-6">
+                <span className="size-6 h-px bg-mint-ink" />
                 Chez Lab&apos;s Food
               </p>
               <h2
@@ -127,7 +127,7 @@ export default function ProduitsPage() {
               >
                 Les prochaines{' '}
                 <em className="not-italic">
-                  <span className="font-display italic gradient-text-navy-mid">
+                  <span className="font-display italic gradient-text-mint">
                     surprises
                   </span>
                 </em>{' '}

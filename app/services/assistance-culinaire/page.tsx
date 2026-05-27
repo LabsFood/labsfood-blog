@@ -7,7 +7,7 @@ import {
   ChefHat,
   CalendarCheck,
   Building2,
-  MessageCircle,
+  
   Utensils,
   Users,
   ClipboardList,
@@ -17,6 +17,7 @@ import {
   BadgeCheck,
   Star,
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { Button } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
 import { whatsappLink } from '@/lib/utils'
@@ -118,7 +119,7 @@ export default function AssistanceCulinaireePage() {
           </div>
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-              <MessageCircle className="size-5 text-navy-soft" />
+              <WhatsAppIcon className="size-5 text-navy-soft" />
             </div>
             <div>
               <div className="font-display text-lg text-cream leading-tight">Devis rapide</div>
@@ -404,7 +405,7 @@ export default function AssistanceCulinaireePage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <MessageCircle className="size-4" />
+                <WhatsAppIcon className="size-4" />
                 Demander un devis
               </a>
             </Button>

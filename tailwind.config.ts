@@ -28,6 +28,20 @@ const config: Config = {
           soft:    '#2A5559',
           pale:    '#D1DCDD',
         },
+        // Accent chaleureux — services (boutons, highlights)
+        orange: {
+          DEFAULT: '#E67E22',
+          soft:    '#F0A763',
+          deep:    '#C56812',
+          pale:    '#FDEBD8',
+        },
+        // Accent mint frais — gamme produits (Kossam et co)
+        mint: {
+          DEFAULT: '#D1F2EB',
+          deep:    '#A8E5D8',
+          soft:    '#E8F8F3',
+          ink:     '#0F5A4A',
+        },
         cream: {
           DEFAULT: '#F4F6F7',   // fond principal (gris froid neutre)
           soft:    '#FAFBFC',   // fond alternatif clair (cards sur cream)
@@ -68,6 +82,8 @@ const config: Config = {
         'float': 'float 6s ease-in-out infinite',
         'marquee': 'marquee 40s linear infinite',
         'spin-slow': 'spin 20s linear infinite',
+        // Zoom infini lent (hero accueil)
+        'zoom-slow': 'zoom-slow 18s ease-in-out infinite alternate',
       },
       keyframes: {
         'fade-up': {
@@ -89,6 +105,10 @@ const config: Config = {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        'zoom-slow': {
+          '0%':   { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.15)' },
         },
       },
       backgroundImage: {

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import {
   Mail,
-  MessageCircle,
   Instagram,
   Music2,
   Linkedin,
@@ -9,6 +8,7 @@ import {
   MapPin,
   ArrowUpRight,
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
 import { ContactForm } from '@/components/forms/ContactForm'
 import {
@@ -52,7 +52,7 @@ export default function ContactPage() {
         <div className="container-wide">
           <div className="grid md:grid-cols-3 gap-6">
             <ContactCard
-              icon={MessageCircle}
+              icon={WhatsAppIcon}
               kicker="Canal privilégié"
               title="WhatsApp"
               body={WHATSAPP_NUMBER_DISPLAY}

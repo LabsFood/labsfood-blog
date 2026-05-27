@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowUpRight, MessageCircle, Clock, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, Clock, ShieldCheck } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink, WHATSAPP_NUMBER_DISPLAY } from '@/lib/utils'
@@ -67,7 +68,7 @@ export function CtaSection() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <MessageCircle className="size-4" />
+                    <WhatsAppIcon className="size-4" />
                     Discuter sur WhatsApp
                     <ArrowUpRight className="size-4" />
                   </a>
@@ -86,7 +87,7 @@ export function CtaSection() {
               <div className="mt-16 pt-8 border-t border-cream/15 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
                 <Reassure icon={Clock} title="7j/7 · 24h/24" sub="Réponse rapide" />
                 <Reassure
-                  icon={MessageCircle}
+                  icon={WhatsAppIcon}
                   title="WhatsApp"
                   sub="Canal privilégié"
                 />
@@ -105,7 +106,7 @@ export function CtaSection() {
               <div className="relative rounded-3xl bg-cream text-navy p-8 md:p-10 shadow-2xl">
                 {/* Pastille WhatsApp en haut */}
                 <div className="absolute -top-4 -right-4 size-12 rounded-full bg-whatsapp grid place-items-center shadow-xl ring-4 ring-cream">
-                  <MessageCircle className="size-5 text-white" />
+                  <WhatsAppIcon className="size-5 text-white" />
                 </div>
 
                 <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
@@ -144,7 +145,7 @@ export function CtaSection() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <MessageCircle className="size-4" />
+                    <WhatsAppIcon className="size-4" />
                     Démarrer la conversation
                   </a>
                 </Button>

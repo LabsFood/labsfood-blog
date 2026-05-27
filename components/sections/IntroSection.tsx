@@ -38,7 +38,7 @@ export function IntroSection() {
       {/* ─── Bloc Bienvenue ──────────────────────────────────────────── */}
       <div className="container-wide py-24 md:py-32 lg:py-40">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* ── Photo gauche ── */}
+          {/* ── Slogan SVG (remplace la photo d'Ivy — demande client) ── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -46,41 +46,28 @@ export function IntroSection() {
             transition={{ duration: 0.9 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
-              <Image
-                src="/IvyOfficielle.png"
-                alt="Ivy — Fondatrice & cheffe"
-                fill
-                className="object-cover object-top"
-                sizes="(min-width: 1024px) 40vw, 100vw"
-              />
-              {/* Voile doux bas */}
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/60 to-transparent" />
-              {/* Plaque signature */}
-              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
-                <div>
-                  <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-cream/75">
-                    La fondatrice
-                  </div>
-                  <div className="font-display text-3xl text-cream mt-1 leading-none">
-                    Ivy
-                    <span className="italic-fraunces text-navy-mid">.</span>
-                  </div>
-                </div>
-                <div className="font-display text-5xl text-cream/30 tabular-nums leading-none">
-                  01
-                </div>
-              </div>
-            </div>
+            <div className="relative aspect-square rounded-3xl bg-cream-soft border border-navy/8 p-10 md:p-16 grid place-items-center overflow-hidden">
+              {/* Halo décoratif léger */}
+              <div className="absolute -top-20 -right-20 size-64 rounded-full bg-navy-mid/8 blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 size-64 rounded-full bg-orange/10 blur-3xl" />
 
-            {/* Pastille flottante */}
-            <div className="absolute -top-6 -right-6 size-24 rounded-full bg-cream border-4 border-cream-deep shadow-xl grid place-items-center rotate-[-8deg]">
-              <div className="text-center">
-                <div className="font-display text-2xl text-navy leading-none">
-                  21
+              {/* Slogan SVG fourni par la cliente */}
+              <Image
+                src="/assets/slogan.svg"
+                alt="Lab's Food — We create what you love!"
+                width={500}
+                height={500}
+                className="relative z-10 w-full h-auto max-w-md object-contain"
+                priority
+              />
+
+              {/* Mini-mention bas */}
+              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
+                <div className="font-mono text-[0.55rem] uppercase tracking-[0.3em] text-navy-mid">
+                  — Notre signature
                 </div>
-                <div className="font-mono text-[0.5rem] uppercase tracking-[0.2em] text-navy-mid mt-1">
-                  pays
+                <div className="font-display text-4xl text-navy/15 tabular-nums leading-none">
+                  01
                 </div>
               </div>
             </div>

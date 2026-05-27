@@ -222,6 +222,6 @@ export const CHEFS = [
     languages: ['FR', 'EN'],
     specialties: ['Cuisine africaine', 'Cuisine européenne'],
     available: true,
-    bookingLink: 'https://calendly.com/labs-food-davilla',
+    bookingLink: 'https://calendly.com/ktdange/30min',
   },
 ] as const

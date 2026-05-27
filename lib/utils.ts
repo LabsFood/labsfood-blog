@@ -8,6 +8,9 @@ export function cn(...inputs: ClassValue[]) {
 export const WHATSAPP_NUMBER = '+33749755684'
 export const WHATSAPP_NUMBER_DISPLAY = '+33 7 49 75 56 84'
 
+// ── Slogan officiel Lab's Food (remplace "La cuisine, comme un voyage.") ──
+export const SLOGAN = 'We create what you love!'
+
 // ── Réseaux sociaux Lab's Food ────────────────────────────────────────────
 export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/labs_food',

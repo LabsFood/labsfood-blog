@@ -5,11 +5,10 @@ import {
   Linkedin,
   Music2,
   Mail,
-  MessageCircle,
   MapPin,
   ArrowUpRight,
-  ArrowRight,
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { SITE } from '@/lib/content'
 import {
   WHATSAPP_NUMBER_DISPLAY,
@@ -75,82 +74,46 @@ export function Footer() {
 
       {/* ─── Contenu principal ────────────────────────────────────────── */}
       <div className="relative container-wide pt-24 md:pt-28 pb-44 md:pb-56">
-        {/* ── Bloc déclaration + newsletter ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-cream/10">
-          {/* Déclaration */}
-          <div className="lg:col-span-7">
-            <Link href="/" className="inline-flex items-center gap-3 mb-8 group">
-              <span className="size-12 rounded-full bg-cream grid place-items-center transition-transform group-hover:rotate-[8deg]">
-                <Image
-                  src="/logoLab.png"
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="object-contain"
-                />
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-2xl text-cream tracking-tight">
-                  Lab&apos;s Food
-                </span>
-                <span className="font-display italic text-xs text-navy-mid mt-1">
-                  maison culinaire
-                </span>
-              </span>
-            </Link>
-
-            <h2
-              className="font-display font-bold text-cream leading-[0.95] text-balance"
-              style={{
-                fontSize: 'clamp(2.4rem, 5.5vw, 5rem)',
-                letterSpacing: '-0.025em',
-              }}
-            >
-              La cuisine,
-              <br />
-              <em className="not-italic">
-                <span className="font-display italic gradient-text-navy-mid">
-                  comme un voyage.
-                </span>
-              </em>
-            </h2>
-            <p className="mt-8 text-cream/65 max-w-md text-base leading-relaxed">
-              Fondée par Ivy après 21 pays explorés — Lab&apos;s Food vous fait
-              voyager culinairement parlant, sans tracasserie de visa.
-            </p>
-          </div>
-
-          {/* Newsletter */}
-          <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-cream/10">
-            <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-navy-mid mb-4">
-              — Newsletter du labo
-            </p>
-            <h4 className="font-display text-2xl md:text-3xl text-cream mb-4 leading-tight">
-              Recevez les nouveautés en avant-première
-            </h4>
-            <p className="text-sm text-cream/65 mb-6 leading-relaxed">
-              Sorties produits, ateliers, coulisses — directement dans votre
-              boîte.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                required
-                placeholder="votre@email.fr"
-                className="flex-1 px-5 py-3.5 bg-cream/[0.06] border border-cream/15 rounded-full text-cream placeholder:text-cream/35 text-sm outline-none focus:border-cream/40 focus:bg-cream/[0.1] transition-all"
+        {/* ── Bloc déclaration (sans newsletter, retiré sur demande client) ── */}
+        <div className="pb-16 border-b border-cream/10 max-w-4xl">
+          <Link href="/" className="inline-flex items-center gap-4 mb-10 group">
+            <span className="size-16 transition-transform group-hover:rotate-[6deg]">
+              <Image
+                src="/whiteLogo.png"
+                alt=""
+                width={64}
+                height={64}
+                className="object-contain w-full h-full"
               />
-              <button
-                type="submit"
-                className="bg-cream hover:bg-navy-mid hover:text-cream text-navy font-medium text-xs uppercase tracking-[0.1em] rounded-full px-6 py-3.5 transition-all flex items-center justify-center gap-2 group"
-              >
-                S&apos;inscrire
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </form>
-            <p className="text-xs text-cream/45 mt-3">
-              Pas de spam. Désabonnement en 1 clic.
-            </p>
-          </div>
+            </span>
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-3xl text-cream tracking-tight">
+                Lab&apos;s Food
+              </span>
+              <span className="font-display italic text-sm text-cream/65 mt-1.5">
+                We create what you love!
+              </span>
+            </span>
+          </Link>
+
+          <h2
+            className="font-display font-bold text-cream leading-[0.95] text-balance"
+            style={{
+              fontSize: 'clamp(2.4rem, 5.5vw, 5rem)',
+              letterSpacing: '-0.025em',
+            }}
+          >
+            We create{' '}
+            <em className="not-italic">
+              <span className="font-display italic gradient-text-navy-mid">
+                what you love!
+              </span>
+            </em>
+          </h2>
+          <p className="mt-8 text-cream/65 max-w-xl text-base leading-relaxed">
+            Lab&apos;s Food, c&apos;est une plateforme dédiée à votre bien-être
+            gourmand. Entrer dans votre cuisine pour vous y faire respirer.
+          </p>
         </div>
 
         {/* ── Contact + liens ── */}
@@ -169,7 +132,7 @@ export function Footer() {
                   className="group flex items-center gap-3 text-cream/85 hover:text-cream transition-colors"
                 >
                   <span className="w-10 h-10 rounded-full border border-cream/15 flex items-center justify-center group-hover:bg-whatsapp group-hover:border-whatsapp group-hover:text-white transition-colors shrink-0">
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4" />
                   </span>
                   <span className="text-sm font-medium">
                     {WHATSAPP_NUMBER_DISPLAY}

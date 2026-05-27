@@ -192,7 +192,7 @@ function ShowcaseRow({
         </div>
         {/* Kicker */}
         <div className="absolute top-6 right-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/10 backdrop-blur-md border border-cream/20">
-          <span className="size-1.5 rounded-full bg-navy-mid" />
+          <span className="size-1.5 rounded-full bg-orange" />
           <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-cream">
             {service.kicker}
           </span>
@@ -244,7 +244,7 @@ function ShowcaseRow({
           </div>
           <Link
             href={service.href}
-            className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-cream text-navy hover:bg-navy-mid hover:text-cream text-sm font-medium transition-all"
+            className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange text-cream hover:bg-orange-deep text-sm font-medium transition-all shadow-lg shadow-orange/30"
           >
             Découvrir
             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:rotate-45" />

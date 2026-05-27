@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {
   ArrowUpRight,
   Check,
-  MessageCircle,
+  
   MapPin,
   ShieldCheck,
   Snowflake,
@@ -13,6 +13,7 @@ import {
   GlassWater,
   Play,
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
@@ -52,10 +53,10 @@ export default function KossamPage() {
         <div className="absolute inset-0 bg-grain opacity-[0.06]" />
 
         {/* Décor radial */}
-        <div className="absolute top-20 right-0 size-[600px] bg-navy-mid/20 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute top-20 right-0 size-[600px] bg-mint-ink/20 blur-3xl rounded-full pointer-events-none" />
 
         {/* Filets */}
-        <div className="absolute top-32 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/30 to-transparent" />
+        <div className="absolute top-32 inset-x-0 h-px bg-gradient-to-r from-transparent via-mint-ink/30 to-transparent" />
 
         <div className="container-wide relative pt-40 pb-16 md:pb-24 w-full">
           {/* Badge breadcrumb */}
@@ -77,7 +78,7 @@ export default function KossamPage() {
               <Reveal delay={0.1}>
                 <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-cream leading-[0.9] tracking-tight">
                   Kossam
-                  <span className="text-navy-mid italic-fraunces inline-block">.</span>
+                  <span className="text-mint-ink italic-fraunces inline-block">.</span>
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
@@ -109,7 +110,7 @@ export default function KossamPage() {
             <Reveal axis="x" amount={40} delay={0.3} className="lg:col-span-5">
               <div className="relative rounded-3xl bg-cream/10 backdrop-blur-xl border border-cream/20 p-7 md:p-8 shadow-2xl">
                 {/* Pill HACCP */}
-                <div className="absolute -top-3 left-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-mid text-cream font-mono text-[0.6rem] uppercase tracking-[0.25em] shadow-lg">
+                <div className="absolute -top-3 left-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint-ink text-cream font-mono text-[0.6rem] uppercase tracking-[0.25em] shadow-lg">
                   <ShieldCheck className="size-3" />
                   HACCP
                 </div>
@@ -135,7 +136,7 @@ export default function KossamPage() {
                       <div className="font-display text-3xl text-cream group-hover:text-navy mt-1">
                         {f.price}
                       </div>
-                      <ArrowUpRight className="absolute top-4 right-4 size-4 text-cream/40 group-hover:text-navy-mid group-hover:rotate-45 transition-all" />
+                      <ArrowUpRight className="absolute top-4 right-4 size-4 text-cream/40 group-hover:text-mint-ink group-hover:rotate-45 transition-all" />
                     </a>
                   ))}
                 </div>
@@ -153,7 +154,7 @@ export default function KossamPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {/* <MessageCircle className="size-4" /> */}
+                    {/* <WhatsAppIcon className="size-4" /> */}
                     Commander sur WhatsApp
                   </a>
                 </Button>
@@ -172,14 +173,14 @@ export default function KossamPage() {
           DESCRIPTION LONGUE — éditorial
           ═══════════════════════════════════════════════════════════════ */}
       <section className="section bg-cream relative overflow-hidden">
-        <div className="absolute -top-40 right-0 size-[500px] bg-navy-mid/8 blur-3xl rounded-full" />
+        <div className="absolute -top-40 right-0 size-[500px] bg-mint-ink/8 blur-3xl rounded-full" />
         <div className="container-wide relative grid lg:grid-cols-12 gap-12 items-start">
           <Reveal className="lg:col-span-5">
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-mint-ink">
               Description
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance">
-              Une <span className="italic gradient-text-navy-mid">expérience sensorielle</span>{' '}
+              Une <span className="italic gradient-text-mint">expérience sensorielle</span>{' '}
               avant tout.
             </h2>
 
@@ -215,10 +216,10 @@ export default function KossamPage() {
               ].map((b) => (
                 <div
                   key={b.label}
-                  className="flex items-center gap-4 rounded-2xl bg-cream-soft border border-navy/8 p-5 hover:border-navy-mid/40 hover:shadow-lg transition-all"
+                  className="flex items-center gap-4 rounded-2xl bg-cream-soft border border-navy/8 p-5 hover:border-mint-ink/40 hover:shadow-lg transition-all"
                 >
-                  <div className="size-11 rounded-full bg-navy-mid/15 grid place-items-center shrink-0">
-                    <b.icon className="size-5 text-navy-mid" />
+                  <div className="size-11 rounded-full bg-mint-ink/15 grid place-items-center shrink-0">
+                    <b.icon className="size-5 text-mint-ink" />
                   </div>
                   <div>
                     <div className="font-display text-base text-navy">{b.label}</div>
@@ -230,7 +231,7 @@ export default function KossamPage() {
 
             {/* Bandeau bénéfices */}
             <div className="mt-8 rounded-2xl bg-navy text-cream p-6 relative overflow-hidden">
-              <div className="absolute -top-10 -right-10 size-40 bg-navy-mid/30 blur-3xl rounded-full" />
+              <div className="absolute -top-10 -right-10 size-40 bg-mint-ink/30 blur-3xl rounded-full" />
               <div className="relative flex flex-wrap items-center gap-6">
                 <Leaf className="size-5 text-navy-soft" />
                 <p className="text-sm text-cream/85 flex-1 min-w-[200px]">
@@ -256,17 +257,17 @@ export default function KossamPage() {
         <div className="container-wide relative">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
             <Reveal>
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-mint-ink">
                 Mille façons de le savourer
               </span>
               <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance max-w-3xl">
                 Du verre frais aux{' '}
-                <span className="italic gradient-text-navy-mid">sauces salées</span>, le
+                <span className="italic gradient-text-mint">sauces salées</span>, le
                 Kossam s&apos;invite partout.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-navy-mid/10 text-navy-deep">
+              <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-mint-ink/10 text-navy-deep">
                 <GlassWater className="size-4" />
                 <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em]">
                   Polyvalent
@@ -280,11 +281,11 @@ export default function KossamPage() {
               <Reveal key={i} delay={i * 0.05}>
                 <div className="group h-full rounded-3xl bg-cream border border-navy/8 p-7 hover:bg-navy hover:text-cream hover:border-navy hover:-translate-y-1 transition-all duration-500 ease-expo">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="font-display text-3xl text-navy-mid group-hover:text-navy-soft transition-colors">
+                    <div className="font-display text-3xl text-mint-ink group-hover:text-navy-soft transition-colors">
                       {String(i + 1).padStart(2, '0')}
                     </div>
-                    <div className="size-9 rounded-full bg-navy-mid/10 group-hover:bg-cream/10 grid place-items-center transition-colors">
-                      <Sparkles className="size-4 text-navy-mid group-hover:text-navy-soft transition-colors" />
+                    <div className="size-9 rounded-full bg-mint-ink/10 group-hover:bg-cream/10 grid place-items-center transition-colors">
+                      <Sparkles className="size-4 text-mint-ink group-hover:text-navy-soft transition-colors" />
                     </div>
                   </div>
                   <p className="leading-relaxed text-ink/85 group-hover:text-cream/85 transition-colors">
@@ -302,7 +303,7 @@ export default function KossamPage() {
           ═══════════════════════════════════════════════════════════════ */}
       <section className="section bg-navy text-cream relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
-        <div className="absolute -top-32 left-1/4 size-[500px] bg-navy-mid/15 blur-3xl rounded-full" />
+        <div className="absolute -top-32 left-1/4 size-[500px] bg-mint-ink/15 blur-3xl rounded-full" />
         <div className="absolute bottom-0 right-0 size-[400px] bg-teal/30 blur-3xl rounded-full" />
 
         <div className="container-wide relative">
@@ -326,7 +327,7 @@ export default function KossamPage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[1, 2, 3].map((n, i) => (
               <Reveal key={n} delay={i * 0.1}>
-                <div className="group relative aspect-[3/4] rounded-3xl overflow-hidden bg-navy-deep ring-1 ring-cream/10 hover:ring-navy-mid/40 transition-all duration-500">
+                <div className="group relative aspect-[3/4] rounded-3xl overflow-hidden bg-navy-deep ring-1 ring-cream/10 hover:ring-mint-ink/40 transition-all duration-500">
                   <video
                     className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-expo"
                     autoPlay
@@ -340,7 +341,7 @@ export default function KossamPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
 
                   {/* Icône play flottante */}
-                  <div className="absolute top-5 right-5 size-11 rounded-full bg-cream/15 backdrop-blur-md border border-cream/25 grid place-items-center group-hover:bg-navy-mid group-hover:border-navy-mid transition-all duration-500">
+                  <div className="absolute top-5 right-5 size-11 rounded-full bg-cream/15 backdrop-blur-md border border-cream/25 grid place-items-center group-hover:bg-mint-ink group-hover:border-mint-ink transition-all duration-500">
                     <Play className="size-4 fill-current text-cream" />
                   </div>
 
@@ -365,10 +366,10 @@ export default function KossamPage() {
         <div className="container-wide grid md:grid-cols-2 gap-8">
           <Reveal>
             <div className="h-full rounded-3xl bg-cream-soft border border-navy/10 p-10 relative overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="absolute -top-10 -right-10 size-40 bg-navy-mid/8 blur-3xl rounded-full" />
+              <div className="absolute -top-10 -right-10 size-40 bg-mint-ink/8 blur-3xl rounded-full" />
               <div className="relative">
-                <div className="size-12 rounded-full bg-navy-mid/15 grid place-items-center mb-5">
-                  <Snowflake className="size-5 text-navy-mid" />
+                <div className="size-12 rounded-full bg-mint-ink/15 grid place-items-center mb-5">
+                  <Snowflake className="size-5 text-mint-ink" />
                 </div>
                 <h3 className="font-display text-3xl text-navy">Conservation</h3>
                 <p className="mt-2 text-sm text-ink/60">
@@ -381,7 +382,7 @@ export default function KossamPage() {
                     'Bien agiter avant dégustation.',
                   ].map((t) => (
                     <li key={t} className="flex gap-3">
-                      <span className="mt-1 size-5 rounded-full bg-navy-mid/15 text-navy-mid grid place-items-center shrink-0">
+                      <span className="mt-1 size-5 rounded-full bg-mint-ink/15 text-mint-ink grid place-items-center shrink-0">
                         <Check className="size-3" />
                       </span>
                       <span>{t}</span>
@@ -395,9 +396,9 @@ export default function KossamPage() {
           <Reveal delay={0.1}>
             <div className="h-full rounded-3xl bg-teal text-cream p-10 relative overflow-hidden hover:shadow-xl transition-shadow">
               <div className="absolute inset-0 bg-grain opacity-[0.05]" />
-              <div className="absolute -bottom-10 -left-10 size-60 bg-navy-mid/20 blur-3xl rounded-full" />
+              <div className="absolute -bottom-10 -left-10 size-60 bg-mint-ink/20 blur-3xl rounded-full" />
               <div className="relative">
-                <div className="size-12 rounded-full bg-navy-mid/20 grid place-items-center mb-5">
+                <div className="size-12 rounded-full bg-mint-ink/20 grid place-items-center mb-5">
                   <ShieldCheck className="size-8 text-white" />
                 </div>
                 <h3 className="font-display text-3xl text-cream">
@@ -432,11 +433,11 @@ export default function KossamPage() {
       <section className="section bg-cream-soft">
         <div className="container-wide mb-12">
           <Reveal>
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-mint-ink">
               Avis clients
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance max-w-3xl">
-              Ce que la <span className="italic gradient-text-navy-mid">communauté</span> en
+              Ce que la <span className="italic gradient-text-mint">communauté</span> en
               dit.
             </h2>
           </Reveal>
@@ -450,7 +451,7 @@ export default function KossamPage() {
       <section className="bg-cream pb-24">
         <div className="container-wide">
           <Reveal>
-            <div className="rounded-3xl bg-gradient-to-br from-navy-mid via-navy-mid to-navy-deep text-cream p-10 md:p-16 relative overflow-hidden">
+            <div className="rounded-3xl bg-gradient-to-br from-mint-ink via-mint-ink to-navy-deep text-cream p-10 md:p-16 relative overflow-hidden">
               <div className="absolute inset-0 bg-grain opacity-10" />
               <div className="absolute -top-20 -right-20 size-96 rounded-full bg-cream/15 blur-3xl" />
               <div className="absolute -bottom-20 -left-20 size-96 rounded-full bg-navy/30 blur-3xl" />
@@ -482,7 +483,7 @@ export default function KossamPage() {
                       rel="noreferrer"
                     >
                       <span className="flex items-center gap-2">
-                        <MessageCircle className="size-4" />
+                        <WhatsAppIcon className="size-4" />
                         Commander 0.5L · 7€
                       </span>
                       <ArrowUpRight className="size-4" />
@@ -497,7 +498,7 @@ export default function KossamPage() {
                       rel="noreferrer"
                     >
                       <span className="flex items-center gap-2">
-                        <MessageCircle className="size-4" />
+                        <WhatsAppIcon className="size-4" />
                         Commander 1.5L · 19.99€
                       </span>
                       <ArrowUpRight className="size-4" />

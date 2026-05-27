@@ -14,15 +14,15 @@ export function HeroD() {
       id="top"
       className="relative w-full h-screen min-h-[700px] overflow-hidden bg-navy"
     >
-      {/* ─── Image de fond full-bleed ─── */}
-      <div className="absolute inset-0">
+      {/* ─── Image de fond full-bleed + zoom infini lent ─── */}
+      <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/assets/photo-1.jpeg"
-          alt="Lab's Food — maison culinaire"
+          alt="Lab's Food — We create what you love!"
           fill
           priority
           quality={92}
-          className="object-cover"
+          className="object-cover animate-zoom-slow"
           sizes="100vw"
         />
       </div>
@@ -38,20 +38,20 @@ export function HeroD() {
 
       {/* ─── Contenu centré ─── */}
       <div className="relative h-full flex flex-col items-center justify-center text-center text-cream px-6">
-        {/* Crown logo */}
+        {/* Crown logo (whiteLogo sur fond sombre) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-8"
         >
-          <div className="relative size-20 md:size-24 mx-auto rounded-full bg-cream/10 border border-cream/20 backdrop-blur-sm grid place-items-center">
+          <div className="relative size-24 md:size-28 mx-auto">
             <Image
-              src="/logoLab.png"
-              alt=""
-              width={56}
-              height={56}
+              src="/whiteLogo.png"
+              alt="Lab's Food"
+              fill
               priority
+              sizes="112px"
               className="object-contain"
             />
           </div>
@@ -77,10 +77,10 @@ export function HeroD() {
           className="font-display text-cream leading-[0.95] tracking-tight text-balance max-w-5xl"
           style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}
         >
-          La cuisine,{' '}
+          We create{' '}
           <em className="not-italic">
             <span className="font-display italic gradient-text-navy-mid">
-              comme un voyage.
+              what you love!
             </span>
           </em>
         </motion.h1>

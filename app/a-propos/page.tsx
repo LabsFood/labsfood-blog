@@ -9,10 +9,11 @@ import {
   Sparkles,
   HandHeart,
   Quote,
-  MessageCircle,
+  
   Users,
   MapPin,
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { FOUNDER, TIMELINE } from '@/lib/content'
@@ -72,9 +73,9 @@ export default function AboutPage() {
       {/* ── Bloc Portrait + Bio complète ─────────────────────────────── */}
       <section id="histoire" className="bg-cream py-24 md:py-32">
         <div className="container-wide grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          {/* Portrait sticky */}
-          <Reveal axis="x" amount={30}>
-            <div className="lg:col-span-5 lg:sticky lg:top-32 relative">
+          {/* Portrait sticky — classes grid + sticky directement sur le Reveal */}
+          <Reveal axis="x" amount={30} className="lg:col-span-5 lg:sticky lg:top-32 relative">
+            <div className="relative">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
                   src="/IvyOfficielle.png"
@@ -115,8 +116,8 @@ export default function AboutPage() {
           </Reveal>
 
           {/* Bio (paragraphes + pull-quote) */}
-          <Reveal>
-            <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
+            <div>
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
                 <span className="size-6 h-px bg-navy-mid" />
                 Notre histoire
@@ -424,7 +425,7 @@ export default function AboutPage() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors"
               >
-                <MessageCircle className="size-4" />
+                <WhatsAppIcon className="size-4" />
                 Discuter avec Ivy
                 <ArrowUpRight className="size-4" />
               </a>

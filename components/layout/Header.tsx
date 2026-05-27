@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { cn, whatsappLink } from '@/lib/utils'
 
 const NAV = [
@@ -44,14 +45,14 @@ export function Header() {
         )}
       >
         <div className="container-wide flex items-center justify-between gap-8">
-          {/* ─── Logo ─── */}
+          {/* ─── Logo (mainLogo bleu sur cream / whiteLogo blanc sur transparent) ─── */}
           <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <span className="relative size-12 rounded-full grid place-items-center bg-cream/90 transition-transform duration-500 ease-expo group-hover:rotate-[8deg]">
+            <span className="relative size-14 transition-transform duration-500 ease-expo group-hover:rotate-[6deg]">
               <Image
-                src="/logoLab.png"
+                src={scrolled ? '/mainLogo.png' : '/whiteLogo.png'}
                 alt="Lab's Food"
-                width={32}
-                height={32}
+                fill
+                sizes="56px"
                 className="object-contain"
                 priority
               />
@@ -65,8 +66,8 @@ export function Header() {
               <span className="font-display text-xl tracking-tight">
                 Lab&apos;s Food
               </span>
-              <span className="font-display italic text-[0.7rem] text-navy-mid mt-0.5">
-                maison culinaire
+              <span className="font-display italic text-[0.7rem] mt-0.5 opacity-75">
+                We create what you love!
               </span>
             </span>
           </Link>
@@ -124,7 +125,7 @@ export function Header() {
             >
               Discuter
               <span className="size-8 rounded-full grid place-items-center bg-whatsapp text-white">
-                <MessageCircle className="size-3.5" />
+                <WhatsAppIcon className="size-3.5" />
               </span>
             </a>
           </div>
@@ -197,7 +198,7 @@ export function Header() {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-whatsapp text-white text-sm font-medium"
             >
-              <MessageCircle className="size-4" />
+              <WhatsAppIcon className="size-4" />
               Discuter sur WhatsApp
               <ArrowUpRight className="size-4" />
             </a>

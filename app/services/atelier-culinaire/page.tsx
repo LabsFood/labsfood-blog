@@ -9,8 +9,9 @@ import {
   Users,
   Clock,
   Sparkles,
-  MessageCircle,
+  
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
@@ -107,7 +108,7 @@ export default function AtelierPage() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors"
               >
-                <MessageCircle className="size-4" />
+                <WhatsAppIcon className="size-4" />
                 Réserver
               </a>
               <p className="text-[0.7rem] text-ink/55 mt-2 text-center">

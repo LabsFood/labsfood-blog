@@ -8,8 +8,9 @@ import {
   Leaf,
   MapPin,
   UtensilsCrossed,
-  MessageCircle,
+  
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { BATCH_COOKING_URL, whatsappLink } from '@/lib/utils'
@@ -205,7 +206,7 @@ export default function BatchCookingPage() {
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors"
             >
-              <MessageCircle className="size-4" />
+              <WhatsAppIcon className="size-4" />
               Demander un devis
             </a>
           </div>
