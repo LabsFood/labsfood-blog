@@ -87,7 +87,7 @@ export default function AssistanceCulinaireePage() {
         title={
           <>
             Un coup de main{' '}
-            <span className="italic text-navy-mid">professionnel</span>
+            <span className="italic text-orange">professionnel</span>
             <br />
             dans votre cuisine.
           </>
@@ -97,11 +97,11 @@ export default function AssistanceCulinaireePage() {
       />
 
       {/* ── Bandeau teal ── */}
-      <section className="bg-teal text-cream">
+      <section className="bg-orange text-cream">
         <div className="container-wide py-12 grid md:grid-cols-3 gap-8">
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-              <ChefHat className="size-5 text-navy-soft" />
+              <ChefHat className="size-5 text-white" />
             </div>
             <div>
               <div className="font-display text-lg text-cream leading-tight">Rôle sur-mesure</div>
@@ -110,7 +110,7 @@ export default function AssistanceCulinaireePage() {
           </div>
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-              <Building2 className="size-5 text-navy-soft" />
+              <Building2 className="size-5 text-white" />
             </div>
             <div>
               <div className="font-display text-lg text-cream leading-tight">Particuliers &amp; pros</div>
@@ -119,7 +119,7 @@ export default function AssistanceCulinaireePage() {
           </div>
           <div className="flex items-center gap-4">
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-              <WhatsAppIcon className="size-5 text-navy-soft" />
+              <WhatsAppIcon className="size-5 text-white" />
             </div>
             <div>
               <div className="font-display text-lg text-cream leading-tight">Devis rapide</div>
@@ -279,8 +279,8 @@ export default function AssistanceCulinaireePage() {
                   {/* Disponibilité */}
                   {chef.available && (
                     <div className="absolute bottom-5 left-5 flex items-center gap-2 bg-cream/95 rounded-full px-3 py-1.5">
-                      <span className="size-2 rounded-full bg-whatsapp animate-pulse" />
-                      <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink">
+                      {/* <span className="size-2 rounded-full bg-whatsapp animate-pulse" /> */}
+                      <span className=" text-[0.6rem] uppercase tracking-[0.2em] text-ink">
                         Disponible
                       </span>
                     </div>
@@ -291,7 +291,7 @@ export default function AssistanceCulinaireePage() {
                 <div className="lg:col-span-8 p-8 md:p-10 flex flex-col justify-between gap-8">
                   <div>
                     {/* Titre & nom */}
-                    <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-teal">
+                    <div className="font-montserrat text-[0.65rem] uppercase tracking-[0.3em] text-teal">
                       {chef.title}
                     </div>
                     <h3 className="font-display text-5xl md:text-6xl text-navy mt-2 leading-none">
@@ -417,7 +417,7 @@ export default function AssistanceCulinaireePage() {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="section bg-orange-deep relative overflow-hidden">
+      <section className="section bg-orange relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.04]" />
         <div className="container-wide relative grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8">

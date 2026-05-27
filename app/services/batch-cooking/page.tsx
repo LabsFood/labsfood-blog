@@ -8,7 +8,7 @@ import {
   Leaf,
   MapPin,
   UtensilsCrossed,
-  
+
 } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
@@ -44,7 +44,7 @@ export default function BatchCookingPage() {
           <>
             Une semaine de repas,{' '}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic text-orange">
                 préparée chez vous.
               </span>
             </em>
@@ -52,7 +52,7 @@ export default function BatchCookingPage() {
         }
         lede="Une cheffe professionnelle vient cuisiner directement à votre domicile. En 2 heures minimum, votre semaine est prête."
         image="/assets/photo-9.jpeg"
-        imagePosition="center 40%"
+        imagePosition="center "
       />
 
       {/* ── Carte features flottante ──────────────────────────────────── */}
@@ -73,7 +73,7 @@ export default function BatchCookingPage() {
               href={BATCH_COOKING_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-navy text-cream font-medium text-sm hover:bg-navy-mid transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-orange text-cream font-medium text-sm hover:bg-navy-mid transition-colors"
             >
               Site dédié
               <ArrowUpRight className="size-4" />
