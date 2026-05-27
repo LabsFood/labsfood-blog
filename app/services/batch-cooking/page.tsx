@@ -163,14 +163,14 @@ export default function BatchCookingPage() {
           className="object-cover opacity-25"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/90 to-navy/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy/50 to-navy/50" />
         <div className="absolute inset-0 bg-grain opacity-[0.05] mix-blend-overlay" />
 
         <div className="relative container-wide text-center max-w-3xl mx-auto">
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
-            <span className="size-6 h-px bg-navy-mid" />
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-cream-deep inline-flex items-center gap-3 mb-6">
+            <span className="size-6 h-px bg-orange-deep" />
             Site dédié
-            <span className="size-6 h-px bg-navy-mid" />
+            <span className="size-6 h-px bg-orange-deep" />
           </p>
           <h2
             className="font-display text-cream leading-[0.95] tracking-tight text-balance"
@@ -179,7 +179,7 @@ export default function BatchCookingPage() {
             Toute l&apos;offre batch cooking,
             <br />
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic text-orange">
                 sur son propre site.
               </span>
             </em>

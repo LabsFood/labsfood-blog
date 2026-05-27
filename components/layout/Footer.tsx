@@ -77,22 +77,14 @@ export function Footer() {
         {/* ── Bloc déclaration (sans newsletter, retiré sur demande client) ── */}
         <div className="pb-16 border-b border-cream/10 max-w-4xl">
           <Link href="/" className="inline-flex items-center gap-4 mb-10 group">
-            <span className="size-16 transition-transform group-hover:rotate-[6deg]">
+            <span className=" transition-transform group-hover:rotate-[6deg]">
               <Image
                 src="/whiteLogo.png"
                 alt=""
-                width={64}
-                height={64}
-                className="object-contain w-full h-full"
+                width={200}
+                height={200}
+                className="object-contain"
               />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="font-display text-3xl text-cream tracking-tight">
-                Lab&apos;s Food
-              </span>
-              <span className="font-display italic text-sm text-cream/65 mt-1.5">
-                We create what you love!
-              </span>
             </span>
           </Link>
 
