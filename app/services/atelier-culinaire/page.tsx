@@ -41,7 +41,7 @@ const STEPS = [
 ] as const
 
 const FEATURES = [
-  { icon: Users, label: 'Jusqu\'à 10 personnes' },
+  { icon: Users, label: 'Jusqu\'à 04 personnes' },
   { icon: Clock, label: '~ 2h d\'atelier' },
   { icon: Gift, label: 'Cadeau surprise' },
   { icon: MapPin, label: 'À domicile' },
@@ -65,7 +65,7 @@ export default function AtelierPage() {
           <>
             Une cuisine du monde,{' '}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic text-orange">
                 apprise pas à pas
               </span>
             </em>{' '}
@@ -188,7 +188,7 @@ export default function AtelierPage() {
             {[
               { label: 'Atelier privé · 1 à 4 personnes', price: '80€', note: 'forfait' },
               { label: '+1 personne (au-delà de 4)', price: '+20€', note: 'par personne' },
-              { label: 'Groupe maximum', price: '10 pers.', note: 'capacité maximale' },
+              { label: 'Groupe maximum', price: '07 pers.', note: 'capacité maximale' },
               { label: 'Gestion des courses', price: '+20€', note: 'optionnel' },
             ].map((row, i) => (
               <div
@@ -201,7 +201,7 @@ export default function AtelierPage() {
                   </div>
                   <div className="text-xs text-cream/55 mt-0.5">{row.note}</div>
                 </div>
-                <div className="font-display text-2xl text-navy-mid tabular-nums">
+                <div className="font-display text-2xl text-orange tabular-nums">
                   {row.price}
                 </div>
               </div>
@@ -265,8 +265,8 @@ export default function AtelierPage() {
             <div className="absolute -top-10 -right-10 size-72 rounded-full bg-navy-mid/20 blur-3xl" />
             <div className="lg:col-span-8 relative">
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="size-4 text-navy-mid" />
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-navy-mid">
+                <Sparkles className="size-4 text-orange" />
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-orange">
                   Vous êtes passionné de cuisine ?
                 </span>
               </div>
@@ -276,7 +276,7 @@ export default function AtelierPage() {
               >
                 Rejoignez nos{' '}
                 <em className="not-italic">
-                  <span className="font-display italic text-navy-mid">
+                  <span className="font-display italic text-orange">
                     chefs partenaires.
                   </span>
                 </em>
@@ -290,7 +290,7 @@ export default function AtelierPage() {
             <div className="lg:col-span-4 relative">
               <Link
                 href="/devenir-chef"
-                className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-cream text-navy font-medium text-sm hover:bg-navy-mid hover:text-cream transition-colors"
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-cream text-navy font-medium text-sm hover:bg-orange hover:text-cream transition-colors"
               >
                 Devenir chef partenaire
                 <ArrowUpRight className="size-4" />

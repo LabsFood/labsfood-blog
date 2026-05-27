@@ -82,7 +82,7 @@ export const PRODUCTS = [
 ] as const
 
 export const COMING_SOON = [
-  { name: 'Köni', category: 'Boisson' },
+  { name: 'Köni', category: 'Marinade' },
   { name: 'Luxury Kossam', category: 'Boisson' },
   { name: 'Ail noir', category: 'Épice' },
   // { name: 'Marinade verte 100% BIO', category: 'Condiment' },
@@ -130,7 +130,7 @@ export const FOUNDER = {
    * Structurée en paragraphes courts pour le rendu éditorial.
    */
   bioParagraphs: [
-    "Je m'appelle Siyaptze. Ingénieure de formation et toujours étudiante pour me spécialiser dans la gestion de projets et l'excellence opérationnelle, je connais parfaitement ce que signifie vivre à 100 à l'heure. C'est justement parce que je voyais les personnes autour de moi, submergées par ce même rythme effréné, galérer pour bien manger que j'ai imaginé Lab's Food.",
+    "Je m'appelle Siyaptze Ivy. Ingénieure de formation et toujours étudiante pour me spécialiser dans la gestion de projets et l'excellence opérationnelle, je connais parfaitement ce que signifie vivre à 100 à l'heure. C'est justement parce que je voyais les personnes autour de moi, submergées par ce même rythme effréné, galérer pour bien manger que j'ai imaginé Lab's Food.",
     "Le véritable déclic s'est produit lors de la grossesse de ma tante. À cette époque, mon agenda était un marathon ininterrompu. Je courais 7 jours sur 7 : la semaine, je jonglais entre l'école et mon entreprise d'alternance, et le week-end, je travaillais dans un restaurant d'où je rentrais souvent vers 23 heures. J'étais épuisée, et ma tante habitait à deux heures de route.",
     "Pourtant, je me battais pour dégager du temps et aller lui préparer ses repas. À chaque fois, la voir s'illuminer, la voir me remercier avec un sourire si profond m'a bouleversée. Elle me disait « MERCI » comme si j'avais fait quelque chose d'exceptionnel. Et j'ai réalisé qu'elle avait raison : soulager la charge mentale d'une personne par la cuisine, c'est exceptionnel.",
     "Ce sourire a été mon moteur. J'ai laissé derrière moi ce rythme épuisant pour créer Lab's Food, un projet que je mène de front avec mes études. Après tout, optimiser le temps et l'organisation, c'est le cœur de mon métier !",

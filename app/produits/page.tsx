@@ -112,13 +112,13 @@ export default function ProduitsPage() {
       </section>
 
       {/* Coming soon grid */}
-      <section className="bg-navy text-cream py-24 md:py-32 relative overflow-hidden">
+      <section className="bg-teal text-cream py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="container-wide relative">
           <div className="flex items-end justify-between gap-6 mb-14 flex-wrap">
             <div className="max-w-2xl">
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-mint-ink inline-flex items-center gap-3 mb-6">
-                <span className="size-6 h-px bg-mint-ink" />
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-orange inline-flex items-center gap-3 mb-6">
+                <span className="size-6 h-px bg-orange" />
                 Chez Lab&apos;s Food
               </p>
               <h2
@@ -127,7 +127,7 @@ export default function ProduitsPage() {
               >
                 Les prochaines{' '}
                 <em className="not-italic">
-                  <span className="font-display italic text-mint-ink">
+                  <span className="font-display italic text-orange">
                     surprises
                   </span>
                 </em>{' '}

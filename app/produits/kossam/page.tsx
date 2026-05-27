@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {
   ArrowUpRight,
   Check,
-  
+
   MapPin,
   ShieldCheck,
   Snowflake,
@@ -66,7 +66,7 @@ export default function KossamPage() {
                 <span className="size-1.5 rounded-full bg-whatsapp animate-pulse" />
                 Disponible
               </span> */}
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft">
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
                 Produit · 01 — Signature
               </span>
             </div>
@@ -78,7 +78,7 @@ export default function KossamPage() {
               <Reveal delay={0.1}>
                 <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-cream leading-[0.9] tracking-tight">
                   Kossam
-                  <span className="text-mint-ink italic-fraunces inline-block">.</span>
+                  {/* <span className="text-mint-ink italic-fraunces inline-block">.</span> */}
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
@@ -108,7 +108,7 @@ export default function KossamPage() {
 
             {/* Colonne carte prix flottante */}
             <Reveal axis="x" amount={40} delay={0.3} className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-cream/10 backdrop-blur-xl border border-cream/20 p-7 md:p-8 shadow-2xl">
+              <div className="relative rounded-3xl bg-mint-ink backdrop-blur-xl border border-cream/20 p-7 md:p-8 shadow-2xl">
                 {/* Pill HACCP */}
                 <div className="absolute -top-3 left-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint-ink text-cream font-mono text-[0.6rem] uppercase tracking-[0.25em] shadow-lg">
                   <ShieldCheck className="size-3" />
@@ -145,7 +145,7 @@ export default function KossamPage() {
                   asChild
                   variant="whatsapp"
                   size="lg"
-                  className="w-full mt-5 justify-center"
+                  className="w-full mt-5 justify-center "
                 >
                   <a
                     href={whatsappLink(
@@ -230,16 +230,16 @@ export default function KossamPage() {
             </div>
 
             {/* Bandeau bénéfices */}
-            <div className="mt-8 rounded-2xl bg-navy text-cream p-6 relative overflow-hidden">
+            <div className="mt-8 rounded-2xl bg-mint-ink text-cream p-6 relative overflow-hidden">
               <div className="absolute -top-10 -right-10 size-40 bg-mint-ink/30 blur-3xl rounded-full" />
               <div className="relative flex flex-wrap items-center gap-6">
-                <Leaf className="size-5 text-navy-soft" />
+                <Leaf className="size-5 text-white" />
                 <p className="text-sm text-cream/85 flex-1 min-w-[200px]">
                   Source d&apos;inspiration en cuisine : verre frais, granola, smoothie, sauces…
                 </p>
                 <a
                   href="#usages"
-                  className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-soft hover:text-cream transition-colors"
+                  className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white hover:text-cream transition-colors"
                 >
                   Voir les usages ↓
                 </a>

@@ -90,12 +90,12 @@ export default function AboutPage() {
                     {FOUNDER.title}
                   </div>
                   <div className="font-display text-5xl text-cream mt-2 leading-none">
-                    {FOUNDER.name}
+                    {FOUNDER.nick}
                     <span className="italic-fraunces text-navy-mid">.</span>
                   </div>
-                  <div className="font-display italic text-base text-cream/70 mt-1">
+                  {/* <div className="font-display italic text-base text-cream/70 mt-1">
                     « {FOUNDER.nick} » pour les intimes
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -130,13 +130,13 @@ export default function AboutPage() {
                 Je m&apos;appelle{' '}
                 <em className="not-italic">
                   <span className="font-display italic text-navy-mid">
-                    Siyaptze.
+                    Siyaptze Ivy.
                   </span>
                 </em>
               </h2>
 
               {/* Paragraphes de bio */}
-              <div className="space-y-6 text-ink/80 leading-relaxed text-pretty">
+              <div className="space-y-6 text-ink/80 leading-relaxed text-justify">
                 {FOUNDER.bioParagraphs.slice(0, 3).map((p, i) => (
                   <p key={i} className={i === 0 ? 'text-lg' : ''}>
                     {p}
@@ -152,9 +152,9 @@ export default function AboutPage() {
                 </p>
               </blockquote>
 
-              <div className="space-y-6 text-ink/80 leading-relaxed text-pretty">
+              <div className="space-y-6 text-ink/80 leading-relaxed text-justify">
                 {FOUNDER.bioParagraphs.slice(3).map((p, i) => (
-                  <p key={i}>{p}</p>
+                  <p key={i} className='text-justify'>{p}</p>
                 ))}
               </div>
 
@@ -372,7 +372,7 @@ export default function AboutPage() {
             <div className="mt-10 flex items-center gap-4">
               <div className="size-12 rounded-full overflow-hidden bg-cream">
                 <Image
-                  src="/IvyOfficielle.png"
+                  src="/assets/placehold.jpeg"
                   alt="Siyaptze"
                   width={48}
                   height={48}
@@ -381,7 +381,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <div className="font-display text-xl text-cream">
-                  Siyaptze
+                  Siyaptze Ivy
                 </div>
                 <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55 mt-0.5">
                   Fondatrice de Lab&apos;s Food
