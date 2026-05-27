@@ -1,6 +1,8 @@
 // Données statiques du site Lab's Food.
 // Centralise textes, prix, avis pour réutilisation par les pages.
 
+import { BATCH_COOKING_URL } from "./utils"
+
 export const SITE = {
   name: "Lab's Food",
   tagline: "L'art de cuisiner, partagé",
@@ -196,7 +198,7 @@ export const CHEFS = [
     title: "Fondatrice & Cheffe · Lab's Food",
     photo: '/assets/placehold.jpeg',
     region: "Côte d'Azur",
-    zone: "Nice · Cannes · Antibes · Monaco",
+    zone: "Nice · Cannes · Antibes",
     bio: "Ingénieure de formation, passionnée de gastronomie et de voyages. Ivy a fondé Lab's Food pour partager une vision : cuisiner, c'est voyager.",
     badges: ['HACCP', 'Cuisines du monde'],
     languages: ['FR', 'PT', 'EN'],
@@ -207,7 +209,7 @@ export const CHEFS = [
      * Cf. onglet 5 du doc client : on n'affiche jamais le numéro perso en public.
      * À remplacer par le vrai lien du chef quand disponible.
      */
-    bookingLink: 'https://calendly.com/labs-food-ivy',
+    bookingLink: BATCH_COOKING_URL,
   },
   {
     id: 'davilla',
