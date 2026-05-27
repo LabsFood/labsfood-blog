@@ -74,7 +74,7 @@ export function IntroSection() {
               className="font-display text-navy leading-[0.98] tracking-tight text-balance"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4.2rem)' }}
             >
-              Une maison culinaire née d&apos;
+              Un studio culinaire né d&apos;
               <em className="not-italic">
                 <span className="font-display italic text-navy-mid">
                   une conviction
@@ -125,11 +125,11 @@ export function IntroSection() {
               className="font-display text-navy leading-tight text-balance"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}
             >
-              Ce qui fait de Lab&apos;s Food
+              Ce qui rend Lab&apos;s Food
               <br />
               <em className="not-italic">
                 <span className="font-display italic text-navy-mid">
-                  une maison à part.
+                  unique en son genre.
                 </span>
               </em>
             </h3>

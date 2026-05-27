@@ -47,7 +47,7 @@ export function HeroC() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <span className="eyebrow">Lab&apos;s Food — Maison culinaire</span>
+          <span className="eyebrow">Lab&apos;s Food — Studio culinaire</span>
           <h1 className="display-lg text-navy mt-6 text-balance">
             Trois manières de{' '}
             <span className="italic text-navy-mid">savourer</span> notre passion

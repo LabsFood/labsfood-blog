@@ -175,7 +175,7 @@ export function Footer() {
           </div>
 
           {/* Colonnes liens */}
-          <FooterColumn title="Maison" className="lg:col-span-3">
+          <FooterColumn title="Le studio" className="lg:col-span-3">
             {LINKS.maison.map((l) => (
               <FooterLink key={l.href + l.label} {...l} />
             ))}

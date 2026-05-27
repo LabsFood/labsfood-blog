@@ -35,7 +35,7 @@ export function HeroA() {
           transition={{ duration: 0.6 }}
           className="eyebrow text-navy-soft mb-8"
         >
-          Maison culinaire — Fondée par Ivy
+          Studio culinaire — Fondée par Ivy
         </motion.span>
 
         <motion.h1

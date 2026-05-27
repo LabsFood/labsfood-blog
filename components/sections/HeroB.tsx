@@ -46,7 +46,7 @@ export function HeroB() {
           {/* Tagline brand-first */}
           {/* <p className="lede mt-10 max-w-xl text-pretty">
             Fondée par <span className="font-medium text-navy">Ivy</span> après
-            l&apos;exploration de 21 pays, Lab&apos;s Food est une maison culinaire
+            l&apos;exploration de 21 pays, Lab&apos;s Food est une studio culinaire
             qui invite à voyager autour d&apos;une assiette — sans tracasserie de visa.
           </p> */}
 
@@ -137,7 +137,7 @@ export function HeroB() {
             </div>
           </motion.div>
 
-          {/* Badge tampon "Maison culinaire" — circulaire éditorial */}
+          {/* Badge tampon "Studio culinaire" — circulaire éditorial */}
           <motion.div
             initial={{ opacity: 0, rotate: -180 }}
             animate={{ opacity: 1, rotate: 0 }}
@@ -157,7 +157,7 @@ export function HeroB() {
                 </defs>
                 <text className="text-[10.5px] fill-cream font-mono tracking-[0.2em] uppercase">
                   <textPath href="#circle-text">
-                    Lab&apos;s Food·Maison culinaire·
+                    Lab&apos;s Food·Studio culinaire·
                   </textPath>
                 </text>
               </svg>

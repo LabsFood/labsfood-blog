@@ -7,7 +7,7 @@ export const SITE = {
   name: "Lab's Food",
   tagline: "L'art de cuisiner, partagé",
   description:
-    "Lab's Food, c'est une maison culinaire fondée par Ivy : ateliers de cuisine à domicile, batch cooking sur-mesure, et produits artisanaux comme le Kossam.",
+    "Lab's Food, c'est un studio culinaire fondé par Ivy : ateliers de cuisine à domicile, batch cooking sur-mesure, et produits artisanaux comme le Kossam.",
   email: 'contact@labsfood.fr',
 }
 

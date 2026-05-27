@@ -65,7 +65,7 @@ export function HeroD() {
           className="font-mono text-[0.7rem] md:text-xs uppercase tracking-[0.4em] text-cream/80 mb-5 inline-flex items-center gap-3"
         >
           <span className="size-8 h-px bg-cream/40" />
-          Maison culinaire — par Siyaptze
+          Studio culinaire — par Siyaptze
           <span className="size-8 h-px bg-cream/40" />
         </motion.p>
 
@@ -92,7 +92,7 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="mt-8 max-w-2xl text-cream/85 text-lg md:text-xl leading-relaxed text-pretty"
         >
-          Fondée par Ivy, Lab&apos;s Food est une maison culinaire qui invite
+          Fondée par Ivy, Lab&apos;s Food est un studio culinaire qui invite
           à voyager autour d&apos;une assiette — sans tracasserie de visa.
         </motion.p>
 

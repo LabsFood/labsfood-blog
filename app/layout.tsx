@@ -50,11 +50,11 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://labsfood.fr'),
   title: {
-    default: "Lab's Food — Maison culinaire : ateliers, batch cooking & produits artisanaux",
+    default: "Lab's Food — Studio culinaire : ateliers, batch cooking & produits artisanaux",
     template: "%s · Lab's Food",
   },
   description:
-    "Lab's Food est une maison culinaire fondée par Ivy : ateliers de cuisine du monde à domicile, batch cooking sur-mesure, et produits artisanaux comme le Kossam.",
+    "Lab's Food est un studio culinaire fondé par Ivy : ateliers de cuisine du monde à domicile, batch cooking sur-mesure, et produits artisanaux comme le Kossam.",
   applicationName: "Lab's Food",
   keywords: [
     "atelier culinaire",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Lab's Food" }],
   icons: { icon: '/favicon.png' },
   openGraph: {
-    title: "Lab's Food — Maison culinaire",
+    title: "Lab's Food — Studio culinaire",
     description:
       'Ateliers, batch cooking & produits artisanaux. Voyagez en cuisine sans tracasserie de visa.',
     type: 'website',

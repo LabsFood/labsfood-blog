@@ -77,7 +77,7 @@ export function SplashScreen() {
             <div className="text-center">
               <div className="font-display text-3xl text-cream">Lab&apos;s Food</div>
               <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-soft mt-2">
-                Maison culinaire
+                We create what you love!
               </div>
             </div>
           </motion.div>
