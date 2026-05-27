@@ -112,7 +112,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 border-b border-cream/10">
           {/* Contact */}
           <div className="lg:col-span-4">
-            <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-navy-mid mb-6">
+            <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-6">
               — Nous contacter
             </p>
             <ul className="space-y-4">
@@ -154,7 +154,7 @@ export function Footer() {
 
             {/* Socials */}
             <div className="mt-10">
-              <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-cream/45 mb-4">
+              <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-4">
                 — Suivez-nous
               </p>
               <div className="flex items-center gap-3">
@@ -238,7 +238,7 @@ function FooterColumn({
 }) {
   return (
     <div className={className}>
-      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-navy-mid mb-6">
+      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-6">
         — {title}
       </p>
       <ul className="space-y-3">{children}</ul>

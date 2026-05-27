@@ -9,7 +9,7 @@ import {
   Users,
   Clock,
   Sparkles,
-  
+
 } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
@@ -146,7 +146,7 @@ export default function AtelierPage() {
             {STEPS.map((s, i) => (
               <Reveal key={s.n} delay={i * 0.12}>
                 <div className="rounded-2xl bg-cream-soft border border-navy/8 p-8 hover:shadow-lg transition-shadow h-full">
-                  <div className="font-display text-5xl text-navy/15 tabular-nums leading-none mb-6">
+                  <div className="font-display text-5xl text-orange tabular-nums leading-none mb-6">
                     {s.n}
                   </div>
                   <h3 className="font-display text-2xl text-navy">{s.title}</h3>
@@ -163,8 +163,8 @@ export default function AtelierPage() {
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="relative container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
-              <span className="size-6 h-px bg-navy-mid" />
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-orange inline-flex items-center gap-3 mb-6">
+              <span className="size-6 h-px bg-orange" />
               Tarifs
             </p>
             <h2
@@ -173,7 +173,7 @@ export default function AtelierPage() {
             >
               Simple, transparent,{' '}
               <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
+                <span className="font-display italic text-orange">
                   tout compris.
                 </span>
               </em>
