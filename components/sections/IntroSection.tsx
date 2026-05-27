@@ -74,7 +74,7 @@ export function IntroSection() {
               className="font-display text-navy leading-[0.98] tracking-tight text-balance"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4.2rem)' }}
             >
-              Un studio culinaire né d&apos;
+              Une aventure née d&apos;
               <em className="not-italic">
                 <span className="font-display italic text-navy-mid">
                   une conviction
