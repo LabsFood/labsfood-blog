@@ -28,8 +28,8 @@ export function HeroD() {
       </div>
 
       {/* ─── Scrim multi-couches ─── */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/40 to-navy/95" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/60 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/40 to-black/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-grain opacity-[0.06] mix-blend-overlay" />
 
       {/* ─── Filets décoratifs ─── */}
@@ -74,12 +74,12 @@ export function HeroD() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.3 }}
-          className="font-display text-cream leading-[0.95] tracking-tight text-balance max-w-5xl"
+          className="font-display text-cream leading-[0.95] font-bold tracking-tight text-balance max-w-5xl"
           style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}
         >
           We create{' '}
           <em className="not-italic">
-            <span className="font-display italic text-navy-mid">
+            <span className="font-display italic text-navy-official">
               what you love!
             </span>
           </em>
@@ -103,8 +103,8 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.7 }}
           className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
         >
-          <Stat value="+150" label="gourmands régalés" />
-          <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
+          {/* <Stat value="+150" label="gourmands régalés" /> */}
+          {/* <span className="hidden sm:block size-1 rounded-full bg-cream/30" /> */}
           <Stat value="03" label="services maison" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
           <Stat value="HACCP" label="maison certifiée" />

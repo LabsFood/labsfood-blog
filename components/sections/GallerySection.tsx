@@ -36,8 +36,8 @@ export function GallerySection() {
           {[...MARQUEE_WORDS, ...MARQUEE_WORDS, ...MARQUEE_WORDS].map((word, i) => (
             <div key={i} className="flex items-center gap-12 md:gap-16 shrink-0">
               <span
-                className="font-display text-navy/15 italic"
-                style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)', lineHeight: 1 }}
+                className="font-display text-navy italic"
+                style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 1 }}
               >
                 {word}
               </span>
@@ -78,13 +78,12 @@ export function GallerySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.7, delay: i * 0.08 }}
-              className={`relative overflow-hidden rounded-2xl bg-navy group cursor-pointer ${
-                item.aspect === 'tall'
-                  ? 'row-span-2'
-                  : item.aspect === 'wide'
-                    ? 'col-span-2'
-                    : ''
-              }`}
+              className={`relative overflow-hidden rounded-2xl bg-navy group cursor-pointer ${item.aspect === 'tall'
+                ? 'row-span-2'
+                : item.aspect === 'wide'
+                  ? 'col-span-2'
+                  : ''
+                }`}
             >
               <Image
                 src={item.src}

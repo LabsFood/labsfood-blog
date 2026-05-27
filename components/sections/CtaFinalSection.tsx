@@ -15,7 +15,7 @@ export function CtaFinalSection() {
     <section className="relative min-h-[90vh] flex items-center text-cream overflow-hidden bg-navy">
       {/* Image de fond */}
       <Image
-        src="/assets/photo-12.jpeg"
+        src="/assets/photo-13.jpeg"
         alt=""
         fill
         className="object-cover"
@@ -55,7 +55,7 @@ export function CtaFinalSection() {
               Une envie,
               <br />
               <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
+                <span className="font-display italic text-orange">
                   une table à dresser
                 </span>
               </em>
@@ -162,12 +162,6 @@ export function CtaFinalSection() {
                 ))}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-navy/10 text-xs text-ink/60">
-                Messages écrits uniquement.
-                <br />
-                Pas de notes vocales, merci.
-              </div>
-
               <a
                 href={whatsappLink("Bonjour Lab's Food, ")}
                 target="_blank"
@@ -197,13 +191,13 @@ function Reassure({
   return (
     <div className="flex items-center gap-3">
       <div className="size-10 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
-        <Icon className="size-4 text-navy-mid" />
+        <Icon className="size-4 text-white" />
       </div>
       <div>
         <div className="font-display text-base text-cream leading-none">
           {title}
         </div>
-        <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/55 mt-1">
+        <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream mt-1">
           {sub}
         </div>
       </div>

@@ -32,7 +32,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        'relative bg-navy text-cream overflow-hidden',
+        'relative bg-black text-cream overflow-hidden',
         size === 'lg'
           ? 'pt-40 pb-28 md:pt-56 md:pb-36'
           : 'pt-32 pb-20 md:pt-44 md:pb-28',
@@ -46,7 +46,7 @@ export function PageHero({
           alt=""
           fill
           priority
-          quality={90}
+          quality={100}
           className="object-cover opacity-40"
           style={{ objectPosition: imagePosition }}
           sizes="100vw"
@@ -54,13 +54,13 @@ export function PageHero({
       )}
 
       {/* Scrim navy multi-couches */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/55 to-navy/95" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/50 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-grain opacity-[0.05] mix-blend-overlay" />
 
       {/* Filets décoratifs */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/40 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/40 to-transparent" />
+      {/* <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/40 to-transparent" /> */}
+      {/* <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy-mid/40 to-transparent" /> */}
 
       <div className="container-wide relative">
         <div
@@ -72,7 +72,7 @@ export function PageHero({
           {eyebrow && (
             <p
               className={cn(
-                'font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6',
+                'font-mono text-[0.7rem] uppercase tracking-[0.35em] text-white inline-flex items-center gap-3 mb-6',
               )}
             >
               <span className="size-6 h-px bg-navy-mid" />

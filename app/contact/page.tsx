@@ -33,7 +33,7 @@ export default function ContactPage() {
           <>
             Une envie,{' '}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic">
                 un événement
               </span>
             </em>
@@ -44,7 +44,7 @@ export default function ContactPage() {
         }
         lede="Service client 7j/7 — 24h/24 sur WhatsApp. Messages écrits uniquement pour une réponse rapide et précise."
         image="/assets/photo-8.jpeg"
-        imagePosition="center 40%"
+        imagePosition="center"
       />
 
       {/* ── 3 moyens de contact en cartes ─────────────────────────────── */}
@@ -226,11 +226,10 @@ function ContactCard({
       className="group relative block bg-cream-soft border border-navy/8 rounded-3xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
     >
       <div
-        className={`size-12 rounded-xl grid place-items-center mb-5 transition-colors ${
-          variant === 'whatsapp'
-            ? 'bg-whatsapp text-white'
-            : 'bg-navy text-cream'
-        }`}
+        className={`size-12 rounded-xl grid place-items-center mb-5 transition-colors ${variant === 'whatsapp'
+          ? 'bg-whatsapp text-white'
+          : 'bg-navy text-cream'
+          }`}
       >
         <Icon className="size-5" />
       </div>

@@ -6,7 +6,7 @@ import {
   Clock,
   Users,
   ChefHat,
-  
+
 } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
@@ -82,7 +82,7 @@ export default function ServicesPage() {
           <>
             Apprendre, déléguer,{' '}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic text-orange">
                 ou se faire épauler.
               </span>
             </em>
@@ -103,10 +103,10 @@ export default function ServicesPage() {
       </section>
 
       {/* ── CTA bas ──────────────────────────────────────────────────── */}
-      <section className="bg-navy text-cream py-20 md:py-28">
+      <section className="bg-navy-mid text-cream py-20 md:py-28">
         <div className="container-wide grid lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid mb-4">
+            <p className="text-[0.7rem] uppercase tracking-[0.35em] text-orange mb-4">
               — Pas encore décidé ?
             </p>
             <h3
@@ -115,7 +115,7 @@ export default function ServicesPage() {
             >
               On vous oriente vers le{' '}
               <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
+                <span className="font-display italic text-orange">
                   bon service
                 </span>
               </em>{' '}
@@ -161,9 +161,8 @@ function ServiceRow({
   return (
     <Reveal>
       <div
-        className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center ${
-          reverse ? 'lg:[&>*:first-child]:order-2' : ''
-        }`}
+        className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''
+          }`}
       >
         {/* Image */}
         <Link

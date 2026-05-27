@@ -85,8 +85,8 @@ export function ShowcaseSection() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7"
           >
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
-              <span className="size-6 h-px bg-navy-mid" />
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-orange inline-flex items-center gap-3 mb-6">
+              <span className="size-6 h-px bg-orange" />
               Nos services
             </p>
             <h2
@@ -95,7 +95,7 @@ export function ShowcaseSection() {
             >
               Apprendre, déléguer,{' '}
               <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
+                <span className="font-display italic text-orange">
                   ou se faire épauler.
                 </span>
               </em>
@@ -133,7 +133,7 @@ export function ShowcaseSection() {
         >
           <p className="font-display italic text-2xl md:text-3xl text-cream/80 max-w-xl text-balance">
             Et ce n&apos;est qu&apos;un début —{' '}
-            <span className="text-navy-mid">d&apos;autres formules</span>{' '}
+            <span className="text-orange">d&apos;autres formules</span>{' '}
             arrivent.
           </p>
           <Link
@@ -168,9 +168,8 @@ function ShowcaseRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.9, delay: 0.1 }}
-      className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center ${
-        reverse ? 'lg:[&>*:first-child]:order-2' : ''
-      }`}
+      className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''
+        }`}
     >
       {/* Image */}
       <Link

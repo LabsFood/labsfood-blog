@@ -18,44 +18,45 @@ const config: Config = {
 
         navy: {
           DEFAULT: '#00234B',   // primaire
-          deep:    '#001833',   // plus sombre (hover fort, ombres)
-          mid:     '#2C3E50',   // secondaire / accent (sections, italic, CTA)
-          soft:    '#3D5166',   // dérivé de #2C3E50, textes secondaires navy
+          official: '#f4f7f8',   // primaire
+          deep: '#001833',   // plus sombre (hover fort, ombres)
+          mid: '#2C3E50',   // secondaire / accent (sections, italic, CTA)
+          soft: '#3D5166',   // dérivé de #2C3E50, textes secondaires navy
         },
         teal: {
           DEFAULT: '#193C40',
-          deep:    '#0E2426',
-          soft:    '#2A5559',
-          pale:    '#D1DCDD',
+          deep: '#0E2426',
+          soft: '#2A5559',
+          pale: '#D1DCDD',
         },
         // Accent chaleureux — services (boutons, highlights)
         orange: {
           DEFAULT: '#E67E22',
-          soft:    '#F0A763',
-          deep:    '#C56812',
-          pale:    '#FDEBD8',
+          soft: '#F0A763',
+          deep: '#C56812',
+          pale: '#FDEBD8',
         },
         // Accent mint frais — gamme produits (Kossam et co)
         mint: {
           DEFAULT: '#D1F2EB',
-          deep:    '#A8E5D8',
-          soft:    '#E8F8F3',
-          ink:     '#0F5A4A',
+          deep: '#A8E5D8',
+          soft: '#E8F8F3',
+          ink: '#0F5A4A',
         },
         cream: {
           DEFAULT: '#F4F6F7',   // fond principal (gris froid neutre)
-          soft:    '#FAFBFC',   // fond alternatif clair (cards sur cream)
-          deep:    '#E5E8EC',   // fond de contraste léger (sections alternées)
+          soft: '#FAFBFC',   // fond alternatif clair (cards sur cream)
+          deep: '#E5E8EC',   // fond de contraste léger (sections alternées)
         },
         ink: {
           DEFAULT: '#0F1F2E',
-          mid:     '#3A4A5A',
-          soft:    '#7B8794',
+          mid: '#3A4A5A',
+          soft: '#7B8794',
         },
         whatsapp: {
           DEFAULT: '#25D366',
-          deep:    '#1DA851',
-          dark:    '#128C7E',
+          deep: '#1DA851',
+          dark: '#128C7E',
         },
         border: 'rgba(0,35,75,0.10)',
       },
@@ -107,7 +108,7 @@ const config: Config = {
           '100%': { transform: 'translateX(-50%)' },
         },
         'zoom-slow': {
-          '0%':   { transform: 'scale(1)' },
+          '0%': { transform: 'scale(1)' },
           '100%': { transform: 'scale(1.15)' },
         },
       },

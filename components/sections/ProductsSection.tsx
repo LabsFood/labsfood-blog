@@ -9,7 +9,7 @@ import {
   ShieldCheck,
   MapPin,
   Truck,
-  
+
 } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { SectionHeader } from '@/components/ui/SectionHeader'

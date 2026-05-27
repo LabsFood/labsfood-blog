@@ -46,31 +46,15 @@ export function IntroSection() {
             transition={{ duration: 0.9 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative aspect-square rounded-3xl bg-cream-soft border border-navy/8 p-10 md:p-16 grid place-items-center overflow-hidden">
-              {/* Halo décoratif léger */}
-              <div className="absolute -top-20 -right-20 size-64 rounded-full bg-navy-mid/8 blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 size-64 rounded-full bg-orange/10 blur-3xl" />
 
-              {/* Slogan SVG fourni par la cliente */}
-              <Image
-                src="/assets/slogan.svg"
-                alt="Lab's Food — We create what you love!"
-                width={500}
-                height={500}
-                className="relative z-10 w-full h-auto max-w-md object-contain"
-                priority
-              />
-
-              {/* Mini-mention bas */}
-              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
-                <div className="font-mono text-[0.55rem] uppercase tracking-[0.3em] text-navy-mid">
-                  — Notre signature
-                </div>
-                <div className="font-display text-4xl text-navy/15 tabular-nums leading-none">
-                  01
-                </div>
-              </div>
-            </div>
+            <Image
+              src="/assets/slogan.svg"
+              alt="Lab's Food — We create what you love!"
+              width={600}
+              height={600}
+              className="relative z-10 w-full h-auto max-w-lg object-contain"
+              priority
+            />
           </motion.div>
 
           {/* ── Texte droite ── */}
@@ -100,12 +84,12 @@ export function IntroSection() {
             </h2>
 
             <div className="mt-10 space-y-5 text-ink/75 leading-relaxed max-w-xl text-pretty">
-              <p>
+              {/* <p>
                 Ingénieure de formation, mais avant tout passionnée de
                 gastronomie et d&apos;évasion. Ivy a fondé Lab&apos;s Food avec
                 une conviction simple : <em>le plus beau des voyages se passe
-                souvent autour d&apos;une assiette</em>.
-              </p>
+                  souvent autour d&apos;une assiette</em>.
+              </p> */}
               <p>
                 Trois services pensés pour trois moments de vie : un atelier
                 pour apprendre, un batch pour bien manger, une assistance pour
@@ -121,7 +105,7 @@ export function IntroSection() {
               </div>
               <span className="size-1 rounded-full bg-navy/30" />
               <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/50">
-                Fondatrice &amp; cheffe
+                Fondatrice
               </span>
             </div>
           </motion.div>

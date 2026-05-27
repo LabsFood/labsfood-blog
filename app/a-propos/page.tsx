@@ -9,7 +9,7 @@ import {
   Sparkles,
   HandHeart,
   Quote,
-  
+
   Users,
   MapPin,
 } from 'lucide-react'
@@ -57,7 +57,7 @@ export default function AboutPage() {
           <>
             Lab&apos;s Food, c&apos;est l&apos;histoire d&apos;
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic">
                 un sourire
               </span>
             </em>
@@ -78,7 +78,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
-                  src="/IvyOfficielle.png"
+                  src="/assets/photo-6.jpeg"
                   alt="Siyaptze — Fondatrice de Lab's Food"
                   fill
                   className="object-cover object-top"
@@ -286,19 +286,17 @@ export default function AboutPage() {
               {TIMELINE.map((step, i) => (
                 <Reveal key={step.year} delay={i * 0.1}>
                   <div
-                    className={`md:grid md:grid-cols-2 md:gap-16 items-center ${
-                      i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''
-                    }`}
+                    className={`md:grid md:grid-cols-2 md:gap-16 items-center ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''
+                      }`}
                   >
                     {/* Côté contenu */}
                     <div className="relative">
                       {/* Pastille année (desktop) */}
                       <div
-                        className={`hidden md:flex absolute top-1/2 -translate-y-1/2 size-14 rounded-full bg-navy text-cream items-center justify-center font-display text-sm shadow-xl border-4 border-cream z-10 ${
-                          i % 2 === 0
-                            ? '-right-[3.5rem] translate-x-1/2'
-                            : '-left-[3.5rem] -translate-x-1/2'
-                        }`}
+                        className={`hidden md:flex absolute top-1/2 -translate-y-1/2 size-14 rounded-full bg-navy text-cream items-center justify-center font-display text-sm shadow-xl border-4 border-cream z-10 ${i % 2 === 0
+                          ? '-right-[3.5rem] translate-x-1/2'
+                          : '-left-[3.5rem] -translate-x-1/2'
+                          }`}
                       >
                         {String(i + 1).padStart(2, '0')}
                       </div>

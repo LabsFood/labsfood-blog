@@ -105,7 +105,7 @@ export function Footer() {
           >
             We create{' '}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic text-navy-official">
                 what you love!
               </span>
             </em>
