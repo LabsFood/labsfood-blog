@@ -29,7 +29,7 @@ export function Loader({ fullscreen = false, label = 'Chargement', className }: 
             alt=""
             width={100}
             height={100}
-            className="object-contain animate-float"
+            className="animate-float"
             priority
           />
         </div>
