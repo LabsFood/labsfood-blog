@@ -367,6 +367,48 @@ export default function AssistanceCulinaireePage() {
             ))}
           </div>
 
+          {/* ── Bandeau "Devenir chef partenaire" ────────────────────── */}
+          <div className="mt-12 rounded-3xl bg-navy text-cream p-8 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
+            {/* Halo deco */}
+            <div className="absolute -top-20 -right-20 size-64 rounded-full bg-orange/20 blur-3xl pointer-events-none" />
+
+            <div className="lg:col-span-8 relative">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3 mb-4">
+                <span className="size-5 h-px bg-navy-mid" />
+                Vous êtes chef ou en cuisine ?
+              </p>
+              <h3
+                className="font-display text-cream leading-tight text-balance"
+                style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)' }}
+              >
+                Rejoignez la liste de nos{' '}
+                <em className="not-italic">
+                  <span className="font-display italic text-orange">
+                    chefs partenaires.
+                  </span>
+                </em>
+              </h3>
+              <p className="mt-4 text-cream/70 max-w-xl text-pretty leading-relaxed text-sm md:text-base">
+                Étudiant·e, professionnel·le de la restauration, en
+                reconversion — déposez votre candidature en 5 minutes. Vous
+                définissez votre zone, vos disponibilités et vos missions.
+                Inscription gratuite.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 relative flex lg:justify-end">
+              <Link
+                href="/devenir-chef"
+                className="group inline-flex items-center gap-3 pl-6 pr-3 py-3 rounded-full bg-orange text-cream font-medium text-sm hover:bg-orange-deep transition-all shadow-lg shadow-orange/40"
+              >
+                Devenir chef partenaire
+                <span className="size-9 rounded-full bg-cream/15 grid place-items-center transition-transform group-hover:rotate-45">
+                  <ArrowUpRight className="size-4" />
+                </span>
+              </Link>
+            </div>
+          </div>
+
           {/* Note bas de section */}
           <p className="mt-8 text-center font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/35">
             D&apos;autres chefs partenaires seront disponibles prochainement.
