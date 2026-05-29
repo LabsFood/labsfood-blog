@@ -64,7 +64,7 @@ export default function AboutPage() {
             ,<br />et d&apos;une conviction.
           </>
         }
-        lede="Siyaptze, ingénieure de formation, a fondé Lab's Food pour soulager la charge mentale de ceux qui n'ont plus le temps de bien manger."
+        // lede="Siyaptze, ingénieure de formation, a fondé Lab's Food pour soulager la charge mentale de ceux qui n'ont plus le temps de bien manger."
         image="/assets/photo-11.jpeg"
         imagePosition="center 30%"
         size="lg"
@@ -138,7 +138,7 @@ export default function AboutPage() {
               {/* Paragraphes de bio */}
               <div className="space-y-6 text-ink/80 leading-relaxed text-justify">
                 {FOUNDER.bioParagraphs.slice(0, 3).map((p, i) => (
-                  <p key={i} className={i === 0 ? 'text-lg' : ''}>
+                  <p key={i}>
                     {p}
                   </p>
                 ))}
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   href="/services"
                   className="group inline-flex items-center gap-3 pl-7 pr-3 py-3 rounded-full bg-navy text-cream hover:bg-navy-mid text-sm font-medium transition-all"
                 >
-                  Découvrir les services à domicile
+                  Découvrir nos services
                   <span className="size-9 rounded-full bg-cream/15 grid place-items-center transition-transform group-hover:rotate-45">
                     <ArrowUpRight className="size-4" />
                   </span>
@@ -173,7 +173,7 @@ export default function AboutPage() {
                   href="/produits/kossam"
                   className="group inline-flex items-center gap-3 pl-7 pr-3 py-3 rounded-full bg-cream-deep text-navy hover:bg-navy hover:text-cream text-sm font-medium transition-all border border-navy/15"
                 >
-                  Craquer pour le fameux Kossam
+                  Craquer pour nos produits
                   <span className="size-9 rounded-full bg-navy/10 grid place-items-center transition-transform group-hover:rotate-45">
                     <ArrowUpRight className="size-4" />
                   </span>
@@ -181,7 +181,7 @@ export default function AboutPage() {
               </div>
 
               {/* Infos rapides */}
-              <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
+              {/* <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
                 <InfoBlock
                   icon={Users}
                   label="Gourmands régalés"
@@ -197,7 +197,7 @@ export default function AboutPage() {
                   label="Certification"
                   value={FOUNDER.certifications.join(', ')}
                 />
-              </div>
+              </div> */}
             </div>
           </Reveal>
         </div>
@@ -270,8 +270,8 @@ export default function AboutPage() {
                 </em>
               </h2>
               <p className="mt-6 text-ink/70 leading-relaxed text-pretty max-w-xl">
-                Du premier riz sauté au Cameroun à la naissance officielle de la
-                maison en France — l&apos;histoire d&apos;une intuition qui a
+                Du premier <strong>"riz sauté"</strong>  au Cameroun à la naissance officielle de la
+                maison en Franc, l&apos;histoire d&apos;une intuition qui a
                 pris six ans pour devenir une plateforme.
               </p>
             </div>
@@ -361,12 +361,12 @@ export default function AboutPage() {
 
         <div className="relative container-wide">
           <Reveal>
-            <Quote className="size-12 text-navy-mid mb-8" />
+            <Quote className="size-12 text-white mb-8" />
             <blockquote
               className="font-display italic text-cream leading-[1.15] text-balance max-w-4xl"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
-              « Laissez-moi entrer dans votre cuisine, je m&apos;occupe du
+              « Laissez-Nous entrer dans votre cuisine, Nous nous occupons du
               reste ! »
             </blockquote>
             <div className="mt-10 flex items-center gap-4">

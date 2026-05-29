@@ -25,18 +25,18 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     n: '01',
-    title: 'Vous choisissez la cuisine',
-    body: 'Cuisine du monde, recette exclusive ou demande sur-mesure : on cale le menu ensemble.',
+    title: 'Filtrez selon votre zone géographique',
+    body: 'Utilisez notre barre de recherche pour cibler rapidement les animateurs culinaires de votre région. De la cuisine du monde à la patisserie, trouvez votre bonheur localement',
   },
   {
     n: '02',
-    title: 'On vient chez vous',
-    body: "La cheffe arrive avec son matériel et vous guide pas à pas, dans votre cuisine.",
+    title: 'Echanger en direct',
+    body: "Discutez sans intermédiaire avec votre animateur pour préparer l'atelier. Il s'invitera dans votre cuisine pour partager ses techniques et ses secrets.",
   },
   {
     n: '03',
-    title: 'Vous repartez équipé',
-    body: 'Fiche recette professionnelle remise à chacun + un cadeau surprise selon disponibilité.',
+    title: 'Maitrisez de nouvelles saveurs',
+    body: "Profitez d'un apprentissage sur-mesure. Grace aux conseils en direct, vous apprendrez de bons gestes pour epater vos futurs invités",
   },
 ] as const
 
@@ -77,7 +77,7 @@ export default function AtelierPage() {
       />
 
       {/* ── Carte tarif flottante ───────────────────────────────────── */}
-      <section className="bg-cream">
+      {/* <section className="bg-cream">
         <div className="container-wide -mt-16 md:-mt-20 relative z-10">
           <div className="rounded-3xl bg-cream border border-navy/10 shadow-2xl p-8 md:p-10 grid md:grid-cols-4 gap-6 items-center">
             <div className="md:col-span-1">
@@ -117,7 +117,7 @@ export default function AtelierPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Comment ça marche ───────────────────────────────────────── */}
       <section className="bg-cream py-24 md:py-32">
@@ -159,7 +159,7 @@ export default function AtelierPage() {
       </section>
 
       {/* ── Tarifs détaillés ────────────────────────────────────────── */}
-      <section className="relative bg-navy text-cream py-24 md:py-32 overflow-hidden">
+      {/* <section className="relative bg-navy text-cream py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="relative container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
@@ -208,10 +208,10 @@ export default function AtelierPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Inclus dans l'atelier ───────────────────────────────────── */}
-      <section className="bg-cream py-24 md:py-32">
+      {/* <section className="bg-cream py-24 md:py-32">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <Reveal axis="x" className="lg:col-span-5 relative">
             <div className="rounded-3xl overflow-hidden aspect-[4/5] bg-navy">
@@ -256,7 +256,7 @@ export default function AtelierPage() {
             </div>
           </Reveal>
         </div>
-      </section>
+      </section> */}
 
       {/* ── CTA devenir chef ────────────────────────────────────────── */}
       <section className="bg-cream-soft py-24 md:py-28">
@@ -277,7 +277,7 @@ export default function AtelierPage() {
                 Rejoignez nos{' '}
                 <em className="not-italic">
                   <span className="font-display italic text-orange">
-                    chefs partenaires.
+                    animateurs.
                   </span>
                 </em>
               </h2>
@@ -292,7 +292,7 @@ export default function AtelierPage() {
                 href="/devenir-chef"
                 className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-cream text-navy font-medium text-sm hover:bg-orange hover:text-cream transition-colors"
               >
-                Devenir chef partenaire
+                Donner des cours de cuisine
                 <ArrowUpRight className="size-4" />
               </Link>
             </div>

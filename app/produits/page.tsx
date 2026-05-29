@@ -22,7 +22,7 @@ export default function ProduitsPage() {
           <>
             Le labo,{' '}
             <em className="not-italic">
-              <span className="font-display italic text-mint-ink">
+              <span className="font-display italic text-white">
                 au quotidien.
               </span>
             </em>
@@ -57,7 +57,7 @@ export default function ProduitsPage() {
               >
                 <source src="/assets/kossam-main.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-mint-ink via-mint-ink/40 to-transparent" />
               <div className="relative h-full flex flex-col justify-between p-8 md:p-12">
                 <div className="flex items-start justify-between">
                   <span className="font-mono text-xs uppercase tracking-[0.25em] text-white">

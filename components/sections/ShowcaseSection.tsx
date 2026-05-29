@@ -54,14 +54,14 @@ const SHOWCASE = [
     name: 'Atelier culinaire',
     kicker: 'Expérience interactive',
     description:
-      "Apprenez à cuisiner une spécialité du monde lors d'une expérience interactive et intime. Une cheffe vient chez vous — vous repartez avec la fiche recette et un cadeau surprise.",
+      "Voyagez depuis votre cuisine!. Notre plateforme vous connecte avec des animateurs aux profils variés pour des ateliers uniques. Une belle occasion de maitriser de nouvelles recettes dans une ambiance conviviale, guidé par un talent de votre région",
     price: 'À partir de 80€',
     image: '/assets/photo-15.jpeg',
     href: '/services/atelier-culinaire',
     features: [
-      { icon: Users, label: "Jusqu'à 4 personnes" },
-      { icon: Clock, label: '~ 2h d’atelier' },
-      { icon: Gift, label: 'Cadeau surprise' },
+      { icon: Users, label: "En solo ou entre amis" },
+      { icon: Clock, label: 'Ateliers 100% personnalisés' },
+      { icon: Gift, label: 'Apprentissage pas-à-pas' },
     ],
   },
 ] as const
@@ -190,11 +190,10 @@ function ShowcaseRow({
           {service.n}
         </div>
         {/* Kicker */}
-        <div className="absolute top-6 right-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream/10 backdrop-blur-md border border-cream/20">
-          <span className="size-1.5 rounded-full bg-orange" />
-          <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-cream">
+        <div className="absolute top-6 right-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-cream/20">
+          {/* <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-orange">
             {service.kicker}
-          </span>
+          </span> */}
         </div>
         {/* Flèche bas-droite */}
         <div className="absolute bottom-6 right-6 size-14 rounded-full bg-cream text-navy grid place-items-center translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-expo">

@@ -43,14 +43,14 @@ export default function ContactPage() {
           </>
         }
         lede="Service client 7j/7 — 24h/24 sur WhatsApp. Messages écrits uniquement pour une réponse rapide et précise."
-        image="/assets/photo-8.jpeg"
-        imagePosition="center"
+        image="/assets/photo-3.jpeg"
+        imagePosition="center 80%"
       />
 
       {/* ── 3 moyens de contact en cartes ─────────────────────────────── */}
       <section className="bg-cream py-20 md:py-28">
         <div className="container-wide">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <ContactCard
               icon={WhatsAppIcon}
               kicker="Canal privilégié"
@@ -71,7 +71,7 @@ export default function ContactPage() {
               ctaLabel="Envoyer un email"
               variant="default"
             />
-            <ContactCard
+            {/* <ContactCard
               icon={MapPin}
               kicker="Zones d'intervention"
               title="Sur place"
@@ -80,7 +80,7 @@ export default function ContactPage() {
               href="#formulaire"
               ctaLabel="Voir le formulaire"
               variant="default"
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -108,11 +108,11 @@ export default function ContactPage() {
                 </span>
               </em>
             </h2>
-            <p className="mt-6 text-ink/75 leading-relaxed max-w-md text-pretty">
+            {/* <p className="mt-6 text-ink/75 leading-relaxed max-w-md text-pretty">
               Décrivez votre demande : type d&apos;événement, dates, nombre de
               personnes, attentes particulières. Plus c&apos;est précis, mieux
               on peut vous orienter.
-            </p>
+            </p> */}
 
             {/* Infos pratiques */}
             <div className="mt-10 pt-8 border-t border-navy/10 space-y-5">
@@ -129,7 +129,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <span className="size-10 rounded-full bg-navy/5 grid place-items-center shrink-0">
                   <MapPin className="size-4 text-navy-mid" />
                 </span>
@@ -141,7 +141,7 @@ export default function ContactPage() {
                     Côte d&apos;Azur · Île-de-France (77) · Europe via La Poste
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Réseaux sociaux */}
@@ -179,7 +179,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── Bandeau brand bas ───────────────────────────────────────── */}
-      <section className="bg-navy text-cream py-16 md:py-20">
+      {/* <section className="bg-navy text-cream py-16 md:py-20">
         <div className="container-wide text-center">
           <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid mb-4">
             — Maison certifiée HACCP
@@ -192,7 +192,7 @@ export default function ContactPage() {
             écoutée. La cuisine, comme un voyage — sans tracasserie de visa. »
           </p>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

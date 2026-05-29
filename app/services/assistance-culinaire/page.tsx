@@ -401,7 +401,7 @@ export default function AssistanceCulinaireePage() {
                 href="/devenir-chef"
                 className="group inline-flex items-center gap-3 pl-6 pr-3 py-3 rounded-full bg-orange text-cream font-medium text-sm hover:bg-orange-deep transition-all shadow-lg shadow-orange/40"
               >
-                Devenir chef partenaire
+                Proposer mes services
                 <span className="size-9 rounded-full bg-cream/15 grid place-items-center transition-transform group-hover:rotate-45">
                   <ArrowUpRight className="size-4" />
                 </span>
@@ -410,14 +410,14 @@ export default function AssistanceCulinaireePage() {
           </div>
 
           {/* Note bas de section */}
-          <p className="mt-8 text-center font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/35">
+          <p className="mt-8 text-center font-mono text-sm uppercase tracking-[0.25em] text-ink">
             D&apos;autres chefs partenaires seront disponibles prochainement.
           </p>
         </div>
       </section>
 
       {/* ── CTA final ── */}
-      <section className="section bg-orange relative overflow-hidden">
+      {/* <section className="section bg-orange relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.04]" />
         <div className="container-wide relative grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8">
@@ -462,7 +462,7 @@ export default function AssistanceCulinaireePage() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }
