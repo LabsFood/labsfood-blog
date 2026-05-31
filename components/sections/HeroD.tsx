@@ -58,7 +58,7 @@ export function HeroD() {
         </motion.div> */}
 
         {/* Kicker */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15 }}
@@ -67,7 +67,7 @@ export function HeroD() {
           <span className="size-8 h-px bg-cream/40" />
           Lab&apos;s Food — par Siyaptze
           <span className="size-8 h-px bg-cream/40" />
-        </motion.p>
+        </motion.p> */}
 
         {/* Titre principal */}
         <motion.h1
