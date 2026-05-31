@@ -105,9 +105,9 @@ export function HeroD() {
         >
           {/* <Stat value="+150" label="gourmands régalés" /> */}
           {/* <span className="hidden sm:block size-1 rounded-full bg-cream/30" /> */}
-          <Stat value="03" label="services maison" />
+          <Stat value="+05" label="Produits d'exception" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
-          <Stat value="HACCP" label="maison certifiée" />
+          <Stat value="HACCP" label="certifiée" />
         </motion.div>
       </div>
 
