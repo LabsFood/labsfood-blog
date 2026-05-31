@@ -92,8 +92,7 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="mt-8 max-w-2xl text-cream/85 text-lg md:text-xl leading-relaxed text-pretty"
         >
-          Fondée par Ivy, Lab&apos;s Food vous invite à voyager autour
-          d&apos;une assiette — sans tracasserie de visa.
+          Fondée par Ivy, Lab's Food simplifie votre quotidien grâce à des services sur-mesure et une gamme de produits artisanaux.
         </motion.p>
 
         {/* Stats inline */}
@@ -105,9 +104,9 @@ export function HeroD() {
         >
           {/* <Stat value="+150" label="gourmands régalés" /> */}
           {/* <span className="hidden sm:block size-1 rounded-full bg-cream/30" /> */}
-          <Stat value="+05" label="Produits d'exception" />
+          <Stat value="03" label="Services culinaires" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
-          <Stat value="HACCP" label="certifiée" />
+          <Stat value="HACCP" label="+Produits d'exception" />
         </motion.div>
       </div>
 
