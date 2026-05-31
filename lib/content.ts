@@ -90,35 +90,79 @@ export const COMING_SOON = [
   // { name: 'Cocktails', category: 'Boisson' },
 ] as const
 
+/**
+ * REVIEWS — fusion Kossam (court, snack) + Batch cooking (long, structuré).
+ *
+ * Champs :
+ *  - source : 'kossam' | 'batch' | 'atelier' — drive le tag et la teinte
+ *  - text   : commentaire client
+ *  - author : nom/pseudo (initiale utilisée pour l'avatar)
+ *  - city   : optionnel, affichage subtil sous le nom
+ */
 export const REVIEWS = [
-  { author: 'Arrel', text: "🙌🏾🙌🏾🙌🏾 C'est trop bon mama" },
+  // ─── Kossam (commentaires courts, exclamatifs) ──────────────────────
+  { author: 'Arrel', text: "🙌🏾🙌🏾🙌🏾 C'est trop bon mama", source: 'kossam' as const },
   {
     author: 'Pria',
     text: "Franchement excellent. 10/10. J'ai beaucoup beaucoup aimé. J'ai hâte que mon fils soit en âge d'en manger.",
+    source: 'kossam' as const,
   },
   {
     author: 'Boriska',
     text: "Ma bouteille de Kossam décorée avec des fleurs reste l'une de mes plus grande joie.",
+    source: 'kossam' as const,
   },
-  { author: 'Dony', text: "On s'est régalé avec le Kossam 🙂‍↕️ C'est trop bon massa" },
-  { author: 'Zemira', text: "Le beau des beaux a validé. Merci Lab's Food 🥰" },
+  {
+    author: 'Dony',
+    text: "On s'est régalé avec le Kossam 🙂‍↕️ C'est trop bon massa",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Zemira',
+    text: "Le beau des beaux a validé. Merci Lab's Food 🥰",
+    source: 'kossam' as const,
+  },
   {
     author: 'Carole',
     text: "Mama j'ai goûté le Kossam… Aïe aïe aïe 😭 Les mots me manquent.",
+    source: 'kossam' as const,
   },
   {
     author: 'Guy',
     text: "Ma cousine a kiffé ton lait 🥛 — Je vais peut-être encore acheter ça la semaine prochaine.",
+    source: 'kossam' as const,
   },
   {
     author: 'Christian',
     text: "Elle est très compliquée en nourriture & boisson, et elle a direct aimé le Kossam.",
+    source: 'kossam' as const,
   },
   {
     author: 'Ingrid',
     text: "J'ai seulement fermé les yeux pour ne pas finir le Kossam avant d'arriver à la maison.",
+    source: 'kossam' as const,
   },
-  { author: 'Brodon', text: 'Excellent 👌🏽' },
+  { author: 'Brodon', text: 'Excellent 👌🏽', source: 'kossam' as const },
+
+  // ─── Batch cooking (avis longs, structurés) — fusionnés du projet labs-food ──
+  {
+    author: 'Ted',
+    city: "Côte d'Azur",
+    text: "Expérience appétissante avec Lab's Food. En tant qu'inculte de la cuisine, j'ai commandé trois plats pour découvrir : fondue de poireaux riz et saumon, bœuf aux oignons, poulet basquaise et plantain vapeur. Le programme prévu a bien été respecté, le rendu était clean et bien organisé. Une semaine avec de la bouffe à la maison validée — de quoi souffler des McDo !",
+    source: 'batch' as const,
+  },
+  {
+    author: 'Ghislain & Raissa',
+    city: "Côte d'Azur",
+    text: "Nous avons fait appel à Lab's Food après la naissance de notre fille pour nous faire du batch cooking et tout s'est parfaitement bien déroulé. Les plats choisis ont été respectés à la lettre. En bonus, nous avons eu droit à un cleaning complet de la cuisine. Nous vous le recommandons vivement.",
+    source: 'batch' as const,
+  },
+  {
+    author: 'Joe',
+    city: "Côte d'Azur",
+    text: "J'ai fait appel à Lab's Food car j'étais débordée avec les enfants (maman solo de 3). J'ai pu manger pendant 3 jours sans me poser la question de savoir « qu'est-ce que je cuisine aujourd'hui ? ». Ce fut une belle expérience que j'ai renouvelée et que je recommande à 10 000 %.",
+    source: 'batch' as const,
+  },
 ] as const
 
 export const FOUNDER = {

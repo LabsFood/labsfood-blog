@@ -85,6 +85,10 @@ const config: Config = {
         'spin-slow': 'spin 20s linear infinite',
         // Zoom infini lent (hero accueil)
         'zoom-slow': 'zoom-slow 18s ease-in-out infinite alternate',
+        // Marquee vertical (témoignages)
+        'marquee-up': 'marquee-up 40s linear infinite',
+        'marquee-up-slow': 'marquee-up 55s linear infinite',
+        'marquee-up-fast': 'marquee-up 32s linear infinite',
       },
       keyframes: {
         'fade-up': {
@@ -110,6 +114,10 @@ const config: Config = {
         'zoom-slow': {
           '0%': { transform: 'scale(1)' },
           '100%': { transform: 'scale(1.15)' },
+        },
+        'marquee-up': {
+          '0%':   { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-50%)' },
         },
       },
       backgroundImage: {
