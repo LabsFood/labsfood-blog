@@ -173,14 +173,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-
           {/* Colonnes liens */}
-          <FooterColumn title="Lab's Food" className="lg:col-span-3">
-            {LINKS.maison.map((l) => (
-              <FooterLink key={l.href + l.label} {...l} />
-            ))}
-          </FooterColumn>
-
           <FooterColumn title="Services" className="lg:col-span-3">
             {LINKS.services.map((l) => (
               <FooterLink key={l.href + l.label} {...l} />
@@ -189,6 +182,11 @@ export function Footer() {
 
           <FooterColumn title="Produits" className="lg:col-span-2">
             {LINKS.produits.map((l) => (
+              <FooterLink key={l.href + l.label} {...l} />
+            ))}
+          </FooterColumn>
+          <FooterColumn title="Lab's Food" className="lg:col-span-3">
+            {LINKS.maison.map((l) => (
               <FooterLink key={l.href + l.label} {...l} />
             ))}
           </FooterColumn>
