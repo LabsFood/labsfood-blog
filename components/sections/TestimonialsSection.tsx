@@ -47,14 +47,14 @@ export function TestimonialsSection() {
       className="relative bg-cream-soft py-24 md:py-32 lg:py-40 overflow-hidden"
     >
       {/* Halos déco diffus */}
-      <div
+      {/* <div
         aria-hidden
         className="absolute -top-40 -left-40 size-[500px] bg-navy-mid/8 blur-3xl rounded-full pointer-events-none"
       />
       <div
         aria-hidden
         className="absolute -bottom-40 -right-40 size-[500px] bg-orange/10 blur-3xl rounded-full pointer-events-none"
-      />
+      /> */}
 
       <div className="relative container-wide">
         {/* ── En-tête ── */}

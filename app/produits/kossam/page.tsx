@@ -11,7 +11,6 @@ import {
   Star,
   Leaf,
   GlassWater,
-  Play,
 } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { Button } from '@/components/ui/Button'
@@ -19,6 +18,7 @@ import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
 import { PRODUCTS } from '@/lib/content'
 import { KossamReviewsCarousel } from '@/components/sections/KossamReviewsCarousel'
+import { VideoGrid } from '@/components/ui/VideoModal'
 
 export const metadata: Metadata = {
   title: 'Kossam — Boisson lactée fermentée',
@@ -324,41 +324,13 @@ export default function KossamPage() {
             </Reveal>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
-            {[
+          <VideoGrid
+            recipes={[
               { n: 1, title: "Délicieuse crêpes au Kossam de Lab's Food" },
               { n: 2, title: 'Risoni au Kossam & Mbongo' },
               { n: 3, title: 'Cheesecake Kmer' },
-            ].map(({ n, title }, i) => (
-              <Reveal key={n} delay={i * 0.1}>
-                <div className="group relative aspect-[3/4] rounded-3xl overflow-hidden bg-navy-deep ring-1 ring-cream/10 hover:ring-mint-ink/40 transition-all duration-500">
-                  <video
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-expo"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    poster={`/assets/photo-${n + 1}.jpeg`}
-                  >
-                    <source src={`/assets/recette-${n}.mp4`} type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
-
-                  {/* Icône play flottante */}
-                  <div className="absolute top-5 right-5 size-11 rounded-full bg-cream/15 backdrop-blur-md border border-cream/25 grid place-items-center group-hover:bg-mint-ink group-hover:border-mint-ink transition-all duration-500">
-                    <Play className="size-4 fill-current text-cream" />
-                  </div>
-
-                  <div className="relative h-full flex flex-col justify-end p-6">
-                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/50">
-                      Recette {String(n).padStart(2, '0')}
-                    </span>
-                    <h3 className="font-display text-2xl text-cream mt-1">{title}</h3>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+            ]}
+          />
         </div>
       </section>
 
