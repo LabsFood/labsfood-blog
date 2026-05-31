@@ -81,37 +81,40 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        {/* ── 3 colonnes marquee vertical ── */}
+        {/* ── 3 colonnes marquee vertical + fades intégrés au stage ── */}
         <div
-          className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+          className="relative"
           style={{ height: 'clamp(560px, 70vh, 720px)' }}
         >
-          {columns.map((col, idx) => (
-            <Column
-              key={idx}
-              reviews={col}
-              speed={
-                idx === 0
-                  ? 'animate-marquee-up-slow'
-                  : idx === 1
-                    ? 'animate-marquee-up'
-                    : 'animate-marquee-up-fast'
-              }
-              offsetStart={idx * 4}
-              hideOnMobileIf={idx === 2 ? 'sm' : idx === 1 ? null : null}
-            />
-          ))}
-        </div>
+          {/* Stage scrollant */}
+          <div className="grid h-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {columns.map((col, idx) => (
+              <Column
+                key={idx}
+                reviews={col}
+                speed={
+                  idx === 0
+                    ? 'animate-marquee-up-slow'
+                    : idx === 1
+                      ? 'animate-marquee-up'
+                      : 'animate-marquee-up-fast'
+                }
+                offsetStart={idx * 4}
+                hideOnMobileIf={idx === 2 ? 'sm' : idx === 1 ? null : null}
+              />
+            ))}
+          </div>
 
-        {/* ── Fades top + bottom (effet "blur shadow") ── */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-0 right-0 top-0 mt-44 md:mt-52 lg:mt-60 h-32 bg-gradient-to-b from-cream-soft via-cream-soft/80 to-transparent z-10"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-0 right-0 bottom-0 h-40 bg-gradient-to-t from-cream-soft via-cream-soft/85 to-transparent z-10"
-        />
+          {/* Fades — absolus AU stage, donc toujours alignés sur ses bords */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-28 lg:h-32 bg-gradient-to-b from-cream-soft via-cream-soft/90 to-transparent z-10"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 bg-gradient-to-t from-cream-soft via-cream-soft/90 to-transparent z-10"
+          />
+        </div>
 
         {/* ── Compteur bas ── */}
         <div className="relative mt-12 text-center">
