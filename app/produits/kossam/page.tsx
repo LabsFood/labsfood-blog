@@ -187,7 +187,7 @@ export default function KossamPage() {
             {/* Photo verticale */}
             <div className="mt-8 relative aspect-[4/5] rounded-3xl overflow-hidden hidden lg:block">
               <Image
-                src="/assets/photo-2.jpeg"
+                src="/assets/photo-10.jpeg"
                 alt="Kossam"
                 fill
                 className="object-cover"
