@@ -102,11 +102,11 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.7 }}
           className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
         >
-          {/* <Stat value="+150" label="gourmands régalés" /> */}
-          {/* <span className="hidden sm:block size-1 rounded-full bg-cream/30" /> */}
           <Stat value="03" label="Services culinaires" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
-          <Stat value="HACCP" label="+05 Produits d'exception" />
+          <Stat value="HACCP" label="Maison certifiée" />
+          <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
+          <Stat value="+05" label="Produits d'exception" />
         </motion.div>
       </div>
 
