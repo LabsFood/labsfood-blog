@@ -57,14 +57,15 @@ export default function CguPage() {
         eyebrow="Légal · CGU"
         title={
           <>
-            Conditions Générales d&apos;
+            Conditions Générales d&apos;{" "}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display  text-white">
                 Utilisation
               </span>
             </em>
           </>
         }
+        image='/assets/placehold.jpeg'
         lede="Les règles d'usage de la plateforme Lab's Food — service de mise en relation entre professionnels et intervenants en cuisine."
       />
 
@@ -83,7 +84,7 @@ export default function CguPage() {
                 </div>
                 <div className="pl-0 md:pl-[3.5rem] space-y-4 text-ink/80 leading-relaxed">
                   {s.body.map((p, i) => (
-                    <p key={i}>{p}</p>
+                    <p key={i} className='text-justify'>{p}</p>
                   ))}
                 </div>
               </div>

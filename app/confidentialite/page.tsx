@@ -71,12 +71,13 @@ export default function ConfidentialitePage() {
           <>
             Politique de{' '}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display text-white">
                 Confidentialité
               </span>
             </em>
           </>
         }
+        image='/assets/placehold.jpeg'
         lede="Comment Lab's Food collecte, traite et protège vos données personnelles — dans le respect du RGPD européen."
       />
 
@@ -95,7 +96,7 @@ export default function ConfidentialitePage() {
                 </div>
                 <div className="pl-0 md:pl-[3.5rem] space-y-4 text-ink/80 leading-relaxed">
                   {s.body.map((p, i) => (
-                    <p key={i}>{p}</p>
+                    <p key={i} className='text-justify'>{p}</p>
                   ))}
 
                   {/* Blocs publics/privés (section 1) */}
@@ -104,11 +105,10 @@ export default function ConfidentialitePage() {
                       {s.blocks.map((b) => (
                         <div
                           key={b.title}
-                          className={`p-6 rounded-2xl border ${
-                            b.kind === 'public'
-                              ? 'bg-navy-mid/10 border-navy-mid/20'
-                              : 'bg-navy/5 border-navy/15'
-                          }`}
+                          className={`p-6 rounded-2xl border ${b.kind === 'public'
+                            ? 'bg-navy-mid/10 border-navy-mid/20'
+                            : 'bg-navy/5 border-navy/15'
+                            }`}
                         >
                           <div className="flex items-center gap-2 mb-3">
                             {b.kind === 'public' ? (
