@@ -12,7 +12,7 @@ import { Leaf, Heart, Compass, ShieldCheck } from 'lucide-react'
 const VALUES = [
   {
     icon: Leaf,
-    title: 'Cuisine du voyage',
+    title: 'Cuisine du monde',
     text: "Inspirations puisées dans les cuisines du monde — chaque assiette raconte une culture.",
   },
   {

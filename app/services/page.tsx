@@ -49,7 +49,7 @@ const SERVICES = [
       'Particuliers : grands dîners & fêtes',
       'Professionnels : traiteurs, restaurants',
       'Rôle défini selon le volume',
-      '02 chefs disponibles (Ivy, D\'Avilla)',
+      '02 chefs disponibles (Ivy, D\'Avila)',
     ],
     image: '/assets/photo-8.jpeg',
     href: '/services/assistance-culinaire',
