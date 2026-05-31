@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
 import { PRODUCTS } from '@/lib/content'
-import { KossamReviewsCarousel } from '@/components/sections/KossamReviewsCarousel'
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { VideoGrid } from '@/components/ui/VideoModal'
 
 export const metadata: Metadata = {
@@ -329,6 +329,7 @@ export default function KossamPage() {
               { n: 1, title: "Crêpes au Kossam de Lab's Food" },
               { n: 2, title: 'Risoni au Kossam & Mbongo' },
               { n: 3, title: 'Cheesecake Kmer' },
+              { n: 4, title: 'Gaufres au Kossam' },
             ]}
           />
         </div>
@@ -380,7 +381,7 @@ export default function KossamPage() {
                   Confiance & qualité
                 </h3>
                 <p className="mt-2 text-sm text-cream/60">
-                  Lab&apos;s Food respecte les normes
+                  La maison Lab&apos;s Food respecte les normes
                 </p>
                 <p className="mt-6 text-white leading-relaxed">
                   Lab&apos;s Food est{' '}
@@ -403,22 +404,25 @@ export default function KossamPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          AVIS — carousel
+          AVIS — mega carousel filtré sur les commentaires Kossam uniquement
+          (même design que la home page)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="section bg-cream-soft">
-        <div className="container-wide mb-12">
-          <Reveal>
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-mint-ink">
-              Avis clients
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance max-w-3xl">
-              Ce que la <span className="italic text-mint-ink">communauté</span> en
-              dit.
-            </h2>
-          </Reveal>
-        </div>
-        <KossamReviewsCarousel />
-      </section>
+      <TestimonialsSection
+        filterSource="kossam"
+        eyebrow="Avis clients Kossam"
+        title={
+          <>
+            Ce que la{' '}
+            <em className="not-italic">
+              <span className="font-display italic text-mint-ink">
+                communauté
+              </span>
+            </em>{' '}
+            en dit.
+          </>
+        }
+        subtitle="Les retours des gourmands ayant goûté notre boisson lactée fermentée. Survolez une colonne pour mettre en pause."
+      />
 
       {/* ═══════════════════════════════════════════════════════════════
           CTA FINALE — double commande WhatsApp

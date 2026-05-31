@@ -31,7 +31,7 @@ export function VideoGrid({ recipes }: VideoModalProps) {
               muted
               loop
               playsInline
-              poster={`/assets/photo-${n + 1}.jpeg`}
+              poster={`/vert.png`}
             >
               <source src={`/assets/recette-${n}.mp4`} type="video/mp4" />
             </video>
@@ -124,7 +124,7 @@ function VideoModal({ recipe, onClose }: { recipe: Recipe; onClose: () => void }
           ref={videoRef}
           className="w-full aspect-[9/16] object-cover"
           src={`/assets/recette-${recipe.n}.mp4`}
-          poster={`/assets/photo-${recipe.n + 1}.jpeg`}
+          poster={`/vert.png`}
           autoPlay
           playsInline
           onTimeUpdate={handleTimeUpdate}

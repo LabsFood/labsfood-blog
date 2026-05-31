@@ -38,8 +38,28 @@ function splitInColumns<T>(arr: readonly T[], cols: number): T[][] {
   return out
 }
 
-export function TestimonialsSection() {
-  const columns = useMemo(() => splitInColumns(REVIEWS, 3), [])
+type Source = 'kossam' | 'batch' | 'service'
+
+type Props = {
+  /** Si défini, n'affiche que les avis de cette source. */
+  filterSource?: Source
+  /** Titre alternatif (sinon "Ce qu'ils en disent.") */
+  eyebrow?: string
+  title?: React.ReactNode
+  subtitle?: string
+}
+
+export function TestimonialsSection({
+  filterSource,
+  eyebrow,
+  title,
+  subtitle,
+}: Props = {}) {
+  const reviews = useMemo(
+    () => (filterSource ? REVIEWS.filter((r) => r.source === filterSource) : REVIEWS),
+    [filterSource],
+  )
+  const columns = useMemo(() => splitInColumns(reviews, 3), [reviews])
 
   return (
     <section
@@ -57,28 +77,32 @@ export function TestimonialsSection() {
       /> */}
 
       <div className="relative container-wide">
-        {/* ── En-tête ── */}
+        {/* ── En-tête (paramétrable via props) ── */}
         <div className="flex items-end justify-between gap-6 flex-wrap mb-14 md:mb-20">
           <div className="max-w-2xl">
             <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-5">
               <span className="size-6 h-px bg-navy-mid" />
-              +150 gourmands régalés
+              {eyebrow ?? '+150 gourmands régalés'}
             </p>
             <h2
               className="font-display text-navy leading-[0.98] tracking-tight text-balance"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
             >
-              Ce qu&apos;
-              <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
-                  ils en disent.
-                </span>
-              </em>
+              {title ?? (
+                <>
+                  Ce qu&apos;
+                  <em className="not-italic">
+                    <span className="font-display italic text-navy-mid">
+                      ils en disent.
+                    </span>
+                  </em>
+                </>
+              )}
             </h2>
           </div>
           <p className="text-ink/65 text-sm md:text-base max-w-sm leading-relaxed">
-            Avis recueillis sur le Kossam, les services à domicile et les
-            ateliers — survolez une colonne pour mettre en pause.
+            {subtitle ??
+              'Avis recueillis sur le Kossam, les services à domicile et les ateliers — survolez une colonne pour mettre en pause.'}
           </p>
         </div>
 
