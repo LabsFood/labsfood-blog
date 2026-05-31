@@ -262,6 +262,7 @@ export default function AtelierPage() {
       {/* ── Chefs disponibles (cards simples, filtre région + ville) ── */}
       <ChefsFilterable
         variant="compact"
+        service="atelier"
         eyebrow="Nos chefs ateliers"
         title={
           <>

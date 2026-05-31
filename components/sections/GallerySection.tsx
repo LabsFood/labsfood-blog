@@ -20,12 +20,13 @@ const MARQUEE_WORDS = [
 
 const GALLERY = [
   { src: '/assets/gallerie/img1.jpeg', alt: 'Préparation maison', aspect: 'tall' },
-  { src: '/assets/gallerie/img2.jpeg', alt: 'Atelier culinaire', aspect: 'wide' },
-  { src: '/assets/gallerie/img3.jpeg', alt: 'Batch cooking', aspect: 'square' },
+  { src: '/assets/table.jpeg', alt: 'Batch cooking', aspect: 'wide' },
+  { src: '/assets/gallerie/img2.jpeg', alt: 'Atelier culinaire', aspect: 'square' },
   { src: '/assets/gallerie/img4.jpeg', alt: 'Service maison', aspect: 'tall' },
   { src: '/assets/photo-13.jpeg', alt: 'Dressage soigné', aspect: 'tall' },
-  { src: '/assets/gallerie/img5.jpeg', alt: 'Assistance culinaire', aspect: 'square' },
-  { src: '/assets/photo-10.jpeg', alt: 'Assistance culinaire', aspect: 'square' },
+  { src: '/assets/poissonn.jpeg', alt: 'Assistance culinaire', aspect: 'square' },
+  { src: '/assets/photo-10.jpeg', alt: 'Assistance culinaire 2', aspect: 'square' },
+  { src: '/assets/gallerie/elle.jpeg', alt: 'elle', aspect: 'square' },
 ]
 
 export function GallerySection() {

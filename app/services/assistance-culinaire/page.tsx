@@ -256,6 +256,7 @@ export default function AssistanceCulinaireePage() {
           ══════════════════════════════════════════════════════════════ */}
       <ChefsFilterable
         variant="full"
+        service="assistance"
         eyebrow="Choisissez votre chef"
         title={
           <>
