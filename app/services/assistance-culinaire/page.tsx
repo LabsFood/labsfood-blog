@@ -182,7 +182,7 @@ export default function AssistanceCulinaireePage() {
       </section>
 
       {/* ── Nos missions ── */}
-      <section className="section bg-cream-soft">
+      {/* <section className="section bg-cream-soft">
         <div className="container-wide grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 relative">
             <div className="rounded-3xl overflow-hidden aspect-[4/5] bg-navy">
@@ -223,7 +223,7 @@ export default function AssistanceCulinaireePage() {
             </ul>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Comment ça marche ── */}
       <section className="section bg-cream">
@@ -257,7 +257,7 @@ export default function AssistanceCulinaireePage() {
       <ChefsFilterable
         variant="full"
         service="assistance"
-        eyebrow="Choisissez votre chef"
+        eyebrow="Choisissez votre assistant(e) culinaire"
         title={
           <>
             Des profils vérifiés,{' '}

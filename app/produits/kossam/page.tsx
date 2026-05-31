@@ -95,7 +95,7 @@ export default function KossamPage() {
                       <Star key={i} className="size-3.5 fill-yellow-500 text-yellow-500" />
                     ))}
                     <span className="ml-2 text-cream/80 font-mono text-[0.7rem] uppercase tracking-[0.2em]">
-                      10 avis · 5.0
+                      100 avis · 5.0
                     </span>
                   </div>
                   <span className="hidden sm:block size-1 rounded-full bg-cream/40" />
@@ -203,7 +203,7 @@ export default function KossamPage() {
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-7">
-            <p className="text-lg leading-relaxed text-ink/85 text-pretty">
+            <p className="text-lg leading-relaxed text-ink/85 text-justify">
               {kossam.description}
             </p>
 
@@ -223,7 +223,7 @@ export default function KossamPage() {
                   </div>
                   <div>
                     <div className="font-display text-base text-navy">{b.label}</div>
-                    <div className="text-xs text-ink/55 mt-0.5">{b.sub}</div>
+                    {/* <div className="text-xs text-ink/55 mt-0.5">{b.sub}</div> */}
                   </div>
                 </div>
               ))}
@@ -326,7 +326,7 @@ export default function KossamPage() {
 
           <VideoGrid
             recipes={[
-              { n: 1, title: "Délicieuse crêpes au Kossam de Lab's Food" },
+              { n: 1, title: "Crêpes au Kossam de Lab's Food" },
               { n: 2, title: 'Risoni au Kossam & Mbongo' },
               { n: 3, title: 'Cheesecake Kmer' },
             ]}
@@ -431,7 +431,7 @@ export default function KossamPage() {
               <div className="absolute -top-20 -right-20 size-96 rounded-full bg-cream/15 blur-3xl" />
               <div className="absolute -bottom-20 -left-20 size-96 rounded-full bg-navy/30 blur-3xl" />
               <div className="absolute bottom-0 left-0 w-1/2 h-full opacity-20">
-                <Image src="/assets/photo-2.jpeg" alt="" fill className="object-cover" />
+                <Image src="/assets/photo-10.jpeg" alt="" fill className="object-cover" />
               </div>
               <div className="relative grid lg:grid-cols-2 gap-8 items-center">
                 <div>

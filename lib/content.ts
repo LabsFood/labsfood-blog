@@ -365,7 +365,9 @@ export const CHEFS = [
     bio: "Passionnée jusqu'au bout de la spatule, je suis prête à mettre la main à la pâte pour devenir votre renfort de choc en cuisine : contactez-moi pour en discuter !",
     /** Pitches optionnels par service. Si vide, on retombe sur `bio`. */
     pitches: {} as { atelier?: string; assistance?: string },
-    badges: ["06 ans d'expérience", 'HACCP'],
+    badges: ["06 ans d'expérience"],
+    /** Certifications affichées en badge visuel sur la card (pas en texte). */
+    certifications: ['HACCP'],
     languages: ['FR', 'PT', 'EN'],
     specialties: ['Cuisines du monde', 'Cuisine africaine', 'Dressage & présentation'],
     available: true,
@@ -398,6 +400,7 @@ export const CHEFS = [
         "Animatrice d'ateliers cuisine à domicile 🍽️ Vous avez envie de cuisiner ce que vous avez toujours voulu apprendre, de partager une activité originale en famille ou d'animer un événement entre amis ? Je propose des sessions personnalisées adaptées à tous les niveaux et tous les publics. Un moment d'apprentissage, de partage et de plaisir — directement chez vous. Contactez-moi pour planifier votre atelier ! 👩‍🍳",
     } as { atelier?: string; assistance?: string },
     badges: ["4 ans d'expérience", 'Restauration & traiteur'],
+    certifications: [] as string[],
     languages: ['FR', 'EN'],
     specialties: ['Cuisine africaine', 'Cuisine européenne'],
     available: true,

@@ -14,6 +14,7 @@ import {
   Languages,
   BadgeCheck,
   Star,
+  ShieldCheck,
 } from 'lucide-react'
 import { CHEFS, getAvailableRegions, getAvailableCities } from '@/lib/content'
 import { cn } from '@/lib/utils'
@@ -301,7 +302,16 @@ function ChefCardCompact({
 }) {
   const pitch = getPitch(chef, service)
   return (
-    <article className="group flex flex-col h-full rounded-3xl bg-cream border border-navy/8 hover:border-orange/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 p-6">
+    <article className="group relative flex flex-col h-full rounded-3xl bg-cream border border-navy/8 hover:border-orange/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 p-6">
+      {/* Badge certifications en haut à droite (HACCP, etc.) */}
+      {chef.certifications.length > 0 && (
+        <div className="absolute top-4 right-4 flex flex-wrap gap-1.5 justify-end">
+          {chef.certifications.map((cert) => (
+            <CertificationBadge key={cert} label={cert} />
+          ))}
+        </div>
+      )}
+
       {/* Header : avatar + nom + région */}
       <div className="flex items-center gap-4 mb-5">
         <div className="relative size-20 shrink-0">
@@ -316,7 +326,7 @@ function ChefCardCompact({
             <span className="absolute bottom-0.5 right-0.5 size-3.5 rounded-full bg-whatsapp border-2 border-cream" />
           )}
         </div>
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 pr-2">
           <h3 className="font-display text-xl text-navy leading-tight truncate">
             {chef.name}
           </h3>
@@ -343,6 +353,24 @@ function ChefCardCompact({
         {pitch}
       </p>
 
+      {/* Langues (chip avec icône) */}
+      <div className="flex items-center gap-2 mb-5 text-xs text-ink/70">
+        <Languages className="size-3.5 text-orange shrink-0" />
+        <span className="font-mono uppercase tracking-[0.15em] text-[0.6rem]">
+          Langues :
+        </span>
+        <div className="flex flex-wrap gap-1">
+          {chef.languages.map((lang) => (
+            <span
+              key={lang}
+              className="inline-flex items-center px-2 py-0.5 rounded-full bg-orange/10 text-orange-deep font-mono text-[0.55rem] font-medium tracking-wider"
+            >
+              {lang}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* CTA */}
       <a
         href={chef.bookingLink}
@@ -368,7 +396,16 @@ function ChefCardFull({
 }) {
   const pitch = getPitch(chef, service)
   return (
-    <article className="group flex flex-col h-full rounded-3xl bg-cream border border-navy/8 hover:border-orange/30 hover:shadow-xl transition-all duration-500 p-6 md:p-8">
+    <article className="group relative flex flex-col h-full rounded-3xl bg-cream border border-navy/8 hover:border-orange/30 hover:shadow-xl transition-all duration-500 p-6 md:p-8">
+      {/* Badge certifications en haut à droite (HACCP, etc.) */}
+      {chef.certifications.length > 0 && (
+        <div className="absolute top-5 right-5 flex flex-wrap gap-1.5 justify-end">
+          {chef.certifications.map((cert) => (
+            <CertificationBadge key={cert} label={cert} />
+          ))}
+        </div>
+      )}
+
       {/* Header : avatar + nom + région + disponibilité */}
       <div className="flex items-start gap-5 mb-6">
         <div className="relative size-24 shrink-0">
@@ -384,7 +421,7 @@ function ChefCardFull({
           )}
         </div>
 
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 pr-20">
           <div className="flex items-center gap-2 mb-1">
             <p className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-orange">
               {chef.title}
@@ -472,6 +509,19 @@ function InfoBlock({
       </div>
       <div className="font-display text-sm text-navy leading-tight">{value}</div>
     </div>
+  )
+}
+
+/* ── Badge certification (sticker premium navy + bord doré) ── */
+function CertificationBadge({ label }: { label: string }) {
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-navy text-cream font-mono text-[0.55rem] font-semibold uppercase tracking-[0.15em] shadow-md ring-2 ring-orange/40"
+      title={`Certification ${label}`}
+    >
+      <ShieldCheck className="size-3 text-orange" />
+      {label}
+    </span>
   )
 }
 
