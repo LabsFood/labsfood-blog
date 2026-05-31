@@ -474,7 +474,7 @@ export default function KossamPage() {
                     >
                       <span className="flex items-center gap-2">
                         <WhatsAppIcon className="size-4" />
-                        Commander 1.5L · 19.99€
+                        Commander 1.5L · 20€
                       </span>
                       <ArrowUpRight className="size-4" />
                     </a>

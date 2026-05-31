@@ -65,7 +65,7 @@ export const PRODUCTS = [
     status: 'available' as const,
     formats: [
       { size: '0.5L', price: '7€' },
-      { size: '1.5L', price: '19.99€' },
+      { size: '1.5L', price: '20€' },
     ],
     short:
       "L'alternative onctueuse, légèrement acidulée, inspirée d'un précieux savoir-faire camerounais.",
