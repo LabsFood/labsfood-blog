@@ -23,7 +23,7 @@ const SHOWCASE = [
     kicker: 'Service à domicile',
     description:
       "Une cheffe vient préparer une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser, sur-mesure et à votre rythme.",
-    price: 'À partir de 50€',
+    price: 'À partir de 50€*',
     image: '/assets/photo-9.jpeg',
     href: '/services/batch-cooking',
     features: [

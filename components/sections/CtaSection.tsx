@@ -121,7 +121,7 @@ export function CtaSection() {
                     'Réservation d\'un atelier',
                     'Commande Kossam',
                     'Devenir chef partenaire',
-                    'Question générale',
+                    'Autres',
                   ].map((t) => (
                     <div
                       key={t}

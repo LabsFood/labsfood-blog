@@ -150,7 +150,7 @@ export function CtaFinalSection() {
                   'Coup de main en cuisine',
                   'Commande Kossam',
                   'Devenir chef partenaire',
-                  'Question générale',
+                  'Autres',
                 ].map((t) => (
                   <div
                     key={t}

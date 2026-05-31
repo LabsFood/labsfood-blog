@@ -147,7 +147,7 @@ export function Footer() {
                   <MapPin className="w-4 h-4" />
                 </span>
                 <span className="text-sm">
-                  Côte d&apos;Azur · Île-de-France · Europe
+                  200 Rue de la Croix Nivert, 75015 Paris
                 </span>
               </li>
             </ul>

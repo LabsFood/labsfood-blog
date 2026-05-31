@@ -67,7 +67,7 @@ export function ContactForm() {
           <option>Batch cooking</option>
           <option>Commander du Kossam</option>
           <option>Devenir chef partenaire</option>
-          <option>Question générale</option>
+          <option>Autres</option>
         </select>
       </label>
       <label className="flex flex-col gap-2">

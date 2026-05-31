@@ -74,13 +74,7 @@ export function IntroSection() {
               className="font-display text-navy leading-[0.98] tracking-tight text-balance"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4.2rem)' }}
             >
-              Une aventure née d&apos;
-              <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
-                  une conviction
-                </span>
-              </em>
-              {' '}: voyager autour d&apos;une assiette.
+              Une aventure culinaire née d’une passion : sublimer votre quotidien
             </h2>
 
             <div className="mt-10 space-y-5 text-ink/75 leading-relaxed max-w-xl text-pretty">
@@ -91,10 +85,7 @@ export function IntroSection() {
                   souvent autour d&apos;une assiette</em>.
               </p> */}
               <p>
-                Trois services pensés pour trois moments de vie : un atelier
-                pour apprendre, un batch pour bien manger, une assistance pour
-                les grands événements. Et bientôt, des créations signature à
-                déguster.
+                Déléguez, apprenez, savourez. Du batch cooking à domicile à l’atelier convivial, en passant par notre assistance aux fourneaux, LAB’S FOOD est là. Laissez-vous également surprendre par nos créations artisanales uniques, comme notre “Kossam” signature.
               </p>
             </div>
 

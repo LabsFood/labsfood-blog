@@ -26,14 +26,14 @@ const FEATURES = [
   { icon: Brain, label: 'charge mentale libérée' },
   { icon: UtensilsCrossed, label: 'Une semaine de repas' },
   { icon: Clock, label: '2h minimum d\'intervention' },
-  { icon: MapPin, label: "Côte d'Azur" },
+  { icon: MapPin, label: "Côte d'Azur pour le moment..." },
 ] as const
 
 const BULLETS = [
   'Plannings de menus variés et équilibrés',
   'Adapté à vos contraintes alimentaires',
   'Conservation et conseils de réchauffage inclus',
-  'Idéal pour familles, couples actifs, sportifs',
+  "Idéal pour les familles, les mamans, personnes qui n’ont pas beaucoup de temps, sportifs, etc.",
 ] as const
 
 export default function BatchCookingPage() {
@@ -103,7 +103,7 @@ export default function BatchCookingPage() {
                   </span>
                 </em>
               </h2>
-              <p className="mt-8 lede text-pretty">
+              <p className="mt-8 lede text-justify">
                 Le batch cooking, c&apos;est cuisiner une fois pour toute la
                 semaine — sauf que cette fois, c&apos;est nous qui le faisons.
                 Chez vous, avec votre matériel, et adapté à ce que vous aimez.
@@ -122,10 +122,10 @@ export default function BatchCookingPage() {
           </Reveal>
 
           <Reveal axis="x" className="lg:col-span-6 order-1 lg:order-2">
-            <div className="relative h-[480px] md:h-[600px]">
+            <div className="relative h-[480px] md:h-[700px]">
               <div className="absolute top-0 right-0 w-[70%] h-[60%] rounded-3xl overflow-hidden shadow-xl">
                 <Image
-                  src="/assets/photo-9.jpeg"
+                  src="/assets/gallerie/img5.jpeg"
                   alt=""
                   fill
                   className="object-cover"
@@ -133,7 +133,7 @@ export default function BatchCookingPage() {
               </div>
               <div className="absolute bottom-0 left-0 w-[60%] h-[55%] rounded-3xl overflow-hidden shadow-xl border-4 border-cream">
                 <Image
-                  src="/assets/photo-11.jpeg"
+                  src="/assets/gallerie/img4.jpeg"
                   alt=""
                   fill
                   className="object-cover"
@@ -146,7 +146,7 @@ export default function BatchCookingPage() {
                     Dès
                   </div>
                   <div className="font-display text-2xl text-navy leading-none mt-1">
-                    50€
+                    50€*
                   </div>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function BatchCookingPage() {
       {/* ── CTA site dédié ──────────────────────────────────────────── */}
       <section className="relative bg-navy text-cream py-24 md:py-32 overflow-hidden">
         <Image
-          src="/assets/photo-11.jpeg"
+          src="/assets/gallerie/img3.jpeg"
           alt=""
           fill
           className="object-cover opacity-25"
@@ -170,24 +170,23 @@ export default function BatchCookingPage() {
         <div className="relative container-wide text-center max-w-3xl mx-auto">
           <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-cream-deep inline-flex items-center gap-3 mb-6">
             <span className="size-6 h-px bg-orange-deep" />
-            Site dédié
+            Batch cooking à domicile.
             <span className="size-6 h-px bg-orange-deep" />
           </p>
           <h2
             className="font-display text-cream leading-[0.95] tracking-tight text-balance"
             style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
           >
-            Toute l&apos;offre batch cooking,
+            Notre site dédié est encore au four…
             <br />
             <em className="not-italic">
               <span className="font-display italic text-orange">
-                sur son propre site.
+                mais les réservations sont ouvertes.
               </span>
             </em>
           </h2>
           <p className="mt-8 text-cream/75 max-w-xl mx-auto leading-relaxed">
-            Formules, prise de rendez-vous, détail des menus, tarifs — tout est
-            sur le site dédié au service batch cooking Lab&apos;s Food.
+            La plateforme dédiée au service batch cooking Lab’s Food est en cours de déploiement. En attendant de découvrir votre nouvel espace, nos plannings restent ouverts ! Détaillez-nous vos besoins et réservez votre créneau en quelques clics.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -196,7 +195,7 @@ export default function BatchCookingPage() {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-cream text-navy font-medium text-sm hover:bg-navy-mid hover:text-cream transition-colors"
             >
-              Accéder au site batch cooking
+              Accéder au formulaire de réservation
               <ArrowUpRight className="size-4" />
             </a>
             <a
@@ -208,7 +207,7 @@ export default function BatchCookingPage() {
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors"
             >
               <WhatsAppIcon className="size-4" />
-              Demander un devis
+              Contactez-Nous
             </a>
           </div>
         </div>
