@@ -28,6 +28,7 @@ const SOURCE_LABEL: Record<string, string> = {
   kossam: 'Kossam',
   batch: 'Batch cooking',
   atelier: 'Atelier',
+  service: 'Cuisine maison',
 }
 
 // Distribue les avis sur 3 colonnes en alternant pour équilibrer
@@ -117,12 +118,12 @@ export function TestimonialsSection() {
         </div>
 
         {/* ── Compteur bas ── */}
-        <div className="relative mt-12 text-center">
+        {/* <div className="relative mt-12 text-center">
           <p className="inline-flex items-center gap-3 font-mono text-[0.65rem] uppercase tracking-[0.3em] text-ink/45">
             <span className="size-1.5 rounded-full bg-orange animate-pulse" />
             {REVIEWS.length} avis affichés · +150 recueillis au total
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   )
@@ -143,17 +144,18 @@ function Column({
   offsetStart: number
   hideOnMobileIf: 'sm' | null
 }) {
-  // Duplique la liste pour boucle infinie sans jump
+  // Duplique la liste 2x : boucle seamless car animation translateY 0 → -50%
+  // = exactement 1 copie de la liste, donc la fin du cycle aligne visuellement
+  // avec le début (pas de jump).
   const doubled = [...reviews, ...reviews]
 
   return (
     <div
-      className={`relative overflow-hidden group ${
-        hideOnMobileIf === 'sm' ? 'hidden lg:block' : ''
-      }`}
+      className={`relative overflow-hidden group ${hideOnMobileIf === 'sm' ? 'hidden lg:block' : ''
+        }`}
     >
       <div
-        className={`flex flex-col gap-5 md:gap-6 ${speed} group-hover:[animation-play-state:paused]`}
+        className={`flex flex-col gap-4 md:gap-5 ${speed} group-hover:[animation-play-state:paused]`}
       >
         {doubled.map((review, i) => {
           const tint = TINTS[(i + offsetStart) % TINTS.length]
@@ -189,17 +191,16 @@ function ReviewCard({
 
       {/* Texte avis */}
       <p
-        className={`text-navy/85 leading-relaxed text-pretty ${
-          isLong ? 'text-sm' : 'text-[0.95rem]'
-        }`}
+        className={`text-navy/85 leading-relaxed text-pretty ${isLong ? 'text-sm' : 'text-[0.95rem]'
+          }`}
         style={
           isLong
             ? {
-                display: '-webkit-box',
-                WebkitLineClamp: 5,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-              }
+              display: '-webkit-box',
+              WebkitLineClamp: 5,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }
             : undefined
         }
       >

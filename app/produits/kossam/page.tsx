@@ -325,7 +325,11 @@ export default function KossamPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {[1, 2, 3].map((n, i) => (
+            {[
+              { n: 1, title: "Délicieuse crêpes au Kossam de Lab's Food" },
+              { n: 2, title: 'Risoni au Kossam & Mbongo' },
+              { n: 3, title: 'Cheesecake Kmer' },
+            ].map(({ n, title }, i) => (
               <Reveal key={n} delay={i * 0.1}>
                 <div className="group relative aspect-[3/4] rounded-3xl overflow-hidden bg-navy-deep ring-1 ring-cream/10 hover:ring-mint-ink/40 transition-all duration-500">
                   <video
@@ -346,11 +350,10 @@ export default function KossamPage() {
                   </div>
 
                   <div className="relative h-full flex flex-col justify-end p-6">
-                    {/* <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
+                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/50">
                       Recette {String(n).padStart(2, '0')}
-                    </span> */}
-                    <h3 className="font-display text-2xl text-cream mt-2">
-                      Recette {String(n).padStart(2, '0')}                    </h3>
+                    </span>
+                    <h3 className="font-display text-2xl text-cream mt-1">{title}</h3>
                   </div>
                 </div>
               </Reveal>

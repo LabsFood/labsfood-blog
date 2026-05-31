@@ -163,6 +163,110 @@ export const REVIEWS = [
     text: "J'ai fait appel à Lab's Food car j'étais débordée avec les enfants (maman solo de 3). J'ai pu manger pendant 3 jours sans me poser la question de savoir « qu'est-ce que je cuisine aujourd'hui ? ». Ce fut une belle expérience que j'ai renouvelée et que je recommande à 10 000 %.",
     source: 'batch' as const,
   },
+
+  // ─── Nouveaux avis Kossam (doc "Commentaires pour site de LF") ──────
+  {
+    author: 'Laee',
+    text: "Best Kossam ever tasted ❤️🤧. Tu maîtrises ta chose maaa.",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Carole Modimo',
+    text: "J'avais pour habitude de consommer le kossam au Cameroun, mais celui de Lab's Food est particulier. Très bon, très onctueux. Je n'hésite pas à diviser ma bouteille en deux quand il ne reste que le fond. Et le service également est impeccable. Reviens nous vite la mère du kossam 🫶",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Yves Emma',
+    text: "Un Kossam qui me fait voyager jusqu'au 237 — simple, onctueux, plusieurs saveurs et qui se conserve bien. Un délice.",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Kelian',
+    text: "Je ne pense pas avoir déjà goûté un yaourt plus goûteux, plus onctueux que le Kossam de Lab's Food. C'est vraiment un pur délice.",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Marylou',
+    text: "Meilleur Kossam consommé jusqu'ici ❤️ — les différentes saveurs fruitées rajoutent un PEPS ! 🤧 Coco mon préféré 🫶",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Steve Enygma',
+    text: "Délicieux Kossam, ça m'a rappelé les saveurs du pays et des souvenirs d'enfance. Je recommande totalement ! 🙏",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Arthur Tenkam',
+    text: "Le Kossam Lab's Food est un vrai régal. Il faut le goûter pour comprendre.",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'David Carpentier',
+    text: "Le kossam c'est une folie. Ça me transporte en enfance avec ce petit goût de lait concentré. C'est addictif.",
+    source: 'kossam' as const,
+  },
+  {
+    author: 'Kevin',
+    text: "J'ai adoré le kossam — je l'ai fini en une soirée.",
+    source: 'kossam' as const,
+  },
+
+  // ─── Avis Services & Nourriture (plats, prestations à domicile) ──────
+  {
+    author: 'Kelian',
+    text: "Le riz de Lab's Food ?? D'en parler ? Vous n'êtes pas prêts !!",
+    source: 'service' as const,
+  },
+  {
+    author: 'Daryl Wilfried',
+    text: "Le ndolé du chef à couper le souffle. Une réelle extase pour les papilles gustatives.",
+    source: 'service' as const,
+  },
+  {
+    author: 'Steve Enygma',
+    text: "Des plats savoureux et un service qui réchauffent le cœur.",
+    source: 'service' as const,
+  },
+  {
+    author: 'Arthur Tenkam',
+    text: "J'ai contacté Lab's Food pour un plantain poulet DG et vraiment ma satisfaction était à 100 %. Merci encore Lab's Food !",
+    source: 'service' as const,
+  },
+  {
+    author: 'David Carpentier',
+    text: "Un service au top ! Les goûts et les saveurs vous font voyager depuis votre salon.",
+    source: 'service' as const,
+  },
+  {
+    author: 'Franck',
+    text: "Très bon plat fait par Ivy. Avec passion et amour. La qualité est irréprochable. Je recommande à 100 %.",
+    source: 'service' as const,
+  },
+  {
+    author: 'Jennifer',
+    text: "En tant que Béninoise, j'ai été conquise par le ndolè de Lab's Food. J'y ai retrouvé réconfort, amour et le goût du 237. Excellent !",
+    source: 'service' as const,
+  },
+  {
+    author: 'Junior',
+    text: "J'ai eu l'occasion de goûter plusieurs plats d'Ivy et je n'ai jamais été déçu. Une cuisine généreuse, savoureuse et faite avec passion. On sent le soin apporté aux détails — foncez les yeux fermés, elle gère de fou.",
+    source: 'service' as const,
+  },
+  {
+    author: 'Ange',
+    text: "Je me suis régalée 😍🙏 — dites-vous qu'au début je me disais « qu'est-ce que celle-ci a encore fabriqué ? » 🤣🤣 En tout cas sa créativité est à saluer, et rassurez-vous, le goût suit 🙏🤩",
+    source: 'service' as const,
+  },
+  {
+    author: 'Bénédicte',
+    text: "On vient de dégommer les poissons / banane plantain, c'était vraiment délicieux.",
+    source: 'service' as const,
+  },
+  {
+    author: 'Kuikui',
+    text: "En plus de faire des repas délicieux, elle est très propre.",
+    source: 'service' as const,
+  },
 ] as const
 
 export const FOUNDER = {
