@@ -33,7 +33,7 @@ export function ProductsSection() {
     <section id="produits" className="section bg-cream-deep relative overflow-hidden">
       {/* Photo de fond très estompée pour casser le blanc */}
       <Image
-        src="/assets/photo-2.jpeg"
+        src="/assets/photo-10.jpeg"
         alt=""
         fill
         className="object-cover opacity-[0.08] pointer-events-none"
