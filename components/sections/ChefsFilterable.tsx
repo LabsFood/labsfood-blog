@@ -292,6 +292,11 @@ function getPitch(chef: Chef, service: ServiceKey): string {
   return chef.pitches?.[service] ?? chef.bio
 }
 
+/** Renvoie le lien Calendly dédié au service, sinon retombe sur le lien par défaut. */
+function getBookingLink(chef: Chef, service: ServiceKey): string {
+  return chef.bookingLinks?.[service] ?? chef.bookingLink
+}
+
 /* ── COMPACT (atelier) ── */
 function ChefCardCompact({
   chef,
@@ -373,7 +378,7 @@ function ChefCardCompact({
 
       {/* CTA */}
       <a
-        href={chef.bookingLink}
+        href={getBookingLink(chef, service)}
         target="_blank"
         rel="noreferrer"
         className="group/btn inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-full bg-orange text-cream text-sm font-medium hover:bg-orange-deep transition-all mt-auto"
@@ -477,7 +482,7 @@ function ChefCardFull({
 
       {/* CTA */}
       <a
-        href={chef.bookingLink}
+        href={getBookingLink(chef, service)}
         target="_blank"
         rel="noreferrer"
         className="group/btn mt-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-orange text-cream text-sm font-medium hover:bg-orange-deep transition-all"

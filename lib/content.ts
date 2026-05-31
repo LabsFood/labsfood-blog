@@ -343,7 +343,7 @@ export const CHEFS = [
     id: 'ivy',
     n: '01',
     name: 'Ivy',
-    title: "Fondatrice & Passionnée",
+    title: "Fondatrice",
     photo: '/assets/placehold.jpeg',
     region: "Provence-Alpes-Côte d'Azur",
     regionId: 'paca',
@@ -372,26 +372,21 @@ export const CHEFS = [
     specialties: ['Cuisines du monde', 'Cuisine africaine', 'Dressage & présentation'],
     available: true,
     bookingLink: BATCH_COOKING_URL,
+    /** Liens Calendly différenciés par service (vide = utilise bookingLink). */
+    bookingLinks: {} as { atelier?: string; assistance?: string },
     /** Pages où ce chef apparaît. Si false, masqué sur cette page. */
     services: { atelier: true, assistance: true },
   },
   {
-    id: 'davilla',
+    id: 'ange',
     n: '02',
-    name: "D'Avila",
+    name: 'Ange',
     title: "Etudiante",
     photo: '/davila.jpeg',
-    region: 'Île-de-France',
-    regionId: 'ile-de-france',
-    cities: [
-      'Le Plessis-Bouchard',
-      'Franconville',
-      'Eaubonne',
-      'Ermont',
-      'Sannois',
-      'Argenteuil',
-    ],
-    zone: "Secteur 95130 (Val-d'Oise) et environs",
+    region: 'Occitanie',
+    regionId: 'occitanie',
+    cities: ['Pau'],
+    zone: 'Pau',
     bio: "Animatrice d'ateliers et assistante culinaire, je viens vous prêter main-forte en cuisine.",
     pitches: {
       assistance:
@@ -404,7 +399,13 @@ export const CHEFS = [
     languages: ['FR', 'EN'],
     specialties: ['Cuisine africaine', 'Cuisine européenne'],
     available: true,
-    bookingLink: 'https://calendly.com/ktdange/30min',
+    /** Lien Calendly par défaut — utilisé si pas de bookingLinks dédié. */
+    bookingLink: 'https://calendly.com/ktdange/assistance-culinaire',
+    /** Liens Calendly différenciés par service. */
+    bookingLinks: {
+      assistance: 'https://calendly.com/ktdange/assistance-culinaire',
+      atelier: 'https://calendly.com/ktdange/assistance-culinaire-clone',
+    } as { atelier?: string; assistance?: string },
     services: { atelier: true, assistance: true },
   },
 ] as const

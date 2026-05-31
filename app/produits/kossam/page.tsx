@@ -261,9 +261,7 @@ export default function KossamPage() {
                 Mille façons de le savourer
               </span>
               <h2 className="font-display text-4xl md:text-5xl text-navy mt-4 text-balance max-w-3xl">
-                Du verre frais aux{' '}
-                <span className="italic text-mint-ink">sauces salées</span>, le
-                Kossam s&apos;invite partout.
+                Préférences <span className='text-mint-ink'>sucrées</span>ou <span className='text-mint-ink'>salées</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -319,7 +317,7 @@ export default function KossamPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-sm text-cream/65 max-w-sm">
-                Inspirez-vous des recettes faites par la cheffe Ivy avec son Kossam.
+                Inspirez-vous des recettes faites par la cheffe Ivy avec votre Kossam.
               </p>
             </Reveal>
           </div>
