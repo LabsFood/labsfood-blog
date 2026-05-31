@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lab's Food — We create what you love!",
     description:
-      'Ateliers, batch cooking & produits artisanaux. Voyagez en cuisine sans tracasserie de visa.',
+      'Ateliers, batch cooking & produits artisanaux.',
     type: 'website',
     locale: 'fr_FR',
     siteName: "Lab's Food",

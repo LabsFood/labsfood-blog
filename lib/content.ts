@@ -175,7 +175,7 @@ export const TIMELINE = [
   },
   {
     year: '2026',
-    place: 'La concrétisation',
+    place: 'FRANCE, la concrétisation',
     title: 'Naissance officielle',
     body: "L'année où tout prend forme. Je structure l'ensemble de mes services, j'allie mes compétences en gestion de projets et excellence opérationnelle à ma passion, et je fonde officiellement l'entreprise. Lab's Food est prête à révolutionner votre quotidien !",
   },

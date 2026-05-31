@@ -185,11 +185,11 @@ export function Footer() {
               <FooterLink key={l.href + l.label} {...l} />
             ))}
           </FooterColumn>
-          <FooterColumn title="Lab's Food" className="lg:col-span-3">
+          ` {/* <FooterColumn title="Lab's Food" className="lg:col-span-3">
             {LINKS.maison.map((l) => (
               <FooterLink key={l.href + l.label} {...l} />
             ))}
-          </FooterColumn>
+          </FooterColumn>` */}
         </div>
 
         {/* ── Bas : copyright + légal ── */}
