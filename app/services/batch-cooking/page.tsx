@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {
   ArrowUpRight,
+  Brain,
   Check,
   Clock,
   Leaf,
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
 }
 
 const FEATURES = [
-  { icon: Clock, label: '2h minimum d\'intervention' },
+  { icon: Brain, label: 'charge mentale libérée' },
   { icon: UtensilsCrossed, label: 'Une semaine de repas' },
-  { icon: Leaf, label: 'Ingrédients frais & locaux' },
+  { icon: Clock, label: '2h minimum d\'intervention' },
   { icon: MapPin, label: "Côte d'Azur" },
 ] as const
 
@@ -75,7 +76,7 @@ export default function BatchCookingPage() {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-orange text-cream font-medium text-sm hover:bg-navy-mid transition-colors"
             >
-              Site dédié
+              Accéder au formulaire de réservation
               <ArrowUpRight className="size-4" />
             </a>
           </div>
