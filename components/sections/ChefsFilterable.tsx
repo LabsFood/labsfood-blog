@@ -16,7 +16,14 @@ import {
   Star,
   ShieldCheck,
 } from 'lucide-react'
-import { CHEFS, getAvailableRegions, getAvailableCities } from '@/lib/content'
+import {
+  CHEFS,
+  getAvailableRegions,
+  getAvailableCities,
+  getChefRegions,
+  chefMatchesRegion,
+  chefMatchesCity,
+} from '@/lib/content'
 import { cn } from '@/lib/utils'
 
 /**
@@ -65,26 +72,24 @@ export function ChefsFilterable({
     [service],
   )
 
-  // Régions & villes — déduites uniquement des chefs de ce service
-  const regions = useMemo(() => {
-    const map = new Map<string, string>()
-    chefsForService.forEach((c) => map.set(c.regionId, c.region))
-    return Array.from(map, ([id, label]) => ({ id, label }))
-  }, [chefsForService])
+  // Régions & villes — déduites uniquement des chefs de ce service,
+  // en agrégeant TOUTES leurs régions (principale + extras)
+  const regions = useMemo(
+    () => getAvailableRegions(chefsForService),
+    [chefsForService],
+  )
 
-  const cities = useMemo(() => {
-    const set = new Set<string>()
-    chefsForService
-      .filter((c) => !regionId || c.regionId === regionId)
-      .forEach((c) => c.cities.forEach((v) => set.add(v)))
-    return Array.from(set).sort()
-  }, [chefsForService, regionId])
+  const cities = useMemo(
+    () => getAvailableCities(chefsForService, regionId || undefined),
+    [chefsForService, regionId],
+  )
 
-  // Liste affichée
+  // Liste affichée : un chef passe si l'une de ses régions matche
+  // (et idem pour la ville).
   const filtered = useMemo(() => {
     return chefsForService.filter((c) => {
-      if (regionId && c.regionId !== regionId) return false
-      if (city && !(c.cities as readonly string[]).includes(city)) return false
+      if (regionId && !chefMatchesRegion(c, regionId)) return false
+      if (city && !chefMatchesCity(c, city)) return false
       return true
     })
   }, [chefsForService, regionId, city])
@@ -100,7 +105,7 @@ export function ChefsFilterable({
   function onRegionChange(value: string) {
     setRegionId(value)
     if (value && city) {
-      const newCities = getAvailableCities(value)
+      const newCities = getAvailableCities(chefsForService, value)
       if (!newCities.includes(city)) setCity('')
     } else if (!value) {
       setCity('')
@@ -340,7 +345,9 @@ function ChefCardCompact({
           </p>
           <div className="flex items-center gap-1.5 mt-1.5 text-xs text-ink/65">
             <MapPin className="size-3 text-orange shrink-0" />
-            <span className="truncate">{chef.region}</span>
+            <span className="truncate">
+              {getChefRegions(chef).map((r) => r.label).join(' · ')}
+            </span>
           </div>
         </div>
       </div>

@@ -362,6 +362,7 @@ export const CHEFS = [
       'Grasse',
     ],
     zone: "Côte d'Azur — Alpes-Maritimes",
+    extraRegions: [] as Array<{ id: string; label: string; cities: string[] }>,
     bio: "Passionnée jusqu'au bout de la spatule, je suis prête à mettre la main à la pâte pour devenir votre renfort de choc en cuisine : contactez-moi pour en discuter !",
     /** Pitches optionnels par service. Si vide, on retombe sur `bio`. */
     pitches: {} as { atelier?: string; assistance?: string },
@@ -383,10 +384,21 @@ export const CHEFS = [
     name: 'Ange',
     title: "Etudiante",
     photo: '/davila.jpeg',
-    region: 'Occitanie',
-    regionId: 'occitanie',
-    cities: ['Pau'],
-    zone: 'Pau',
+    region: 'Île-de-France',
+    regionId: 'ile-de-france',
+    cities: [
+      'Le Plessis-Bouchard',
+      'Franconville',
+      'Eaubonne',
+      'Ermont',
+      'Sannois',
+      'Argenteuil',
+    ],
+    /** Régions supplémentaires (en plus de la région principale ci-dessus). */
+    extraRegions: [
+      { id: 'occitanie', label: 'Occitanie', cities: ['Pau'] },
+    ] as Array<{ id: string; label: string; cities: string[] }>,
+    zone: "Secteur 95130 (Val-d'Oise) · Pau",
     bio: "Animatrice d'ateliers et assistante culinaire, je viens vous prêter main-forte en cuisine.",
     pitches: {
       assistance:
@@ -411,18 +423,53 @@ export const CHEFS = [
 ] as const
 
 // ─── Helpers pour les filtres ──────────────────────────────────────────────
-/** Retourne les régions uniques disponibles, déduites des chefs */
-export function getAvailableRegions() {
+/**
+ * Aplatit toutes les régions d'un chef (principale + extras) en une liste
+ * uniforme [{ id, label, cities }]. Utilisé par les filtres et l'affichage.
+ */
+export function getChefRegions(chef: (typeof CHEFS)[number]) {
+  return [
+    { id: chef.regionId, label: chef.region, cities: [...chef.cities] as string[] },
+    ...chef.extraRegions.map((r) => ({ ...r, cities: [...r.cities] })),
+  ]
+}
+
+/** Vrai si le chef intervient dans la région donnée (principale ou extra). */
+export function chefMatchesRegion(
+  chef: (typeof CHEFS)[number],
+  regionId: string,
+): boolean {
+  return getChefRegions(chef).some((r) => r.id === regionId)
+}
+
+/** Vrai si le chef intervient dans la ville donnée (toutes régions confondues). */
+export function chefMatchesCity(
+  chef: (typeof CHEFS)[number],
+  city: string,
+): boolean {
+  return getChefRegions(chef).some((r) => r.cities.includes(city))
+}
+
+/** Retourne les régions uniques disponibles parmi un ensemble de chefs. */
+export function getAvailableRegions(
+  chefs: readonly (typeof CHEFS)[number][] = CHEFS,
+) {
   const map = new Map<string, string>()
-  CHEFS.forEach((c) => map.set(c.regionId, c.region))
+  chefs.forEach((c) => getChefRegions(c).forEach((r) => map.set(r.id, r.label)))
   return Array.from(map, ([id, label]) => ({ id, label }))
 }
 
-/** Retourne les villes uniques disponibles pour une région donnée (ou toutes) */
-export function getAvailableCities(regionId?: string) {
+/** Retourne les villes uniques (toutes régions ou filtrées par région). */
+export function getAvailableCities(
+  chefs: readonly (typeof CHEFS)[number][] = CHEFS,
+  regionId?: string,
+) {
   const set = new Set<string>()
-  CHEFS.filter((c) => !regionId || c.regionId === regionId).forEach((c) =>
-    c.cities.forEach((city) => set.add(city)),
+  chefs.forEach((c) =>
+    getChefRegions(c).forEach((r) => {
+      if (regionId && r.id !== regionId) return
+      r.cities.forEach((city) => set.add(city))
+    }),
   )
   return Array.from(set).sort()
 }
