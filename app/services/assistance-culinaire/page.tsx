@@ -111,7 +111,7 @@ export default function AssistanceCulinaireePage() {
           </>
         }
         lede="Que vous cherchiez du renfort pour votre établissement, que vous organisiez un événement, notre plate-forme vous connecte avec le profil idéal. Étudiant, passionné ou expérimenté : trouvez l’assistant qui s’adapte à vos besoins, partout en France."
-        image="/assets/photo-5.jpeg"
+        image="/assets/assistance.jpeg"
       />
 
       {/* ── Bandeau teal ── */}

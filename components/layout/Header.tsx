@@ -40,7 +40,7 @@ const NAV: NavItem[] = [
         label: 'Assistance Culinaire',
         href: '/services/assistance-culinaire',
         icon: ChefHat,
-        desc: 'Un chef à votre domicile',
+        desc: 'Un renfort à votre service',
       },
       {
         label: 'Atelier Culinaire',
