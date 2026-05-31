@@ -52,8 +52,8 @@ export default function BatchCookingPage() {
           </>
         }
         lede="Une cheffe professionnelle vient cuisiner directement à votre domicile. En 2 heures minimum, votre semaine est prête."
-        image="/assets/photo-9.jpeg"
-        imagePosition="center "
+        image="/assets/gallerie/batch.jpeg"
+        imagePosition="bottom "
       />
 
       {/* ── Carte features flottante ──────────────────────────────────── */}
