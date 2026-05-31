@@ -33,49 +33,67 @@ const USECASES = [
   {
     icon: Users,
     title: 'Grands dîners & fêtes de famille',
-    body: "Vous organisez un repas pour 10, 20, 30 personnes ou plus ? On vient en cuisine pour que vous puissiez profiter de vos invités.",
+    body: "Vous organisez un repas pour 10, 20, 30 personnes ou plus ? Trouvez le profil idéal sur notre plateforme pour vous seconder en cuisine et profitez enfin pleinement de vos invités.",
   },
   {
     icon: Building2,
     title: 'Traiteurs & chefs en renfort',
-    body: "Volume trop important, équipe incomplète, événement de dernière minute ? Lab's Food assure le renfort avec sérieux et efficacité.",
+    body: "Volume trop important, équipe incomplète ou événement de dernière minute ? Connectez-vous rapidement à notre réseau pour dénicher le renfort sérieux et efficace dont vous avez besoin.",
   },
   {
     icon: CalendarCheck,
     title: 'Événements & réceptions',
-    body: "Anniversaires, mariages, séminaires d'entreprise — on s'adapte à votre format, votre cuisine et votre organisation.",
+    body: "Anniversaires, mariages, séminaires d'entreprise... Dénichez facilement l'assistant culinaire qui s'adaptera parfaitement à votre format, votre organisation et votre menu.",
   },
   {
     icon: Utensils,
     title: 'Restaurants & cuisine collective',
-    body: "Besoin d'un profil polyvalent en cuisine sur une ou plusieurs journées ? On intervient ponctuellement selon les besoins.",
+    body: "Besoin de bras supplémentaires en cuisine sur une ou plusieurs journées ? Accédez à une communauté variée partout en France (étudiants, passionnés ou pros) pour combler vos besoins ponctuels en toute flexibilité.",
   },
 ] as const
 
 const MISSIONS = [
-  'Aide à la préparation et au découpage',
-  'Cuisson et dressage des plats',
-  'Coordination en cuisine pendant le service',
-  'Gestion des timings et de la chaîne du froid',
-  'Rangement et nettoyage en fin de service',
-  'Rôle défini conjointement avant la mission',
+  {
+    title: 'Prestations à la carte',
+    body: "Chaque profil détaille les missions qu'il accepte de réaliser (préparation, dressage, plonge...).",
+  },
+  {
+    title: 'Tarifs 100 % transparents',
+    body: "Les prix sont fixés librement par les assistants, ce qui permet de s'adapter à tous les budgets.",
+  },
+  {
+    title: "Choix du niveau d'expertise",
+    body: "Filtrez les profils selon vos exigences : de l'étudiant motivé au professionnel expérimenté.",
+  },
+  {
+    title: 'Flexibilité des horaires',
+    body: "Trouvez le bon renfort, que ce soit pour un coup de feu de 2h ou pour une journée complète.",
+  },
+  {
+    title: 'Échange en direct',
+    body: "Discutez des spécificités de votre événement directement avec le profil sélectionné.",
+  },
+  {
+    title: 'Accord sur-mesure',
+    body: "Le rôle, les tâches et les modalités sont validés ensemble avant le début de la mission.",
+  },
 ] as const
 
 const STEPS = [
   {
     n: '01',
-    title: 'Vous choisissez votre chef',
-    body: "Consultez les profils disponibles et choisissez le chef qui correspond à votre événement et à votre région.",
+    title: 'Recherchez le profil idéal',
+    body: "Filtrez les profils disponibles selon votre zone géographique ou vos mots-clés pour trouver l'assistant culinaire qu'il vous faut.",
   },
   {
     n: '02',
-    title: 'On cale ensemble les détails',
-    body: 'On définit le rôle, le volume, les horaires. Une proposition adaptée vous est envoyée rapidement.',
+    title: 'Prenez contact en direct',
+    body: "Accédez au numéro de téléphone ou au lien de contact renseigné sur le profil pour échanger immédiatement, sans intermédiaire.",
   },
   {
     n: '03',
-    title: 'On intervient le jour J',
-    body: "Le chef arrive prêt à travailler. Vous vous occupez de vos invités, on s'occupe de la cuisine.",
+    title: 'Accordez-vous pour le jour J',
+    body: "Définissez ensemble les missions, les horaires et les tarifs. Tout est calé entre vous, il ne reste plus qu'à profiter de votre événement.",
   },
 ] as const
 
@@ -184,21 +202,21 @@ export default function AssistanceCulinaireePage() {
           <div className="lg:col-span-7">
             <span className="eyebrow">Nos missions</span>
             <h2 className="display-md text-navy mt-4 text-balance">
-              On s&apos;adapte à votre cuisine,{' '}
-              <span className="italic text-navy-mid">pas l&apos;inverse</span>.
+              Vos règles, vos besoins, notre réseau
             </h2>
-            <p className="mt-6 text-ink/75 leading-relaxed max-w-xl">
-              Chaque mission est cadrée en amont : rôle, horaires, volume, spécificités.
-              Lab&apos;s Food intervient avec le matériel nécessaire et une hygiène irréprochable
-              — maison certifiée HACCP.
+            <p className="mt-6 text-ink/75 leading-relaxed text-justify">
+              Définissez vos besoins précis en quelques clic, Lab's Food vous met en realtion avec le profil adequat (amateur éclairé ou pro) pour executer vos missions avec rigueur, de la simple préparation à la gestion du service.
             </p>
-            <ul className="mt-8 grid sm:grid-cols-2 gap-3">
+            <ul className="mt-8 grid sm:grid-cols-2 gap-4">
               {MISSIONS.map((m) => (
-                <li key={m} className="flex items-start gap-3">
+                <li key={m.title} className="flex items-start gap-3">
                   <span className="mt-1 size-5 rounded-full bg-teal/15 text-teal grid place-items-center shrink-0">
                     <Check className="size-3" />
                   </span>
-                  <span className="text-ink/80 text-sm leading-relaxed">{m}</span>
+                  <div>
+                    <div className="text-ink font-medium text-sm leading-snug">{m.title}</div>
+                    <div className="text-ink/60 text-sm leading-relaxed mt-0.5 text-justify">{m.body}</div>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -212,8 +230,7 @@ export default function AssistanceCulinaireePage() {
           <div className="max-w-3xl">
             <span className="eyebrow">Comment ça marche</span>
             <h2 className="display-md text-navy mt-4 text-balance">
-              Simple comme un{' '}
-              <span className="italic text-navy-mid">message WhatsApp</span>.
+              Trouver du renfort ? C’est du gâteau !
             </h2>
           </div>
           <div className="mt-14 grid md:grid-cols-3 gap-6">
@@ -353,14 +370,14 @@ export default function AssistanceCulinaireePage() {
                         rel="noreferrer"
                       >
                         <CalendarCheck className="size-4" />
-                        Réserver un appel avec {chef.name}
+                        Entrer en contact avec {chef.name}
                         <ArrowUpRight className="size-4" />
                       </a>
                     </Button>
-                    <div className="text-xs text-ink/55 italic max-w-[18rem]">
+                    {/* <div className="text-xs text-ink/55 italic max-w-[18rem]">
                       Vous choisissez un créneau, on échange par téléphone — sans
                       diffusion publique des numéros.
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -373,26 +390,27 @@ export default function AssistanceCulinaireePage() {
             <div className="absolute -top-20 -right-20 size-64 rounded-full bg-orange/20 blur-3xl pointer-events-none" />
 
             <div className="lg:col-span-8 relative">
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid inline-flex items-center gap-3 mb-4">
-                <span className="size-5 h-px bg-navy-mid" />
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white inline-flex items-center gap-3 mb-4">
+                <span className="size-5 h-px bg-white" />
                 Vous êtes chef ou en cuisine ?
               </p>
               <h3
                 className="font-display text-cream leading-tight text-balance"
                 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)' }}
               >
-                Rejoignez la liste de nos{' '}
+                Devenez le{' '}
                 <em className="not-italic">
                   <span className="font-display italic text-orange">
-                    chefs partenaires.
+                    renfort idéal
                   </span>
-                </em>
+                </em>{' '}
+                pour nos clients.
               </h3>
               <p className="mt-4 text-cream/70 max-w-xl text-pretty leading-relaxed text-sm md:text-base">
-                Étudiant·e, professionnel·le de la restauration, en
-                reconversion — déposez votre candidature en 5 minutes. Vous
-                définissez votre zone, vos disponibilités et vos missions.
-                Inscription gratuite.
+                Que vous soyez amateur éclairé, en école hôtelière ou cuisinier
+                aguerri, proposez vos services ! C&apos;est vous qui fixez vos
+                règles avec les clients&nbsp;: missions, horaires et prix.
+                L&apos;inscription est 100&nbsp;% gratuite.
               </p>
             </div>
 
@@ -411,7 +429,7 @@ export default function AssistanceCulinaireePage() {
 
           {/* Note bas de section */}
           <p className="mt-8 text-center font-mono text-sm uppercase tracking-[0.25em] text-ink">
-            D&apos;autres chefs partenaires seront disponibles prochainement.
+            La communauté Lab&apos;s Food s&apos;agrandit partout en France.
           </p>
         </div>
       </section>
