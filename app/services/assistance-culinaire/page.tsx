@@ -32,6 +32,11 @@ export const metadata: Metadata = {
 
 const USECASES = [
   {
+    icon: Utensils,
+    title: 'Restaurants & cuisine collective',
+    body: "Besoin de bras supplémentaires en cuisine sur une ou plusieurs journées ? Accédez à une communauté variée partout en France (étudiants, passionnés ou pros) pour combler vos besoins ponctuels en toute flexibilité.",
+  },
+  {
     icon: Users,
     title: 'Grands dîners & fêtes de famille',
     body: "Vous organisez un repas pour 10, 20, 30 personnes ou plus ? Trouvez le profil idéal sur notre plateforme pour vous seconder en cuisine et profitez enfin pleinement de vos invités.",
@@ -45,11 +50,6 @@ const USECASES = [
     icon: CalendarCheck,
     title: 'Événements & réceptions',
     body: "Anniversaires, mariages, séminaires d'entreprise... Dénichez facilement l'assistant culinaire qui s'adaptera parfaitement à votre format, votre organisation et votre menu.",
-  },
-  {
-    icon: Utensils,
-    title: 'Restaurants & cuisine collective',
-    body: "Besoin de bras supplémentaires en cuisine sur une ou plusieurs journées ? Accédez à une communauté variée partout en France (étudiants, passionnés ou pros) pour combler vos besoins ponctuels en toute flexibilité.",
   },
 ] as const
 
@@ -123,7 +123,7 @@ export default function AssistanceCulinaireePage() {
               <ChefHat className="size-5 text-white" />
             </div>
             <div>
-              <div className="font-display text-lg text-cream leading-tight">Rôle sur-mesure</div>
+              <div className="font-display text-lg text-cream leading-tight">Assistant sur-mesure</div>
               <div className="text-sm text-cream/65 mt-0.5">Défini selon votre besoin</div>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function AssistanceCulinaireePage() {
               <Building2 className="size-5 text-white" />
             </div>
             <div>
-              <div className="font-display text-lg text-cream leading-tight">Particuliers &amp; pros</div>
+              <div className="font-display text-lg text-cream leading-tight">Pour les professionnels et particuliers</div>
               <div className="text-sm text-cream/65 mt-0.5">Traiteurs, restaurants, événements</div>
             </div>
           </div>
@@ -324,170 +324,170 @@ export default function AssistanceCulinaireePage() {
       {/* ── Ancienne grille manuelle supprimée — remplacée par ChefsFilterable ── */}
       {false && (
         <section className="hidden">
-        <div>
           <div>
-            {CHEFS.map((chef) => (
-              <div
-                key={chef.id}
-                className="grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden border border-navy/8 shadow-lg bg-cream"
-              >
-                {/* ── Photo ── */}
-                <div className="lg:col-span-4 relative h-72 lg:h-auto min-h-[360px]">
-                  <Image
-                    src={chef.photo}
-                    alt={chef.name}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                  {/* Overlay dégradé bas */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+            <div>
+              {CHEFS.map((chef) => (
+                <div
+                  key={chef.id}
+                  className="grid lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden border border-navy/8 shadow-lg bg-cream"
+                >
+                  {/* ── Photo ── */}
+                  <div className="lg:col-span-4 relative h-72 lg:h-auto min-h-[360px]">
+                    <Image
+                      src={chef.photo}
+                      alt={chef.name}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                    />
+                    {/* Overlay dégradé bas */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
 
-                  {/* Badge numéro */}
-                  <div className="absolute top-5 left-5 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cream bg-navy/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                    Chef {chef.n}
-                  </div>
-
-                  {/* Disponibilité */}
-                  {chef.available && (
-                    <div className="absolute bottom-5 left-5 flex items-center gap-2 bg-cream/95 rounded-full px-3 py-1.5">
-                      {/* <span className="size-2 rounded-full bg-whatsapp animate-pulse" /> */}
-                      <span className=" text-[0.6rem] uppercase tracking-[0.2em] text-ink">
-                        Disponible
-                      </span>
+                    {/* Badge numéro */}
+                    <div className="absolute top-5 left-5 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cream bg-navy/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                      Chef {chef.n}
                     </div>
-                  )}
-                </div>
 
-                {/* ── Détails ── */}
-                <div className="lg:col-span-8 p-8 md:p-10 flex flex-col justify-between gap-8">
-                  <div>
-                    {/* Titre & nom */}
-                    <div className="font-montserrat text-[0.65rem] uppercase tracking-[0.3em] text-teal">
-                      {chef.title}
-                    </div>
-                    <h3 className="font-display text-5xl md:text-6xl text-navy mt-2 leading-none">
-                      {chef.name}
-                      <span className="italic-fraunces text-navy-mid">.</span>
-                    </h3>
-
-                    {/* Tags spécialités */}
-                    <div className="flex flex-wrap gap-2 mt-5">
-                      {chef.specialties.map((s) => (
-                        <span
-                          key={s}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal/10 text-teal font-mono text-[0.6rem] uppercase tracking-[0.2em]"
-                        >
-                          <Star className="size-2.5" />
-                          {s}
+                    {/* Disponibilité */}
+                    {chef.available && (
+                      <div className="absolute bottom-5 left-5 flex items-center gap-2 bg-cream/95 rounded-full px-3 py-1.5">
+                        {/* <span className="size-2 rounded-full bg-whatsapp animate-pulse" /> */}
+                        <span className=" text-[0.6rem] uppercase tracking-[0.2em] text-ink">
+                          Disponible
                         </span>
-                      ))}
-                    </div>
-
-                    {/* Bio */}
-                    <p className="mt-6 text-ink/70 leading-relaxed max-w-xl text-pretty">
-                      {chef.bio}
-                    </p>
-
-                    {/* Grille d'infos */}
-                    <div className="mt-8 pt-6 border-t border-navy/10 grid grid-cols-2 md:grid-cols-4 gap-6">
-                      <InfoBlock
-                        icon={MapPin}
-                        label="Région"
-                        value={chef.region}
-                      />
-                      <InfoBlock
-                        icon={Navigation}
-                        label="Zone"
-                        value={chef.zone}
-                      />
-                      <InfoBlock
-                        icon={Languages}
-                        label="Langues"
-                        value={chef.languages.join(' · ')}
-                      />
-                      <InfoBlock
-                        icon={BadgeCheck}
-                        label="Expérience"
-                        value={chef.badges.join(' · ')}
-                      />
-                    </div>
+                      </div>
+                    )}
                   </div>
 
-                  {/* CTA — Lien de prise de RDV (Calendly/YouCanBookMe).
+                  {/* ── Détails ── */}
+                  <div className="lg:col-span-8 p-8 md:p-10 flex flex-col justify-between gap-8">
+                    <div>
+                      {/* Titre & nom */}
+                      <div className="font-montserrat text-[0.65rem] uppercase tracking-[0.3em] text-teal">
+                        {chef.title}
+                      </div>
+                      <h3 className="font-display text-5xl md:text-6xl text-navy mt-2 leading-none">
+                        {chef.name}
+                        <span className="italic-fraunces text-navy-mid">.</span>
+                      </h3>
+
+                      {/* Tags spécialités */}
+                      <div className="flex flex-wrap gap-2 mt-5">
+                        {chef.specialties.map((s) => (
+                          <span
+                            key={s}
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal/10 text-teal font-mono text-[0.6rem] uppercase tracking-[0.2em]"
+                          >
+                            <Star className="size-2.5" />
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Bio */}
+                      <p className="mt-6 text-ink/70 leading-relaxed max-w-xl text-pretty">
+                        {chef.bio}
+                      </p>
+
+                      {/* Grille d'infos */}
+                      <div className="mt-8 pt-6 border-t border-navy/10 grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <InfoBlock
+                          icon={MapPin}
+                          label="Région"
+                          value={chef.region}
+                        />
+                        <InfoBlock
+                          icon={Navigation}
+                          label="Zone"
+                          value={chef.zone}
+                        />
+                        <InfoBlock
+                          icon={Languages}
+                          label="Langues"
+                          value={chef.languages.join(' · ')}
+                        />
+                        <InfoBlock
+                          icon={BadgeCheck}
+                          label="Expérience"
+                          value={chef.badges.join(' · ')}
+                        />
+                      </div>
+                    </div>
+
+                    {/* CTA — Lien de prise de RDV (Calendly/YouCanBookMe).
                       Cf. onglet 5 du doc : pas de numéro affiché en public,
                       le restaurateur choisit un créneau et laisse son numéro. */}
-                  <div className="flex flex-wrap items-center gap-4">
-                    <Button asChild variant="primary" size="lg">
-                      <a
-                        href={chef.bookingLink}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <CalendarCheck className="size-4" />
-                        Entrer en contact avec {chef.name}
-                        <ArrowUpRight className="size-4" />
-                      </a>
-                    </Button>
-                    {/* <div className="text-xs text-ink/55 italic max-w-[18rem]">
+                    <div className="flex flex-wrap items-center gap-4">
+                      <Button asChild variant="primary" size="lg">
+                        <a
+                          href={chef.bookingLink}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <CalendarCheck className="size-4" />
+                          Entrer en contact avec {chef.name}
+                          <ArrowUpRight className="size-4" />
+                        </a>
+                      </Button>
+                      {/* <div className="text-xs text-ink/55 italic max-w-[18rem]">
                       Vous choisissez un créneau, on échange par téléphone — sans
                       diffusion publique des numéros.
                     </div> */}
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+
+            {/* ── Bandeau "Devenir chef partenaire" ────────────────────── */}
+            <div className="mt-12 rounded-3xl bg-navy text-cream p-8 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
+              {/* Halo deco */}
+              <div className="absolute -top-20 -right-20 size-64 rounded-full bg-orange/20 blur-3xl pointer-events-none" />
+
+              <div className="lg:col-span-8 relative">
+                <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white inline-flex items-center gap-3 mb-4">
+                  <span className="size-5 h-px bg-white" />
+                  Vous êtes chef ou en cuisine ?
+                </p>
+                <h3
+                  className="font-display text-cream leading-tight text-balance"
+                  style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)' }}
+                >
+                  Devenez le{' '}
+                  <em className="not-italic">
+                    <span className="font-display italic text-orange">
+                      renfort idéal
+                    </span>
+                  </em>{' '}
+                  pour nos clients.
+                </h3>
+                <p className="mt-4 text-cream/70 max-w-xl text-pretty leading-relaxed text-sm md:text-base">
+                  Que vous soyez amateur éclairé, en école hôtelière ou cuisinier
+                  aguerri, proposez vos services ! C&apos;est vous qui fixez vos
+                  règles avec les clients&nbsp;: missions, horaires et prix.
+                  L&apos;inscription est 100&nbsp;% gratuite.
+                </p>
               </div>
-            ))}
-          </div>
 
-          {/* ── Bandeau "Devenir chef partenaire" ────────────────────── */}
-          <div className="mt-12 rounded-3xl bg-navy text-cream p-8 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
-            {/* Halo deco */}
-            <div className="absolute -top-20 -right-20 size-64 rounded-full bg-orange/20 blur-3xl pointer-events-none" />
-
-            <div className="lg:col-span-8 relative">
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white inline-flex items-center gap-3 mb-4">
-                <span className="size-5 h-px bg-white" />
-                Vous êtes chef ou en cuisine ?
-              </p>
-              <h3
-                className="font-display text-cream leading-tight text-balance"
-                style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)' }}
-              >
-                Devenez le{' '}
-                <em className="not-italic">
-                  <span className="font-display italic text-orange">
-                    renfort idéal
+              <div className="lg:col-span-4 relative flex lg:justify-end">
+                <Link
+                  href="/devenir-chef"
+                  className="group inline-flex items-center gap-3 pl-6 pr-3 py-3 rounded-full bg-orange text-cream font-medium text-sm hover:bg-orange-deep transition-all shadow-lg shadow-orange/40"
+                >
+                  Proposer mes services
+                  <span className="size-9 rounded-full bg-cream/15 grid place-items-center transition-transform group-hover:rotate-45">
+                    <ArrowUpRight className="size-4" />
                   </span>
-                </em>{' '}
-                pour nos clients.
-              </h3>
-              <p className="mt-4 text-cream/70 max-w-xl text-pretty leading-relaxed text-sm md:text-base">
-                Que vous soyez amateur éclairé, en école hôtelière ou cuisinier
-                aguerri, proposez vos services ! C&apos;est vous qui fixez vos
-                règles avec les clients&nbsp;: missions, horaires et prix.
-                L&apos;inscription est 100&nbsp;% gratuite.
-              </p>
+                </Link>
+              </div>
             </div>
 
-            <div className="lg:col-span-4 relative flex lg:justify-end">
-              <Link
-                href="/devenir-chef"
-                className="group inline-flex items-center gap-3 pl-6 pr-3 py-3 rounded-full bg-orange text-cream font-medium text-sm hover:bg-orange-deep transition-all shadow-lg shadow-orange/40"
-              >
-                Proposer mes services
-                <span className="size-9 rounded-full bg-cream/15 grid place-items-center transition-transform group-hover:rotate-45">
-                  <ArrowUpRight className="size-4" />
-                </span>
-              </Link>
-            </div>
+            {/* Note bas de section */}
+            <p className="mt-8 text-center font-mono text-sm uppercase tracking-[0.25em] text-ink">
+              La communauté Lab&apos;s Food s&apos;agrandit partout en France.
+            </p>
           </div>
-
-          {/* Note bas de section */}
-          <p className="mt-8 text-center font-mono text-sm uppercase tracking-[0.25em] text-ink">
-            La communauté Lab&apos;s Food s&apos;agrandit partout en France.
-          </p>
-        </div>
-      </section>
+        </section>
       )}
 
       {/* ── CTA final ── */}

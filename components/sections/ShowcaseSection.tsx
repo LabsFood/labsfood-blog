@@ -3,70 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import {
-  ArrowUpRight,
-  Clock,
-  Users,
-  MapPin,
-  ChefHat,
-  Gift,
-  CalendarCheck,
-  Building2,
-  ListChecks,
-  Map,
-  User,
-} from 'lucide-react'
-
-const SHOWCASE = [
-  {
-    slug: 'batch-cooking',
-    n: '01',
-    name: 'Batch cooking',
-    kicker: 'Service à domicile',
-    description:
-      "Une cheffe vient préparer une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser, sur-mesure et à votre rythme.",
-    price: 'À partir de 50€*',
-    image: '/assets/photo-9.jpeg',
-    href: '/services/batch-cooking',
-    features: [
-      { icon: Clock, label: 'À partir de 2h' },
-      { icon: ListChecks, label: 'Menus variés' },
-      { icon: MapPin, label: "Côte d'Azur" },
-    ],
-  },
-  {
-    slug: 'assistance-culinaire',
-    n: '02',
-    name: 'Assistance culinaire',
-    kicker: 'Renfort en cuisine',
-    description:
-      "Un rush en cuisine, une fête de famille ou un événement pro ? Lab’s Food est votre solution de renfort sur-mesure. Nous vous connectons avec le profil idéal (passionné, étudiant ou professionnel) pour vous seconder efficacement.",
-    price: 'Sur devis',
-    image: '/assets/photo-8.jpeg',
-    href: '/services/assistance-culinaire',
-    features: [
-      { icon: Map, label: 'Disponible dans toute la France ' },
-      { icon: User, label: 'Profils variés (etudiants, professionnels, …)' },
-      { icon: Building2, label: 'Particuliers et professionnels (destiné à ces derniers)' },
-    ],
-  },
-  {
-    slug: 'atelier-culinaire',
-    n: '03',
-    name: 'Atelier culinaire',
-    kicker: 'Expérience interactive',
-    description:
-      "Voyagez depuis votre cuisine!. Notre plateforme vous connecte avec des animateurs aux profils variés pour des ateliers uniques. Une belle occasion de maitriser de nouvelles recettes dans une ambiance conviviale, guidé par un talent de votre région",
-    price: 'À partir de 80€',
-    image: '/assets/photo-15.jpeg',
-    href: '/services/atelier-culinaire',
-    features: [
-      { icon: Users, label: "En solo ou entre amis" },
-      { icon: Clock, label: 'Ateliers 100% personnalisés' },
-      { icon: Gift, label: 'Apprentissage pas-à-pas' },
-    ],
-  },
-] as const
+import { ArrowUpRight } from 'lucide-react'
+import { SHOWCASE_SERVICES, type ShowcaseService } from '@/lib/services-data'
 
 export function ShowcaseSection() {
   return (
@@ -120,7 +58,7 @@ export function ShowcaseSection() {
 
         {/* ── Liste éditoriale alternée ── */}
         <div className="flex flex-col gap-24 md:gap-32">
-          {SHOWCASE.map((s, i) => (
+          {SHOWCASE_SERVICES.map((s, i) => (
             <ShowcaseRow key={s.slug} service={s} reverse={i % 2 === 1} index={i} />
           ))}
         </div>
@@ -153,14 +91,12 @@ export function ShowcaseSection() {
 
 /* ─────────────────────────────────────────────────────────────────────── */
 
-type Service = (typeof SHOWCASE)[number]
-
 function ShowcaseRow({
   service,
   reverse,
   index,
 }: {
-  service: Service
+  service: ShowcaseService
   reverse: boolean
   index: number
 }) {
@@ -232,19 +168,24 @@ function ShowcaseRow({
           ))}
         </ul>
 
-        {/* Footer ligne : prix + CTA */}
+        {/* Footer ligne : prix (+ note optionnelle) + CTA */}
         <div className="mt-10 pt-6 border-t border-cream/10 flex items-end justify-between gap-6">
-          <div>
+          <div className="min-w-0">
             <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-cream/45">
               Tarif
             </div>
             <div className="font-display text-2xl mt-1 leading-none text-cream">
               {service.price}
             </div>
+            {service.priceNote && (
+              <div className="font-mono text-[0.6rem] text-cream/55 mt-1.5 italic">
+                {service.priceNote}
+              </div>
+            )}
           </div>
           <Link
             href={service.href}
-            className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange text-cream hover:bg-orange-deep text-sm font-medium transition-all shadow-lg shadow-orange/30"
+            className="group shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange text-cream hover:bg-orange-deep text-sm font-medium transition-all shadow-lg shadow-orange/30"
           >
             Découvrir
             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:rotate-45" />

@@ -1,77 +1,18 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import {
-  ArrowUpRight,
-  Clock,
-  Users,
-  ChefHat,
-
-} from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
+import { SHOWCASE_SERVICES, type ShowcaseService } from '@/lib/services-data'
 
 export const metadata: Metadata = {
   title: "Services — Ateliers, batch cooking & assistance",
   description:
     "Découvrez nos trois services : ateliers de cuisine du monde à domicile, batch cooking sur-mesure, et assistance culinaire pour vos événements.",
 }
-
-const SERVICES = [
-  {
-    slug: 'batch-cooking',
-    n: '01',
-    title: 'Batch cooking',
-    kicker: 'Service à domicile',
-    short:
-      "En 2h minimum, une cheffe vous prépare une semaine entière de repas variés et équilibrés directement à votre domicile. L'art de mieux manger sans y penser.",
-    price: 'À partir de 50€',
-    bullets: [
-      'Préparation sur-mesure selon vos goûts',
-      'Ingrédients frais et locaux',
-      'Repas équilibrés pour toute la semaine',
-      "Disponible sur la Côte d'Azur",
-    ],
-    image: '/assets/photo-9.jpeg',
-    href: '/services/batch-cooking',
-  },
-  {
-    slug: 'assistance-culinaire',
-    n: '02',
-    title: 'Assistance culinaire',
-    kicker: 'Renfort en cuisine',
-    short:
-      "Un grand dîner, une fête de famille, un événement traiteur ? Lab's Food intervient en renfort en cuisine — le rôle s'adapte à votre besoin.",
-    price: 'Sur devis',
-    bullets: [
-      'Particuliers : grands dîners & fêtes',
-      'Professionnels : traiteurs, restaurants',
-      'Rôle défini selon le volume',
-      '02 chefs disponibles (Ivy, D\'Avila)',
-    ],
-    image: '/assets/photo-8.jpeg',
-    href: '/services/assistance-culinaire',
-  },
-  {
-    slug: 'atelier-culinaire',
-    n: '03',
-    title: 'Atelier culinaire',
-    kicker: 'Expérience interactive',
-    short:
-      "Une cheffe vient chez vous pour un atelier privé et interactif. Vous choisissez la cuisine, vous repartez avec la recette et un cadeau surprise.",
-    price: 'À partir de 80€',
-    bullets: [
-      "Jusqu'à 4 personnes en privé",
-      '~ 2h d\'expérience interactive',
-      'Fiche recette professionnelle remise',
-      'Cadeau surprise inclus',
-    ],
-    image: '/assets/photo-15.jpeg',
-    href: '/services/atelier-culinaire',
-  },
-] as const
 
 export default function ServicesPage() {
   return (
@@ -96,7 +37,7 @@ export default function ServicesPage() {
       {/* ── 3 services en lignes éditoriales alternées ────────────────── */}
       <section className="bg-cream py-24 md:py-32">
         <div className="container-wide flex flex-col gap-24 md:gap-32">
-          {SERVICES.map((s, i) => (
+          {SHOWCASE_SERVICES.map((s, i) => (
             <ServiceRow key={s.slug} service={s} reverse={i % 2 === 1} />
           ))}
         </div>
@@ -155,7 +96,7 @@ function ServiceRow({
   service,
   reverse,
 }: {
-  service: (typeof SERVICES)[number]
+  service: ShowcaseService
   reverse: boolean
 }) {
   return (
@@ -171,7 +112,7 @@ function ServiceRow({
         >
           <Image
             src={service.image}
-            alt={service.title}
+            alt={service.name}
             fill
             sizes="(min-width: 1024px) 60vw, 100vw"
             className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-expo"
@@ -197,37 +138,46 @@ function ServiceRow({
             Service · {service.n}
           </div>
           <h2 className="font-display text-4xl md:text-5xl text-navy leading-tight">
-            {service.title}
+            {service.name}
             <span className="italic-fraunces text-navy-mid">.</span>
           </h2>
           <p className="mt-6 text-ink/75 leading-relaxed text-pretty max-w-md">
-            {service.short}
+            {service.description}
           </p>
 
-          <ul className="mt-8 space-y-3">
-            {service.bullets.map((b) => (
+          {/* Features — icônes + label */}
+          <ul className="mt-8 flex flex-col gap-3">
+            {service.features.map((f) => (
               <li
-                key={b}
-                className="flex items-start gap-3 text-sm text-ink/85"
+                key={f.label}
+                className="flex items-center gap-3 text-sm text-ink/85"
               >
-                <span className="mt-1.5 size-1.5 rounded-full bg-orange shrink-0" />
-                {b}
+                <span className="size-7 rounded-full bg-orange/10 border border-orange/20 grid place-items-center shrink-0">
+                  <f.icon className="size-3.5 text-orange-deep" />
+                </span>
+                {f.label}
               </li>
             ))}
           </ul>
 
-          <div className="mt-10 pt-6 border-t border-navy/10 flex items-center justify-between gap-6">
-            <div>
+          {/* Tarif + note + CTA */}
+          <div className="mt-10 pt-6 border-t border-navy/10 flex items-end justify-between gap-6">
+            <div className="min-w-0">
               <div className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-ink/55">
                 Tarif
               </div>
               <div className="font-display text-2xl mt-1 leading-none text-navy">
                 {service.price}
               </div>
+              {service.priceNote && (
+                <div className="font-mono text-[0.6rem] text-ink/55 mt-1.5 italic">
+                  {service.priceNote}
+                </div>
+              )}
             </div>
             <Link
               href={service.href}
-              className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange text-cream hover:bg-orange-deep text-sm font-medium transition-all shadow-lg shadow-orange/30"
+              className="group shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-orange text-cream hover:bg-orange-deep text-sm font-medium transition-all shadow-lg shadow-orange/30"
             >
               Découvrir
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:rotate-45" />

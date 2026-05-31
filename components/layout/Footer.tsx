@@ -24,9 +24,9 @@ const LINKS = {
     { label: 'Contact', href: '/contact' },
   ],
   services: [
-    { label: 'Atelier culinaire', href: '/services/atelier-culinaire' },
     { label: 'Batch cooking', href: '/services/batch-cooking' },
     { label: 'Assistance culinaire', href: '/services/assistance-culinaire' },
+    { label: 'Atelier culinaire', href: '/services/atelier-culinaire' },
     { label: 'Tous les services', href: '/services' },
   ],
   produits: [

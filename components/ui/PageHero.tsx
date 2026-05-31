@@ -89,7 +89,7 @@ export function PageHero({
           </h1>
 
           {lede && (
-            <p className="lede mt-8 text-cream/75 text-pretty max-w-2xl">
+            <p className="lede mt-8 text-cream/75 text-justify max-w-2xl">
               {lede}
             </p>
           )}
