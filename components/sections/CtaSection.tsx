@@ -120,7 +120,7 @@ export function CtaSection() {
                   {[
                     'Réservation d\'un atelier',
                     'Commande Kossam',
-                    'Devenir chef partenaire',
+                    'Devenir animateur',
                     'Autres',
                   ].map((t) => (
                     <div

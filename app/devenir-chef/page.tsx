@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import {
   ShieldCheck,
-  
+
   Compass,
   Heart,
   Sparkles,
@@ -11,7 +11,7 @@ import { ChefForm } from '@/components/forms/ChefForm'
 import { Reveal } from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
-  title: 'Devenir chef partenaire',
+  title: 'Devenir animateur',
   description:
     "Vous êtes passionné(e) de cuisine ? Rejoignez Lab's Food et proposez vos propres ateliers culinaires à domicile. Inscription gratuite.",
 }

@@ -13,6 +13,8 @@ import {
   CalendarCheck,
   Building2,
   ListChecks,
+  Map,
+  User,
 } from 'lucide-react'
 
 const SHOWCASE = [
@@ -43,8 +45,8 @@ const SHOWCASE = [
     image: '/assets/photo-8.jpeg',
     href: '/services/assistance-culinaire',
     features: [
-      { icon: ChefHat, label: 'Disponible dans toute la France ' },
-      { icon: CalendarCheck, label: 'Profils variés (etudiants, professionnels, …)' },
+      { icon: Map, label: 'Disponible dans toute la France ' },
+      { icon: User, label: 'Profils variés (etudiants, professionnels, …)' },
       { icon: Building2, label: 'Particuliers et professionnels (destiné à ces derniers)' },
     ],
   },

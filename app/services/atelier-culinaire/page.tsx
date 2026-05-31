@@ -15,6 +15,7 @@ import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
+import { ChefsFilterable } from '@/components/sections/ChefsFilterable'
 
 export const metadata: Metadata = {
   title: 'Atelier culinaire à domicile',
@@ -257,6 +258,23 @@ export default function AtelierPage() {
           </Reveal>
         </div>
       </section> */}
+
+      {/* ── Chefs disponibles (cards simples, filtre région + ville) ── */}
+      <ChefsFilterable
+        variant="compact"
+        eyebrow="Nos chefs ateliers"
+        title={
+          <>
+            Choisissez votre{' '}
+            <em className="not-italic">
+              <span className="font-display italic text-orange">
+                chef du jour.
+              </span>
+            </em>
+          </>
+        }
+        subtitle="Trouvez le chef partenaire le plus proche de chez vous pour animer votre atelier — filtrez par région puis par ville."
+      />
 
       {/* ── CTA devenir chef ────────────────────────────────────────── */}
       <section className="bg-cream-soft py-24 md:py-28">

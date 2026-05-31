@@ -28,7 +28,7 @@ const VALUES = [
   {
     icon: ShieldCheck,
     title: 'Maison certifiée',
-    text: "HACCP — hygiène irréprochable, ingrédients frais et sourcing maîtrisé.",
+    text: "",
   },
 ] as const
 

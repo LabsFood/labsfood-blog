@@ -22,6 +22,7 @@ import { Button } from '@/components/ui/Button'
 import { PageHero } from '@/components/ui/PageHero'
 import { whatsappLink } from '@/lib/utils'
 import { CHEFS } from '@/lib/content'
+import { ChefsFilterable } from '@/components/sections/ChefsFilterable'
 
 export const metadata: Metadata = {
   title: "Assistance culinaire · Lab's Food",
@@ -251,26 +252,80 @@ export default function AssistanceCulinaireePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          CHEFS DISPONIBLES
+          CHEFS DISPONIBLES — version filtrable (région + ville)
           ══════════════════════════════════════════════════════════════ */}
-      <section className="section bg-cream-deep">
+      <ChefsFilterable
+        variant="full"
+        eyebrow="Choisissez votre chef"
+        title={
+          <>
+            Des profils vérifiés,{' '}
+            <em className="not-italic">
+              <span className="font-display italic text-orange">
+                près de chez vous.
+              </span>
+            </em>
+          </>
+        }
+        subtitle="Filtrez par région puis affinez par ville pour trouver le profil qui couvre votre zone d'intervention."
+      />
+
+      {/* ── Bandeau Devenir chef (déplacé hors de la grille filtrable) ── */}
+      <section className="bg-cream-deep pb-20 md:pb-28">
         <div className="container-wide">
-          {/* En-tête de section */}
-          <div className="flex items-end justify-between gap-6 flex-wrap mb-14">
-            <div>
-              <span className="eyebrow">Choisissez votre chef</span>
-              <h2 className="display-md text-navy mt-4 text-balance">
-                Des profils vérifiés,{' '}
-                <span className="italic text-navy-mid">près de chez vous</span>.
-              </h2>
+          <div className="rounded-3xl bg-navy text-cream p-8 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
+            {/* Halo deco */}
+            <div className="absolute -top-20 -right-20 size-64 rounded-full bg-orange/20 blur-3xl pointer-events-none" />
+
+            <div className="lg:col-span-8 relative">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white inline-flex items-center gap-3 mb-4">
+                <span className="size-5 h-px bg-white" />
+                Vous êtes chef ou en cuisine ?
+              </p>
+              <h3
+                className="font-display text-cream leading-tight text-balance"
+                style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)' }}
+              >
+                Devenez le{' '}
+                <em className="not-italic">
+                  <span className="font-display italic text-orange">
+                    renfort idéal
+                  </span>
+                </em>{' '}
+                pour nos clients.
+              </h3>
+              <p className="mt-4 text-cream/70 max-w-xl text-pretty leading-relaxed text-sm md:text-base">
+                Que vous soyez amateur éclairé, en école hôtelière ou cuisinier
+                aguerri, proposez vos services ! C&apos;est vous qui fixez vos
+                règles avec les clients&nbsp;: missions, horaires et prix.
+                L&apos;inscription est 100&nbsp;% gratuite.
+              </p>
             </div>
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/40">
-              [ {String(CHEFS.length).padStart(2, '0')} chef{CHEFS.length > 1 ? 's' : ''} disponible{CHEFS.length > 1 ? 's' : ''} ]
-            </span>
+
+            <div className="lg:col-span-4 relative flex lg:justify-end">
+              <Link
+                href="/devenir-chef"
+                className="group inline-flex items-center gap-3 pl-6 pr-3 py-3 rounded-full bg-orange text-cream font-medium text-sm hover:bg-orange-deep transition-all shadow-lg shadow-orange/40"
+              >
+                Proposer mes services
+                <span className="size-9 rounded-full bg-cream/15 grid place-items-center transition-transform group-hover:rotate-45">
+                  <ArrowUpRight className="size-4" />
+                </span>
+              </Link>
+            </div>
           </div>
 
-          {/* Grille des chefs */}
-          <div className="flex flex-col gap-8">
+          <p className="mt-8 text-center font-mono text-sm uppercase tracking-[0.25em] text-ink">
+            La communauté Lab&apos;s Food s&apos;agrandit partout en France.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Ancienne grille manuelle supprimée — remplacée par ChefsFilterable ── */}
+      {false && (
+        <section className="hidden">
+        <div>
+          <div>
             {CHEFS.map((chef) => (
               <div
                 key={chef.id}
@@ -433,6 +488,7 @@ export default function AssistanceCulinaireePage() {
           </p>
         </div>
       </section>
+      )}
 
       {/* ── CTA final ── */}
       {/* <section className="section bg-orange relative overflow-hidden">

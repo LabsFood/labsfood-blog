@@ -346,17 +346,14 @@ export const CHEFS = [
     title: "Fondatrice & Passionnée",
     photo: '/assets/placehold.jpeg',
     region: "Côte d'Azur",
+    regionId: 'cote-azur',
+    cities: ['Nice', 'Cannes', 'Antibes', 'Monaco'],
     zone: "Nice · Cannes · Antibes · Monaco",
     bio: "Passionnée jusqu'au bout de la spatule, je suis prête à mettre la main à la pâte pour devenir votre renfort de choc en cuisine : contactez-moi pour en discuter !",
     badges: ["02 ans"],
     languages: ['FR', 'PT', 'EN'],
     specialties: ['Cuisines du monde', 'Cuisine africaine', 'Dressage & présentation'],
     available: true,
-    /**
-     * Lien de prise de rendez-vous (Calendly / YouCanBookMe).
-     * Cf. onglet 5 du doc client : on n'affiche jamais le numéro perso en public.
-     * À remplacer par le vrai lien du chef quand disponible.
-     */
     bookingLink: BATCH_COOKING_URL,
   },
   {
@@ -365,7 +362,9 @@ export const CHEFS = [
     name: "D'Avila",
     title: "Etudiante",
     photo: '/davila.jpeg',
-    region: 'Seine-et-Marne · Île-de-France',
+    region: 'Île-de-France',
+    regionId: 'ile-de-france',
+    cities: ['Lieusaint', 'Melun', 'Sénart'],
     zone: 'Secteur 77127 et alentours',
     bio: "Aujourd'hui, j'accumule 2 ans d'expérience en restauration en tant qu'équipière polyvalente. Traiteurs, restaurateurs — je suis disposée à vous donner un coup de main en cuisine. Contactez-moi pour que l'on travaille ensemble.",
     badges: ["2 ans d'expérience", 'Restauration'],
@@ -375,3 +374,20 @@ export const CHEFS = [
     bookingLink: 'https://calendly.com/ktdange/30min',
   },
 ] as const
+
+// ─── Helpers pour les filtres ──────────────────────────────────────────────
+/** Retourne les régions uniques disponibles, déduites des chefs */
+export function getAvailableRegions() {
+  const map = new Map<string, string>()
+  CHEFS.forEach((c) => map.set(c.regionId, c.region))
+  return Array.from(map, ([id, label]) => ({ id, label }))
+}
+
+/** Retourne les villes uniques disponibles pour une région donnée (ou toutes) */
+export function getAvailableCities(regionId?: string) {
+  const set = new Set<string>()
+  CHEFS.filter((c) => !regionId || c.regionId === regionId).forEach((c) =>
+    c.cities.forEach((city) => set.add(city)),
+  )
+  return Array.from(set).sort()
+}

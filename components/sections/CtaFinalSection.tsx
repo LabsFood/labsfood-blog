@@ -149,7 +149,7 @@ export function CtaFinalSection() {
                   'Réservation d\'un atelier',
                   'Coup de main en cuisine',
                   'Commande Kossam',
-                  'Devenir chef partenaire',
+                  'Devenir animateur',
                   'Autres',
                 ].map((t) => (
                   <div
