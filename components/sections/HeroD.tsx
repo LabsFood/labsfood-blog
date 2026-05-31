@@ -17,7 +17,7 @@ export function HeroD() {
       {/* ─── Image de fond full-bleed + zoom infini lent ─── */}
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/assets/photo-1.jpeg"
+          src="/assets/sansLogo.jpeg"
           alt="Lab's Food — We create what you love!"
           fill
           priority
@@ -106,7 +106,7 @@ export function HeroD() {
           {/* <span className="hidden sm:block size-1 rounded-full bg-cream/30" /> */}
           <Stat value="03" label="Services culinaires" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
-          <Stat value="HACCP" label="+Produits d'exception" />
+          <Stat value="HACCP" label="+05 Produits d'exception" />
         </motion.div>
       </div>
 
