@@ -105,12 +105,12 @@ export default function AssistanceCulinaireePage() {
         title={
           <>
             Un coup de main{' '}
-            <span className="italic text-orange">professionnel</span>
+            <span className="italic text-orange">sur-mesure</span>
             <br />
             dans votre cuisine.
           </>
         }
-        lede="Que vous organisiez un grand dîner, une fête de famille ou que vous ayez besoin de renfort dans votre équipe cuisine — Lab's Food intervient. Le rôle s'adapte entièrement à votre besoin."
+        lede="Que vous cherchiez du renfort pour votre établissement, que vous organisiez un événement, notre plate-forme vous connecte avec le profil idéal. Étudiant, passionné ou expérimenté : trouvez l’assistant qui s’adapte à vos besoins, partout en France."
         image="/assets/photo-5.jpeg"
       />
 
