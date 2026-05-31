@@ -311,7 +311,7 @@ export default function KossamPage() {
                 Recettes en vidéo
               </span>
               <h2 className="font-display text-4xl md:text-5xl text-cream mt-4 text-balance">
-                Trois idées pour{' '}
+                Quatres idées pour{' '}
                 <span className="italic">commencer</span>.
               </h2>
             </Reveal>
