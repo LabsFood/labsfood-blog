@@ -38,14 +38,14 @@ const SHOWCASE = [
     name: 'Assistance culinaire',
     kicker: 'Renfort en cuisine',
     description:
-      "Un grand dîner, une fête de famille, un événement traiteur ? Lab's Food intervient en renfort — préparation, dressage, coordination. Vous gérez vos invités, on gère les fourneaux.",
+      "Un rush en cuisine, une fête de famille ou un événement pro ? Lab’s Food est votre solution de renfort sur-mesure. Nous vous connectons avec le profil idéal (passionné, étudiant ou professionnel) pour vous seconder efficacement.",
     price: 'Sur devis',
     image: '/assets/photo-8.jpeg',
     href: '/services/assistance-culinaire',
     features: [
-      { icon: ChefHat, label: '02 chefs disponibles' },
-      { icon: CalendarCheck, label: 'Événements & dîners' },
-      { icon: Building2, label: 'Particuliers & pros' },
+      { icon: ChefHat, label: 'Disponible dans toute la France ' },
+      { icon: CalendarCheck, label: 'Profils variés (etudiants, professionnels, …)' },
+      { icon: Building2, label: 'Particuliers et professionnels (destiné à ces derniers)' },
     ],
   },
   {
@@ -186,7 +186,7 @@ function ShowcaseRow({
         {/* Voile */}
         <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 via-transparent to-transparent" />
         {/* Numéro géant */}
-        <div className="absolute top-6 left-6 font-display text-7xl md:text-9xl leading-none tabular-nums text-cream/25">
+        <div className="absolute top-6 left-6 font-display text-7xl md:text-9xl leading-none tabular-nums text-orange">
           {service.n}
         </div>
         {/* Kicker */}
@@ -203,7 +203,7 @@ function ShowcaseRow({
 
       {/* Texte */}
       <div className="lg:col-span-5">
-        <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-mid mb-3">
+        <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-orange mb-3">
           Service · {service.n}
         </div>
         <h3 className="font-display text-4xl md:text-5xl text-cream leading-tight">
@@ -211,7 +211,7 @@ function ShowcaseRow({
           <span className="italic-fraunces text-navy-mid">.</span>
         </h3>
 
-        <p className="mt-6 text-cream/70 leading-relaxed text-pretty max-w-md">
+        <p className="mt-6 text-cream/70 leading-relaxed text-justify max-w-md">
           {service.description}
         </p>
 
