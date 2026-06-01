@@ -237,7 +237,7 @@ export default function AboutPage() {
                   <h4 className="font-display text-lg md:text-xl text-navy mb-3">
                     {v.title}
                   </h4>
-                  <p className="text-sm text-ink/70 leading-relaxed text-pretty">
+                  <p className="text-sm text-ink/70 leading-relaxed text-justify">
                     {v.text}
                   </p>
                 </div>
@@ -269,7 +269,7 @@ export default function AboutPage() {
                   </span>
                 </em>
               </h2>
-              <p className="mt-6 text-ink/70 leading-relaxed text-pretty max-w-xl">
+              <p className="mt-6 text-ink/70 leading-relaxed text-justify max-w-xl">
                 Du premier <strong>"riz sauté"</strong>  au Cameroun à la naissance officielle de la
                 maison en Franc, l&apos;histoire d&apos;une intuition qui a
                 pris six ans pour devenir une plateforme.
@@ -314,7 +314,7 @@ export default function AboutPage() {
                         <h3 className="font-display text-2xl md:text-3xl text-navy mt-4">
                           {step.title}
                         </h3>
-                        <p className="mt-4 text-ink/75 leading-relaxed text-pretty">
+                        <p className="mt-4 text-ink/75 leading-relaxed text-justify">
                           {step.body}
                         </p>
                       </div>
@@ -409,7 +409,7 @@ export default function AboutPage() {
                 </em>{' '}
                 directement avec Ivy ?
               </h3>
-              <p className="mt-4 text-ink/70 max-w-xl text-pretty">
+              <p className="mt-4 text-ink/70 max-w-xl text-justify">
                 Que ce soit pour un atelier, un événement ou simplement
                 échanger.
               </p>
