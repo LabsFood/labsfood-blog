@@ -49,7 +49,7 @@ const services = [
     features: [
       { icon: ChefHat, label: 'Recherche des chefs' },
       { icon: CalendarCheck, label: 'Événements & dîners' },
-      { icon: Building2, label: 'Particuliers & professionnels' },
+      { icon: Building2, label: 'Pour particuliers & professionnels' },
     ],
   },
   {

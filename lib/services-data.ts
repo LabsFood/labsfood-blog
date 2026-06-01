@@ -16,6 +16,7 @@ import {
   Building2,
   Sparkles,
   GraduationCap,
+  Star,
 } from 'lucide-react'
 
 export type ServiceFeature = {
@@ -68,7 +69,7 @@ export const SHOWCASE_SERVICES: ShowcaseService[] = [
     features: [
       { icon: Map, label: 'Disponible dans toute la France' },
       { icon: Users, label: 'Profils variés (étudiants, professionnels, …)' },
-      { icon: Building2, label: 'Particuliers et professionnels' },
+      { icon: Star, label: 'Pour Particuliers et professionnels' },
     ],
   },
   {
