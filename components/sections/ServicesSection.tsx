@@ -43,7 +43,7 @@ const services = [
       "Un grand dîner, une fête de famille, un événement traiteur ? Lab's Food vient en renfort en cuisine , vous aide à la préparation, dressage, coordination. Vous gérez vos invités, on gère les fourneaux.",
     price: null,
     priceNote: 'Sur devis · contactez-nous',
-    image: '/assets/photo-8.jpeg',
+    image: '/assets/ange.jpeg',
     href: '/services/assistance-culinaire',
     accent: 'teal' as const,
     features: [

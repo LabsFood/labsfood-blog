@@ -386,7 +386,7 @@ export const CHEFS = [
     n: '02',
     name: 'Ange',
     title: "Etudiante",
-    photo: '/davila.jpeg',
+    photo: '/assets/ange.jpeg',
     region: 'Île-de-France',
     regionId: 'ile-de-france',
     cities: [

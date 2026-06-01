@@ -209,7 +209,7 @@ export default function KossamPage() {
 
             <div className="mt-10 grid sm:grid-cols-2 gap-4">
               {[
-                { icon: Snowflake, label: 'Servir très frais', sub: 'Entre 2°C et 6°C' },
+                { icon: Snowflake, label: 'Servir très frais', sub: 'Entre 0°C et 4°C' },
                 { icon: Sparkles, label: 'Texture veloutée', sub: 'Onctueuse et fraîche' },
                 { icon: MapPin, label: kossam.delivery, sub: 'Livraison rapide' },
                 { icon: ShieldCheck, label: 'HACCP', sub: 'Maison certifiée' },
@@ -351,9 +351,9 @@ export default function KossamPage() {
                 </p>
                 <ul className="mt-6 space-y-4 text-ink/85 leading-relaxed">
                   {[
-                    'À conserver au réfrigérateur entre 2°C et 6°C.',
+                    'À conserver au réfrigérateur entre 0°C et 4°C.',
                     'À consommer rapidement après ouverture.',
-                    'Bien agiter avant dégustation.',
+                    // 'Bien agiter avant dégustation.',
                   ].map((t) => (
                     <li key={t} className="flex gap-3">
                       <span className="mt-1 size-5 rounded-full bg-mint-ink/15 text-mint-ink grid place-items-center shrink-0">

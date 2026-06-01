@@ -64,7 +64,7 @@ export const SHOWCASE_SERVICES: ShowcaseService[] = [
     description:
       "Un rush en cuisine, une fête de famille ou un événement pro ? Lab's Food est votre solution de renfort sur-mesure. Nous vous connectons avec le profil idéal (passionné, étudiant ou professionnel) pour vous seconder efficacement.",
     price: 'Sur devis',
-    image: '/assets/photo-8.jpeg',
+    image: '/assets/ange.jpeg',
     href: '/services/assistance-culinaire',
     features: [
       { icon: Map, label: 'Disponible dans toute la France' },
