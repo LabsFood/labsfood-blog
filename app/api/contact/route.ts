@@ -1,18 +1,17 @@
 /**
- * API Route — Envoi du formulaire de contact via SMTP OVH (Nodemailer).
+ * API Route — Envoi du formulaire de contact via Brevo SMTP (Nodemailer).
  *
- * Variables d'environnement (.env.local) :
- *   - OVH_EMAIL_USER  : adresse expéditrice (contact@labsfood.fr)
- *   - OVH_EMAIL_PASS  : mot de passe OVH du compte mail
- *   - CONTACT_TO_EMAIL: destinataire (par défaut = OVH_EMAIL_USER)
- *
- * Inspiré du pattern Camci / TMC.
+ * Variables d'environnement (.env) :
+ *   - BREVO_SMTP_USER   : login SMTP Brevo (ex: ad29fd001@smtp-brevo.com)
+ *   - BREVO_SMTP_PASS   : clé SMTP Brevo
+ *   - BREVO_FROM_EMAIL  : adresse "from" (domaine vérifié dans Brevo)
+ *   - CONTACT_TO_EMAIL  : destinataire (par défaut = BREVO_FROM_EMAIL)
  */
 
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-// ─── Subject mapping (drive le sujet et le label affiché) ─────────────────
+// ─── Subject mapping ──────────────────────────────────────────────────────
 const SUBJECT_LABELS: Record<string, string> = {
   'batch-cooking': 'Batch cooking',
   'assistance-culinaire': 'Assistance culinaire',
@@ -50,77 +49,31 @@ function validate(data: ContactPayload): string[] {
   return errors
 }
 
-// ─── Transporteur Nodemailer (OVH SMTP) ──────────────────────────────────
-// 2 modes pour OVH :
-//   - SSL strict : ssl0.ovh.net:465 (secure = true)
-//   - STARTTLS   : ssl0.ovh.net:587 (secure = false, requireTLS = true)
-// On essaie SSL d'abord, puis STARTTLS en fallback si verify() échoue.
-function buildTransporter(mode: 'ssl' | 'starttls') {
-  const user = process.env.OVH_EMAIL_USER
-  const pass = process.env.OVH_EMAIL_PASS
+// ─── Transporteur Nodemailer (Brevo SMTP — STARTTLS 587) ──────────────────
+function buildTransporter() {
+  const user = process.env.BREVO_SMTP_USER
+  const pass = process.env.BREVO_SMTP_PASS
 
   if (!user || !pass) {
-    throw new Error(
-      'OVH_EMAIL_USER / OVH_EMAIL_PASS manquants dans .env.local',
-    )
+    throw new Error('BREVO_SMTP_USER / BREVO_SMTP_PASS manquants dans .env')
   }
 
-  // Host SMTP configurable (selon plan OVH) :
-  //   - MX Plan / domaine basique : ssl0.ovh.net (défaut)
-  //   - Email Pro                 : pro1.mail.ovh.net ou pro2.mail.ovh.net
-  //   - Exchange Hosted           : ex5.mail.ovh.net
-  const host = process.env.OVH_SMTP_HOST ?? 'ssl0.ovh.net'
-
-  const isSSL = mode === 'ssl'
-
   return nodemailer.createTransport({
-    host,
-    port: isSSL ? 465 : 587,
-    secure: isSSL,
-    requireTLS: !isSSL,
+    host: 'smtp-relay.brevo.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
     auth: { user, pass },
     tls: { rejectUnauthorized: false, minVersion: 'TLSv1.2' },
     connectionTimeout: 30_000,
     greetingTimeout: 20_000,
     socketTimeout: 30_000,
-    // Log SMTP verbeux uniquement en dev pour debug
     logger: process.env.NODE_ENV !== 'production',
     debug: process.env.NODE_ENV !== 'production',
   })
 }
 
-/** Tente verify() en SSL, fallback STARTTLS — renvoie le transporteur qui marche. */
-async function getVerifiedTransporter() {
-  // 1) SSL 465
-  try {
-    const t = buildTransporter('ssl')
-    await t.verify()
-    console.log('[contact] ✅ SMTP OVH connecté en SSL 465')
-    return t
-  } catch (sslErr) {
-    console.warn(
-      '[contact] ⚠️  SSL 465 a échoué :',
-      (sslErr as Error)?.message,
-    )
-
-    // 2) STARTTLS 587
-    try {
-      const t = buildTransporter('starttls')
-      await t.verify()
-      console.log('[contact] ✅ SMTP OVH connecté en STARTTLS 587')
-      return t
-    } catch (starttlsErr) {
-      console.error(
-        '[contact] ❌ STARTTLS 587 a aussi échoué :',
-        (starttlsErr as Error)?.message,
-      )
-      // On expose l'erreur STARTTLS (la plus parlante en général)
-      throw starttlsErr
-    }
-  }
-}
-
-// ─── Anti-XSS pour les contenus injectés dans le HTML mail ───────────────
+// ─── Anti-XSS ─────────────────────────────────────────────────────────────
 function escapeHtml(text: string) {
   return text
     .replace(/&/g, '&amp;')
@@ -151,28 +104,28 @@ export async function POST(request: Request) {
       )
     }
 
-    const user = process.env.OVH_EMAIL_USER!
-    const to = process.env.CONTACT_TO_EMAIL ?? user
+    const from = process.env.BREVO_FROM_EMAIL!
+    const to = process.env.CONTACT_TO_EMAIL ?? from
 
-    // Création + vérification du transporteur (SSL 465 puis fallback STARTTLS 587)
     let transporter
     try {
-      transporter = await getVerifiedTransporter()
+      transporter = buildTransporter()
+      await transporter.verify()
+      console.log('[contact] ✅ Brevo SMTP connecté')
     } catch (err) {
       const msg = (err as Error)?.message ?? String(err)
-      console.error('[contact] SMTP verify failed:', err)
+      console.error('[contact] ❌ Brevo SMTP verify failed:', err)
       return NextResponse.json(
         {
           success: false,
           error: 'Serveur mail indisponible. Réessayez plus tard.',
-          // En dev on expose le détail pour debug ; en prod on garde silencieux
           ...(process.env.NODE_ENV !== 'production' ? { debug: msg } : {}),
         },
         { status: 502 },
       )
     }
 
-    // ─── Couleurs brand pour le mail HTML ───
+    // ─── Couleurs brand ───
     const navy = '#00234B'
     const orange = '#E67E22'
     const cream = '#F4F6F7'
@@ -212,12 +165,10 @@ export async function POST(request: Request) {
     })}
         </p>
 
-        <!-- Sujet pill -->
         <div style="display:inline-block;padding:6px 14px;border-radius:999px;background:${orange};color:#ffffff;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:24px;">
           ${escapeHtml(subjectLabel)}
         </div>
 
-        <!-- Contact info table -->
         <table cellpadding="0" cellspacing="0" border="0" width="100%"
           style="border-collapse:collapse;background:${cream};border-radius:12px;padding:8px;">
           <tr>
@@ -235,17 +186,16 @@ export async function POST(request: Request) {
             </td>
           </tr>
           ${data.phone
-        ? `<tr>
+      ? `<tr>
             <td style="padding:14px 18px;">
               <p style="margin:0;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:${navy};opacity:0.5;">Téléphone</p>
               <p style="margin:4px 0 0;font-size:15px;color:${ink};font-weight:500;">${escapeHtml(data.phone)}</p>
             </td>
           </tr>`
-        : ''
-      }
+      : ''
+    }
         </table>
 
-        <!-- Message -->
         <div style="margin-top:28px;">
           <p style="margin:0 0 12px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:${navy};opacity:0.5;">Message</p>
           <div style="padding:18px 20px;border-left:3px solid ${orange};background:${cream};border-radius:0 12px 12px 0;color:${ink};font-size:14px;line-height:1.7;">
@@ -253,7 +203,6 @@ export async function POST(request: Request) {
           </div>
         </div>
 
-        <!-- CTA répondre -->
         <div style="margin-top:32px;text-align:center;">
           <a href="mailto:${escapeHtml(data.email)}?subject=Re%3A%20${encodeURIComponent(subjectLabel)}"
             style="display:inline-block;padding:12px 28px;background:${navy};color:#ffffff;text-decoration:none;border-radius:999px;font-size:13px;font-weight:500;letter-spacing:0.05em;">
@@ -284,12 +233,11 @@ ${data.message}
 
 — Reçu le ${new Date().toLocaleString('fr-FR')}`
 
-    // Envoi avec retry (2 tentatives)
     let lastError: unknown = null
     for (let attempt = 1; attempt <= 2; attempt++) {
       try {
         await transporter.sendMail({
-          from: `"Lab's Food — Site" <${user}>`,
+          from: `"Lab's Food — Site" <${from}>`,
           to,
           replyTo: data.email,
           subject: `[Lab's Food] ${subjectLabel} — ${data.name}`,
