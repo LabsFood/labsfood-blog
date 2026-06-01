@@ -365,7 +365,10 @@ export const CHEFS = [
     extraRegions: [] as Array<{ id: string; label: string; cities: string[] }>,
     bio: "Passionnée jusqu'au bout de la spatule, je suis prête à mettre la main à la pâte pour devenir votre renfort de choc en cuisine : contactez-moi pour en discuter !",
     /** Pitches optionnels par service. Si vide, on retombe sur `bio`. */
-    pitches: {} as { atelier?: string; assistance?: string },
+    pitches: {
+      atelier:
+        "Vous aimez bien manger ? Je vais vous apprendre à bien cuisiner ! Offrez-vous un cours à domicile sur-mesure pour apprendre mes meilleures recettes sans stress et avec le sourire. Bloquez votre date, créons de la magie dans vos assiettes… et laissez-moi vous gâter avec un petit cadeau surprise !",
+    } as { atelier?: string; assistance?: string },
     badges: ["06 ans"],
     /** Certifications affichées en badge visuel sur la card (pas en texte). */
     certifications: ['HACCP'],

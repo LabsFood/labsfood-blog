@@ -303,7 +303,7 @@ export default function AtelierPage() {
               <p className="mt-5 text-cream/75 max-w-xl">
                 Si l&apos;idée de donner des cours vous anime, remplissez le
                 formulaire d&apos;inscription pour devenir l&apos;un de nos
-                chefs partenaires. Gratuit pour le moment.
+                chefs partenaires.
               </p>
             </div>
             <div className="lg:col-span-4 relative">

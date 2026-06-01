@@ -48,7 +48,7 @@ export default function DevenirChefPage() {
           <>
             Donnez des cours de cuisine{' '}
             <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
+              <span className="font-display italic text-orange">
                 à domicile.
               </span>
             </em>
@@ -107,7 +107,7 @@ export default function DevenirChefPage() {
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="relative container-wide grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-teal inline-flex items-center gap-3 mb-6">
               <span className="size-6 h-px bg-navy-mid" />
               Une plateforme bienveillante
             </p>
@@ -136,8 +136,7 @@ export default function DevenirChefPage() {
               </div>
               <p className="text-cream/65 text-sm mt-3">
                 L&apos;inscription chef partenaire est entièrement gratuite pour
-                le moment. Seules les commissions à venir seront communiquées
-                publiquement.
+                le moment.
               </p>
             </div>
           </div>

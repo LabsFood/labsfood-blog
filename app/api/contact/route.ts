@@ -50,8 +50,12 @@ function validate(data: ContactPayload): string[] {
   return errors
 }
 
-// ─── Transporteur Nodemailer (OVH SMTP SSL) ──────────────────────────────
-function createTransporter() {
+// ─── Transporteur Nodemailer (OVH SMTP) ──────────────────────────────────
+// 2 modes pour OVH :
+//   - SSL strict : ssl0.ovh.net:465 (secure = true)
+//   - STARTTLS   : ssl0.ovh.net:587 (secure = false, requireTLS = true)
+// On essaie SSL d'abord, puis STARTTLS en fallback si verify() échoue.
+function buildTransporter(mode: 'ssl' | 'starttls') {
   const user = process.env.OVH_EMAIL_USER
   const pass = process.env.OVH_EMAIL_PASS
 
@@ -61,16 +65,53 @@ function createTransporter() {
     )
   }
 
+  const isSSL = mode === 'ssl'
+
   return nodemailer.createTransport({
     host: 'ssl0.ovh.net',
-    port: 465,
-    secure: true,
+    port: isSSL ? 465 : 587,
+    secure: isSSL,
+    requireTLS: !isSSL,
     auth: { user, pass },
-    tls: { rejectUnauthorized: false },
-    connectionTimeout: 60_000,
-    greetingTimeout: 30_000,
-    socketTimeout: 60_000,
+    tls: { rejectUnauthorized: false, minVersion: 'TLSv1.2' },
+    connectionTimeout: 30_000,
+    greetingTimeout: 20_000,
+    socketTimeout: 30_000,
+    // Log SMTP verbeux uniquement en dev pour debug
+    logger: process.env.NODE_ENV !== 'production',
+    debug: process.env.NODE_ENV !== 'production',
   })
+}
+
+/** Tente verify() en SSL, fallback STARTTLS — renvoie le transporteur qui marche. */
+async function getVerifiedTransporter() {
+  // 1) SSL 465
+  try {
+    const t = buildTransporter('ssl')
+    await t.verify()
+    console.log('[contact] ✅ SMTP OVH connecté en SSL 465')
+    return t
+  } catch (sslErr) {
+    console.warn(
+      '[contact] ⚠️  SSL 465 a échoué :',
+      (sslErr as Error)?.message,
+    )
+
+    // 2) STARTTLS 587
+    try {
+      const t = buildTransporter('starttls')
+      await t.verify()
+      console.log('[contact] ✅ SMTP OVH connecté en STARTTLS 587')
+      return t
+    } catch (starttlsErr) {
+      console.error(
+        '[contact] ❌ STARTTLS 587 a aussi échoué :',
+        (starttlsErr as Error)?.message,
+      )
+      // On expose l'erreur STARTTLS (la plus parlante en général)
+      throw starttlsErr
+    }
+  }
 }
 
 // ─── Anti-XSS pour les contenus injectés dans le HTML mail ───────────────
@@ -107,14 +148,20 @@ export async function POST(request: Request) {
     const user = process.env.OVH_EMAIL_USER!
     const to = process.env.CONTACT_TO_EMAIL ?? user
 
-    // Création + vérification du transporteur
-    const transporter = createTransporter()
+    // Création + vérification du transporteur (SSL 465 puis fallback STARTTLS 587)
+    let transporter
     try {
-      await transporter.verify()
+      transporter = await getVerifiedTransporter()
     } catch (err) {
-      console.error('SMTP verify failed:', err)
+      const msg = (err as Error)?.message ?? String(err)
+      console.error('[contact] SMTP verify failed:', err)
       return NextResponse.json(
-        { success: false, error: 'Serveur mail indisponible. Réessayez plus tard.' },
+        {
+          success: false,
+          error: 'Serveur mail indisponible. Réessayez plus tard.',
+          // En dev on expose le détail pour debug ; en prod on garde silencieux
+          ...(process.env.NODE_ENV !== 'production' ? { debug: msg } : {}),
+        },
         { status: 502 },
       )
     }
@@ -150,13 +197,13 @@ export async function POST(request: Request) {
       <td style="padding:32px;">
         <p style="margin:0 0 24px;color:${ink};opacity:0.7;font-size:14px;">
           Demande reçue le ${new Date().toLocaleDateString('fr-FR', {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-          })}
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    })}
         </p>
 
         <!-- Sujet pill -->
@@ -181,16 +228,15 @@ export async function POST(request: Request) {
               </p>
             </td>
           </tr>
-          ${
-            data.phone
-              ? `<tr>
+          ${data.phone
+        ? `<tr>
             <td style="padding:14px 18px;">
               <p style="margin:0;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:${navy};opacity:0.5;">Téléphone</p>
               <p style="margin:4px 0 0;font-size:15px;color:${ink};font-weight:500;">${escapeHtml(data.phone)}</p>
             </td>
           </tr>`
-              : ''
-          }
+        : ''
+      }
         </table>
 
         <!-- Message -->
