@@ -23,7 +23,7 @@ const services = [
     n: '01',
     name: 'Batch cooking',
     description:
-      "Une cheffe vient préparer une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser, sur-mesure et à votre rythme.",
+      "Une cheffe vient cuisiner une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser, sur-mesure et à votre rythme.",
     price: "~ 50€" as string | null,
     priceNote: "Côte d'Azur",
     image: '/assets/photo-9.jpeg',

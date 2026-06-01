@@ -20,22 +20,22 @@ const PERKS = [
   {
     icon: Heart,
     title: 'Partagez votre passion',
-    body: "Transmettez votre savoir-faire à une communauté de gourmands curieux.",
+    body: "Transmettez votre amour de la cuisine et vos meilleures recettes à une communauté de gourmands curieux d'apprendre.",
   },
   {
     icon: Compass,
     title: 'Liberté totale',
-    body: 'Vous fixez vos tarifs, vos disponibilités, votre zone de déplacement.',
+    body: "C'est vous qui décidez : fixez librement vos tarifs, vos disponibilités et votre zone de déplacement.",
   },
   {
     icon: ShieldCheck,
-    title: 'Encadré & sécurisé',
-    body: 'Charte qualité, accréditation HACCP visible, profil professionnel.',
+    title: 'Cadre de confiance',
+    body: "Bénéficiez d'une vitrine soignée pour mettre en valeur votre profil, vos spécialités et rassurer vos futurs clients.",
   },
   {
     icon: Sparkles,
-    title: 'Mise en relation',
-    body: 'Lien de réservation Calendly via votre profil — pas de numéro public.',
+    title: 'Contact direct',
+    body: 'Les clients vous contactent sans intermédiaire via votre numéro ou votre lien de réservation.',
   },
 ] as const
 
@@ -108,7 +108,7 @@ export default function DevenirChefPage() {
         <div className="relative container-wide grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-teal inline-flex items-center gap-3 mb-6">
-              <span className="size-6 h-px bg-navy-mid" />
+              <span className="size-6 h-px bg-orange" />
               Une plateforme bienveillante
             </p>
             <h2
@@ -117,7 +117,7 @@ export default function DevenirChefPage() {
             >
               Une accréditation pour les chefs{' '}
               <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
+                <span className="font-display italic text-orange">
                   formés et certifiés.
                 </span>
               </em>
@@ -130,7 +130,7 @@ export default function DevenirChefPage() {
           </div>
           <div className="lg:col-span-5">
             <div className="rounded-3xl bg-cream/[0.06] border border-cream/15 p-8 md:p-10 text-center">
-              <Sparkles className="size-8 text-navy-mid mx-auto mb-4" />
+              <Sparkles className="size-8 text-orange-mid mx-auto mb-4" />
               <div className="font-display text-3xl text-cream leading-tight">
                 Gratuit
               </div>

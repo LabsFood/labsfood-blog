@@ -19,7 +19,7 @@ import { BATCH_COOKING_URL, whatsappLink } from '@/lib/utils'
 export const metadata: Metadata = {
   title: 'Batch cooking à domicile',
   description:
-    "Une cheffe vient préparer une semaine entière de repas variés et équilibrés chez vous, en 2h minimum. Disponible sur la Côte d'Azur.",
+    "Une cheffe vient cuisiner une semaine entière de repas variés et équilibrés chez vous, en 2h minimum. Disponible sur la Côte d'Azur.",
 }
 
 const FEATURES = [

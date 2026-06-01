@@ -29,7 +29,7 @@ export const SERVICES = [
   {
     slug: 'batch-cooking',
     name: 'Batch cooking',
-    short: 'Une cheffe vient préparer toute votre semaine à votre domicile.',
+    short: 'Une cheffe vient cuisiner toute votre semaine à votre domicile.',
     description:
       "En 2 heures minimum, une cheffe professionnelle cuisine une semaine entière de repas variés et équilibrés directement chez vous.",
     bullets: [
