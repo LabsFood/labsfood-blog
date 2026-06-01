@@ -229,7 +229,7 @@ export default function AssistanceCulinaireePage() {
       <section className="section bg-cream">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <span className="eyebrow">Comment ça marche</span>
+            <span className="eyebrow">Comment ça marche ?</span>
             <h2 className="display-md text-navy mt-4 text-balance">
               Trouver du renfort ? C’est du gâteau !
             </h2>

@@ -127,7 +127,7 @@ export default function AtelierPage() {
             <div className="max-w-3xl mb-16">
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
                 <span className="size-6 h-px bg-navy-mid" />
-                Comment ça marche
+                Comment ça marche ?
               </p>
               <h2
                 className="font-display text-navy leading-[0.98] tracking-tight text-balance"
