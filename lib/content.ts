@@ -1,7 +1,7 @@
 // Données statiques du site Lab's Food.
 // Centralise textes, prix, avis pour réutilisation par les pages.
 
-import { BATCH_COOKING_URL } from "./utils"
+import { BATCH_COOKING_URL, whatsappLink } from "./utils"
 
 export const SITE = {
   name: "Lab's Food",
@@ -375,7 +375,8 @@ export const CHEFS = [
     languages: ['FR', 'PT', 'EN'],
     specialties: ['Cuisines du monde'],
     available: true,
-    bookingLink: BATCH_COOKING_URL,
+    bookingLink: whatsappLink(`Bonjour Ivy, j'ai vu votre page À propos et j'aimerais en savoir plus — `),
+    // bookingLink: BATCH_COOKING_URL,
     /** Liens Calendly différenciés par service (vide = utilise bookingLink). */
     bookingLinks: {} as { atelier?: string; assistance?: string },
     /** Pages où ce chef apparaît. Si false, masqué sur cette page. */

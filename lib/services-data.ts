@@ -62,7 +62,7 @@ export const SHOWCASE_SERVICES: ShowcaseService[] = [
     name: 'Assistance culinaire',
     kicker: 'Renfort en cuisine',
     description:
-      "Un rush en cuisine, une fête de famille ou un événement pro ? Lab's Food est votre solution de renfort sur-mesure. Nous vous connectons avec le profil idéal (passionné, étudiant ou professionnel) pour vous seconder efficacement.",
+      "Un rush en cuisine, une fête de famille ou un événement professionnel ? Lab's Food est votre solution de renfort sur-mesure. Nous vous connectons avec le profil idéal (passionné, étudiant ou professionnel) pour vous seconder efficacement.",
     price: 'Sur devis',
     image: '/assets/ange.jpeg',
     href: '/services/assistance-culinaire',

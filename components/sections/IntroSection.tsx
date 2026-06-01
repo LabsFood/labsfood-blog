@@ -28,7 +28,7 @@ const VALUES = [
   {
     icon: ShieldCheck,
     title: 'Maison certifiée',
-    text: "",
+    text: "Hygiène irréprochable",
   },
 ] as const
 
