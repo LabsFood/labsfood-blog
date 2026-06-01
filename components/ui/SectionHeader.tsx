@@ -46,7 +46,7 @@ export function SectionHeader({
       {lede && (
         <p
           className={cn(
-            'lede text-pretty',
+            'lede text-justify',
             invert ? 'text-cream/75' : 'text-ink/75',
           )}
         >

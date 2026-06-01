@@ -65,8 +65,8 @@ export default function AboutPage() {
           </>
         }
         // lede="Siyaptze, ingénieure de formation, a fondé Lab's Food pour soulager la charge mentale de ceux qui n'ont plus le temps de bien manger."
-        image="/assets/photo-11.jpeg"
-        imagePosition="center 30%"
+        image="/assets/ekie.jpeg"
+        imagePosition="center 40%"
         size="lg"
       />
 
