@@ -111,7 +111,24 @@ export function Footer() {
         {/* ── Contact + liens ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 border-b border-cream/10">
           {/* Contact */}
-          <div className="lg:col-span-4">
+          {/* Colonnes liens */}
+          <FooterColumn title="Services" className="lg:col-span-3">
+            {LINKS.services.map((l) => (
+              <FooterLink key={l.href + l.label} {...l} />
+            ))}
+          </FooterColumn>
+
+          <FooterColumn title="Produits" className="lg:col-span-3">
+            {LINKS.produits.map((l) => (
+              <FooterLink key={l.href + l.label} {...l} />
+            ))}
+          </FooterColumn>
+          {/* <FooterColumn title="Lab's Food" className="lg:col-span-3">
+            {LINKS.maison.map((l) => (
+              <FooterLink key={l.href + l.label} {...l} />
+            ))}
+          </FooterColumn>` */}
+          <div className="lg:col-span-3">
             <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-6">
               — Nous contacter
             </p>
@@ -153,43 +170,27 @@ export function Footer() {
             </ul>
 
             {/* Socials */}
-            <div className="mt-10">
-              <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-4">
-                — Suivez-nous
-              </p>
-              <div className="flex items-center gap-3">
-                {SOCIAL.map(({ Icon, label, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={label}
-                    className="group w-11 h-11 rounded-full bg-cream/[0.06] border border-cream/15 flex items-center justify-center text-cream/85 hover:bg-cream hover:text-navy hover:border-cream transition-all duration-300 hover:-translate-y-1"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                ))}
-              </div>
+          </div>
+          <div className=" md:col-span-3">
+            <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-4">
+              — Suivez-nous
+            </p>
+            <div className="flex items-center gap-3">
+              {SOCIAL.map(({ Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className="group w-11 h-11 rounded-full bg-cream/[0.06] border border-cream/15 flex items-center justify-center text-cream/85 hover:bg-cream hover:text-navy hover:border-cream transition-all duration-300 hover:-translate-y-1"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
-          {/* Colonnes liens */}
-          <FooterColumn title="Services" className="lg:col-span-3">
-            {LINKS.services.map((l) => (
-              <FooterLink key={l.href + l.label} {...l} />
-            ))}
-          </FooterColumn>
 
-          <FooterColumn title="Produits" className="lg:col-span-2">
-            {LINKS.produits.map((l) => (
-              <FooterLink key={l.href + l.label} {...l} />
-            ))}
-          </FooterColumn>
-          {/* <FooterColumn title="Lab's Food" className="lg:col-span-3">
-            {LINKS.maison.map((l) => (
-              <FooterLink key={l.href + l.label} {...l} />
-            ))}
-          </FooterColumn>` */}
         </div>
 
         {/* ── Bas : copyright + légal ── */}
