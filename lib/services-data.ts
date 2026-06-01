@@ -46,7 +46,7 @@ export const SHOWCASE_SERVICES: ShowcaseService[] = [
     kicker: 'Service à domicile',
     description:
       "Une cheffe vient cuisiner une semaine entière de repas chez vous, en 2 heures minimum. L'art de mieux manger sans y penser, sur-mesure et à votre rythme.",
-    price: 'À partir de 50€*',
+    price: `À partir de 50€*`,
     priceNote: "*Tarif après -50 % du crédit d'impôt",
     image: '/assets/photo-9.jpeg',
     href: '/services/batch-cooking',

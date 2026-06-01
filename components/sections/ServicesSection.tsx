@@ -181,7 +181,7 @@ function ServiceRow({
               Service &middot; {service.n}
             </span>
             <span className="size-1 rounded-full bg-navy/20" />
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-ink/45">
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-orange">
               {service.priceNote}
             </span>
           </div>
