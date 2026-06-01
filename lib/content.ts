@@ -280,12 +280,12 @@ export const FOUNDER = {
   bioParagraphs: [
     "Ingénieure de formation et toujours étudiante pour me spécialiser dans la gestion de projets et l'excellence opérationnelle, je connais parfaitement ce que signifie vivre à 100 à l'heure. C'est justement parce que je voyais les personnes autour de moi, submergées par ce même rythme effréné, galérer pour bien manger que j'ai reimaginé Lab's Food.",
     "Le véritable déclic s'est produit lors de la grossesse de ma tante. À cette époque, mon agenda était un marathon ininterrompu. Je courais 7 jours sur 7 : la semaine, je jonglais entre l'école et mon entreprise d'alternance, et le week-end, je travaillais dans un restaurant d'où je rentrais souvent vers 23 heures. J'étais épuisée, et ma tante habitait à deux heures de route.",
-    "Pourtant, je me battais pour dégager du temps et aller lui préparer ses repas. À chaque fois, la voir s'illuminer, la voir me remercier avec un sourire si profond m'a bouleversée. Elle me disait « MERCI » comme si j'avais fait quelque chose d'exceptionnel. Et j'ai réalisé qu'elle avait raison : soulager la charge mentale d'une personne par la cuisine, c'est exceptionnel.",
+    "Pourtant, je me battais pour dégager du temps et aller lui préparer ses repas. À chaque fois, la voir s'illuminer, la voir me remercier avec un sourire si profond m'a bouleversée. Elle me disait « MERCI » comme si j'avais fait quelque chose d'exceptionnel. Et j'ai réalisé qu'elle avait raison.",
     "Ce sourire a été mon moteur. J'ai laissé derrière moi ce rythme épuisant pour créer Lab's Food, un projet que je mène de front avec mes études. Après tout, optimiser le temps et l'organisation, c'est le cœur de mon métier !",
     "J'ai commencé par le batch cooking à domicile. Puis, face à la réalité de l'entrepreneuriat et pour faire tourner l'entreprise, je me suis adaptée. J'ai ajouté l'assistance et les ateliers culinaires à domicile, avant de faire un pari audacieux : lancer une gamme de produits d'exception.",
     "C'est ainsi qu'est arrivé notre fameux Kossam. Le succès a été immédiat ! Aujourd'hui, c'est plus de 150 gourmands régalés et fidélisés. Une vraie fierté qui me pousse à aller encore plus loin.",
     "Aujourd'hui, Lab's Food n'est plus seulement une entreprise, c'est une véritable plateforme dédiée à votre bien-être gourmand. Je vois grand pour la suite, et je vous invite à rester connectés, car de magnifiques choses se préparent en coulisses…",
-    "En attendant, je vous laisse parcourir Nos services sur-mesure et découvrir nos produits d'exception. Laissez-nous entrer dans votre cuisine, nous nous occupons du reste.",
+    "En attendant, je vous laisse parcourir nos services sur-mesure et découvrir nos produits d'exception. Laissez-nous entrer dans votre cuisine, nous nous occupons du reste.",
   ],
   /**
    * Pull-quote phare extraite de la bio (déclic).

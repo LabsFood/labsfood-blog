@@ -140,10 +140,10 @@ export default function AssistanceCulinaireePage() {
             <div className="size-12 rounded-full bg-cream/10 border border-cream/20 grid place-items-center shrink-0">
               <WhatsAppIcon className="size-5 text-white" />
             </div>
-            <div>
+            {/* <div>
               <div className="font-display text-lg text-cream leading-tight">Devis rapide</div>
               <div className="text-sm text-cream/65 mt-0.5">Réponse 7j/7 sur WhatsApp</div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

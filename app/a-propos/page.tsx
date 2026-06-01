@@ -43,7 +43,7 @@ const VALUES = [
   },
   {
     icon: ShieldCheck,
-    title: 'Rigoureuse',
+    title: 'Rigueur',
     text: "HACCP, hygiène et qualité ne sont jamais des options.",
   },
 ] as const
@@ -366,7 +366,7 @@ export default function AboutPage() {
               className="font-display italic text-cream leading-[1.15] text-balance max-w-4xl"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
-              « Laissez-Nous entrer dans votre cuisine, Nous nous occupons du
+              « Laissez-nous entrer dans votre cuisine, Nous nous occupons du
               reste ! »
             </blockquote>
             <div className="mt-10 flex items-center gap-4">
@@ -411,7 +411,7 @@ export default function AboutPage() {
               </h3>
               <p className="mt-4 text-ink/70 max-w-xl text-pretty">
                 Que ce soit pour un atelier, un événement ou simplement
-                échanger — la conversation commence sur WhatsApp.
+                échanger.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">
