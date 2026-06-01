@@ -79,6 +79,7 @@ export function ChefForm() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [stepError, setStepError] = useState<string | null>(null)
 
   // Persiste les sélections conditionnelles entre les étapes
   const [selectedProfileType, setSelectedProfileType] = useState('')
@@ -96,12 +97,77 @@ export function ChefForm() {
     }
   }
 
+  function validateCurrentStep(): string | null {
+    const form = formRef.current
+    if (!form) return null
+    const fd = new FormData(form)
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    switch (step) {
+      case 0: {
+        const fullName = (fd.get('fullName') as string)?.trim()
+        const phone = (fd.get('phone') as string)?.trim()
+        const email = (fd.get('email') as string)?.trim()
+        const address = (fd.get('address') as string)?.trim()
+        if (!fullName || fullName.length < 2) return 'Veuillez renseigner votre nom et prénom (2 caractères minimum).'
+        if (!email || !emailRegex.test(email)) return 'Veuillez renseigner une adresse e-mail valide.'
+        if (!phone) return 'Veuillez renseigner votre numéro de téléphone.'
+        if (!address) return 'Veuillez renseigner votre adresse complète.'
+        return null
+      }
+      case 1: {
+        const firstName = (fd.get('firstName') as string)?.trim()
+        const department = (fd.get('department') as string)?.trim()
+        const photo = fd.get('photo') as File
+        const profileType = (fd.get('profileType') as string)?.trim()
+        const profileTypeAutre = (fd.get('profileTypeAutre') as string)?.trim()
+        const status = (fd.get('status') as string)?.trim()
+        const statusAutre = (fd.get('statusAutre') as string)?.trim()
+        const languages = fd.getAll('languages')
+        const pitch = (fd.get('pitch') as string)?.trim()
+        if (!firstName) return 'Veuillez renseigner votre prénom.'
+        if (!department) return 'Veuillez renseigner votre département.'
+        if (!photo || photo.size === 0) return 'Veuillez téléverser une photo de profil.'
+        if (!profileType) return 'Veuillez sélectionner votre profil principal.'
+        if (profileType === 'autre' && !profileTypeAutre) return 'Veuillez préciser votre profil.'
+        if (!status) return 'Veuillez sélectionner votre statut.'
+        if (status === 'autre' && !statusAutre) return 'Veuillez préciser votre statut.'
+        if (languages.length === 0) return 'Veuillez sélectionner au moins une langue parlée.'
+        if (!pitch) return 'Veuillez rédiger votre pitch de présentation.'
+        return null
+      }
+      case 2: {
+        const experience = (fd.get('experience') as string)?.trim()
+        const missions = fd.getAll('missions')
+        if (!experience) return "Veuillez sélectionner votre niveau d'expérience."
+        if (role === 'assistant' && missions.length === 0) return 'Veuillez sélectionner au moins un type de mission.'
+        return null
+      }
+      case 3: {
+        const idDoc = fd.get('idDocument') as File
+        if (!idDoc || idDoc.size === 0) return "Veuillez téléverser votre pièce d'identité."
+        return null
+      }
+      case 4: {
+        if (!fd.get('acceptCgu')) return "Veuillez accepter les Conditions Générales d'Utilisation."
+        if (!fd.get('acceptImage')) return "Veuillez donner votre accord sur le droit à l'image."
+        return null
+      }
+    }
+    return null
+  }
+
   const goNext = () => {
+    const err = validateCurrentStep()
+    if (err) { setStepError(err); return }
+    setStepError(null)
     captureCurrentStep()
     setStep((s) => Math.min(STEPS.length - 1, s + 1))
   }
 
   const goPrev = () => {
+    setStepError(null)
     captureCurrentStep()
     if (step === 0) {
       setRole(null)
@@ -112,6 +178,9 @@ export function ChefForm() {
 
   async function onSubmit(e: { preventDefault(): void; currentTarget: HTMLFormElement }) {
     e.preventDefault()
+    const err = validateCurrentStep()
+    if (err) { setStepError(err); return }
+    setStepError(null)
     captureCurrentStep()
     setError(null)
     setSubmitting(true)
@@ -142,7 +211,16 @@ export function ChefForm() {
   if (!role) return <RoleSelector onSelect={setRole} />
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} className="flex flex-col gap-10">
+    <form
+      ref={formRef}
+      onSubmit={onSubmit}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' && (e.target as HTMLElement).tagName !== 'TEXTAREA') {
+          e.preventDefault()
+        }
+      }}
+      className="flex flex-col gap-10"
+    >
       <Stepper currentStep={step} />
 
       <AnimatePresence mode="wait">
@@ -169,6 +247,12 @@ export function ChefForm() {
         </motion.div>
       </AnimatePresence>
 
+      {stepError && (
+        <div className="flex items-start gap-3 p-4 rounded-2xl bg-orange-pale border border-orange/30 text-orange-deep text-sm">
+          <AlertCircle className="size-4 shrink-0 mt-0.5" />
+          {stepError}
+        </div>
+      )}
       {error && (
         <div className="flex items-start gap-3 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm">
           <AlertCircle className="size-4 shrink-0 mt-0.5" />
@@ -268,9 +352,7 @@ function RoleSelector({ onSelect }: { onSelect: (role: Role) => void }) {
           Comment souhaitez-vous{' '}
           <em className="italic text-orange not-italic font-display">contribuer ?</em>
         </h2>
-        <p className="text-sm text-ink/55 max-w-xs mx-auto leading-relaxed">
-          Choisissez votre rôle — le formulaire s&apos;adapte à votre profil.
-        </p>
+
       </div>
 
       {/* Cards */}
@@ -285,14 +367,14 @@ function RoleSelector({ onSelect }: { onSelect: (role: Role) => void }) {
               className="group relative overflow-hidden rounded-2xl bg-navy text-left transition-all duration-300 hover:ring-2 hover:ring-orange hover:ring-offset-2 hover:ring-offset-cream hover:-translate-y-0.5 hover:shadow-xl hover:shadow-navy/20"
             >
               {/* Decorative blob */}
-              <div className="pointer-events-none absolute -top-10 -right-10 size-48 rounded-full bg-orange/10 group-hover:bg-orange/18 transition-colors duration-300" />
-              <div className="pointer-events-none absolute -bottom-6 -left-6 size-28 rounded-full bg-cream/4 group-hover:bg-cream/8 transition-colors duration-300" />
+              {/* <div className="pointer-events-none absolute -top-10 -right-10 size-48 rounded-full bg-orange/10 group-hover:bg-orange/18 transition-colors duration-300" /> */}
+              {/* <div className="pointer-events-none absolute -bottom-6 -left-6 size-28 rounded-full bg-cream/4 group-hover:bg-cream/8 transition-colors duration-300" /> */}
 
               <div className="relative z-10 flex flex-col gap-5 p-7">
                 {/* Icon */}
-                <div className="size-13 rounded-2xl bg-orange/15 grid place-items-center self-start group-hover:bg-orange transition-colors duration-300">
+                {/* <div className="size-13 rounded-2xl bg-orange/15 grid place-items-center self-start group-hover:bg-orange transition-colors duration-300">
                   <Icon className="size-6 text-orange group-hover:text-cream transition-colors duration-300" />
-                </div>
+                </div> */}
 
                 {/* Text */}
                 <div>
@@ -747,7 +829,8 @@ function CalendlyField() {
   return (
     <div className="flex flex-col gap-2">
       <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
-        Lien de prise de rendez-vous <span className="text-orange">*</span>
+        Lien de prise de rendez-vous{' '}
+        <span className="normal-case tracking-normal font-sans text-ink/45 italic">(optionnel)</span>
       </span>
       <div className="relative">
         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-orange">
@@ -756,7 +839,6 @@ function CalendlyField() {
         <input
           type="url"
           name="calendlyLink"
-          required
           placeholder="https://calendly.com/votre-pseudo"
           className="w-full pl-11 pr-4 py-3 rounded-xl bg-cream-soft border border-navy/15 text-navy placeholder:text-ink/35 text-sm outline-none focus:border-orange focus:bg-orange-pale/20 transition-all"
         />
