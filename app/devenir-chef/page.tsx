@@ -59,6 +59,75 @@ export default function DevenirChefPage() {
         imagePosition="center 35%"
       />
 
+      {/* ── Comment ça marche ─────────────────────────────────────── */}
+      <section className="bg-white py-24 md:py-32">
+        <div className="container-wide">
+          <Reveal>
+            <div className="max-w-3xl mb-16">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
+                <span className="size-6 h-px bg-navy-mid" />
+                Le processus
+              </p>
+              <h2
+                className="font-display text-navy leading-[0.98] tracking-tight text-balance"
+                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
+              >
+                Comment ça{' '}
+                <em className="not-italic">
+                  <span className="font-display italic text-orange">
+                    marche ?
+                  </span>
+                </em>
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-4 gap-0 relative">
+            {/* ligne de connexion visible sur desktop */}
+            <div className="hidden md:block absolute top-9 left-[12.5%] right-[12.5%] h-px bg-navy/10" />
+
+            {[
+              {
+                step: '01',
+                title: 'Remplissez le formulaire',
+                body: 'Décrivez votre profil, vos spécialités culinaires et vos disponibilités en quelques minutes.',
+              },
+              {
+                step: '02',
+                title: 'Nous validons votre profil',
+                body: 'Notre équipe examine votre candidature et vous contacte pour finaliser votre intégration.',
+              },
+              {
+                step: '03',
+                title: 'Votre fiche est en ligne',
+                body: 'Votre profil est publié sur la plateforme, visible par tous les clients de votre zone.',
+              },
+              {
+                step: '04',
+                title: 'Les clients vous contactent',
+                body: 'Vous recevez les demandes directement et gérez vos interventions en totale autonomie.',
+              },
+            ].map((item, i) => (
+              <Reveal key={item.step} delay={i * 0.1}>
+                <div className="relative flex flex-col items-start md:items-center md:text-center px-6 py-4 md:py-0">
+                  <div className="relative z-10 size-[4.5rem] rounded-full bg-navy text-cream grid place-items-center mb-6 shadow-lg shrink-0">
+                    <span className="font-mono text-sm font-semibold tracking-widest text-orange">
+                      {item.step}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-lg text-navy mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-ink/65 leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── 4 perks en cards ───────────────────────────────────────── */}
       <section className="bg-cream py-24 md:py-32">
         <div className="container-wide">
@@ -107,7 +176,7 @@ export default function DevenirChefPage() {
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="relative container-wide grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-teal inline-flex items-center gap-3 mb-6">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-orange inline-flex items-center gap-3 mb-6">
               <span className="size-6 h-px bg-orange" />
               Une plateforme bienveillante
             </p>
