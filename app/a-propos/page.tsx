@@ -366,7 +366,7 @@ export default function AboutPage() {
               className="font-display italic text-cream leading-[1.15] text-balance max-w-4xl"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
-              « Laissez-nous entrer dans votre cuisine, Nous nous occupons du
+              « Laissez-nous entrer dans votre cuisine, nous nous occupons du
               reste ! »
             </blockquote>
             <div className="mt-10 flex items-center gap-4">
