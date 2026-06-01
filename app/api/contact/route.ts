@@ -65,10 +65,16 @@ function buildTransporter(mode: 'ssl' | 'starttls') {
     )
   }
 
+  // Host SMTP configurable (selon plan OVH) :
+  //   - MX Plan / domaine basique : ssl0.ovh.net (défaut)
+  //   - Email Pro                 : pro1.mail.ovh.net ou pro2.mail.ovh.net
+  //   - Exchange Hosted           : ex5.mail.ovh.net
+  const host = process.env.OVH_SMTP_HOST ?? 'ssl0.ovh.net'
+
   const isSSL = mode === 'ssl'
 
   return nodemailer.createTransport({
-    host: 'ssl0.ovh.net',
+    host,
     port: isSSL ? 465 : 587,
     secure: isSSL,
     requireTLS: !isSSL,
