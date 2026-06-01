@@ -175,7 +175,7 @@ function ShowcaseRow({
               Tarif
             </div>
             <div className="font-display text-2xl mt-1 leading-none text-cream">
-              {service.price}
+              {service.price} {service.priceNote && (<span className="text-orange">*</span>)}
             </div>
             {service.priceNote && (
               <div className="font-mono text-[0.6rem] text-orange mt-1.5 italic">

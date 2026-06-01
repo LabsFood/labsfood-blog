@@ -408,7 +408,7 @@ export const CHEFS = [
       assistance:
         "Assistante culinaire | 4 ans d'expérience en restauration et traiteur 🍽️ Que vous soyez professionnel (chef, traiteur, restaurateur) ou particulier (repas du quotidien, réceptions, accompagnement), je viens vous prêter main-forte en cuisine ! Contactez-moi pour planifier notre prochaine collaboration ! 👩‍🍳",
       atelier:
-        "Animatrice d'ateliers cuisine à domicile 🍽️ Vous avez envie de cuisiner ce que vous avez toujours voulu apprendre, de partager une activité originale en famille ou d'animer un événement entre amis ? Je propose des sessions personnalisées adaptées à tous les niveaux et tous les publics. Un moment d'apprentissage, de partage et de plaisir — directement chez vous. Contactez-moi pour planifier votre atelier ! 👩‍🍳",
+        "Vous avez envie de cuisiner ce que vous avez toujours voulu apprendre, de partager une activité originale en famille ou d'animer un événement entre amis ? Je propose des sessions personnalisées adaptées à tous les niveaux et tous les publics. Un moment d'apprentissage, de partage et de plaisir — directement chez vous. Contactez-moi pour planifier votre atelier ! 👩‍🍳",
     } as { atelier?: string; assistance?: string },
     badges: ["4 ans", 'Restauration & traiteur'],
     certifications: [] as string[],

@@ -154,7 +154,7 @@ export function ContactForm() {
         />
         <Field
           id="email"
-          label="Email"
+          label="E-mail"
           icon={Mail}
           type="email"
           value={fields.email}

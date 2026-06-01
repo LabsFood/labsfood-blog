@@ -63,12 +63,12 @@ export default function ContactPage() {
             />
             <ContactCard
               icon={Mail}
-              kicker="Email professionnel"
-              title="Par email"
+              kicker="E-mail professionnel"
+              title="Par e-mail"
               body={SITE.email}
               note="Réponse sous 24h ouvrées"
               href={`mailto:${SITE.email}`}
-              ctaLabel="Envoyer un email"
+              ctaLabel="Envoyer un e-mail"
               variant="default"
             />
             {/* <ContactCard
