@@ -34,7 +34,7 @@ const NAV: NavItem[] = [
         label: 'Batch Cooking',
         href: '/services/batch-cooking',
         icon: CalendarCheck,
-        desc: 'Repas préparés pour la semaine',
+        desc: 'Repas cuisinés',
       },
       {
         label: 'Assistance Culinaire',
@@ -46,7 +46,7 @@ const NAV: NavItem[] = [
         label: 'Atelier Culinaire',
         href: '/services/atelier-culinaire',
         icon: GraduationCap,
-        desc: 'Cours de cuisine en groupe',
+        desc: 'Cours de cuisine',
       },
     ],
   },

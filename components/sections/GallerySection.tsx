@@ -26,7 +26,7 @@ const GALLERY = [
   { src: '/assets/photo-13.jpeg', alt: 'Dressage soigné', aspect: 'tall' },
   { src: '/assets/poissonn.jpeg', alt: 'Assistance culinaire', aspect: 'square' },
   { src: '/assets/photo-10.jpeg', alt: 'Assistance culinaire 2', aspect: 'square' },
-  { src: '/assets/gallerie/elle.jpeg', alt: 'elle', aspect: 'square' },
+  { src: '/assets/gallerie/bobolo.jpeg', alt: 'elle', aspect: 'square' },
 ]
 
 export function GallerySection() {

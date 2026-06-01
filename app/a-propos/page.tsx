@@ -271,7 +271,7 @@ export default function AboutPage() {
               </h2>
               <p className="mt-6 text-ink/70 leading-relaxed text-justify max-w-xl">
                 Du premier <strong>"riz sauté"</strong>  au Cameroun à la naissance officielle de la
-                maison en Franc, l&apos;histoire d&apos;une intuition qui a
+                maison en France, l&apos;histoire d&apos;une intuition qui a
                 pris six ans pour devenir une plateforme.
               </p>
             </div>
