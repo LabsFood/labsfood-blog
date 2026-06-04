@@ -48,21 +48,12 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     siteName: "Lab's Food",
-    images: [
-      {
-        url: '/assets/koss.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'Kossam — Boisson lactée fermentée artisanale de Lab\'s Food',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Kossam — Boisson lactée fermentée · Lab\'s Food',
     description:
       "Boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. À partir de 20€.",
-    images: ['/assets/koss.jpeg'],
   },
 }
 
