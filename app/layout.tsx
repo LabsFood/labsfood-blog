@@ -53,26 +53,50 @@ export const metadata: Metadata = {
     template: "%s · Lab's Food",
   },
   description:
-    "Lab's Food, fondé par Ivy, propose ateliers de cuisine du monde à domicile, batch cooking sur-mesure et produits artisanaux comme le Kossam.",
+    "Lab's Food, fondé par Ivy : ateliers de cuisine du monde à domicile, batch cooking sur-mesure et le Kossam — boisson lactée fermentée d'inspiration camerounaise.",
   applicationName: "Lab's Food",
   keywords: [
     "atelier culinaire",
     "batch cooking",
     'kossam',
+    'boisson lactée fermentée',
     'chef à domicile',
     'cuisine du monde',
     "Lab's Food",
     "Côte d'Azur",
+    'cuisine africaine',
+    'Nice',
+    'Cannes',
   ],
   authors: [{ name: "Lab's Food" }],
   icons: { icon: '/favicon.png' },
   openGraph: {
     title: "Lab's Food — We create what you love!",
     description:
-      'Ateliers, batch cooking & produits artisanaux.',
+      "Ateliers de cuisine du monde, batch cooking sur-mesure et le Kossam — boisson lactée fermentée d'inspiration camerounaise. Livraison Côte d'Azur.",
     type: 'website',
     locale: 'fr_FR',
     siteName: "Lab's Food",
+    images: [
+      {
+        url: '/assets/photo-1.jpeg',
+        width: 1200,
+        height: 630,
+        alt: "Lab's Food — We create what you love!",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Lab's Food — We create what you love!",
+    description:
+      "Ateliers de cuisine du monde, batch cooking sur-mesure et le Kossam.",
+    images: ['/assets/photo-1.jpeg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
   formatDetection: { telephone: false },
 }

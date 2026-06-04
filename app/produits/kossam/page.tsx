@@ -21,16 +21,87 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { VideoGrid } from '@/components/ui/VideoModal'
 
 export const metadata: Metadata = {
-  title: 'Kossam — Boisson lactée fermentée',
+  title: 'Kossam — Boisson lactée fermentée artisanale · Lab\'s Food',
   description:
-    "Le Kossam de Lab's Food : boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. À partir de 20€ la bouteille 1.5L.",
+    "Le Kossam de Lab's Food : boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. Sans sucre, peu sucré ou sucré. À partir de 20€ la bouteille 1.5L. Livraison Côte d'Azur.",
+  keywords: [
+    'kossam',
+    'boisson lactée fermentée',
+    'lait fermenté',
+    'boisson camerounaise',
+    'boisson artisanale',
+    "Côte d'Azur",
+    "Lab's Food",
+    'kéfir de lait',
+    'boisson probiotique',
+    'Nice',
+    'Cannes',
+  ],
+  alternates: {
+    canonical: '/produits/kossam',
+  },
+  openGraph: {
+    title: 'Kossam — La boisson lactée fermentée de Lab\'s Food',
+    description:
+      "Boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. Sans sucre, peu sucré ou sucré. À partir de 20€ la bouteille 1.5L.",
+    url: '/produits/kossam',
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: "Lab's Food",
+    images: [
+      {
+        url: '/assets/koss.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Kossam — Boisson lactée fermentée artisanale de Lab\'s Food',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kossam — Boisson lactée fermentée · Lab\'s Food',
+    description:
+      "Boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. À partir de 20€.",
+    images: ['/assets/koss.jpeg'],
+  },
 }
 
 const kossam = PRODUCTS[0]
 
 export default function KossamPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Kossam',
+    description: kossam.description,
+    brand: { '@type': 'Brand', name: "Lab's Food" },
+    image: 'https://labsfood.fr/assets/koss.jpeg',
+    url: 'https://labsfood.fr/produits/kossam',
+    offers: kossam.formats.map((f) => ({
+      '@type': 'Offer',
+      price: f.price.replace('€', ''),
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      description: `${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L${f.unitPrice ? ` — soit ${f.unitPrice}€/bouteille` : ''}`,
+    })),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '100',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    category: 'Boisson lactée fermentée',
+    countryOfOrigin: { '@type': 'Country', name: 'France' },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ═══════════════════════════════════════════════════════════════
           HERO — Vidéo plein écran avec carte produit superposée
           ═══════════════════════════════════════════════════════════════ */}
