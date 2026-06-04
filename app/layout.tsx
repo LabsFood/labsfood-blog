@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lab's Food — We create what you love!",
     description:
-      "Ateliers de cuisine du monde, batch cooking sur-mesure et le Kossam — boisson lactée fermentée d'inspiration camerounaise. Livraison Côte d'Azur.",
+      "Batch cooking, Assistance culinaire, Ateliers de cuisine & Kossam",
     type: 'website',
     locale: 'fr_FR',
     siteName: "Lab's Food",
