@@ -75,11 +75,11 @@ export default function ProduitsPage() {
                   <div className="flex flex-wrap gap-3 mt-6">
                     {kossam.formats.map((f) => (
                       <div
-                        key={f.size}
+                        key={f.qty}
                         className="px-4 py-2 rounded-full border border-cream/30 backdrop-blur-sm text-sm flex items-center gap-2"
                       >
                         <span className="font-mono text-xs text-white">
-                          {f.size}
+                          {f.qty} bouteille{f.qty > 1 ? 's' : ''} · 1.5L
                         </span>
                         <span className="font-display text-base text-white">{f.price}</span>
                       </div>
