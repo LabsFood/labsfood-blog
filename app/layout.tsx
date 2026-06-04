@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     siteName: "Lab's Food",
     images: [
       {
-        url: '/assets/photo-1.jpeg',
+        url: '/logoLab.png',
         width: 1200,
         height: 630,
         alt: "Lab's Food — We create what you love!",
@@ -91,14 +91,14 @@ export const metadata: Metadata = {
     title: "Lab's Food — We create what you love!",
     description:
       "Ateliers de cuisine du monde, batch cooking sur-mesure et le Kossam.",
-    images: ['/assets/photo-1.jpeg'],
+    images: ['/logoLab.png'],
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  formatDetection: { telephone: false },
+  formatDetection: { telephone: true },
 }
 
 export const viewport: Viewport = {
