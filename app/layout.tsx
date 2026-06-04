@@ -6,7 +6,6 @@ import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
-import { SplashScreen } from '@/components/layout/SplashScreen'
 
 // ── Fraunces — police display (fichiers locaux, variable font) ───────────────
 // display: 'block' → le texte reste invisible jusqu'au chargement de Fraunces,
@@ -99,7 +98,6 @@ export default function RootLayout({
       className={`${fraunces.variable} ${montserrat.variable} `}
     >
       <body className="bg-cream text-ink font-sans antialiased">
-        <SplashScreen />
         {/* <AnnouncementBar /> */}
         <Header />
         <main>{children}</main>

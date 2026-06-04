@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {
   ArrowUpRight,
   Check,
-
+  Info,
   MapPin,
   ShieldCheck,
   Snowflake,
@@ -120,41 +120,66 @@ export default function KossamPage() {
                 </div>
 
                 <div className="mt-5 grid grid-cols-2 gap-3">
-                  {kossam.formats.map((f) => (
-                    <a
-                      key={f.size}
-                      href={whatsappLink(
-                        `Bonjour Lab's Food, je souhaite commander du Kossam — format ${f.size} (${f.price})`,
-                      )}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group relative block p-5 rounded-2xl bg-cream/5 border border-cream/15 hover:bg-cream hover:border-cream transition-all duration-500"
-                    >
-                      <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/65 group-hover:text-navy/60">
-                        {f.size}
+                  {kossam.formats.map((f) =>
+                    f.outOfStock ? (
+                      <div
+                        key={f.size}
+                        className="relative block p-5 rounded-2xl bg-cream/5 border border-cream/15 opacity-50 cursor-not-allowed select-none"
+                      >
+                        <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/65">
+                          {f.size}
+                        </div>
+                        <div className="font-display text-3xl text-cream/60 mt-1 line-through">
+                          {f.price}
+                        </div>
+                        <div className="absolute top-3 right-3 px-1.5 py-0.5 rounded bg-red-400/30 text-red-200 font-mono text-[0.5rem] uppercase tracking-[0.12em]">
+                          Épuisé
+                        </div>
                       </div>
-                      <div className="font-display text-3xl text-cream group-hover:text-navy mt-1">
-                        {f.price}
-                      </div>
-                      <ArrowUpRight className="absolute top-4 right-4 size-4 text-cream/40 group-hover:text-mint-ink group-hover:rotate-45 transition-all" />
-                    </a>
-                  ))}
+                    ) : (
+                      <a
+                        key={f.size}
+                        href={whatsappLink(
+                          `Bonjour Lab's Food, je souhaite commander du Kossam — format ${f.size} (${f.price})`,
+                        )}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group relative block p-5 rounded-2xl bg-cream/5 border border-cream/15 hover:bg-cream hover:border-cream transition-all duration-500"
+                      >
+                        <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/65 group-hover:text-navy/60">
+                          {f.size}
+                        </div>
+                        <div className="font-display text-3xl text-cream group-hover:text-navy mt-1">
+                          {f.price}
+                        </div>
+                        <ArrowUpRight className="absolute top-4 right-4 size-4 text-cream/40 group-hover:text-mint-ink group-hover:rotate-45 transition-all" />
+                      </a>
+                    )
+                  )}
+                </div>
+
+                {/* Notice packaging */}
+                <div className="mt-4 flex items-start gap-2 text-xs text-cream/55 leading-relaxed">
+                  <Info className="size-3.5 shrink-0 mt-0.5 text-cream/40" />
+                  <span>
+                    Les bouteilles <strong className="text-cream/75 font-medium">0.5L</strong> sont livrées scellées.
+                    Les bouteilles <strong className="text-cream/75 font-medium">1.5L</strong> sont livrées non scellées.
+                  </span>
                 </div>
 
                 <Button
                   asChild
                   variant="whatsapp"
                   size="lg"
-                  className="w-full mt-5 justify-center "
+                  className="w-full mt-5 justify-center"
                 >
                   <a
                     href={whatsappLink(
-                      "Bonjour Lab's Food, je souhaite commander du Kossam — format : ",
+                      "Bonjour Lab's Food, je souhaite commander du Kossam — format 1.5L (20€)",
                     )}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {/* <WhatsAppIcon className="size-4" /> */}
                     Commander sur WhatsApp
                   </a>
                 </Button>
@@ -451,25 +476,21 @@ export default function KossamPage() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
+                  {/* 0.5L — rupture de stock */}
+                  <div className="w-full flex items-center justify-between px-6 py-3.5 rounded-xl bg-cream/10 border border-cream/15 text-cream/40 cursor-not-allowed select-none">
+                    <span className="flex items-center gap-2 text-sm font-medium line-through">
+                      <WhatsAppIcon className="size-4 opacity-40" />
+                      Commander 0.5L · 7€
+                    </span>
+                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-cream/50 no-underline">
+                      Rupture de stock
+                    </span>
+                  </div>
+
                   <Button asChild variant="whatsapp" size="lg" className="w-full justify-between">
                     <a
                       href={whatsappLink(
-                        "Bonjour Lab's Food, je souhaite commander du Kossam — format 0.5L (7€)",
-                      )}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="flex items-center gap-2">
-                        <WhatsAppIcon className="size-4" />
-                        Commander 0.5L · 7€
-                      </span>
-                      <ArrowUpRight className="size-4" />
-                    </a>
-                  </Button>
-                  <Button asChild variant="whatsapp" size="lg" className="w-full justify-between">
-                    <a
-                      href={whatsappLink(
-                        "Bonjour Lab's Food, je souhaite commander du Kossam — format 1.5L (19.99€)",
+                        "Bonjour Lab's Food, je souhaite commander du Kossam — format 1.5L (20€)",
                       )}
                       target="_blank"
                       rel="noreferrer"
@@ -481,6 +502,15 @@ export default function KossamPage() {
                       <ArrowUpRight className="size-4" />
                     </a>
                   </Button>
+
+                  {/* Notice packaging */}
+                  <div className="flex items-start gap-2 text-xs text-cream/50 leading-relaxed pt-1">
+                    <Info className="size-3.5 shrink-0 mt-0.5 text-cream/40" />
+                    <span>
+                      Bouteilles <strong className="text-cream/65 font-medium">0.5L</strong> scellées ·{' '}
+                      bouteilles <strong className="text-cream/65 font-medium">1.5L</strong> non scellées
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

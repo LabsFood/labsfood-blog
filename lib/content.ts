@@ -64,8 +64,8 @@ export const PRODUCTS = [
     tagline: 'Boisson lactée faite avec beaucoup d’amour pour vous',
     status: 'available' as const,
     formats: [
-      { size: '0.5L', price: '7€' },
-      { size: '1.5L', price: '20€' },
+      { size: '0.5L', price: '7€', outOfStock: true },
+      { size: '1.5L', price: '20€', outOfStock: false },
     ],
     short:
       "L'alternative onctueuse, légèrement acidulée, inspirée d'un précieux savoir-faire camerounais.",

@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   ArrowUpRight,
+  Info,
   Sparkles,
   ShieldCheck,
   MapPin,
   Truck,
-
 } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
@@ -118,19 +118,33 @@ export function ProductsSection() {
                 {kossam.formats.map((f) => (
                   <div
                     key={f.size}
-                    className="flex items-baseline justify-between py-4 border-b border-navy/10"
+                    className="flex items-center justify-between py-4 border-b border-navy/10"
                   >
                     <div className="flex items-baseline gap-4">
-                      <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/55 tabular-nums">
+                      <span className={`font-mono text-[0.7rem] uppercase tracking-[0.2em] tabular-nums ${f.outOfStock ? 'text-ink/30' : 'text-ink/55'}`}>
                         {f.size}
                       </span>
                       <span className="text-sm text-ink/70">Format bouteille</span>
+                      {f.outOfStock && (
+                        <span className="px-2 py-0.5 rounded-full bg-red-100 text-red-500 font-mono text-[0.55rem] uppercase tracking-[0.15em]">
+                          Épuisé
+                        </span>
+                      )}
                     </div>
-                    <span className="font-display text-2xl text-navy tabular-nums">
+                    <span className={`font-display text-2xl tabular-nums ${f.outOfStock ? 'text-navy/30 line-through' : 'text-navy'}`}>
                       {f.price}
                     </span>
                   </div>
                 ))}
+              </div>
+
+              {/* Notice packaging */}
+              <div className="mt-4 flex items-start gap-2 text-xs text-ink/50 leading-relaxed">
+                <Info className="size-3.5 shrink-0 mt-0.5 text-ink/35" />
+                <span>
+                  Bouteilles <strong className="text-ink/65 font-medium">0.5L</strong> scellées ·{' '}
+                  bouteilles <strong className="text-ink/65 font-medium">1.5L</strong> non scellées
+                </span>
               </div>
 
               {/* Bouton + livraison */}
@@ -138,7 +152,7 @@ export function ProductsSection() {
                 <Button asChild variant="whatsapp" size="lg" className="w-full sm:w-auto">
                   <a
                     href={whatsappLink(
-                      "Bonjour Lab's Food, je souhaite commander du Kossam — format : ",
+                      "Bonjour Lab's Food, je souhaite commander du Kossam — format 1.5L (20€)",
                     )}
                     target="_blank"
                     rel="noreferrer"
@@ -251,12 +265,12 @@ export function ProductsSection() {
 
         <Reveal>
           <div className="mt-24 md:mt-32 border-t border-navy/10 pt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Info
+            <InfoItem
               icon={MapPin}
               title="Kossam"
               body="Livraison sur la Côte d'Azur et bientot toute la France"
             />
-            <Info
+            <InfoItem
               icon={ShieldCheck}
               title="Qualité garantie"
               body="Maison certifiée HACCP"
@@ -268,7 +282,7 @@ export function ProductsSection() {
   )
 }
 
-function Info({
+function InfoItem({
   icon: Icon,
   title,
   body,
