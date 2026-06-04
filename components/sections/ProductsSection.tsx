@@ -117,34 +117,46 @@ export function ProductsSection() {
               <div className="mt-10 border-t border-navy/10">
                 {kossam.formats.map((f) => (
                   <div
-                    key={f.size}
+                    key={f.qty}
                     className="flex items-center justify-between py-4 border-b border-navy/10"
                   >
-                    <div className="flex items-baseline gap-4">
-                      <span className={`font-mono text-[0.7rem] uppercase tracking-[0.2em] tabular-nums ${f.outOfStock ? 'text-ink/30' : 'text-ink/55'}`}>
-                        {f.size}
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/55 tabular-nums">
+                        {f.qty} bouteille{f.qty > 1 ? 's' : ''} · 1.5L
                       </span>
-                      <span className="text-sm text-ink/70">Format bouteille</span>
-                      {f.outOfStock && (
-                        <span className="px-2 py-0.5 rounded-full bg-red-100 text-red-500 font-mono text-[0.55rem] uppercase tracking-[0.15em]">
-                          Épuisé
-                        </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-display text-2xl text-navy tabular-nums">
+                        {f.price}
+                      </span>
+                      {f.unitPrice && (
+                        <div className="font-mono text-[0.6rem] text-ink/40 mt-0.5">
+                          soit {f.unitPrice}€/btl
+                        </div>
                       )}
                     </div>
-                    <span className={`font-display text-2xl tabular-nums ${f.outOfStock ? 'text-navy/30 line-through' : 'text-navy'}`}>
-                      {f.price}
-                    </span>
                   </div>
                 ))}
               </div>
 
-              {/* Notice packaging */}
-              <div className="mt-4 flex items-start gap-2 text-xs text-ink/50 leading-relaxed">
-                <Info className="size-3.5 shrink-0 mt-0.5 text-ink/35" />
-                <span>
-                  Bouteilles <strong className="text-ink/65 font-medium">0.5L</strong> scellées ·{' '}
-                  bouteilles <strong className="text-ink/65 font-medium">1.5L</strong> non scellées
-                </span>
+              {/* Mention sucrosité + Zéro Gaspi */}
+              <div className="mt-4 flex flex-col gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  {['Sans sucre', 'Peu sucré', 'Sucré'].map((s) => (
+                    <span
+                      key={s}
+                      className="px-2 py-0.5 rounded-full bg-navy/5 border border-navy/10 text-ink/55 font-mono text-[0.55rem] uppercase tracking-[0.12em]"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-start gap-2 text-[0.65rem] text-ink/40 leading-relaxed">
+                  <Info className="size-3 shrink-0 mt-0.5 text-ink/30" />
+                  <span>
+                    Zéro Gaspi : embouteillé dans la bouteille d&apos;eau minérale neuve et stérile ayant servi à sa préparation.
+                  </span>
+                </div>
               </div>
 
               {/* Bouton + livraison */}
@@ -152,7 +164,7 @@ export function ProductsSection() {
                 <Button asChild variant="whatsapp" size="lg" className="w-full sm:w-auto">
                   <a
                     href={whatsappLink(
-                      "Bonjour Lab's Food, je souhaite commander du Kossam — format 1.5L (20€)",
+                      "Bonjour Lab's Food, je souhaite commander du Kossam — ",
                     )}
                     target="_blank"
                     rel="noreferrer"

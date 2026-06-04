@@ -23,7 +23,7 @@ import { VideoGrid } from '@/components/ui/VideoModal'
 export const metadata: Metadata = {
   title: 'Kossam — Boisson lactée fermentée',
   description:
-    "Le Kossam de Lab's Food : boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. 7€ (0.5L) et 19,99€ (1.5L).",
+    "Le Kossam de Lab's Food : boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. À partir de 20€ la bouteille 1.5L.",
 }
 
 const kossam = PRODUCTS[0]
@@ -116,73 +116,60 @@ export default function KossamPage() {
                 </div>
 
                 <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
-                  Disponible en deux formats
+                  Format unique · Bouteilles 1.5L
                 </div>
 
-                <div className="mt-5 grid grid-cols-2 gap-3">
-                  {kossam.formats.map((f) =>
-                    f.outOfStock ? (
-                      <div
-                        key={f.size}
-                        className="relative block p-5 rounded-2xl bg-cream/5 border border-cream/15 opacity-50 cursor-not-allowed select-none"
-                      >
-                        <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/65">
-                          {f.size}
+                {/* Types de sucrosité */}
+                <div className="mt-3 flex items-center gap-2 flex-wrap">
+                  {['Sans sucre', 'Peu sucré', 'Sucré'].map((s) => (
+                    <span
+                      key={s}
+                      className="px-2.5 py-1 rounded-full bg-cream/10 border border-cream/20 text-white font-mono text-[0.55rem] uppercase tracking-[0.12em]"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Lignes de prix par quantité */}
+                <div className="mt-5 flex flex-col gap-2">
+                  {kossam.formats.map((f) => (
+                    <a
+                      key={f.qty}
+                      href={whatsappLink(
+                        `Bonjour Lab's Food, je souhaite commander du Kossam — ${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L (${f.price})`,
+                      )}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group relative flex items-center justify-between p-4 rounded-xl bg-cream/5 border border-cream/15 hover:bg-cream hover:border-cream transition-all duration-500"
+                    >
+                      <div>
+                        <div className="font-mono text-sm uppercase tracking-[0.2em] text-white group-hover:text-navy/60">
+                          {f.qty} bouteille{f.qty > 1 ? 's' : ''} · 1.5L
                         </div>
-                        <div className="font-display text-3xl text-cream/60 mt-1 line-through">
-                          {f.price}
-                        </div>
-                        <div className="absolute top-3 right-3 px-1.5 py-0.5 rounded bg-red-400/30 text-red-200 font-mono text-[0.5rem] uppercase tracking-[0.12em]">
-                          Épuisé
-                        </div>
-                      </div>
-                    ) : (
-                      <a
-                        key={f.size}
-                        href={whatsappLink(
-                          `Bonjour Lab's Food, je souhaite commander du Kossam — format ${f.size} (${f.price})`,
+                        {f.unitPrice && (
+                          <div className="text-xs text-white group-hover:text-navy/45 mt-0.5">
+                            soit {f.unitPrice} la bouteille
+                          </div>
                         )}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group relative block p-5 rounded-2xl bg-cream/5 border border-cream/15 hover:bg-cream hover:border-cream transition-all duration-500"
-                      >
-                        <div className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/65 group-hover:text-navy/60">
-                          {f.size}
-                        </div>
-                        <div className="font-display text-3xl text-cream group-hover:text-navy mt-1">
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="font-display text-2xl text-cream group-hover:text-navy">
                           {f.price}
                         </div>
-                        <ArrowUpRight className="absolute top-4 right-4 size-4 text-cream/40 group-hover:text-mint-ink group-hover:rotate-45 transition-all" />
-                      </a>
-                    )
-                  )}
+                        <ArrowUpRight className="size-4 text-cream/40 group-hover:text-mint-ink group-hover:rotate-45 transition-all" />
+                      </div>
+                    </a>
+                  ))}
                 </div>
 
-                {/* Notice packaging */}
-                <div className="mt-4 flex items-start gap-2 text-xs text-cream/55 leading-relaxed">
-                  <Info className="size-3.5 shrink-0 mt-0.5 text-cream/40" />
+                {/* Mention Zéro Gaspi */}
+                <div className="mt-4 flex items-start gap-2 text-[0.65rem] text-white leading-relaxed">
+                  <Info className="size-3 shrink-0 mt-0.5 text-white  " />
                   <span>
-                    Les bouteilles <strong className="text-cream/75 font-medium">0.5L</strong> sont livrées scellées.
-                    Les bouteilles <strong className="text-cream/75 font-medium">1.5L</strong> sont livrées non scellées.
+                    Zéro Gaspi chez Lab&apos;s Food : votre Kossam est embouteillé directement dans la bouteille d&apos;eau minérale neuve et stérile ayant servi à sa préparation.
                   </span>
                 </div>
-
-                <Button
-                  asChild
-                  variant="whatsapp"
-                  size="lg"
-                  className="w-full mt-5 justify-center"
-                >
-                  <a
-                    href={whatsappLink(
-                      "Bonjour Lab's Food, je souhaite commander du Kossam — format 1.5L (20€)",
-                    )}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Commander sur WhatsApp
-                  </a>
-                </Button>
 
                 <div className="mt-5 pt-5 border-t border-cream/15 flex items-center gap-2 text-xs text-cream/65">
                   <MapPin className="size-3.5 text-white" />
@@ -471,44 +458,39 @@ export default function KossamPage() {
                     <span className="italic">Kossam</span> ?
                   </h2>
                   <p className="mt-6 text-cream/85 text-lg max-w-md">
-                    Une discussion WhatsApp suffit. Précisez le format et la quantité, on
-                    s&apos;occupe du reste.
+                    Un message WhatsApp suffit — choisissez votre quantité, on s&apos;occupe du reste.
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
-                  {/* 0.5L — rupture de stock */}
-                  <div className="w-full flex items-center justify-between px-6 py-3.5 rounded-xl bg-cream/10 border border-cream/15 text-cream/40 cursor-not-allowed select-none">
-                    <span className="flex items-center gap-2 text-sm font-medium line-through">
-                      <WhatsAppIcon className="size-4 opacity-40" />
-                      Commander 0.5L · 7€
-                    </span>
-                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-cream/50 no-underline">
-                      Rupture de stock
-                    </span>
-                  </div>
+                  {kossam.formats.map((f) => (
+                    <Button key={f.qty} asChild variant="whatsapp" size="lg" className="w-full justify-between">
+                      <a
+                        href={whatsappLink(
+                          `Bonjour Lab's Food, je souhaite commander du Kossam — ${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L (${f.price})`,
+                        )}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span className="flex items-center gap-2">
+                          <WhatsAppIcon className="size-4" />
+                          {f.qty} bouteille{f.qty > 1 ? 's' : ''} · 1.5L · {f.price}
+                        </span>
+                        <span className="flex items-center gap-3">
+                          {f.unitPrice && (
+                            <span className="font-mono text-[0.6rem] opacity-75">
+                              soit {f.unitPrice}€/btl
+                            </span>
+                          )}
+                          <ArrowUpRight className="size-4" />
+                        </span>
+                      </a>
+                    </Button>
+                  ))}
 
-                  <Button asChild variant="whatsapp" size="lg" className="w-full justify-between">
-                    <a
-                      href={whatsappLink(
-                        "Bonjour Lab's Food, je souhaite commander du Kossam — format 1.5L (20€)",
-                      )}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="flex items-center gap-2">
-                        <WhatsAppIcon className="size-4" />
-                        Commander 1.5L · 20€
-                      </span>
-                      <ArrowUpRight className="size-4" />
-                    </a>
-                  </Button>
-
-                  {/* Notice packaging */}
-                  <div className="flex items-start gap-2 text-xs text-cream/50 leading-relaxed pt-1">
-                    <Info className="size-3.5 shrink-0 mt-0.5 text-cream/40" />
+                  <div className="flex items-start gap-2 text-[0.65rem] text-cream/50 leading-relaxed pt-1">
+                    <Info className="size-3 shrink-0 mt-0.5 text-cream/35" />
                     <span>
-                      Bouteilles <strong className="text-cream/65 font-medium">0.5L</strong> scellées ·{' '}
-                      bouteilles <strong className="text-cream/65 font-medium">1.5L</strong> non scellées
+                      Zéro Gaspi : votre Kossam est embouteillé dans la bouteille d&apos;eau minérale neuve et stérile ayant servi à sa préparation.
                     </span>
                   </div>
                 </div>
