@@ -115,16 +115,17 @@ export default function KossamPage() {
                   HACCP
                 </div>
 
-                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
-                  Format unique · Bouteilles 1.5L
+                <div className="font-display text-[0.65rem] uppercase tracking-[0.25em] text-white">
+                  Format unique · Bouteilles de 1.5L
                 </div>
 
                 {/* Types de sucrosité */}
+                <h2 className='text-cream font-mono text-md mt-4'>Types de sucrosité</h2>
                 <div className="mt-3 flex items-center gap-2 flex-wrap">
                   {['Sans sucre', 'Peu sucré', 'Sucré'].map((s) => (
                     <span
                       key={s}
-                      className="px-2.5 py-1 rounded-full bg-cream/10 border border-cream/20 text-white font-mono text-[0.55rem] uppercase tracking-[0.12em]"
+                      className="px-2.5 py-1 rounded-full bg-cream border border-cream/20 text-ink font-bold text-[0.55rem] uppercase tracking-[0.12em]"
                     >
                       {s}
                     </span>
@@ -144,11 +145,11 @@ export default function KossamPage() {
                       className="group relative flex items-center justify-between p-4 rounded-xl bg-cream/5 border border-cream/15 hover:bg-cream hover:border-cream transition-all duration-500"
                     >
                       <div>
-                        <div className="font-mono text-sm uppercase tracking-[0.2em] text-white group-hover:text-navy/60">
-                          {f.qty} bouteille{f.qty > 1 ? 's' : ''} · 1.5L
+                        <div className="font-mono text-sm uppercase tracking-[0.2em] text-white group-hover:text-navy">
+                          {f.qty} bouteille{f.qty > 1 ? 's' : ''}
                         </div>
                         {f.unitPrice && (
-                          <div className="text-xs text-white group-hover:text-navy/45 mt-0.5">
+                          <div className="text-xs text-white group-hover:text-navy mt-0.5">
                             soit {f.unitPrice} la bouteille
                           </div>
                         )}
@@ -167,7 +168,7 @@ export default function KossamPage() {
                 <div className="mt-4 flex items-start gap-2 text-[0.65rem] text-white leading-relaxed">
                   <Info className="size-3 shrink-0 mt-0.5 text-white  " />
                   <span>
-                    Zéro Gaspi chez Lab&apos;s Food : votre Kossam est embouteillé directement dans la bouteille d&apos;eau minérale neuve et stérile ayant servi à sa préparation.
+                    Zéro Gaspi chez Lab&apos;s Food : votre Kossam est embouteillé directement dans la bouteille d&apos;eau minérale neuve et stérilisé ayant servi à sa préparation.
                   </span>
                 </div>
 
@@ -490,7 +491,7 @@ export default function KossamPage() {
                   <div className="flex items-start gap-2 text-[0.65rem] text-cream/50 leading-relaxed pt-1">
                     <Info className="size-3 shrink-0 mt-0.5 text-cream/35" />
                     <span>
-                      Zéro Gaspi : votre Kossam est embouteillé dans la bouteille d&apos;eau minérale neuve et stérile ayant servi à sa préparation.
+                      Zéro Gaspi : votre Kossam est embouteillé dans la bouteille d&apos;eau minérale neuve et stérilisé ayant servi à sa préparation.
                     </span>
                   </div>
                 </div>
