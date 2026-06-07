@@ -46,12 +46,9 @@ export default function DevenirChefPage() {
         eyebrow="Rejoignez la maison"
         title={
           <>
-            Donnez des cours de cuisine{' '}
-            <em className="not-italic">
-              <span className="font-display italic text-orange">
-                à domicile.
-              </span>
-            </em>
+            <span className="font-display italic text-orange">
+              Nous rejoindre.
+            </span>
           </>
         }
         lede="Lab's Food est une plateforme qui permet aux passionnés de cuisine de proposer leurs propres ateliers, gratuitement pour le moment. Voici comment ça marche."
@@ -129,7 +126,7 @@ export default function DevenirChefPage() {
       </section>
 
       {/* ── 4 perks en cards ───────────────────────────────────────── */}
-      <section className="bg-cream py-24 md:py-32">
+      {/* <section className="bg-cream py-24 md:py-32">
         <div className="container-wide">
           <Reveal>
             <div className="max-w-3xl mb-16">
@@ -169,9 +166,44 @@ export default function DevenirChefPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Bloc accréditation ─────────────────────────────────────── */}
+
+
+      {/* ── Formulaire ─────────────────────────────────────────────── */}
+      <section
+        id="formulaire"
+        className="bg-cream-soft py-24 md:py-32 scroll-mt-20"
+      >
+        <div className="container-narrow">
+          <div className="mb-12 max-w-2xl">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
+              <span className="size-6 h-px bg-navy-mid" />
+              Formulaire d&apos;intégration
+            </p>
+            <h2
+              className="font-display text-navy leading-tight text-balance"
+              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+            >
+              Rejoignez{' '}
+              <em className="not-italic">
+                <span className="font-display italic text-navy-mid">
+                  l&apos;aventure.
+                </span>
+              </em>
+            </h2>
+            <p className="mt-4 text-ink/70 leading-relaxed">
+              Tous les champs marqués d&apos;une étoile{' '}
+              <span className="text-navy-mid">*</span> sont obligatoires. Les
+              justificatifs peuvent être complétés a posteriori si besoin.
+            </p>
+          </div>
+          <div className="bg-cream rounded-3xl border border-navy/10 p-8 md:p-10 shadow-xl">
+            <ChefForm />
+          </div>
+        </div>
+      </section>
       <section className="bg-navy text-cream py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-grain opacity-[0.05]" />
         <div className="relative container-wide grid lg:grid-cols-12 gap-10 items-center">
@@ -208,40 +240,6 @@ export default function DevenirChefPage() {
                 le moment.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Formulaire ─────────────────────────────────────────────── */}
-      <section
-        id="formulaire"
-        className="bg-cream-soft py-24 md:py-32 scroll-mt-20"
-      >
-        <div className="container-narrow">
-          <div className="mb-12 max-w-2xl">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-6">
-              <span className="size-6 h-px bg-navy-mid" />
-              Formulaire d&apos;intégration
-            </p>
-            <h2
-              className="font-display text-navy leading-tight text-balance"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
-            >
-              Rejoignez{' '}
-              <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
-                  l&apos;aventure.
-                </span>
-              </em>
-            </h2>
-            <p className="mt-4 text-ink/70 leading-relaxed">
-              Tous les champs marqués d&apos;une étoile{' '}
-              <span className="text-navy-mid">*</span> sont obligatoires. Les
-              justificatifs peuvent être complétés a posteriori si besoin.
-            </p>
-          </div>
-          <div className="bg-cream rounded-3xl border border-navy/10 p-8 md:p-10 shadow-xl">
-            <ChefForm />
           </div>
         </div>
       </section>

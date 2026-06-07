@@ -12,21 +12,36 @@ const NAVY_DEEP = '#001833'
 const CREAM     = '#F4F6F7'
 const MINT_DEEP = '#A8E5D8'
 
+/** Charge une graisse fixe depuis Google Fonts (satori n'accepte pas les variables fonts). */
+async function loadGoogleFont(family: string, weight: number): Promise<ArrayBuffer> {
+  const cssUrl = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}&display=swap`
+  const css = await fetch(cssUrl, {
+    headers: {
+      // UA moderne → Google renvoie du woff2
+      'User-Agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    },
+  }).then((r) => r.text())
+
+  const match = css.match(/src:\s*url\(([^)]+)\)\s*format\('(?:opentype|truetype|woff2)'\)/)
+  if (!match?.[1]) throw new Error(`[OG] Police introuvable pour ${family} ${weight}`)
+  return fetch(match[1]).then((r) => r.arrayBuffer())
+}
+
 export default async function Image() {
-  const frauncesData = readFileSync(
-    path.join(
-      process.cwd(),
-      'public/fraunces-font-family/Fraunces-VariableFont_SOFTWONKopszwght.ttf',
+  const [frauncesData, kossamImgSrc, logoSrc] = await Promise.all([
+    loadGoogleFont('Fraunces', 700),
+    Promise.resolve(
+      `data:image/jpeg;base64,${readFileSync(
+        path.join(process.cwd(), 'public/assets/koss.jpeg'),
+      ).toString('base64')}`,
     ),
-  )
-
-  const kossamImgSrc = `data:image/jpeg;base64,${readFileSync(
-    path.join(process.cwd(), 'public/assets/koss.jpeg'),
-  ).toString('base64')}`
-
-  const logoSrc = `data:image/png;base64,${readFileSync(
-    path.join(process.cwd(), 'public/whiteLogo.png'),
-  ).toString('base64')}`
+    Promise.resolve(
+      `data:image/png;base64,${readFileSync(
+        path.join(process.cwd(), 'public/whiteLogo.png'),
+      ).toString('base64')}`,
+    ),
+  ])
 
   return new ImageResponse(
     (
@@ -108,7 +123,7 @@ export default async function Image() {
                 fontFamily: 'sans-serif',
               }}
             >
-              Lab&apos;s Food
+              {"Lab's Food"}
             </span>
           </div>
 
@@ -163,7 +178,7 @@ export default async function Image() {
                 maxWidth: 380,
               }}
             >
-              Boisson lactée fermentée{'\n'}d&apos;inspiration camerounaise
+              {"Boisson lactée fermentée\nd'inspiration camerounaise"}
             </span>
           </div>
 
@@ -226,7 +241,7 @@ export default async function Image() {
                 fontFamily: 'sans-serif',
               }}
             >
-              Bouteilles 1.5L · Côte d&apos;Azur
+              {"Bouteilles 1.5L · Côte d'Azur"}
             </span>
           </div>
         </div>

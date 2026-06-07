@@ -281,7 +281,7 @@ export default function AssistanceCulinaireePage() {
             <div className="lg:col-span-8 relative">
               <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white inline-flex items-center gap-3 mb-4">
                 <span className="size-5 h-px bg-white" />
-                Vous êtes chef ou en cuisine ?
+                Souhaitez-vous être assistant(e) culinaire?
               </p>
               <h3
                 className="font-display text-cream leading-tight text-balance"
@@ -448,7 +448,7 @@ export default function AssistanceCulinaireePage() {
               <div className="lg:col-span-8 relative">
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white inline-flex items-center gap-3 mb-4">
                   <span className="size-5 h-px bg-white" />
-                  Vous êtes chef ou en cuisine ?
+                  Souhaitez-vous être assistant(e) culinaire? ?
                 </p>
                 <h3
                   className="font-display text-cream leading-tight text-balance"
