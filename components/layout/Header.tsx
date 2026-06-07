@@ -63,6 +63,7 @@ const NAV: NavItem[] = [
     ],
   },
   { label: 'À propos', href: '/a-propos' },
+  { label: 'Nous rejoindre', href: '/devenir-chef' },
   { label: 'Contact', href: '/contact' },
 ]
 

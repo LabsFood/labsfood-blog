@@ -321,7 +321,7 @@ const ROLE_OPTIONS = [
     title: 'Devenir animateur',
     desc: 'Concevez et animez des ateliers culinaires pour des particuliers et des professionnels.',
     perks: [
-      'Ateliers culinaires à domicile ou en entreprise',
+      'Cours de cuisine',
       'Planifiez vos créneaux en toute liberté',
       'Contact direct avec vos clients',
     ],
