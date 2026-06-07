@@ -149,7 +149,7 @@ export default function AssistanceCulinaireePage() {
       </section>
 
       {/* ── Pour qui ? ── */}
-      <section className="section bg-cream">
+      {/* <section className="section bg-cream">
         <div className="container-wide">
           <div className="max-w-3xl">
             <span className="eyebrow">Pour qui ?</span>
@@ -179,7 +179,7 @@ export default function AssistanceCulinaireePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Nos missions ── */}
       {/* <section className="section bg-cream-soft">
