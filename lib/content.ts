@@ -256,7 +256,7 @@ export const REVIEWS = [
   {
     author: 'Ange',
     text: "Je me suis régalée 😍🙏 — dites-vous qu'au début je me disais « qu'est-ce que celle-ci a encore fabriqué ? » 🤣🤣 En tout cas sa créativité est à saluer, et rassurez-vous, le goût suit 🙏🤩",
-    source: 'service' as const,
+    source: 'atelier' as const,
   },
   {
     author: 'Bénédicte',
