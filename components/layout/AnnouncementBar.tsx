@@ -26,7 +26,7 @@ export function AnnouncementBar() {
         <span>
           Nouveau —{' '}
           <Link href="/produits" className="underline underline-offset-2 hover:no-underline">
-            Kossam Bissap, Luxury Kossam & marinade verte BIO arrivent bientôt
+            Luxury Kossam & marinade verte BIO arrivent bientôt
           </Link>
         </span>
         <button

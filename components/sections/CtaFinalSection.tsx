@@ -146,11 +146,12 @@ export function CtaFinalSection() {
 
               <div className="mt-8 space-y-3">
                 {[
-                  'Réservation d\'un atelier',
-                  'Coup de main en cuisine',
-                  'Commande Kossam',
-                  'Devenir animateur',
-                  'Autres',
+                  'Batch Cooking à domicile',
+                  'Assistance culinaire',
+                  'Cours de cuisine',
+                  'Vos pépites : Kossam, Ail noir, marinade, ...',
+                  'Rejoindre nos équipes',
+                  'Autres...'
                 ].map((t) => (
                   <div
                     key={t}

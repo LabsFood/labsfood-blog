@@ -32,8 +32,9 @@ const LINKS = {
   produits: [
     { label: 'Kossam', href: '/produits/kossam' },
     { label: 'Tous les produits', href: '/produits' },
-    { label: 'Bientôt — Bissap', href: '/produits' },
     { label: 'Bientôt — Luxury Kossam', href: '/produits' },
+    { label: 'Bientôt — Ail noir', href: '/produits' },
+    { label: 'Bientôt — Marinades Köni', href: '/produits' },
   ],
   legal: [
     { label: 'Mentions légales', href: '/cgu' },
@@ -104,7 +105,7 @@ export function Footer() {
           </h2>
           <p className="mt-8 text-cream/65 max-w-xl text-base leading-relaxed">
             Lab&apos;s Food, c&apos;est une plateforme dédiée à votre bien-être
-            gourmand. Entrer dans votre cuisine pour vous y faire respirer.
+            gourmand.
           </p>
         </div>
 

@@ -38,7 +38,7 @@ function splitInColumns<T>(arr: readonly T[], cols: number): T[][] {
   return out
 }
 
-type Source = 'kossam' | 'batch' | 'service'
+type Source = 'kossam' | 'batch' | 'service' | 'atelier'
 
 type Props = {
   /** Si défini, n'affiche que les avis de cette source. */
