@@ -102,7 +102,7 @@ export function TestimonialsSection({
           </div>
           <p className="text-ink/65 text-sm md:text-base max-w-sm leading-relaxed">
             {subtitle ??
-              'Avis recueillis sur le Kossam, les services à domicile et les ateliers — survolez une colonne pour mettre en pause.'}
+              'Avis recueillis les services les produits'}
           </p>
         </div>
 
