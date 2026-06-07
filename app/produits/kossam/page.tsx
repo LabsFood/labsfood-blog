@@ -236,7 +236,7 @@ export default function KossamPage() {
 
                 <div className="mt-5 pt-5 border-t border-cream/15 flex items-center gap-2 text-xs text-cream/65">
                   <MapPin className="size-3.5 text-white" />
-                  Livraison sur la Côte d&apos;Azur uniquement, bientot toute la France
+                  Récupération et livraison sur la Côte d&apos;Azur.
                 </div>
               </div>
             </Reveal>
