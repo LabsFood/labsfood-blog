@@ -216,17 +216,17 @@ export default function DevenirChefPage() {
               className="font-display text-cream leading-tight text-balance"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
             >
-              Une accréditation pour les chefs{' '}
+              Un badge pour les personnes{' '}
               <em className="not-italic">
                 <span className="font-display italic text-orange">
-                  formés et certifiés.
+                  formées et certifiées.
                 </span>
               </em>
             </h2>
             <p className="mt-6 text-cream/75 leading-relaxed text-pretty max-w-xl">
               Pour vous démarquer, une accréditation visible est attribuée aux
               chefs ayant suivi une formation reconnue ou obtenu la
-              certification HACCP. Le client sait à qui il confie sa cuisine.
+              certification HACCP.
             </p>
           </div>
           <div className="lg:col-span-5">
@@ -236,8 +236,7 @@ export default function DevenirChefPage() {
                 Gratuit
               </div>
               <p className="text-cream/65 text-sm mt-3">
-                L&apos;inscription chef partenaire est entièrement gratuite pour
-                le moment.
+                L&apos;inscription est entièrement gratuite.
               </p>
             </div>
           </div>
