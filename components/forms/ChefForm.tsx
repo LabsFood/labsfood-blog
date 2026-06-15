@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   ArrowLeft,
@@ -18,8 +18,16 @@ import {
   Link as LinkIcon,
   Utensils,
   HandHelping,
+  ChevronDown,
+  Search,
+  X,
+  MapPin,
+  Navigation,
+  Languages as LanguagesIcon,
+  Pencil,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { FRENCH_REGIONS, getCitiesByRegion } from '@/lib/france-geo'
 
 type Role = 'animateur' | 'assistant'
 
@@ -29,7 +37,7 @@ const STEPS = [
   { n: '01', title: 'Coordonnées', icon: User, sub: 'Strictement confidentiel' },
   { n: '02', title: 'Profil public', icon: Eye, sub: 'Votre vitrine' },
   { n: '03', title: 'Expérience', icon: ChefHat, sub: 'Compétences et missions' },
-  { n: '04', title: "Pièce d'identité", icon: IdCard, sub: 'Carte nationale ou titre de séjour' },
+  { n: '04', title: "Pièce d'identité", icon: IdCard, sub: 'CNI (France) ou titre de séjour (étranger)' },
   { n: '05', title: 'Consentements', icon: ShieldCheck, sub: 'Validation finale' },
 ] as const
 
@@ -84,6 +92,9 @@ export function ChefForm() {
   // Persiste les sélections conditionnelles entre les étapes
   const [selectedProfileType, setSelectedProfileType] = useState('')
   const [selectedStatus, setSelectedStatus] = useState('')
+  const [selectedRegions, setSelectedRegions] = useState<string[]>([])
+  const [selectedCities, setSelectedCities] = useState<string[]>([])
+  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([])
 
   // Accumule les données de chaque étape au fil de la navigation
   const formRef = useRef<HTMLFormElement>(null)
@@ -118,23 +129,24 @@ export function ChefForm() {
       }
       case 1: {
         const firstName = (fd.get('firstName') as string)?.trim()
-        const department = (fd.get('department') as string)?.trim()
         const photo = fd.get('photo') as File
         const profileType = (fd.get('profileType') as string)?.trim()
         const profileTypeAutre = (fd.get('profileTypeAutre') as string)?.trim()
         const status = (fd.get('status') as string)?.trim()
         const statusAutre = (fd.get('statusAutre') as string)?.trim()
-        const languages = fd.getAll('languages')
         const pitch = (fd.get('pitch') as string)?.trim()
+        const calendly = (fd.get('calendlyLink') as string)?.trim()
         if (!firstName) return 'Veuillez renseigner votre prénom.'
-        if (!department) return 'Veuillez renseigner votre département.'
+        if (selectedRegions.length === 0) return "Veuillez sélectionner au moins une région d'intervention."
+        if (selectedCities.length === 0) return "Veuillez sélectionner au moins une ville d'intervention."
         if (!photo || photo.size === 0) return 'Veuillez téléverser une photo de profil.'
         if (!profileType) return 'Veuillez sélectionner votre profil principal.'
         if (profileType === 'autre' && !profileTypeAutre) return 'Veuillez préciser votre profil.'
         if (!status) return 'Veuillez sélectionner votre statut.'
         if (status === 'autre' && !statusAutre) return 'Veuillez préciser votre statut.'
-        if (languages.length === 0) return 'Veuillez sélectionner au moins une langue parlée.'
+        if (selectedLanguages.length === 0) return 'Veuillez sélectionner au moins une langue parlée.'
         if (!pitch) return 'Veuillez rédiger votre pitch de présentation.'
+        if (!calendly) return 'Veuillez renseigner votre lien de prise de rendez-vous.'
         return null
       }
       case 2: {
@@ -221,6 +233,15 @@ export function ChefForm() {
       }}
       className="flex flex-col gap-10"
     >
+      <RoleBanner
+        role={role}
+        onChange={() => {
+          captureCurrentStep()
+          setStepError(null)
+          setRole(null)
+          setStep(0)
+        }}
+      />
       <Stepper currentStep={step} />
 
       <AnimatePresence mode="wait">
@@ -239,6 +260,12 @@ export function ChefForm() {
               onProfileTypeChange={setSelectedProfileType}
               defaultStatus={selectedStatus}
               onStatusChange={setSelectedStatus}
+              selectedRegions={selectedRegions}
+              onRegionsChange={setSelectedRegions}
+              selectedCities={selectedCities}
+              onCitiesChange={setSelectedCities}
+              selectedLanguages={selectedLanguages}
+              onLanguagesChange={setSelectedLanguages}
             />
           )}
           {step === 2 && <SectionExperience role={role} />}
@@ -420,6 +447,41 @@ function RoleSelector({ onSelect }: { onSelect: (role: Role) => void }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
+   BANNER — rappelle le rôle choisi tout au long du formulaire
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+function RoleBanner({ role, onChange }: { role: Role; onChange: () => void }) {
+  const opt = ROLE_OPTIONS.find((o) => o.role === role)!
+  const Icon = opt.icon
+  return (
+    <div className="flex items-center justify-between gap-4 rounded-2xl bg-navy text-cream px-5 py-4">
+      <div className="flex items-center gap-3 min-w-0">
+        <span className="size-10 rounded-xl bg-orange/20 grid place-items-center shrink-0">
+          <Icon className="size-5 text-orange" />
+        </span>
+        <div className="min-w-0">
+          <div className="font-mono text-[0.58rem] uppercase tracking-[0.25em] text-orange/80">
+            Votre candidature
+          </div>
+          <div className="font-display text-base leading-tight truncate">
+            {opt.title.replace('Devenir ', '')}{' '}
+            <span className="text-cream/55 font-sans text-sm">· {opt.badge}</span>
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={onChange}
+        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-cream/25 text-cream/85 text-xs font-medium hover:bg-cream hover:text-navy transition-all shrink-0"
+      >
+        <Pencil className="size-3.5" />
+        Modifier
+      </button>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
    STEPPER
    ═══════════════════════════════════════════════════════════════════════════════ */
 
@@ -509,11 +571,23 @@ function SectionProfilPublic({
   onProfileTypeChange,
   defaultStatus,
   onStatusChange,
+  selectedRegions,
+  onRegionsChange,
+  selectedCities,
+  onCitiesChange,
+  selectedLanguages,
+  onLanguagesChange,
 }: {
   defaultProfileType: string
   onProfileTypeChange: (v: string) => void
   defaultStatus: string
   onStatusChange: (v: string) => void
+  selectedRegions: string[]
+  onRegionsChange: (v: string[]) => void
+  selectedCities: string[]
+  onCitiesChange: (v: string[]) => void
+  selectedLanguages: string[]
+  onLanguagesChange: (v: string[]) => void
 }) {
   const [selectedProfileType, setSelectedProfileType] = useState(defaultProfileType)
   const [selectedStatus, setSelectedStatus] = useState(defaultStatus)
@@ -527,6 +601,23 @@ function SectionProfilPublic({
     onStatusChange(v)
   }
 
+  // Régions → options à plat ; villes → options groupées par région sélectionnée
+  const regionOptions = FRENCH_REGIONS.map((r) => ({ value: r.id, label: r.label }))
+  const cityGroups = getCitiesByRegion(selectedRegions).map((g) => ({
+    label: g.region,
+    options: g.cities.map((c) => ({ value: c, label: c })),
+  }))
+
+  // Si une région est retirée, on purge les villes qui n'appartiennent plus
+  // à aucune région sélectionnée.
+  const handleRegions = (next: string[]) => {
+    onRegionsChange(next)
+    const stillValid = new Set(
+      getCitiesByRegion(next).flatMap((g) => g.cities),
+    )
+    onCitiesChange(selectedCities.filter((c) => stillValid.has(c)))
+  }
+
   return (
     <div className="flex flex-col gap-5">
       <Notice tone="public">
@@ -534,10 +625,46 @@ function SectionProfilPublic({
         aux restaurateurs et particuliers de vous découvrir.
       </Notice>
 
-      <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Prénom" name="firstName" required placeholder="ex. Siyaptze" />
-        <Field label="Département" name="department" required placeholder="75, 93, 77…" hint="Code du département" />
-      </div>
+      {/* Hidden inputs : exposent les sélections custom à FormData */}
+      {selectedRegions.map((r) => (
+        <input key={r} type="hidden" name="regions" value={r} />
+      ))}
+      {selectedCities.map((c) => (
+        <input key={c} type="hidden" name="cities" value={c} />
+      ))}
+      {selectedLanguages.map((l) => (
+        <input key={l} type="hidden" name="languages" value={l} />
+      ))}
+
+      <Field label="Prénom" name="firstName" required placeholder="ex. Siyaptze" />
+
+      {/* Zone d'intervention — régions puis villes */}
+      <MultiSelect
+        label="Régions d'intervention"
+        icon={MapPin}
+        required
+        placeholder="Sélectionnez une ou plusieurs régions"
+        hint="Les régions dans lesquelles vous pouvez vous déplacer"
+        options={regionOptions}
+        selected={selectedRegions}
+        onChange={handleRegions}
+      />
+      <MultiSelect
+        label="Villes d'intervention"
+        icon={Navigation}
+        required
+        placeholder={
+          selectedRegions.length === 0
+            ? "Choisissez d'abord une région"
+            : 'Sélectionnez une ou plusieurs villes'
+        }
+        hint="Les villes où vous aimeriez intervenir"
+        groups={cityGroups}
+        selected={selectedCities}
+        onChange={onCitiesChange}
+        disabled={selectedRegions.length === 0}
+        emptyText="Aucune ville — sélectionnez une région ci-dessus."
+      />
 
       <FileField
         label="Photo de profil"
@@ -623,12 +750,15 @@ function SectionProfilPublic({
       </fieldset>
 
       {/* Langues */}
-      <CheckboxGroup
+      <MultiSelect
         label="Langues parlées"
-        name="languages"
+        icon={LanguagesIcon}
         required
+        placeholder="Sélectionnez vos langues"
         hint="Plusieurs choix possibles"
-        options={LANGUAGES}
+        options={LANGUAGES.map((l) => ({ value: l.value, label: l.label }))}
+        selected={selectedLanguages}
+        onChange={onLanguagesChange}
       />
 
       <Field
@@ -682,8 +812,24 @@ function SectionIdentite() {
         Ces documents sont <strong>strictement confidentiels</strong> et ne servent
         qu&apos;à valider votre identité auprès de Lab&apos;s Food.
       </Notice>
+
+      <div className="flex items-start gap-3 p-4 rounded-2xl bg-orange-pale/50 border border-orange/25 text-sm text-navy/85">
+        <span className="shrink-0 size-8 rounded-full bg-cream grid place-items-center mt-0.5">
+          <IdCard className="size-4 text-orange" />
+        </span>
+        <p className="leading-relaxed">
+          Selon votre nationalité, le document attendu diffère :
+          <br />
+          <strong>Si vous êtes de nationalité française</strong> → votre{' '}
+          <strong>carte nationale d&apos;identité (CNI)</strong>.
+          <br />
+          <strong>Si vous êtes de nationalité étrangère</strong> → votre{' '}
+          <strong>titre de séjour</strong> en cours de validité.
+        </p>
+      </div>
+
       <FileField
-        label="Carte nationale d'identité ou Titre de séjour"
+        label="CNI (Français) ou titre de séjour (étranger)"
         name="idDocument"
         required
         accept="image/*,application/pdf"
@@ -829,17 +975,17 @@ function CalendlyField() {
   return (
     <div className="flex flex-col gap-2">
       <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
-        Lien de prise de rendez-vous{' '}
-        <span className="normal-case tracking-normal font-sans text-ink/45 italic">(optionnel)</span>
+        Lien de prise de rendez-vous <span className="text-orange">*</span>
       </span>
       <div className="relative">
         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-orange">
           <LinkIcon className="size-4" />
         </span>
         <input
-          type="url"
+          type="text"
           name="calendlyLink"
-          placeholder="https://calendly.com/votre-pseudo"
+          required
+          placeholder="https://calendly.com/votre-pseudo ou +33 6 12 34 56 78"
           className="w-full pl-11 pr-4 py-3 rounded-xl bg-cream-soft border border-navy/15 text-navy placeholder:text-ink/35 text-sm outline-none focus:border-orange focus:bg-orange-pale/20 transition-all"
         />
       </div>
@@ -848,6 +994,191 @@ function CalendlyField() {
         Renseignez ici votre moyen de contact (lien Calendly, lien WhatsApp ou numéro de téléphone
         direct). C&apos;est via ce canal que les particuliers et professionnels vous joindront.
       </div>
+    </div>
+  )
+}
+
+/* ── Multi-select déroulant (recherche + chips) ──────────────────────────────── */
+
+type Option = { value: string; label: string }
+type Group = { label: string; options: Option[] }
+
+function MultiSelect({
+  label,
+  icon: Icon,
+  required,
+  placeholder,
+  hint,
+  options,
+  groups,
+  selected,
+  onChange,
+  disabled,
+  emptyText = 'Aucun résultat.',
+}: {
+  label: string
+  icon?: React.ElementType
+  required?: boolean
+  placeholder: string
+  hint?: string
+  options?: Option[]
+  groups?: Group[]
+  selected: string[]
+  onChange: (v: string[]) => void
+  disabled?: boolean
+  emptyText?: string
+}) {
+  const [open, setOpen] = useState(false)
+  const [query, setQuery] = useState('')
+  const ref = useRef<HTMLDivElement>(null)
+
+  // Ferme au clic extérieur
+  useEffect(() => {
+    if (!open) return
+    function onDocClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', onDocClick)
+    return () => document.removeEventListener('mousedown', onDocClick)
+  }, [open])
+
+  // Normalise en groupes (les options à plat = un groupe sans titre)
+  const allGroups: Group[] = groups ?? (options ? [{ label: '', options }] : [])
+
+  const q = query.trim().toLowerCase()
+  const filteredGroups = allGroups
+    .map((g) => ({
+      label: g.label,
+      options: q
+        ? g.options.filter((o) => o.label.toLowerCase().includes(q))
+        : g.options,
+    }))
+    .filter((g) => g.options.length > 0)
+
+  // Map value → label pour l'affichage des chips
+  const labelOf = new Map(
+    allGroups.flatMap((g) => g.options).map((o) => [o.value, o.label]),
+  )
+
+  function toggle(value: string) {
+    onChange(
+      selected.includes(value)
+        ? selected.filter((v) => v !== value)
+        : [...selected, value],
+    )
+  }
+
+  return (
+    <div className="flex flex-col gap-2" ref={ref}>
+      <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+        {Icon && <Icon className="inline size-3.5 -mt-0.5 mr-1.5 text-orange" />}
+        {label} {required && <span className="text-orange">*</span>}
+      </span>
+
+      <div className="relative">
+        <button
+          type="button"
+          disabled={disabled}
+          onClick={() => setOpen((o) => !o)}
+          className={cn(
+            'w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl border text-sm text-left transition-all',
+            disabled
+              ? 'bg-cream-soft/60 border-navy/10 text-ink/35 cursor-not-allowed'
+              : 'bg-cream-soft border-navy/15 text-navy hover:border-navy-mid focus:border-orange',
+            open && !disabled && 'border-orange bg-orange-pale/20',
+          )}
+        >
+          <span className={cn('truncate', selected.length === 0 && 'text-ink/40')}>
+            {selected.length === 0
+              ? placeholder
+              : `${selected.length} sélectionné${selected.length > 1 ? 's' : ''}`}
+          </span>
+          <ChevronDown
+            className={cn('size-4 shrink-0 text-navy-mid transition-transform', open && 'rotate-180')}
+          />
+        </button>
+
+        {open && !disabled && (
+          <div className="absolute z-20 mt-2 w-full rounded-xl bg-cream border border-navy/15 shadow-xl overflow-hidden">
+            <div className="p-2 border-b border-navy/10">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-ink/40" />
+                <input
+                  type="text"
+                  autoFocus
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Rechercher…"
+                  className="w-full pl-9 pr-3 py-2 rounded-lg bg-cream-soft border border-navy/10 text-sm text-navy placeholder:text-ink/35 outline-none focus:border-orange"
+                />
+              </div>
+            </div>
+            <div className="max-h-60 overflow-y-auto p-1.5">
+              {filteredGroups.length === 0 ? (
+                <p className="px-3 py-4 text-sm text-ink/50 text-center">{emptyText}</p>
+              ) : (
+                filteredGroups.map((g) => (
+                  <div key={g.label || '_'}>
+                    {g.label && (
+                      <p className="px-3 pt-2.5 pb-1 font-mono text-[0.55rem] uppercase tracking-[0.2em] text-navy-mid/70">
+                        {g.label}
+                      </p>
+                    )}
+                    {g.options.map((o) => {
+                      const isSel = selected.includes(o.value)
+                      return (
+                        <button
+                          key={`${g.label}-${o.value}`}
+                          type="button"
+                          onClick={() => toggle(o.value)}
+                          className={cn(
+                            'w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-left transition-colors',
+                            isSel ? 'bg-orange-pale text-navy' : 'text-navy/85 hover:bg-cream-soft',
+                          )}
+                        >
+                          <span
+                            className={cn(
+                              'size-4 rounded grid place-items-center shrink-0 border transition-colors',
+                              isSel ? 'bg-orange border-orange' : 'border-navy/25',
+                            )}
+                          >
+                            {isSel && <Check className="size-3 text-cream" />}
+                          </span>
+                          {o.label}
+                        </button>
+                      )
+                    })}
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Chips des sélections */}
+      {selected.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-1">
+          {selected.map((v) => (
+            <span
+              key={v}
+              className="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-orange/12 text-orange-deep text-xs font-medium"
+            >
+              {labelOf.get(v) ?? v}
+              <button
+                type="button"
+                onClick={() => toggle(v)}
+                className="size-4 rounded-full grid place-items-center hover:bg-orange/25 transition-colors"
+                aria-label={`Retirer ${labelOf.get(v) ?? v}`}
+              >
+                <X className="size-3" />
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
+
+      {hint && <span className="text-xs text-ink/55 italic">{hint}</span>}
     </div>
   )
 }

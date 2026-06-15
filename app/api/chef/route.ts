@@ -10,6 +10,7 @@
 
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { REGION_LABELS } from '@/lib/france-geo'
 
 // ─── Label maps ───────────────────────────────────────────────────────────────
 
@@ -97,7 +98,8 @@ export async function POST(request: Request) {
     const address = (formData.get('address') as string)?.trim() ?? ''
 
     const firstName = (formData.get('firstName') as string)?.trim() ?? ''
-    const department = (formData.get('department') as string)?.trim() ?? ''
+    const regions = formData.getAll('regions').map((v) => v.toString())
+    const cities = formData.getAll('cities').map((v) => v.toString())
     const photo = formData.get('photo') as File | null
     const profileType = (formData.get('profileType') as string)?.trim() ?? ''
     const profileTypeAutre = (formData.get('profileTypeAutre') as string)?.trim() ?? ''
@@ -183,6 +185,8 @@ export async function POST(request: Request) {
     const experienceLabel = EXPERIENCE_LABELS[experience] ?? experience
     const languagesList = languages.map((l) => LANGUAGE_LABELS[l] ?? l).join(', ')
     const missionsList = missions.map((m) => MISSION_LABELS[m] ?? m).join(', ')
+    const regionsList = regions.map((r) => REGION_LABELS[r] ?? r).join(', ')
+    const citiesList = cities.join(', ')
 
     const dateStr = new Date().toLocaleDateString('fr-FR', {
       weekday: 'long',
@@ -277,7 +281,8 @@ export async function POST(request: Request) {
         `)}
 
         ${sectionBlock('Profil public', '🌟', `
-          ${infoRow('Département', department)}
+          ${infoRow("Régions d'intervention", regionsList)}
+          ${infoRow("Villes d'intervention", citiesList)}
           ${infoRow('Profil principal', profileTypeDisplay)}
           ${infoRow('Statut', statusDisplay)}
           ${infoRow('Langues parlées', languagesList, true)}
@@ -355,12 +360,13 @@ Tél.   : ${phone}
 Adresse: ${address}
 
 ── PROFIL PUBLIC ──
-Département     : ${department}
-Profil principal: ${profileTypeDisplay}
-Statut          : ${statusDisplay}
-Langues parlées : ${languagesList}
-Pitch           : ${pitch}
-Lien contact    : ${calendlyLink}
+Régions d'intervention : ${regionsList}
+Villes d'intervention  : ${citiesList}
+Profil principal       : ${profileTypeDisplay}
+Statut                 : ${statusDisplay}
+Langues parlées        : ${languagesList}
+Pitch                  : ${pitch}
+Lien contact           : ${calendlyLink}
 
 ── EXPÉRIENCE ──
 Niveau : ${experienceLabel}

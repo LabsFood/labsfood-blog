@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import {
   ShieldCheck,
-
   Compass,
   Heart,
   Sparkles,
+  Camera,
+  Link2,
+  MessageSquareText,
+  IdCard,
 } from 'lucide-react'
 import { PageHero } from '@/components/ui/PageHero'
 import { ChefForm } from '@/components/forms/ChefForm'
@@ -197,6 +200,58 @@ export default function DevenirChefPage() {
               <span className="text-navy-mid">*</span> sont obligatoires.
             </p>
           </div>
+
+          {/* ── Ce dont vous aurez besoin ── */}
+          <div className="mb-10 rounded-3xl border border-navy/10 bg-cream p-7 md:p-8 shadow-sm">
+            <p className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-orange mb-2">
+              Avant de commencer
+            </p>
+            <h3 className="font-display text-xl md:text-2xl text-navy leading-tight mb-1.5">
+              Préparez ces quelques éléments
+            </h3>
+            <p className="text-sm text-ink/65 mb-6">
+              Pour remplir le formulaire sans interruption, gardez ceci à portée de main :
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-4">
+              {[
+                {
+                  icon: Camera,
+                  title: 'Une photo de profil',
+                  body: 'Claire et souriante — elle illustrera votre fiche publique.',
+                },
+                {
+                  icon: Link2,
+                  title: 'Un lien de contact',
+                  body: 'Lien Calendly, WhatsApp ou numéro de téléphone direct.',
+                },
+                {
+                  icon: MessageSquareText,
+                  title: 'Un message pour votre vitrine',
+                  body: 'Quelques phrases de présentation qui donnent envie.',
+                },
+                {
+                  icon: IdCard,
+                  title: "Votre pièce d'identité",
+                  body: 'CNI si vous êtes français, titre de séjour si vous êtes étranger.',
+                },
+              ].map((item) => (
+                <li key={item.title} className="flex items-start gap-3.5">
+                  <span className="size-10 shrink-0 rounded-xl bg-orange/10 grid place-items-center">
+                    <item.icon className="size-5 text-orange" />
+                  </span>
+                  <div>
+                    <div className="font-display text-base text-navy leading-tight">
+                      {item.title}
+                    </div>
+                    <p className="text-sm text-ink/65 leading-relaxed mt-0.5">
+                      {item.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="bg-cream rounded-3xl border border-navy/10 p-8 md:p-10 shadow-xl">
             <ChefForm />
           </div>
