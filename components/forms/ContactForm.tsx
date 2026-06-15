@@ -27,7 +27,7 @@ const SUBJECTS = [
   { value: 'assistance-culinaire', label: 'Assistance culinaire' },
   { value: 'atelier-culinaire', label: 'Atelier culinaire' },
   { value: 'kossam', label: 'Kossam (produit)' },
-  { value: 'nous-rejoindre', label: 'Nous rejoindre' },
+  { value: 'devenir-chef', label: 'Nous rejoindre' },
   { value: 'autre', label: 'Autre demande' },
 ] as const
 

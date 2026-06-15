@@ -305,7 +305,7 @@ export default function AssistanceCulinaireePage() {
 
             <div className="lg:col-span-4 relative flex lg:justify-end">
               <Link
-                href="/nous-rejoindre"
+                href="/devenir-chef"
                 className="group inline-flex items-center gap-3 pl-6 pr-3 py-3 rounded-full bg-orange text-cream font-medium text-sm hover:bg-orange-deep transition-all shadow-lg shadow-orange/40"
               >
                 Proposer mes services
@@ -472,7 +472,7 @@ export default function AssistanceCulinaireePage() {
 
               <div className="lg:col-span-4 relative flex lg:justify-end">
                 <Link
-                  href="/nous-rejoindre"
+                  href="/devenir-chef"
                   className="group inline-flex items-center gap-3 pl-6 pr-3 py-3 rounded-full bg-orange text-cream font-medium text-sm hover:bg-orange-deep transition-all shadow-lg shadow-orange/40"
                 >
                   Proposer mes services

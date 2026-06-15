@@ -308,7 +308,7 @@ export default function AtelierPage() {
             </div>
             <div className="lg:col-span-4 relative">
               <Link
-                href="/nous-rejoindre"
+                href="/devenir-chef"
                 className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-cream text-navy font-medium text-sm hover:bg-orange hover:text-cream transition-colors"
               >
                 Donner des cours de cuisine

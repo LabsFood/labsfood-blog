@@ -17,7 +17,7 @@ const SUBJECT_LABELS: Record<string, string> = {
   'assistance-culinaire': 'Assistance culinaire',
   'atelier-culinaire': 'Atelier culinaire',
   kossam: 'Kossam (produit)',
-  'nous-rejoindre': 'Nous rejoindre',
+  'devenir-chef': 'Nous rejoindre',
   autre: 'Autre demande',
 }
 
