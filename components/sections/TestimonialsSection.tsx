@@ -28,7 +28,7 @@ const SOURCE_LABEL: Record<string, string> = {
   kossam: 'Kossam',
   batch: 'Batch cooking',
   atelier: 'Atelier',
-  service: 'Divers',
+  service: 'Batch cooking',
 }
 
 // Distribue les avis sur 3 colonnes en alternant pour équilibrer
