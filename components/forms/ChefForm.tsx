@@ -319,9 +319,9 @@ const ROLE_OPTIONS = [
     icon: Utensils,
     badge: 'Atelier culinaire',
     title: 'Devenir animateur',
-    desc: 'Concevez et animez des ateliers culinaires pour des particuliers et des professionnels.',
+    desc: 'Concevez et animez des cours de cuisines pour des particuliers et des professionnels.',
     perks: [
-      'Cours de cuisine',
+      'Animation d\'ateliers culinaires',
       'Planifiez vos créneaux en toute liberté',
       'Contact direct avec vos clients',
     ],

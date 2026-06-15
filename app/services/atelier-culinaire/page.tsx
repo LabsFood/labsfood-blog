@@ -301,14 +301,14 @@ export default function AtelierPage() {
                 </em>
               </h2>
               <p className="mt-5 text-cream/75 max-w-xl">
-                Si l&apos;idée de donner des cours vous anime, remplissez le
+                Si l&apos;idée de donner des cours de cuisine vous anime, remplissez le
                 formulaire d&apos;inscription pour devenir l&apos;un de nos
                 chefs partenaires.
               </p>
             </div>
             <div className="lg:col-span-4 relative">
               <Link
-                href="/devenir-chef"
+                href="/nous-rejoindre"
                 className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-cream text-navy font-medium text-sm hover:bg-orange hover:text-cream transition-colors"
               >
                 Donner des cours de cuisine

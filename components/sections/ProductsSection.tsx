@@ -154,7 +154,7 @@ export function ProductsSection() {
                 <div className="flex items-start gap-2 text-[0.65rem] text-ink/40 leading-relaxed">
                   <Info className="size-3 shrink-0 mt-0.5 text-ink/30" />
                   <span>
-                    Zéro Gaspi : votre Kossam embouteillé dans la bouteille d&apos;eau minérale neuve et stérilisé ayant servi à sa préparation.
+                    Zéro Gaspi : votre Kossam embouteillé dans la bouteille d&apos;eau minérale neuve et stérilisée ayant servi à sa préparation.
                   </span>
                 </div>
               </div>

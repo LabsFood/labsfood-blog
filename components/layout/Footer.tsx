@@ -34,7 +34,7 @@ const LINKS = {
     { label: 'Tous les produits', href: '/produits' },
     { label: 'Bientôt — Luxury Kossam', href: '/produits' },
     { label: 'Bientôt — Ail noir', href: '/produits' },
-    { label: 'Bientôt — Marinades Köni', href: '/produits' },
+    { label: 'Bientôt — Marinade Köni', href: '/produits' },
   ],
   legal: [
     { label: 'Mentions légales', href: '/cgu' },

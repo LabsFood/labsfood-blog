@@ -43,15 +43,14 @@ export default function DevenirChefPage() {
   return (
     <>
       <PageHero
-        eyebrow="Rejoignez la maison"
         title={
           <>
             <span className="font-display italic text-orange">
-              Nous rejoindre.
+              Rejoignez la maison
             </span>
           </>
         }
-        lede="Lab's Food est une plateforme qui permet aux passionnés de cuisine de proposer leurs propres ateliers, gratuitement pour le moment. Voici comment ça marche."
+        lede="Lab's Food est une plateforme qui permet aux passionnés de cuisine de proposer leurs propres services."
         image="/assets/photo-8.jpeg"
         imagePosition="center 35%"
       />
@@ -195,8 +194,7 @@ export default function DevenirChefPage() {
             </h2>
             <p className="mt-4 text-ink/70 leading-relaxed">
               Tous les champs marqués d&apos;une étoile{' '}
-              <span className="text-navy-mid">*</span> sont obligatoires. Les
-              justificatifs peuvent être complétés a posteriori si besoin.
+              <span className="text-navy-mid">*</span> sont obligatoires.
             </p>
           </div>
           <div className="bg-cream rounded-3xl border border-navy/10 p-8 md:p-10 shadow-xl">

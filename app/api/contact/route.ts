@@ -17,7 +17,7 @@ const SUBJECT_LABELS: Record<string, string> = {
   'assistance-culinaire': 'Assistance culinaire',
   'atelier-culinaire': 'Atelier culinaire',
   kossam: 'Kossam (produit)',
-  'devenir-chef': 'Devenir chef partenaire',
+  'nous-rejoindre': 'Nous rejoindre',
   autre: 'Autre demande',
 }
 
@@ -186,14 +186,14 @@ export async function POST(request: Request) {
             </td>
           </tr>
           ${data.phone
-      ? `<tr>
+        ? `<tr>
             <td style="padding:14px 18px;">
               <p style="margin:0;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:${navy};opacity:0.5;">Téléphone</p>
               <p style="margin:4px 0 0;font-size:15px;color:${ink};font-weight:500;">${escapeHtml(data.phone)}</p>
             </td>
           </tr>`
-      : ''
-    }
+        : ''
+      }
         </table>
 
         <div style="margin-top:28px;">

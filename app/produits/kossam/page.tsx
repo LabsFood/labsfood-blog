@@ -230,7 +230,7 @@ export default function KossamPage() {
                 <div className="mt-4 flex items-start gap-2 text-[0.65rem] text-white leading-relaxed">
                   <Info className="size-3 shrink-0 mt-0.5 text-white  " />
                   <span>
-                    Zéro Gaspi chez Lab&apos;s Food : votre Kossam est embouteillé directement dans la bouteille d&apos;eau minérale neuve et stérilisé ayant servi à sa préparation.
+                    Zéro Gaspi chez Lab&apos;s Food : votre Kossam est embouteillé directement dans la bouteille d&apos;eau minérale neuve et stérilisée ayant servi à sa préparation.
                   </span>
                 </div>
 
@@ -553,7 +553,7 @@ export default function KossamPage() {
                   <div className="flex items-start gap-2 text-[0.65rem] text-cream/50 leading-relaxed pt-1">
                     <Info className="size-3 shrink-0 mt-0.5 text-cream/35" />
                     <span>
-                      Zéro Gaspi : votre Kossam est embouteillé dans la bouteille d&apos;eau minérale neuve et stérilisé ayant servi à sa préparation.
+                      Zéro Gaspi : votre Kossam est embouteillé dans la bouteille d&apos;eau minérale neuve et stérilisée ayant servi à sa préparation.
                     </span>
                   </div>
                 </div>

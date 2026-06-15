@@ -364,6 +364,17 @@ function ChefCardCompact({
       >
         {pitch}
       </p>
+      <div className="flex flex-wrap gap-2 my-5">
+        {chef.specialties.map((s) => (
+          <span
+            key={s}
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal/10 text-teal font-mono text-[0.6rem] uppercase tracking-[0.2em]"
+          >
+            <Star className="size-2.5 text-orange" />
+            {s}
+          </span>
+        ))}
+      </div>
 
       {/* Langues (chip avec icône) */}
       <div className="flex items-center gap-2 mb-5 text-xs text-ink/70">
@@ -461,7 +472,7 @@ function ChefCardFull({
       </p>
 
       {/* Tags spécialités */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      {/* <div className="flex flex-wrap gap-2 mb-6">
         {chef.specialties.map((s) => (
           <span
             key={s}
@@ -471,7 +482,7 @@ function ChefCardFull({
             {s}
           </span>
         ))}
-      </div>
+      </div> */}
 
       {/* Infos : Langues + Expérience */}
       <div className="grid grid-cols-2 gap-5 pt-5 border-t border-navy/8 mb-6">

@@ -27,7 +27,7 @@ const SUBJECTS = [
   { value: 'assistance-culinaire', label: 'Assistance culinaire' },
   { value: 'atelier-culinaire', label: 'Atelier culinaire' },
   { value: 'kossam', label: 'Kossam (produit)' },
-  { value: 'devenir-chef', label: 'Devenir chef partenaire' },
+  { value: 'nous-rejoindre', label: 'Nous rejoindre' },
   { value: 'autre', label: 'Autre demande' },
 ] as const
 
@@ -225,7 +225,7 @@ export function ContactForm() {
       <div className="pt-2 flex items-center justify-between gap-4 flex-wrap">
         <p className="text-xs text-ink/55 italic max-w-[60%]">
           En envoyant ce formulaire, vous acceptez d&apos;être recontacté·e par
-          Lab&apos;s Food. Vos données ne sont jamais partagées.
+          Lab&apos;s Food.
         </p>
         <button
           type="submit"

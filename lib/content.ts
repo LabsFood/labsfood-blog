@@ -65,8 +65,8 @@ export const PRODUCTS = [
     status: 'available' as const,
     formats: [
       { qty: 1, price: '20€', unitPrice: null },
-      { qty: 2, price: '38€', unitPrice: '19€' },
-      { qty: 3, price: '54€', unitPrice: '18€' },
+      { qty: 2, price: '38€', unitPrice: '19' },
+      { qty: 3, price: '54€', unitPrice: '18' },
     ],
     short:
       "L'alternative onctueuse, légèrement acidulée, inspirée d'un précieux savoir-faire camerounais.",
@@ -407,7 +407,7 @@ export const CHEFS = [
     bio: "Animatrice d'ateliers et assistante culinaire, je viens vous prêter main-forte en cuisine.",
     pitches: {
       assistance:
-        "Assistante culinaire | 4 ans d'expérience en restauration et traiteur 🍽️ Que vous soyez professionnel (chef, traiteur, restaurateur) ou particulier (repas du quotidien, réceptions, accompagnement), je viens vous prêter main-forte en cuisine ! Contactez-moi pour planifier notre prochaine collaboration ! 👩‍🍳",
+        "Que vous soyez professionnel (chef, traiteur, restaurateur) ou particulier (repas du quotidien, réceptions, accompagnement), je viens vous prêter main-forte en cuisine ! Contactez-moi pour planifier notre prochaine collaboration ! 👩‍🍳",
       atelier:
         "Vous avez envie de cuisiner ce que vous avez toujours voulu apprendre, de partager une activité originale en famille ou d'animer un événement entre amis ? Je propose des sessions personnalisées adaptées à tous les niveaux et tous les publics. Un moment d'apprentissage, de partage et de plaisir — directement chez vous. Contactez-moi pour planifier votre atelier ! 👩‍🍳",
     } as { atelier?: string; assistance?: string },

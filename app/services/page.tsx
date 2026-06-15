@@ -29,7 +29,7 @@ export default function ServicesPage() {
             </em>
           </>
         }
-        lede="Trois formules pensées pour trois moments de vie. Un atelier pour transmettre, un batch pour bien manger, une assistance pour les grands événements."
+        lede="Trois formules pensées pour trois moments de vie."
         image="/assets/gallerie/plenty.jpeg"
         imagePosition="center"
       />

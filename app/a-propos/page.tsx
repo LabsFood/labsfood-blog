@@ -57,7 +57,7 @@ export default function AboutPage() {
           <>
             Lab&apos;s Food, c&apos;est l&apos;histoire d&apos;
             <em className="not-italic">
-              <span className="font-display italic">
+              <span className="font-display italic text-orange">
                 un sourire
               </span>
             </em>
