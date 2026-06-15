@@ -212,7 +212,7 @@ export default function KossamPage() {
                         </div>
                         {f.unitPrice && (
                           <div className="text-xs text-white group-hover:text-navy mt-0.5">
-                            soit {f.unitPrice} la bouteille
+                            soit {f.unitPrice}€ la bouteille
                           </div>
                         )}
                       </div>
