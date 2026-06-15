@@ -353,15 +353,7 @@ function ChefCardCompact({
       </div>
 
       {/* Pitch */}
-      <p
-        className="text-sm text-ink/70 leading-relaxed text-pretty mb-5 flex-1"
-        style={{
-          display: '-webkit-box',
-          WebkitLineClamp: 4,
-          WebkitBoxOrient: 'vertical',
-          overflow: 'hidden',
-        }}
-      >
+      <p className="text-sm text-ink/70 leading-relaxed text-pretty mb-5 flex-1">
         {pitch}
       </p>
       <div className="flex flex-wrap gap-2 my-5">
