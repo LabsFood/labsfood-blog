@@ -6,6 +6,7 @@ import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
+import { CookieConsent } from '@/components/ui/CookieConsent'
 
 // ── Fraunces — police display (fichiers locaux, variable font) ───────────────
 // display: 'block' → le texte reste invisible jusqu'au chargement de Fraunces,
@@ -126,6 +127,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   )

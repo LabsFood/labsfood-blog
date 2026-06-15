@@ -37,7 +37,7 @@ const LINKS = {
     { label: 'Bientôt — Marinade Köni', href: '/produits' },
   ],
   legal: [
-    { label: 'Mentions légales', href: '/cgu' },
+    { label: 'Mentions légales', href: '/mentions-legales' },
     { label: 'CGU', href: '/cgu' },
     { label: 'Confidentialité', href: '/confidentialite' },
     { label: 'Cookies', href: '/confidentialite' },
