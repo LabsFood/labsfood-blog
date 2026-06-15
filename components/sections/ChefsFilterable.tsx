@@ -461,7 +461,9 @@ function ChefCardFull({
           </h3>
           <div className="flex items-center gap-1.5 mt-3 text-sm text-ink/75">
             <MapPin className="size-3.5 text-orange shrink-0" />
-            <span className="truncate font-medium">{chef.region}</span>
+            <span className="truncate font-medium">
+              {getChefRegions(chef).map((r) => r.label).join(' · ')}
+            </span>
           </div>
         </div>
       </div>
