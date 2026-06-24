@@ -60,7 +60,6 @@ export function TestimonialsSection({
     [filterSource],
   )
   const columns = useMemo(() => splitInColumns(reviews, 3), [reviews])
-  console.log(reviews)
   return (
     <section
       id="avis"
