@@ -24,5 +24,6 @@ export function whatsappLink(message: string) {
 }
 
 // Site dédié batch cooking (Taplink) — fourni par la cliente
-export const BATCH_COOKING_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScffmrlcL2ZhiP6dfRJkOHU1id3pvmxs-fcSLPXgkyCijqCtg/viewform'
+//export const BATCH_COOKING_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScffmrlcL2ZhiP6dfRJkOHU1id3pvmxs-fcSLPXgkyCijqCtg/viewform'
+export const BATCH_COOKING_URL = process.env.NEXT_PUBLIC_BATCH_COOKING_URL || 'https://docs.google.com/forms/d/e/1FAIpQLScffmrlcL2ZhiP6dfRJkOHU1id3pvmxs-fcSLPXgkyCijqCtg/viewform'
 // export const BATCH_COOKING_URL = 'https://labsfood.taplink.site/'
