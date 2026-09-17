@@ -21,7 +21,7 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { VideoGrid } from '@/components/ui/VideoModal'
 
 export const metadata: Metadata = {
-  title: 'Kossam — Boisson lactée fermentée artisanale · Lab\'s Food',
+  title: 'Kossam · Boisson lactée fermentée artisanale · Lab\'s Food',
   description:
     "Le Kossam de Lab's Food : boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. Sans sucre, peu sucré ou sucré. À partir de 20€ la bouteille 1.5L. Livraison Côte d'Azur.",
   keywords: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     canonical: '/produits/kossam',
   },
   openGraph: {
-    title: 'Kossam — La boisson lactée fermentée de Lab\'s Food',
+    title: 'Kossam, la boisson lactée fermentée de Lab\'s Food',
     description:
       "Boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. Sans sucre, peu sucré ou sucré. À partir de 20€ la bouteille 1.5L.",
     url: '/produits/kossam',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kossam — Boisson lactée fermentée · Lab\'s Food',
+    title: 'Kossam · Boisson lactée fermentée · Lab\'s Food',
     description:
       "Boisson lactée fermentée d'inspiration camerounaise. Texture veloutée, note acidulée. À partir de 20€.",
   },
@@ -74,7 +74,7 @@ export default function KossamPage() {
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
-      description: `${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L${f.unitPrice ? ` — soit ${f.unitPrice}€/bouteille` : ''}`,
+      description: `${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L${f.unitPrice ? `, soit ${f.unitPrice}€/bouteille` : ''}`,
     })),
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -129,7 +129,7 @@ export default function KossamPage() {
                 Disponible
               </span> */}
               <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-white">
-                Produit · 01 — Signature
+                Produit 01 · Signature
               </span>
             </div>
           </Reveal>
@@ -200,7 +200,7 @@ export default function KossamPage() {
                     <a
                       key={f.qty}
                       href={whatsappLink(
-                        `Bonjour Lab's Food, je souhaite commander du Kossam — ${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L (${f.price})`,
+                        `Bonjour Lab's Food, je souhaite commander du Kossam : ${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L (${f.price})`,
                       )}
                       target="_blank"
                       rel="noreferrer"
@@ -482,7 +482,6 @@ export default function KossamPage() {
           ═══════════════════════════════════════════════════════════════ */}
       <TestimonialsSection
         filterSource="kossam"
-        eyebrow="Avis clients Kossam"
         title={
           <>
             Ce que la{' '}
@@ -494,7 +493,7 @@ export default function KossamPage() {
             en dit.
           </>
         }
-        subtitle="Les retours des gourmands ayant goûté notre boisson lactée fermentée. Survolez une colonne pour mettre en pause."
+        subtitle="Les retours des gourmands qui ont goûté notre boisson lactée fermentée. Survolez une colonne pour la mettre en pause."
       />
 
       {/* ═══════════════════════════════════════════════════════════════
@@ -521,7 +520,7 @@ export default function KossamPage() {
                     <span className="italic">Kossam</span> ?
                   </h2>
                   <p className="mt-6 text-cream/85 text-lg max-w-md">
-                    Un message WhatsApp suffit — choisissez votre quantité, on s&apos;occupe du reste.
+                    Un message WhatsApp suffit : choisissez votre quantité, on s&apos;occupe du reste.
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -529,7 +528,7 @@ export default function KossamPage() {
                     <Button key={f.qty} asChild variant="whatsapp" size="lg" className="w-full justify-between">
                       <a
                         href={whatsappLink(
-                          `Bonjour Lab's Food, je souhaite commander du Kossam — ${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L (${f.price})`,
+                          `Bonjour Lab's Food, je souhaite commander du Kossam : ${f.qty} bouteille${f.qty > 1 ? 's' : ''} 1.5L (${f.price})`,
                         )}
                         target="_blank"
                         rel="noreferrer"

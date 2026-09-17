@@ -4,7 +4,7 @@ import { PageHero } from '@/components/ui/PageHero'
 export const metadata: Metadata = {
   title: 'Mentions légales',
   description:
-    "Mentions légales du site www.labsfood.fr — éditeur, hébergeur, propriété intellectuelle et informations légales de Lab's Food.",
+    "Mentions légales du site www.labsfood.fr : éditeur, hébergeur, propriété intellectuelle et informations légales de Lab's Food.",
 }
 
 type Field = { label: string; value: string; href?: string }
@@ -28,7 +28,7 @@ const SECTIONS: Section[] = [
       { label: 'Fondatrice et responsable de la publication', value: 'Ivy SIYAPTZE' },
       { label: 'Adresse du siège', value: '200 Rue de la Croix Nivert, 75015 Paris, France' },
       { label: 'Numéro SIRET', value: '100 715 036 00032' },
-      { label: 'Téléphone', value: '+33 7 49 75 56 84 (WhatsApp uniquement — messages écrits)' },
+      { label: 'Téléphone', value: '+33 7 49 75 56 84 (WhatsApp uniquement, messages écrits)' },
       { label: 'Email', value: 'contact@labsfood.fr', href: 'mailto:contact@labsfood.fr' },
       { label: 'Site web', value: 'www.labsfood.fr', href: 'https://www.labsfood.fr' },
     ],
@@ -110,8 +110,8 @@ const SECTIONS: Section[] = [
     body: [
       "En cas de litige entre le Client et Lab's Food, ceux-ci s'efforceront de le résoudre à l'amiable (le Client adressera une réclamation écrite auprès de Lab's Food ou, le cas échéant, auprès du Service Relations Clientèle de Lab's Food).",
       "À défaut d'accord amiable ou en l'absence de réponse de Lab's Food dans un délai raisonnable d'un (1) mois, le Client consommateur au sens de l'article L.612-2 du Code de la consommation a la possibilité de saisir gratuitement, si un désaccord subsiste, le médiateur compétent inscrit sur la liste des médiateurs établie par la Commission d'évaluation et de contrôle de la médiation de la consommation en application de l'article L.615-1 du Code de la consommation, à savoir :",
-      'La Société Médiation Professionnelle — Site web : http://www.mediateur-consommation-smp.fr',
-      'Alteritae — 5 rue Salvaing, 12000 Rodez',
+      'La Société Médiation Professionnelle, site web : http://www.mediateur-consommation-smp.fr',
+      'Alteritae, 5 rue Salvaing, 12000 Rodez',
     ],
   },
 ]
@@ -205,9 +205,9 @@ export default function MentionsLegalesPage() {
             ))}
 
             <div className="mt-20 pt-10 border-t border-navy/10">
-              <p className="text-sm text-ink/55 italic">
-                Mentions légales mises à jour le 15 juin 2026. © 2026 Lab&apos;s Food —
-                Tous droits réservés. Toute question peut être adressée à{' '}
+              <p className="text-sm text-ink/70 italic">
+                Mentions légales mises à jour le 15 juin 2026. © 2026 Lab&apos;s
+                Food, tous droits réservés. Toute question peut être adressée à{' '}
                 <a
                   href="mailto:contact@labsfood.fr"
                   className="text-navy-mid hover:text-navy underline"

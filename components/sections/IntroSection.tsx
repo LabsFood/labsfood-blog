@@ -2,33 +2,34 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Leaf, Heart, Compass, ShieldCheck } from 'lucide-react'
 
 /**
  * INTRO — Bienvenue chez Lab's Food
  * Style éditorial : ancre + photo gauche + texte droite + 4 valeurs en pastilles
  */
 
-const VALUES = [
+/**
+ * Ce que la maison tient à chaque prestation.
+ *
+ * Quatre engagements concrets et vérifiables, pas quatre qualités abstraites :
+ * chacun se lit comme une promesse que la cliente peut réclamer.
+ */
+const ENGAGEMENTS = [
   {
-    icon: Leaf,
-    title: 'Cuisine du monde',
-    text: "Inspirations puisées dans les cuisines du monde — chaque assiette raconte une culture.",
+    title: 'Les cuisines du monde',
+    text: "Ivy a cuisiné dans 21 pays. Le menu du mois passe par la Thaïlande, le Cameroun, l'Inde et le Brésil, et il change à chaque nouvelle carte.",
   },
   {
-    icon: Heart,
-    title: 'Accueil attentionné',
-    text: "Un service sincère, une présence discrète — proche de vous, à votre rythme.",
+    title: 'Votre menu, pas le nôtre',
+    text: "Rien n'est imposé. On compose la carte ensemble à partir de vos goûts, de vos allergies et du nombre de personnes à table. Un plat vous manque ? Proposez-le.",
   },
   {
-    icon: Compass,
-    title: 'Sur-mesure',
-    text: "Chaque prestation est adaptée à votre événement, votre cuisine, votre besoin.",
+    title: 'Une cuisine laissée nette',
+    text: "Le rangement et le nettoyage font partie de la prestation. Vous retrouvez vos plats prêts à réchauffer et votre cuisine dans l'état où vous l'avez laissée.",
   },
   {
-    icon: ShieldCheck,
-    title: 'Maison certifiée',
-    text: "HACCP, Hygiène irréprochable",
+    title: 'Maison certifiée HACCP',
+    text: "Les règles d'hygiène alimentaire professionnelle s'appliquent chez vous exactement comme dans une cuisine de restaurant.",
   },
 ] as const
 
@@ -49,7 +50,7 @@ export function IntroSection() {
 
             <Image
               src="/assets/slogan.svg"
-              alt="Lab's Food — We create what you love!"
+              alt="Lab's Food, We create what you love!"
               width={600}
               height={600}
               className="relative z-10 w-full h-auto max-w-lg object-contain"
@@ -85,7 +86,7 @@ export function IntroSection() {
                   souvent autour d&apos;une assiette</em>.
               </p> */}
               <p>
-                Déléguez, respirez, savourez. Une cheffe vient cuisiner votre semaine entière à votre domicile : vous choisissez les plats, nous nous occupons de tout le reste. Laissez-vous également surprendre par nos créations artisanales — le “Kossam” signature et la marinade Köni.
+                Déléguez, respirez, savourez. Une cheffe vient cuisiner votre semaine entière à votre domicile : vous choisissez les plats, nous nous occupons de tout le reste. Laissez-vous également surprendre par nos créations artisanales : le “Kossam” signature et la marinade Köni.
               </p>
             </div>
 
@@ -103,51 +104,58 @@ export function IntroSection() {
         </div>
       </div>
 
-      {/* ─── Bloc Valeurs (4 cards icônes) ──────────────────────────── */}
+      {/* ─── Les engagements de la maison ───────────────────────────── */}
       <div className="border-t border-navy/8 bg-cream-soft">
-        <div className="container-wide py-20 md:py-24">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-5">
-              <span className="size-6 h-px bg-navy-mid" />
-              Notre signature
-              <span className="size-6 h-px bg-navy-mid" />
-            </p>
-            <h3
-              className="font-display text-navy leading-tight text-balance"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}
+        <div className="container-wide py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-end">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 font-display text-navy leading-[0.98] tracking-tight text-balance"
+              style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
             >
-              Ce qui rend Lab&apos;s Food
-              <br />
-              <em className="not-italic">
-                <span className="font-display italic text-navy-mid">
-                  unique en son genre.
-                </span>
-              </em>
-            </h3>
+              Ce qui est compris,{' '}
+              <span className="font-display italic text-orange-deep">
+                à chaque fois.
+              </span>
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 lg:pl-12 lg:border-l lg:border-navy/10 text-ink/75 leading-relaxed max-w-[52ch]"
+            >
+              Quatre engagements que vous pouvez nous réclamer, pas quatre
+              qualités que nous nous attribuons.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {VALUES.map((v, i) => (
+          <dl className="mt-14 md:mt-16 border-t border-navy/15">
+            {ENGAGEMENTS.map((item, i) => (
               <motion.div
-                key={v.title}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="text-center"
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{
+                  duration: 0.7,
+                  delay: i * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="grid md:grid-cols-12 gap-3 md:gap-10 py-8 md:py-9 border-b border-navy/15"
               >
-                <div className="inline-flex size-16 md:size-20 rounded-full bg-navy-mid text-cream items-center justify-center mb-5 shadow-lg">
-                  <v.icon className="size-6 md:size-7" />
-                </div>
-                <h4 className="font-display text-lg md:text-xl text-navy mb-3">
-                  {v.title}
-                </h4>
-                <p className="text-sm text-ink/70 leading-relaxed text-pretty">
-                  {v.text}
-                </p>
+                <dt className="md:col-span-5 font-display text-2xl md:text-3xl text-navy leading-tight text-balance">
+                  {item.title}
+                </dt>
+                <dd className="md:col-span-7 text-ink/75 leading-relaxed max-w-[62ch]">
+                  {item.text}
+                </dd>
               </motion.div>
             ))}
-          </div>
+          </dl>
         </div>
       </div>
     </section>

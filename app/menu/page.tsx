@@ -11,7 +11,7 @@ import { BATCH_COOKING_URL, whatsappLink } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: `Menu de ${MENU.month.toLowerCase()} ${MENU.year}`,
-  description: `Le menu du mois de ${MENU.month.toLowerCase()} de Lab's Food : ${NB_PLATS} plats — poissons, viandes, végétarien et desserts — à composer librement pour votre semaine de batch cooking.`,
+  description: `Le menu du mois de ${MENU.month.toLowerCase()} de Lab's Food : ${NB_PLATS} plats (poissons, viandes, végétarien et desserts) à composer librement pour votre semaine de batch cooking.`,
 }
 
 export default function MenuPage() {
@@ -69,7 +69,7 @@ export default function MenuPage() {
               <p className="mt-8 text-lg leading-relaxed text-ink/80 max-w-[62ch]">
                 Vous piochez les plats qui vous font envie, vous écartez ceux
                 qui ne vous parlent pas, et vous pouvez tout à fait proposer vos
-                propres recettes. On en discute avec plaisir — un ajustement
+                propres recettes. On en discute avec plaisir, un ajustement
                 tarifaire est possible selon la recette.
               </p>
               <p className="mt-5 leading-relaxed text-ink/70 max-w-[62ch]">
@@ -90,7 +90,7 @@ export default function MenuPage() {
                 </a>
                 <a
                   href={whatsappLink(
-                    `Bonjour Lab's Food, j'ai vu le menu de ${MENU.month.toLowerCase()} et j'aimerais en discuter — `,
+                    `Bonjour Lab's Food, j'ai vu le menu de ${MENU.month.toLowerCase()} et j'aimerais en discuter : `,
                   )}
                   target="_blank"
                   rel="noreferrer"

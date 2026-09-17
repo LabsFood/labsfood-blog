@@ -140,7 +140,7 @@ export function FormulesSection({ className }: { className?: string }) {
               </a>
               <a
                 href={whatsappLink(
-                  "Bonjour Lab's Food, j'aimerais des précisions sur les formules de batch cooking — ",
+                  "Bonjour Lab's Food, j'aimerais des précisions sur les formules de batch cooking : ",
                 )}
                 target="_blank"
                 rel="noreferrer"

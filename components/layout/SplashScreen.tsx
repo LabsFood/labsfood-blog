@@ -1,85 +1,93 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { FillingWordmark } from '@/components/ui/Loader'
 
 /**
- * Splash de premier chargement.
- * S'affiche uniquement à la toute première visite de la session puis se dissout.
- * Ne se redéclenche pas entre les navigations (pour ça → app/loading.tsx).
+ * Entrée du site.
+ *
+ * Le nom de la maison se remplit de crème, puis le fond navy se lève et
+ * découvre la page. Même grammaire que le loader de navigation
+ * (components/ui/Loader), pour que l'attente et l'arrivée se ressemblent.
+ *
+ * Ne se joue qu'une fois par session, jamais entre deux navigations. Les
+ * visiteurs qui ont demandé moins d'animations arrivent directement sur la
+ * page.
  */
+
+const REMPLISSAGE_MS = 1500
+const LEVEE_S = 0.9
+
 export function SplashScreen() {
-  const [show, setShow] = useState(true)
+  const reduceMotion = useReducedMotion()
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (sessionStorage.getItem('lf:splash-shown')) {
-      setShow(false)
-      return
+    if (reduceMotion) return
+
+    let dejaVu = true
+    try {
+      dejaVu = sessionStorage.getItem('lf:entree') === '1'
+    } catch {
+      // Navigation privée ou stockage bloqué : on n'insiste pas.
+      dejaVu = true
     }
+    if (dejaVu) return
+
+    setShow(true)
+    document.body.style.overflow = 'hidden'
+
     const t = setTimeout(() => {
-      sessionStorage.setItem('lf:splash-shown', '1')
+      try {
+        sessionStorage.setItem('lf:entree', '1')
+      } catch {
+        /* sans stockage, l'entrée se rejouera : ce n'est pas grave */
+      }
       setShow(false)
-    }, 1400)
-    return () => clearTimeout(t)
-  }, [])
+      document.body.style.overflow = ''
+    }, REMPLISSAGE_MS)
+
+    return () => {
+      clearTimeout(t)
+      document.body.style.overflow = ''
+    }
+  }, [reduceMotion])
 
   return (
     <AnimatePresence>
       {show && (
         <motion.div
-          key="splash"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }}
-          className="fixed inset-0 z-[80] bg-navy grid place-items-center overflow-hidden"
+          key="entree"
+          aria-hidden
+          className="fixed inset-0 z-[90] bg-navy text-cream grid place-items-center pointer-events-none overflow-hidden"
+          initial={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+          exit={{
+            clipPath: 'inset(0% 0% 100% 0%)',
+            transition: { duration: LEVEE_S, ease: [0.76, 0, 0.24, 1] },
+          }}
         >
           <div className="absolute inset-0 bg-hero-radial" />
-          <div className="absolute inset-0 bg-grain opacity-[0.06]" />
+          <div className="absolute inset-0 bg-grain opacity-[0.07]" />
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+            className="relative flex flex-col items-center gap-8 px-6"
+            exit={{
+              y: -28,
+              opacity: 0,
+              transition: { duration: LEVEE_S * 0.7, ease: [0.4, 0, 1, 1] },
             }}
-            exit={{ opacity: 0, y: -10, transition: { duration: 0.4 } }}
-            className="relative flex flex-col items-center gap-6"
           >
-            <div className="relative size-20">
-              <motion.div
-                className="absolute inset-0 rounded-full border border-navy-mid/30"
-                animate={{ scale: [1, 1.3, 1.6], opacity: [0.8, 0.3, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
-              />
-              <motion.div
-                className="absolute inset-0 rounded-full border border-navy-mid/30"
-                animate={{ scale: [1, 1.3, 1.6], opacity: [0.8, 0.3, 0] }}
-                transition={{
-                  duration: 1.8,
-                  repeat: Infinity,
-                  ease: 'easeOut',
-                  delay: 0.6,
-                }}
-              />
-              <div className="absolute inset-0 rounded-full bg-navy-mid grid place-items-center">
-                <Image
-                  src="/logo.png"
-                  alt=""
-                  width={42}
-                  height={42}
-                  priority
-                  className="object-contain"
-                />
-              </div>
-            </div>
+            <FillingWordmark loop={false} />
 
-            <div className="text-center">
-              <div className="font-display text-3xl text-cream">Lab&apos;s Food</div>
-              <div className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-navy-soft mt-2">
-                We create what you love!
-              </div>
-            </div>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.75, duration: 0.5 }}
+              className="font-display italic text-lg md:text-xl text-cream/70"
+            >
+              We create what you love!
+            </motion.span>
           </motion.div>
         </motion.div>
       )}

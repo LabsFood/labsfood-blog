@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 const ORDER_MESSAGE =
-  "Bonjour Lab's Food, je souhaite commander la marinade Köni — "
+  "Bonjour Lab's Food, je souhaite commander la marinade Köni : "
 
 export default function KoniPage() {
   return (

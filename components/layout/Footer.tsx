@@ -33,8 +33,8 @@ const LINKS = {
     { label: 'Kossam', href: '/produits/kossam' },
     { label: 'Marinade Köni', href: '/produits/koni' },
     { label: 'Tous les produits', href: '/produits' },
-    { label: 'Bientôt — Luxury Kossam', href: '/produits' },
-    { label: 'Bientôt — Ail noir', href: '/produits' },
+    { label: 'Bientôt : Luxury Kossam', href: '/produits' },
+    { label: 'Bientôt : Ail noir', href: '/produits' },
   ],
   legal: [
     { label: 'Mentions légales', href: '/mentions-legales' },
@@ -131,7 +131,7 @@ export function Footer() {
           </FooterColumn>` */}
           <div className="lg:col-span-3">
             <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-6">
-              — Nous contacter
+              Nous contacter
             </p>
             <ul className="space-y-4">
               <li>
@@ -174,7 +174,7 @@ export function Footer() {
           </div>
           <div className=" md:col-span-3">
             <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-4">
-              — Suivez-nous
+              Suivez-nous
             </p>
             <div className="flex items-center gap-3">
               {SOCIAL.map(({ Icon, label, href }) => (
@@ -239,7 +239,7 @@ function FooterColumn({
   return (
     <div className={className}>
       <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-6">
-        — {title}
+        {title}
       </p>
       <ul className="space-y-3">{children}</ul>
     </div>

@@ -5,7 +5,7 @@ export const SITE = {
   name: "Lab's Food",
   tagline: "L'art de cuisiner, partagé",
   description:
-    "Lab's Food, fondé par Ivy : batch cooking à domicile sur la Côte d'Azur et produits artisanaux — le Kossam et la marinade Köni.",
+    "Lab's Food, fondé par Ivy : batch cooking à domicile sur la Côte d'Azur, plus nos produits artisanaux : le Kossam et la marinade Köni.",
   email: 'contact@labsfood.fr',
 }
 
@@ -24,7 +24,7 @@ export const KOSSAM = {
   short:
     "L'alternative onctueuse, légèrement acidulée, inspirée d'un précieux savoir-faire camerounais.",
   description:
-    "Découvrez le Kossam, l'alternative onctueuse qui va réinventer vos moments gourmands. Inspirée d'un précieux savoir-faire traditionnel camerounais, cette boisson lactée fermentée séduit instantanément par sa texture incroyablement veloutée et son équilibre parfait — où la douceur réconfortante du lait rencontre une note délicatement acidulée. Le Kossam est avant tout une expérience sensorielle et un véritable allié pour votre bien-être, vous apportant fraîcheur, douceur et vitalité tout au long de la journée.",
+    "Découvrez le Kossam, l'alternative onctueuse qui va réinventer vos moments gourmands. Inspirée d'un précieux savoir-faire traditionnel camerounais, cette boisson lactée fermentée séduit instantanément par sa texture incroyablement veloutée et son équilibre parfait, où la douceur réconfortante du lait rencontre une note délicatement acidulée. Le Kossam est avant tout une expérience sensorielle et un véritable allié pour votre bien-être, vous apportant fraîcheur, douceur et vitalité tout au long de la journée.",
   usages: [
     'Très frais au verre, pour un moment de pur plaisir',
     'Versé sur un granola croustillant au petit-déjeuner',
@@ -118,7 +118,7 @@ export const REVIEWS = [
   },
   {
     author: 'Guy',
-    text: "Ma cousine a kiffé ton lait 🥛 — Je vais peut-être encore acheter ça la semaine prochaine.",
+    text: "Ma cousine a kiffé ton lait 🥛. Je vais peut-être encore acheter ça la semaine prochaine.",
     source: 'kossam' as const,
   },
   {
@@ -137,7 +137,7 @@ export const REVIEWS = [
   {
     author: 'Ted',
     city: "Côte d'Azur",
-    text: "Expérience appétissante avec Lab's Food. En tant qu'inculte de la cuisine, j'ai commandé trois plats pour découvrir : fondue de poireaux riz et saumon, bœuf aux oignons, poulet basquaise et plantain vapeur. Le programme prévu a bien été respecté, le rendu était clean et bien organisé. Une semaine avec de la bouffe à la maison validée — de quoi souffler des McDo !",
+    text: "Expérience appétissante avec Lab's Food. En tant qu'inculte de la cuisine, j'ai commandé trois plats pour découvrir : fondue de poireaux riz et saumon, bœuf aux oignons, poulet basquaise et plantain vapeur. Le programme prévu a bien été respecté, le rendu était clean et bien organisé. Une semaine avec de la bouffe à la maison validée, de quoi souffler des McDo !",
     source: 'batch' as const,
   },
   {
@@ -166,7 +166,7 @@ export const REVIEWS = [
   },
   {
     author: 'Yves Emma',
-    text: "Un Kossam qui me fait voyager jusqu'au 237 — simple, onctueux, plusieurs saveurs et qui se conserve bien. Un délice.",
+    text: "Un Kossam qui me fait voyager jusqu'au 237 : simple, onctueux, plusieurs saveurs et qui se conserve bien. Un délice.",
     source: 'kossam' as const,
   },
   {
@@ -176,7 +176,7 @@ export const REVIEWS = [
   },
   {
     author: 'Marylou',
-    text: "Meilleur Kossam consommé jusqu'ici ❤️ — les différentes saveurs fruitées rajoutent un PEPS ! 🤧 Coco mon préféré 🫶",
+    text: "Meilleur Kossam consommé jusqu'ici ❤️. Les différentes saveurs fruitées rajoutent un PEPS ! 🤧 Coco mon préféré 🫶",
     source: 'kossam' as const,
   },
   {
@@ -196,7 +196,7 @@ export const REVIEWS = [
   },
   {
     author: 'Kevin',
-    text: "J'ai adoré le kossam — je l'ai fini en une soirée.",
+    text: "J'ai adoré le kossam, je l'ai fini en une soirée.",
     source: 'kossam' as const,
   },
 
@@ -238,12 +238,12 @@ export const REVIEWS = [
   },
   {
     author: 'Junior',
-    text: "J'ai eu l'occasion de goûter plusieurs plats d'Ivy et je n'ai jamais été déçu. Une cuisine généreuse, savoureuse et faite avec passion. On sent le soin apporté aux détails — foncez les yeux fermés, elle gère de fou.",
+    text: "J'ai eu l'occasion de goûter plusieurs plats d'Ivy et je n'ai jamais été déçu. Une cuisine généreuse, savoureuse et faite avec passion. On sent le soin apporté aux détails. Foncez les yeux fermés, elle gère de fou.",
     source: 'service' as const,
   },
   {
     author: 'Ange',
-    text: "Je me suis régalée 😍🙏 — dites-vous qu'au début je me disais « qu'est-ce que celle-ci a encore fabriqué ? » 🤣🤣 En tout cas sa créativité est à saluer, et rassurez-vous, le goût suit 🙏🤩",
+    text: "Je me suis régalée 😍🙏. Dites-vous qu'au début je me disais « qu'est-ce que celle-ci a encore fabriqué ? » 🤣🤣 En tout cas sa créativité est à saluer, et rassurez-vous, le goût suit 🙏🤩",
     source: 'service' as const,
   },
   {
@@ -282,7 +282,7 @@ export const FOUNDER = {
   signaturePull:
     "Soulager la charge mentale d'une personne par la cuisine, c'est exceptionnel.",
   mission:
-    "Lab's Food, c'est une plateforme dédiée à votre bien-être gourmand — entrer dans votre cuisine pour vous y faire respirer.",
+    "Lab's Food, c'est une plateforme dédiée à votre bien-être gourmand : entrer dans votre cuisine pour vous y faire respirer.",
   gourmandsServed: 150,
   certifications: ['HACCP'],
   languages: ['Français', 'Anglais', 'Portugais'],

@@ -147,7 +147,7 @@ export function ProductsSection() {
                 <Button asChild variant="whatsapp" size="lg" className="w-full sm:w-auto">
                   <a
                     href={whatsappLink(
-                      "Bonjour Lab's Food, je souhaite commander du Kossam — ",
+                      "Bonjour Lab's Food, je souhaite commander du Kossam : ",
                     )}
                     target="_blank"
                     rel="noreferrer"
@@ -167,7 +167,7 @@ export function ProductsSection() {
 
               <p className="mt-6 flex items-center gap-2 text-xs text-ink/65">
                 <MapPin className="size-3.5 text-mint-ink shrink-0" />
-                {KOSSAM.delivery} — produit frais.
+                {KOSSAM.delivery}, produit frais.
               </p>
             </div>
           </div>
@@ -222,7 +222,7 @@ export function ProductsSection() {
                   <Button asChild variant="whatsapp" size="lg">
                     <a
                       href={whatsappLink(
-                        "Bonjour Lab's Food, je souhaite commander la marinade Köni — ",
+                        "Bonjour Lab's Food, je souhaite commander la marinade Köni : ",
                       )}
                       target="_blank"
                       rel="noreferrer"

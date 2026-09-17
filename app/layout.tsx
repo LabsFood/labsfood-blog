@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 
 import { Header } from '@/components/layout/Header'
+import { SplashScreen } from '@/components/layout/SplashScreen'
 import { Footer } from '@/components/layout/Footer'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
 // import { CookieConsent } from '@/components/ui/CookieConsent'
@@ -50,11 +51,11 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://labsfood.fr'),
   title: {
-    default: "Lab's Food — Batch cooking à domicile & produits artisanaux",
+    default: "Lab's Food · Batch cooking à domicile et produits artisanaux",
     template: "%s · Lab's Food",
   },
   description:
-    "Lab's Food, fondé par Ivy : une cheffe vient cuisiner votre semaine entière à votre domicile sur la Côte d'Azur — crédit d'impôt de 50 % déduit immédiatement. Et nos produits maison, le Kossam et la marinade Köni.",
+    "Lab's Food, fondé par Ivy : une cheffe vient cuisiner votre semaine entière à votre domicile sur la Côte d'Azur, avec le crédit d'impôt de 50 % déduit immédiatement. Et nos produits maison, le Kossam et la marinade Köni.",
   applicationName: "Lab's Food",
   keywords: [
     "batch cooking",
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Lab's Food" }],
   icons: { icon: '/favicon.png' },
   openGraph: {
-    title: "Lab's Food — We create what you love!",
+    title: "Lab's Food · We create what you love!",
     description:
       "Batch cooking à domicile sur la Côte d'Azur, Kossam & marinade Köni",
     type: 'website',
@@ -85,13 +86,13 @@ export const metadata: Metadata = {
         url: '/logoLab.png',
         width: 1200,
         height: 630,
-        alt: "Lab's Food — We create what you love!",
+        alt: "Lab's Food · We create what you love!",
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Lab's Food — We create what you love!",
+    title: "Lab's Food · We create what you love!",
     description:
       "Une semaine de repas cuisinée chez vous, et nos produits maison.",
     images: ['/logoLab.png'],
@@ -125,6 +126,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${montserrat.variable} `}
     >
       <body className="bg-cream text-ink font-sans antialiased">
+        <SplashScreen />
         {/* <AnnouncementBar /> */}
         <Header />
         <main>{children}</main>

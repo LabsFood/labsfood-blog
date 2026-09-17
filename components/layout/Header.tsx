@@ -236,7 +236,7 @@ export function Header() {
                         href={item.href}
                         className="group/footer flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-medium text-slate-500 hover:text-navy hover:bg-slate-50 transition-colors duration-150"
                       >
-                        <span>Voir tout — {item.label}</span>
+                        <span>Voir tout : {item.label}</span>
                         <ArrowUpRight className="size-3 opacity-0 group-hover/footer:opacity-100 transition-opacity" />
                       </Link>
                     </div>
@@ -305,9 +305,6 @@ export function Header() {
                     )}
                     style={{ transitionDelay: open ? `${i * 70}ms` : '0ms' }}
                   >
-                    <span className="font-mono text-[0.7rem] tabular-nums text-cream/30 self-start mt-1">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
                     <Link
                       href={item.href}
                       className={cn(
@@ -398,7 +395,7 @@ export function Header() {
               <ArrowUpRight className="size-4" />
             </a>
             <p className="text-center text-xs text-cream/45">
-              Service client 7j/7 — Messages écrits uniquement
+              Service client 7j/7, messages écrits uniquement
             </p>
           </div>
         </div>

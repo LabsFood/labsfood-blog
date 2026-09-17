@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
@@ -11,114 +10,120 @@ type Props = {
 }
 
 /**
- * LOADER — Style éditorial signature Lab's Food
+ * LOADER — le nom de la maison qui se remplit.
  *
- * Composition :
- *   - Logo central avec halo de glow pulsant (3 cercles concentriques)
- *   - Barre de progression segmentée (4 segments qui s'allument en boucle)
- *   - Marque "Lab's Food" + slogan "We create what you love!"
- *   - Petits points orbitaux qui tournent autour du logo
+ * « Lab's Food » est posé en Fraunces à grande échelle, en creux dans le
+ * navy. Un niveau de crème monte à l'intérieur des lettres, avec sa ligne de
+ * surface ambrée, comme on verse un Kossam dans un verre. C'est la marque
+ * elle-même qui sert d'indicateur : pas de barre, pas de roue, pas de points
+ * qui clignotent.
+ *
+ * Une seule animation orchestrée, en boucle propre : le niveau monte, marque
+ * un temps plein, puis s'efface avant de repartir. Sous
+ * prefers-reduced-motion, le nom s'affiche simplement plein.
  */
 export function Loader({
   fullscreen = false,
-  label = 'Préparation en cours',
+  label = 'On met le couvert',
   className,
 }: Props) {
   return (
     <div
-      className={cn(
-        'flex flex-col items-center justify-center gap-10',
-        fullscreen && 'fixed inset-0 z-[60] bg-cream',
-        !fullscreen && 'py-24',
-        className,
-      )}
       role="status"
       aria-live="polite"
+      className={cn(
+        'relative overflow-hidden bg-navy text-cream grid place-items-center',
+        fullscreen ? 'fixed inset-0 z-[60]' : 'min-h-[60vh] rounded-3xl',
+        className,
+      )}
     >
-      {/* ─── Stage central : logo + halos + orbites ─── */}
-      <div className="relative size-44 flex items-center justify-center">
-        {/* Halo extérieur — pulse lent */}
-        <motion.div
-          aria-hidden
-          animate={{ scale: [1, 1.25, 1], opacity: [0.35, 0, 0.35] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
-          className="absolute inset-0 rounded-full border border-navy-mid/40"
-        />
-        {/* Halo médian — pulse décalé */}
-        <motion.div
-          aria-hidden
-          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0, 0.5] }}
-          transition={{
-            duration: 2.4,
-            repeat: Infinity,
-            ease: 'easeOut',
-            delay: 0.4,
-          }}
-          className="absolute inset-4 rounded-full border border-navy-mid/50"
-        />
-        {/* Halo intérieur — solide doux */}
-        <div className="absolute inset-8 rounded-full bg-navy/[0.04]" />
+      <div aria-hidden className="absolute inset-0 bg-hero-radial" />
+      <div aria-hidden className="absolute inset-0 bg-grain opacity-[0.07]" />
 
-        {/* Orbites : 3 points qui tournent autour */}
-        <motion.div
-          aria-hidden
-          animate={{ rotate: 360 }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-          className="absolute inset-0"
+      <div className="relative flex flex-col items-center gap-8 px-6">
+        <FillingWordmark />
+
+        <span className="font-mono text-[0.6rem] uppercase tracking-[0.35em] text-cream/70">
+          {label}
+        </span>
+      </div>
+
+      <span className="sr-only">Chargement en cours</span>
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────── */
+
+const WORDMARK = 'Lab’s Food'
+
+/** Échelle du nom, commune au loader et à l'entrée du site. */
+const TYPE = {
+  fontSize: 'clamp(2.6rem, 9vw, 7rem)',
+  letterSpacing: '-0.03em',
+}
+
+/**
+ * Le nom en creux, et le même nom rempli par un niveau qui monte.
+ *
+ * `loop` fait repartir le remplissage indéfiniment (loader de navigation) ;
+ * sans lui, le niveau monte une fois et reste plein (entrée du site).
+ */
+export function FillingWordmark({ loop = true }: { loop?: boolean }) {
+  const montee = loop
+    ? {
+        height: ['0%', '100%', '100%'],
+        transition: {
+          duration: 2.4,
+          times: [0, 0.62, 1],
+          ease: [0.65, 0, 0.35, 1] as [number, number, number, number],
+          repeat: Infinity,
+        },
+      }
+    : {
+        height: '100%',
+        transition: { duration: 1.25, ease: [0.65, 0, 0.35, 1] as [number, number, number, number] },
+      }
+
+  const effacement = loop
+    ? {
+        opacity: [1, 1, 0],
+        transition: {
+          duration: 2.4,
+          times: [0, 0.82, 1],
+          ease: 'linear' as const,
+          repeat: Infinity,
+        },
+      }
+    : { opacity: 1 }
+
+  return (
+    <div aria-hidden className="relative">
+      {/* Le nom en creux : le contenant */}
+      <span
+        className="block font-display font-bold leading-none whitespace-nowrap text-cream/[0.18]"
+        style={TYPE}
+      >
+        {WORDMARK}
+      </span>
+
+      {/* Le niveau qui monte, clippé sur la même ligne de base */}
+      <motion.div
+        className="absolute inset-x-0 bottom-0 overflow-hidden motion-reduce:!h-full motion-reduce:!opacity-100"
+        initial={{ height: '0%' }}
+        animate={{ ...montee, ...effacement }}
+      >
+        {/* Pas de ligne de surface : un filet posé sur toute la largeur de la
+            boîte traverse aussi les blancs entre les lettres et se lit comme
+            un texte barré. Le contraste entre le creux et le plein suffit à
+            faire lire le niveau. */}
+        <span
+          className="absolute inset-x-0 bottom-0 block font-display font-bold leading-none whitespace-nowrap text-cream"
+          style={TYPE}
         >
-          <span className="absolute top-0 left-1/2 -translate-x-1/2 size-2 rounded-full bg-navy-mid shadow-md" />
-          <span className="absolute bottom-1 right-3 size-1.5 rounded-full bg-orange" />
-          <span className="absolute bottom-1 left-3 size-1.5 rounded-full bg-mint-deep" />
-        </motion.div>
-
-        {/* Logo central pulsant */}
-        <motion.div
-          animate={{ scale: [1, 1.06, 1] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative size-20"
-        >
-          <Image
-            src="/mainLogo.png"
-            alt=""
-            fill
-            sizes="80px"
-            className="object-contain"
-            priority
-          />
-        </motion.div>
-      </div>
-
-      {/* ─── Barre de progression segmentée ─── */}
-      <div className="flex items-center gap-2">
-        {[0, 1, 2, 3].map((i) => (
-          <motion.span
-            key={i}
-            aria-hidden
-            initial={{ opacity: 0.15 }}
-            animate={{ opacity: [0.15, 1, 0.15] }}
-            transition={{
-              duration: 1.6,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: i * 0.18,
-            }}
-            className="block w-10 h-[3px] rounded-full bg-navy-mid"
-          />
-        ))}
-      </div>
-
-      {/* ─── Wordmark + slogan + label ─── */}
-      <div className="flex flex-col items-center gap-2">
-        <span className="font-display text-xl text-navy tracking-tight">
-          Lab&apos;s Food
+          {WORDMARK}
         </span>
-        <span className="font-display italic text-sm text-navy-mid">
-          We create what you love!
-        </span>
-        <span className="mt-3 font-mono text-[0.6rem] uppercase tracking-[0.35em] text-ink/45">
-          — {label} —
-        </span>
-      </div>
+      </motion.div>
     </div>
   )
 }

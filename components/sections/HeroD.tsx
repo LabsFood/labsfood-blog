@@ -18,7 +18,7 @@ export function HeroD() {
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/assets/sansLogo.jpeg"
-          alt="Lab's Food — We create what you love!"
+          alt="Lab's Food, We create what you love!"
           fill
           priority
           quality={100}
@@ -65,7 +65,7 @@ export function HeroD() {
           className="font-mono text-[0.7rem] md:text-xs uppercase tracking-[0.4em] text-cream/80 mb-5 inline-flex items-center gap-3"
         >
           <span className="size-8 h-px bg-cream/40" />
-          Lab&apos;s Food — par Siyaptze
+          Lab&apos;s Food, par Siyaptze
           <span className="size-8 h-px bg-cream/40" />
         </motion.p> */}
 
@@ -93,7 +93,7 @@ export function HeroD() {
           className="mt-8 max-w-2xl text-cream/85 text-lg md:text-xl leading-relaxed text-pretty"
         >
           Fondée par Ivy, Lab&apos;s Food vient cuisiner votre semaine entière
-          à votre domicile, sur la Côte d&apos;Azur — et signe une gamme de
+          à votre domicile, sur la Côte d&apos;Azur, et signe une gamme de
           produits artisanaux.
         </motion.p>
 

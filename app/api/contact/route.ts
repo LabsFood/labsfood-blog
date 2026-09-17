@@ -142,7 +142,7 @@ export async function POST(request: Request) {
     style="max-width:640px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,35,75,0.08);">
     <tr>
       <td style="background:${navy};padding:36px 32px;text-align:center;color:#ffffff;">
-        <p style="margin:0;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:${orange};">— Lab's Food</p>
+        <p style="margin:0;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:${orange};">Lab's Food</p>
         <h1 style="margin:14px 0 0;font-size:24px;font-weight:600;letter-spacing:-0.01em;">
           Nouvelle demande de contact
         </h1>
@@ -219,7 +219,7 @@ export async function POST(request: Request) {
 </body>
 </html>`
 
-    const mailText = `Nouvelle demande de contact — Lab's Food
+    const mailText = `Nouvelle demande de contact · Lab's Food
 
 Sujet : ${subjectLabel}
 
@@ -229,16 +229,16 @@ Email  : ${data.email}${data.phone ? `\nTéléphone : ${data.phone}` : ''}
 Message :
 ${data.message}
 
-— Reçu le ${new Date().toLocaleString('fr-FR')}`
+Reçu le ${new Date().toLocaleString('fr-FR')}`
 
     let lastError: unknown = null
     for (let attempt = 1; attempt <= 2; attempt++) {
       try {
         await transporter.sendMail({
-          from: `"Lab's Food — Site" <${from}>`,
+          from: `"Lab's Food · Site" <${from}>`,
           to,
           replyTo: data.email,
-          subject: `[Lab's Food] ${subjectLabel} — ${data.name}`,
+          subject: `[Lab's Food] ${subjectLabel} · ${data.name}`,
           html: mailHtml,
           text: mailText,
         })

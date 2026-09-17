@@ -54,7 +54,7 @@ export function AvanceImmediateSection() {
             className="lg:col-span-5 rounded-3xl bg-cream text-navy p-8 md:p-10 shadow-[0_24px_48px_-24px_rgba(0,12,26,0.85)]"
           >
             <figcaption className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink/70">
-              Exemple — formule {exemple.formule}
+              Exemple : formule {exemple.formule}
             </figcaption>
 
             <dl className="mt-7 font-mono text-sm tabular-nums">

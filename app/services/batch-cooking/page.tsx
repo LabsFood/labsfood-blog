@@ -67,7 +67,7 @@ export default function BatchCookingPage() {
               </p>
               <p className="mt-5 leading-relaxed text-ink/75 max-w-[62ch]">
                 Elle repart en laissant des plats prêts, conservés
-                correctement, avec les consignes de réchauffage — et une
+                correctement, avec les consignes de réchauffage, et une
                 cuisine propre. Vous récupérez vos soirées sans rien changer à
                 vos habitudes alimentaires : le menu est construit avec vous,
                 à partir de vos goûts, de vos allergies et du nombre de
@@ -178,7 +178,7 @@ export default function BatchCookingPage() {
               </h2>
               <p className="mt-7 leading-relaxed text-ink/80 max-w-[62ch]">
                 Chaque mois, une nouvelle carte : poissons, viandes,
-                végétarien, desserts. Vous y piochez ce qui vous plaît — et si
+                végétarien, desserts. Vous y piochez ce qui vous plaît, et si
                 un plat vous manque, proposez-le, on en discute.
               </p>
               <Link
@@ -259,7 +259,7 @@ export default function BatchCookingPage() {
             </a>
             <a
               href={whatsappLink(
-                "Bonjour Lab's Food, je m'intéresse au batch cooking — ",
+                "Bonjour Lab's Food, je m'intéresse au batch cooking : ",
               )}
               target="_blank"
               rel="noreferrer"

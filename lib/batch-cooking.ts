@@ -23,7 +23,7 @@ export const ETAPES: Etape[] = [
   {
     n: '01',
     title: 'On papote',
-    body: "Vos envies, vos goûts, le nombre de gourmands à table, vos allergies. On construit VOTRE menu ensemble — rien n'est imposé.",
+    body: "Vos envies, vos goûts, le nombre de gourmands à table, vos allergies. On construit VOTRE menu ensemble, rien n'est imposé.",
   },
   {
     n: '02',

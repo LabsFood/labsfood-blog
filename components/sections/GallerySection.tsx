@@ -4,19 +4,12 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 /**
- * GALERIE — Bandeau marquee infini + mosaïque éditoriale
+ * GALERIE — mosaïque éditoriale.
+ *
+ * Le bandeau de mots défilants a été retiré : il n'apportait aucune
+ * information et le défilement perpétuel tirait l'œil hors des photos, qui
+ * sont le vrai contenu de la section.
  */
-
-const MARQUEE_WORDS = [
-  'Voyager',
-  'Apprendre',
-  'Partager',
-  'Cuisiner',
-  'Déguster',
-  'Recevoir',
-  'Inventer',
-  'Transmettre',
-]
 
 const GALLERY = [
   { src: '/assets/gallerie/img1.jpeg', alt: 'Préparation maison', aspect: 'tall' },
@@ -26,49 +19,28 @@ const GALLERY = [
   { src: '/assets/photo-13.jpeg', alt: 'Dressage soigné', aspect: 'tall' },
   { src: '/assets/poissonn.jpeg', alt: 'Plat de poisson dressé', aspect: 'square' },
   { src: '/assets/photo-10.jpeg', alt: 'Plats préparés pour la semaine', aspect: 'square' },
-  { src: '/assets/gallerie/bobolo.jpeg', alt: 'elle', aspect: 'square' },
+  { src: '/assets/gallerie/bobolo.jpeg', alt: 'Bobolo fait maison', aspect: 'square' },
 ]
 
 export function GallerySection() {
   return (
     <section className="relative bg-cream overflow-hidden">
-      {/* ─── Marquee mots-clés ────────────────────────────────────────── */}
-      <div className="border-y border-navy/8 py-10 md:py-14 bg-cream-soft overflow-hidden">
-        <div className="flex gap-12 md:gap-16 animate-marquee whitespace-nowrap">
-          {[...MARQUEE_WORDS, ...MARQUEE_WORDS, ...MARQUEE_WORDS].map((word, i) => (
-            <div key={i} className="flex items-center gap-12 md:gap-16 shrink-0">
-              <span
-                className="font-display text-navy italic"
-                style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 1 }}
-              >
-                {word}
-              </span>
-              <span className="size-3 rounded-full bg-navy-mid shrink-0" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ─── Mosaïque ─────────────────────────────────────────────────── */}
-      <div className="container-wide py-20 md:py-28">
+      <div className="container-wide py-24 md:py-32">
         {/* En-tête */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-5">
-            <span className="size-6 h-px bg-navy-mid" />
-            En cuisine, en image
-            <span className="size-6 h-px bg-navy-mid" />
-          </p>
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-12 md:mb-14">
           <h3
-            className="font-display text-navy leading-tight text-balance"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}
+            className="lg:col-span-7 font-display text-navy leading-[0.98] tracking-tight text-balance"
+            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
           >
             La maison Lab&apos;s Food,{' '}
-            <em className="not-italic">
-              <span className="font-display italic text-navy-mid">
-                au quotidien.
-              </span>
-            </em>
+            <span className="font-display italic text-orange-deep">
+              au quotidien.
+            </span>
           </h3>
+          <p className="lg:col-span-5 lg:pl-12 lg:border-l lg:border-navy/10 text-ink/75 leading-relaxed max-w-[52ch]">
+            Des photos prises en prestation, chez les clients, sans mise en
+            scène. C&apos;est ce que vous retrouverez dans vos plats.
+          </p>
         </div>
 
         {/* Grille mosaïque */}

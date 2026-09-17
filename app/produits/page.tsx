@@ -163,7 +163,7 @@ export default function ProduitsPage() {
             <dl className="border-t border-navy/15">
               <div className="py-7 border-b border-navy/15">
                 <dt className="font-display text-xl text-navy">
-                  Kossam — {KOSSAM.delivery}
+                  Kossam : {KOSSAM.delivery}
                 </dt>
                 <dd className="mt-2 text-ink/70 leading-relaxed max-w-[62ch]">
                   {KOSSAM.deliveryNote} Récupération sur place ou livraison,
@@ -172,7 +172,7 @@ export default function ProduitsPage() {
               </div>
               <div className="py-7 border-b border-navy/15">
                 <dt className="font-display text-xl text-navy">
-                  Köni — {KONI.delivery}
+                  Köni : {KONI.delivery}
                 </dt>
                 <dd className="mt-2 text-ink/70 leading-relaxed max-w-[62ch]">
                   {KONI.deliveryNote}
@@ -181,7 +181,7 @@ export default function ProduitsPage() {
             </dl>
 
             <a
-              href={whatsappLink("Bonjour Lab's Food, j'ai une question sur vos produits — ")}
+              href={whatsappLink("Bonjour Lab's Food, j'ai une question sur vos produits : ")}
               target="_blank"
               rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors duration-300 ease-expo"
