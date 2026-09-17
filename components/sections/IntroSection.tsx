@@ -85,7 +85,7 @@ export function IntroSection() {
                   souvent autour d&apos;une assiette</em>.
               </p> */}
               <p>
-                Déléguez, apprenez, savourez. Du batch cooking à domicile à l’atelier convivial, en passant par notre assistance aux fourneaux, LAB’S FOOD est là. Laissez-vous également surprendre par nos créations artisanales uniques, comme notre “Kossam” signature.
+                Déléguez, respirez, savourez. Une cheffe vient cuisiner votre semaine entière à votre domicile : vous choisissez les plats, nous nous occupons de tout le reste. Laissez-vous également surprendre par nos créations artisanales — le “Kossam” signature et la marinade Köni.
               </p>
             </div>
 
@@ -95,7 +95,7 @@ export function IntroSection() {
                 Ivy
               </div>
               <span className="size-1 rounded-full bg-navy/30" />
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/50">
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/70">
                 Fondatrice
               </span>
             </div>

@@ -92,7 +92,9 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="mt-8 max-w-2xl text-cream/85 text-lg md:text-xl leading-relaxed text-pretty"
         >
-          Fondée par Ivy, Lab's Food simplifie votre quotidien grâce à des services sur-mesure et une gamme de produits artisanaux.
+          Fondée par Ivy, Lab&apos;s Food vient cuisiner votre semaine entière
+          à votre domicile, sur la Côte d&apos;Azur — et signe une gamme de
+          produits artisanaux.
         </motion.p>
 
         {/* Stats inline */}
@@ -102,11 +104,11 @@ export function HeroD() {
           transition={{ duration: 0.9, delay: 0.7 }}
           className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
         >
-          <Stat value="03" label="Services culinaires" />
+          <Stat value="−50 %" label="Crédit d'impôt déduit" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
           <Stat value="HACCP" label="Maison certifiée" />
           <span className="hidden sm:block size-1 rounded-full bg-cream/30" />
-          <Stat value="+05" label="Produits d'exception" />
+          <Stat value="150+" label="Gourmands régalés" />
         </motion.div>
       </div>
 

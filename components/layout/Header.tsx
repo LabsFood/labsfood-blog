@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   Menu, X, ArrowUpRight, ChevronDown,
-  CalendarCheck, ChefHat, GraduationCap, Package,
+  CalendarCheck, Receipt, Milk, Package,
 } from 'lucide-react'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { cn, whatsappLink } from '@/lib/utils'
@@ -27,29 +27,24 @@ type NavItem = {
 const NAV: NavItem[] = [
   { label: 'Accueil', href: '/' },
   {
-    label: 'Services',
-    href: '/services',
+    label: 'Batch cooking',
+    href: '/services/batch-cooking',
     children: [
       {
-        label: 'Batch Cooking',
+        label: 'Le service',
         href: '/services/batch-cooking',
         icon: CalendarCheck,
-        desc: 'Repas cuisinés',
+        desc: 'Une semaine de repas, cuisinée chez vous',
       },
       {
-        label: 'Assistance Culinaire',
-        href: '/services/assistance-culinaire',
-        icon: ChefHat,
-        desc: 'Un renfort à votre service',
-      },
-      {
-        label: 'Atelier Culinaire',
-        href: '/services/atelier-culinaire',
-        icon: GraduationCap,
-        desc: 'Cours de cuisine',
+        label: 'Les formules',
+        href: '/services/batch-cooking#formules',
+        icon: Receipt,
+        desc: 'À partir de 25€, crédit d’impôt déduit',
       },
     ],
   },
+  { label: 'Menu du mois', href: '/menu' },
   {
     label: 'Produits',
     href: '/produits',
@@ -57,13 +52,18 @@ const NAV: NavItem[] = [
       {
         label: 'Kossam',
         href: '/produits/kossam',
+        icon: Milk,
+        desc: 'Boisson lactée fermentée',
+      },
+      {
+        label: 'Köni',
+        href: '/produits/koni',
         icon: Package,
-        desc: 'Produits laitiers artisanaux',
+        desc: 'Marinade, expédiée en Europe',
       },
     ],
   },
   { label: 'À propos', href: '/a-propos' },
-  { label: 'Nous rejoindre', href: '/devenir-chef' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -218,7 +218,7 @@ export function Header() {
                               >
                                 {child.label}
                               </p>
-                              <p className="text-[11px] text-slate-400 mt-0.5 leading-tight">
+                              <p className="text-[11px] text-slate-500 mt-0.5 leading-tight">
                                 {child.desc}
                               </p>
                             </div>
@@ -234,7 +234,7 @@ export function Header() {
                     <div className="mx-2 mb-2 pt-1.5 border-t border-slate-100">
                       <Link
                         href={item.href}
-                        className="group/footer flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-medium text-slate-400 hover:text-navy hover:bg-slate-50 transition-colors duration-150"
+                        className="group/footer flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-medium text-slate-500 hover:text-navy hover:bg-slate-50 transition-colors duration-150"
                       >
                         <span>Voir tout — {item.label}</span>
                         <ArrowUpRight className="size-3 opacity-0 group-hover/footer:opacity-100 transition-opacity" />

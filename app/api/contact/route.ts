@@ -14,10 +14,8 @@ import nodemailer from 'nodemailer'
 // ─── Subject mapping ──────────────────────────────────────────────────────
 const SUBJECT_LABELS: Record<string, string> = {
   'batch-cooking': 'Batch cooking',
-  'assistance-culinaire': 'Assistance culinaire',
-  'atelier-culinaire': 'Atelier culinaire',
   kossam: 'Kossam (produit)',
-  'devenir-chef': 'Nous rejoindre',
+  koni: 'Marinade Köni (produit)',
   autre: 'Autre demande',
 }
 

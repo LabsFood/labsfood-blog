@@ -410,8 +410,8 @@ export default function AboutPage() {
                 directement avec Ivy ?
               </h3>
               <p className="mt-4 text-ink/70 max-w-xl text-justify">
-                Que ce soit pour un atelier, un événement ou simplement
-                échanger.
+                Que ce soit pour une session de batch cooking, une commande
+                ou simplement échanger.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">

@@ -50,18 +50,20 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://labsfood.fr'),
   title: {
-    default: "Lab's Food — Ateliers, batch cooking & produits artisanaux",
+    default: "Lab's Food — Batch cooking à domicile & produits artisanaux",
     template: "%s · Lab's Food",
   },
   description:
-    "Lab's Food, fondé par Ivy : ateliers de cuisine du monde à domicile, batch cooking sur-mesure et le Kossam — boisson lactée fermentée d'inspiration camerounaise.",
+    "Lab's Food, fondé par Ivy : une cheffe vient cuisiner votre semaine entière à votre domicile sur la Côte d'Azur — crédit d'impôt de 50 % déduit immédiatement. Et nos produits maison, le Kossam et la marinade Köni.",
   applicationName: "Lab's Food",
   keywords: [
-    "atelier culinaire",
     "batch cooking",
+    "batch cooking à domicile",
+    "cheffe à domicile",
+    "crédit d'impôt services à la personne",
     'kossam',
+    'marinade',
     'boisson lactée fermentée',
-    'chef à domicile',
     'cuisine du monde',
     "Lab's Food",
     "Côte d'Azur",
@@ -74,7 +76,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lab's Food — We create what you love!",
     description:
-      "Batch cooking, Assistance culinaire, Ateliers de cuisine & Kossam",
+      "Batch cooking à domicile sur la Côte d'Azur, Kossam & marinade Köni",
     type: 'website',
     locale: 'fr_FR',
     siteName: "Lab's Food",
@@ -91,7 +93,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Lab's Food — We create what you love!",
     description:
-      "Ateliers de cuisine du monde, batch cooking sur-mesure et le Kossam.",
+      "Une semaine de repas cuisinée chez vous, et nos produits maison.",
     images: ['/logoLab.png'],
   },
   robots: {

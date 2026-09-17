@@ -16,7 +16,7 @@ import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { whatsappLink } from '@/lib/utils'
-import { PRODUCTS } from '@/lib/content'
+import { KOSSAM } from '@/lib/content'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { VideoGrid } from '@/components/ui/VideoModal'
 
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
 }
 
-const kossam = PRODUCTS[0]
+const kossam = KOSSAM
 
 export default function KossamPage() {
   const jsonLd = {

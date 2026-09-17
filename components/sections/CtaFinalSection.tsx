@@ -146,12 +146,11 @@ export function CtaFinalSection() {
 
               <div className="mt-8 space-y-3">
                 {[
-                  'Batch Cooking à domicile',
-                  'Assistance culinaire',
-                  'Cours de cuisine',
-                  'Vos pépites : Kossam, Ail noir, marinade, ...',
-                  'Rejoindre nos équipes',
-                  'Autres...'
+                  'Batch cooking à domicile',
+                  'Le menu du mois et vos propres recettes',
+                  'Le crédit d’impôt et l’avance immédiate',
+                  'Vos pépites : Kossam, marinade Köni',
+                  'Autres demandes',
                 ].map((t) => (
                   <div
                     key={t}

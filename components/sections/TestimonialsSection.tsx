@@ -27,8 +27,7 @@ const TINTS = [
 const SOURCE_LABEL: Record<string, string> = {
   kossam: 'Kossam',
   batch: 'Batch cooking',
-  atelier: 'Atelier',
-  service: 'Batch cooking',
+  service: 'Nos plats',
 }
 
 // Distribue les avis sur 3 colonnes en alternant pour équilibrer
@@ -38,7 +37,7 @@ function splitInColumns<T>(arr: readonly T[], cols: number): T[][] {
   return out
 }
 
-type Source = 'kossam' | 'batch' | 'service' | 'atelier'
+type Source = 'kossam' | 'batch' | 'service'
 
 type Props = {
   /** Si défini, n'affiche que les avis de cette source. */
@@ -207,7 +206,7 @@ function ReviewCard({
       {/* Quote icon + source tag */}
       <div className="flex items-start justify-between mb-3">
         <Quote className="size-4 text-navy/30" />
-        <span className="font-mono text-[0.5rem] uppercase tracking-[0.2em] px-2 py-0.5 rounded-full bg-cream/60 text-navy/60">
+        <span className="font-mono text-[0.5rem] uppercase tracking-[0.2em] px-2 py-0.5 rounded-full bg-cream/80 text-navy/80">
           {sourceLabel}
         </span>
       </div>
@@ -242,7 +241,7 @@ function ReviewCard({
             @{review.author.toLowerCase().replace(/[^a-z0-9]/g, '')}
           </div>
           {'city' in review && review.city && (
-            <div className="text-[0.6rem] text-navy/45 truncate">
+            <div className="text-[0.6rem] text-navy/70 truncate">
               {review.city}
             </div>
           )}

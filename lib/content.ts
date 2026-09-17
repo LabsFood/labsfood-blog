@@ -1,94 +1,82 @@
 // Données statiques du site Lab's Food.
 // Centralise textes, prix, avis pour réutilisation par les pages.
 
-import { BATCH_COOKING_URL, whatsappLink } from "./utils"
-
 export const SITE = {
   name: "Lab's Food",
   tagline: "L'art de cuisiner, partagé",
   description:
-    "Lab's Food, fondé par Ivy : ateliers de cuisine à domicile, batch cooking sur-mesure, et produits artisanaux comme le Kossam.",
+    "Lab's Food, fondé par Ivy : batch cooking à domicile sur la Côte d'Azur et produits artisanaux — le Kossam et la marinade Köni.",
   email: 'contact@labsfood.fr',
 }
 
-export const SERVICES = [
-  {
-    slug: 'atelier-culinaire',
-    name: 'Atelier culinaire',
-    short: 'Apprenez les cuisines du monde, chez vous, en petit comité.',
-    description:
-      "Un atelier privé animé par une cheffe passionnée. Vous choisissez la cuisine, vous apprenez pas à pas, vous repartez avec la fiche recette et un cadeau surprise.",
-    bullets: [
-      'Atelier privé jusqu\'à 4 personnes : 80€',
-      '+20€ par personne supplémentaire (10 max)',
-      'Fiche recette + cadeau surprise inclus',
-      'Option gestion des courses (+20€)',
-    ],
-    accent: 'navy-mid',
-  },
-  {
-    slug: 'batch-cooking',
-    name: 'Batch cooking',
-    short: 'Une cheffe vient cuisiner toute votre semaine à votre domicile.',
-    description:
-      "En 2 heures minimum, une cheffe professionnelle cuisine une semaine entière de repas variés et équilibrés directement chez vous.",
-    bullets: [
-      'Préparation sur-mesure',
-      'Ingrédients frais & locaux',
-      'Repas équilibrés pour toute la semaine',
-      'Disponible sur la Côte d\'Azur',
-    ],
-    accent: 'navy',
-    external: true,
-  },
-  {
-    slug: 'assistance-culinaire',
-    name: 'Assistance culinaire',
-    short: 'Un coup de main professionnel en cuisine pour vos événements et vos équipes.',
-    description:
-      "Un grand dîner, une fête de famille, un traiteur ou un restaurant qui a besoin de renfort ? Lab's Food intervient en cuisine — aide à la préparation, dressage, coordination. Le rôle est défini selon vos besoins.",
-    bullets: [
-      'Particuliers : grands dîners & fêtes de famille',
-      'Professionnels : traiteurs, chefs, restaurants',
-      'Rôle défini selon le volume et le besoin',
-      'Devis personnalisé après discussion',
-    ],
-    accent: 'teal',
-  },
-] as const
+export const KOSSAM = {
+  slug: 'kossam',
+  n: '01',
+  name: 'Kossam',
+  category: 'Boisson lactée fermentée',
+  tagline: 'Boisson lactée faite avec beaucoup d’amour pour vous',
+  status: 'available' as const,
+  formats: [
+    { qty: 1, price: '20€', unitPrice: null },
+    { qty: 2, price: '38€', unitPrice: '19' },
+    { qty: 3, price: '54€', unitPrice: '18' },
+  ],
+  short:
+    "L'alternative onctueuse, légèrement acidulée, inspirée d'un précieux savoir-faire camerounais.",
+  description:
+    "Découvrez le Kossam, l'alternative onctueuse qui va réinventer vos moments gourmands. Inspirée d'un précieux savoir-faire traditionnel camerounais, cette boisson lactée fermentée séduit instantanément par sa texture incroyablement veloutée et son équilibre parfait — où la douceur réconfortante du lait rencontre une note délicatement acidulée. Le Kossam est avant tout une expérience sensorielle et un véritable allié pour votre bien-être, vous apportant fraîcheur, douceur et vitalité tout au long de la journée.",
+  usages: [
+    'Très frais au verre, pour un moment de pur plaisir',
+    'Versé sur un granola croustillant au petit-déjeuner',
+    'Mixé dans vos smoothies pour une consistance incomparable',
+    "Base de sauces d'accompagnement légères et raffinées",
+  ],
+  delivery: "Côte d'Azur uniquement",
+  deliveryNote:
+    "Le Kossam est un produit frais : il se récupère ou se livre sur la Côte d'Azur.",
+}
 
-export const PRODUCTS = [
-  {
-    slug: 'kossam',
-    name: 'Kossam',
-    tagline: 'Boisson lactée faite avec beaucoup d’amour pour vous',
-    status: 'available' as const,
-    formats: [
-      { qty: 1, price: '20€', unitPrice: null },
-      { qty: 2, price: '38€', unitPrice: '19' },
-      { qty: 3, price: '54€', unitPrice: '18' },
-    ],
-    short:
-      "L'alternative onctueuse, légèrement acidulée, inspirée d'un précieux savoir-faire camerounais.",
-    description:
-      "Découvrez le Kossam, l'alternative onctueuse qui va réinventer vos moments gourmands. Inspirée d'un précieux savoir-faire traditionnel camerounais, cette boisson lactée fermentée séduit instantanément par sa texture incroyablement veloutée et son équilibre parfait — où la douceur réconfortante du lait rencontre une note délicatement acidulée. Le Kossam est avant tout une expérience sensorielle et un véritable allié pour votre bien-être, vous apportant fraîcheur, douceur et vitalité tout au long de la journée.",
-    usages: [
-      'Très frais au verre, pour un moment de pur plaisir',
-      'Versé sur un granola croustillant au petit-déjeuner',
-      'Mixé dans vos smoothies pour une consistance incomparable',
-      'Base de sauces d\'accompagnement légères et raffinées',
-    ],
-    delivery: "Côte d'Azur uniquement",
-  },
-] as const
+/**
+ * Marinade Köni — mise en vente lors de la refonte de septembre 2026.
+ *
+ * Éléments confirmés par la cliente : prix 20,99 €, expédition dans toute
+ * l'Europe, frais d'expédition à la charge du client.
+ *
+ * À COMPLÉTER par la cliente avant mise en ligne définitive :
+ *   - photo produit  → /public/assets/koni.jpeg (placeholder actuel)
+ *   - contenance du pot et durée de conservation
+ *   - liste d'ingrédients et allergènes
+ */
+export const KONI = {
+  slug: 'koni',
+  n: '02',
+  name: 'Köni',
+  category: 'Marinade',
+  tagline: 'La marinade qui fait le travail à votre place',
+  status: 'available' as const,
+  price: '20,99€',
+  short:
+    "Une marinade prête à l'emploi, née de la cuisine de Lab's Food, qui donne du caractère à une viande, un poisson ou des légumes en un seul geste.",
+  description:
+    "Köni, c'est le raccourci vers le goût. La marinade que la cheffe prépare pour ses propres plats, mise en pot pour votre cuisine. Une cuillère sur une viande, un poisson ou des légumes, quelques heures de repos, et le plat le plus simple prend de l'épaisseur. Pas de liste d'additifs, pas de dosage à improviser : le travail d'assaisonnement est déjà fait, il ne vous reste que la cuisson.",
+  usages: [
+    'En marinade sur viandes et volailles, quelques heures avant la cuisson',
+    'Sur un poisson ou des crevettes, juste avant le passage au four',
+    'Sur des légumes rôtis, pour leur donner du relief',
+    'En touche finale dans un riz, un bouillon ou une sauce',
+  ],
+  delivery: 'Toute l’Europe',
+  deliveryNote:
+    "Expédiée dans toute l'Europe. Les frais d'expédition sont à la charge du client et vous sont communiqués avant la commande.",
+  image: '/assets/marmite.jpeg',
+}
+
+export const PRODUCTS = [KOSSAM, KONI]
 
 export const COMING_SOON = [
-  { name: 'Köni', category: 'Marinade' },
   { name: 'Luxury Kossam', category: 'Boisson' },
+  { name: 'Kossam Bissap', category: 'Boisson' },
   { name: 'Ail noir', category: 'Épice' },
-  // { name: 'Marinade verte 100% BIO', category: 'Condiment' },
-  // { name: 'Cakes', category: 'Pâtisserie' },
-  // { name: 'Cocktails', category: 'Boisson' },
 ] as const
 
 /**
@@ -256,7 +244,7 @@ export const REVIEWS = [
   {
     author: 'Ange',
     text: "Je me suis régalée 😍🙏 — dites-vous qu'au début je me disais « qu'est-ce que celle-ci a encore fabriqué ? » 🤣🤣 En tout cas sa créativité est à saluer, et rassurez-vous, le goût suit 🙏🤩",
-    source: 'atelier' as const,
+    source: 'service' as const,
   },
   {
     author: 'Bénédicte',
@@ -329,222 +317,3 @@ export const TIMELINE = [
     body: "L'année où tout prend forme. Je structure l'ensemble de mes services, j'allie mes compétences en gestion de projets et excellence opérationnelle à ma passion, et je fonde officiellement l'entreprise. Lab's Food est prête à révolutionner votre quotidien !",
   },
 ] as const
-
-/**
- * Chefs disponibles pour l'assistance culinaire.
- * Extensible : ajouter un objet par chef partenaire validé.
- *
- * Champs :
- *  - badges   : certifications, expérience, distinctions (flexible)
- *  - languages: codes ISO 2 lettres ['FR', 'EN', 'PT'...]
- *  - zone     : ville(s) / code(s) postal(aux) d'intervention
- */
-export const CHEFS = [
-  {
-    id: 'ivy',
-    n: '01',
-    name: 'Ivy',
-    title: "Fondatrice",
-    photo: '/assets/placehold.jpeg',
-    region: "Provence-Alpes-Côte d'Azur",
-    regionId: 'paca',
-    cities: [
-      'Antibes',
-      'Biot',
-      'Cagnes-sur-Mer',
-      'Cros de Cagnes',
-      'Nice',
-      'Juan les Pins',
-      'Cannes',
-      'Le Bosquet',
-      'La Frayère',
-      'Ranguin',
-      'Mouans-Sartoux',
-      'Grasse',
-    ],
-    zone: "Côte d'Azur — Alpes-Maritimes",
-    extraRegions: [] as Array<{ id: string; label: string; cities: string[] }>,
-    bio: "Passionnée jusqu'au bout de la spatule, je suis prête à mettre la main à la pâte pour devenir votre renfort de choc en cuisine : contactez-moi pour en discuter !",
-    /** Pitches optionnels par service. Si vide, on retombe sur `bio`. */
-    pitches: {
-      atelier:
-        "Vous aimez bien manger ? Je vais vous apprendre à bien cuisiner ! Offrez-vous un cours à domicile sur-mesure pour apprendre mes meilleures recettes sans stress et avec le sourire. Bloquez votre date, créons de la magie dans vos assiettes… et laissez-moi vous gâter avec un petit cadeau surprise !",
-    } as { atelier?: string; assistance?: string },
-    badges: ["06 ans"],
-    /** Certifications affichées en badge visuel sur la card (pas en texte). */
-    certifications: ['HACCP'],
-    languages: ['FR', 'PT', 'EN'],
-    specialties: ['Cuisines du monde'],
-    available: true,
-    bookingLink: whatsappLink(`Bonjour Ivy, j'ai vu votre page À propos et j'aimerais en savoir plus — `),
-    // bookingLink: BATCH_COOKING_URL,
-    /** Liens Calendly différenciés par service (vide = utilise bookingLink). */
-    bookingLinks: {} as { atelier?: string; assistance?: string },
-    /** Pages où ce chef apparaît. Si false, masqué sur cette page. */
-    services: { atelier: true, assistance: true },
-  },
-  {
-    id: 'ange',
-    n: '02',
-    name: 'Ange',
-    title: "Etudiante",
-    photo: '/assets/ange.jpeg',
-    region: 'Île-de-France',
-    regionId: 'ile-de-france',
-    cities: [
-      'Le Plessis-Bouchard',
-      'Franconville',
-      'Eaubonne',
-      'Ermont',
-      'Sannois',
-      'Argenteuil',
-    ],
-    /** Régions supplémentaires (en plus de la région principale ci-dessus). */
-    extraRegions: [
-      { id: 'occitanie', label: 'Occitanie', cities: ['Pau'] },
-    ] as Array<{ id: string; label: string; cities: string[] }>,
-    zone: "Secteur 95130 (Val-d'Oise) · Pau",
-    bio: "Animatrice d'ateliers et assistante culinaire, je viens vous prêter main-forte en cuisine.",
-    pitches: {
-      assistance:
-        "Que vous soyez professionnel (chef, traiteur, restaurateur) ou particulier (repas du quotidien, réceptions, accompagnement), je viens vous prêter main-forte en cuisine ! Contactez-moi pour planifier notre prochaine collaboration ! 👩‍🍳",
-      atelier:
-        "Vous avez envie de cuisiner ce que vous avez toujours voulu apprendre, de partager une activité originale en famille ou d'animer un événement entre amis ? Je propose des sessions personnalisées adaptées à tous les niveaux et tous les publics. Un moment d'apprentissage, de partage et de plaisir — directement chez vous. Contactez-moi pour planifier votre atelier ! 👩‍🍳",
-    } as { atelier?: string; assistance?: string },
-    badges: ["4 ans", 'Restauration & traiteur'],
-    certifications: [] as string[],
-    languages: ['FR', 'EN'],
-    specialties: ['Cuisine africaine', 'Cuisine européenne'],
-    available: true,
-    /** Lien Calendly par défaut — utilisé si pas de bookingLinks dédié. */
-    bookingLink: 'https://calendly.com/ktdange/assistance-culinaire',
-    /** Liens Calendly différenciés par service. */
-    bookingLinks: {
-      assistance: 'https://calendly.com/ktdange/assistance-culinaire',
-      atelier: 'https://calendly.com/ktdange/assistance-culinaire-clone',
-    } as { atelier?: string; assistance?: string },
-    services: { atelier: true, assistance: true },
-  },
-  {
-    id: 'elodie',
-    n: '03',
-    name: 'Elodie',
-    title: 'Étudiante',
-    photo: '/assets/Elodie.jpg',
-    region: 'Île-de-France',
-    regionId: 'ile-de-france',
-    cities: [
-      'Meaux',
-      'Nanterre',
-      'Paris',
-      'Pontoise',
-      'Rueil-Malmaison',
-      'Saint-Denis',
-      'Boulogne-Billancourt',
-      'Versailles',
-    ],
-    extraRegions: [] as Array<{ id: string; label: string; cities: string[] }>,
-    zone: 'Île-de-France',
-    bio: "Étudiante passionnée, j'aime cuisiner. Mon objectif : vous aider et vous accompagner avec bonne humeur pour réaliser de délicieux plats au quotidien !",
-    pitches: {
-      assistance:
-        "Étudiante passionnée, j'aime cuisiner. Mon objectif : vous aider et vous accompagner avec bonne humeur pour réaliser de délicieux plats au quotidien !",
-    } as { atelier?: string; assistance?: string },
-    badges: ['Quelques expériences'],
-    certifications: [] as string[],
-    languages: ['FR', 'EN'],
-    specialties: ['Préparations de base', 'Aide-cuisinier'],
-    available: true,
-    bookingLink: `https://wa.me/33763114460?text=${encodeURIComponent("Bonjour Elodie, j'ai vu votre profil sur Lab's Food et j'aimerais en savoir plus — ")}`,
-    bookingLinks: {} as { atelier?: string; assistance?: string },
-    services: { atelier: false, assistance: true },
-  },
-  {
-    id: 'maeva',
-    n: '04',
-    name: 'Maéva',
-    title: 'Professionnelle',
-    photo: '/assets/maeva.jpeg',
-    region: 'Île-de-France',
-    regionId: 'ile-de-france',
-    cities: [
-      'Paris',
-      'Houilles',
-      'Sartrouville',
-      'Argenteuil',
-      'La Garenne-Colombes',
-      'Nanterre',
-      'Courbevoie',
-      'Puteaux',
-    ],
-    extraRegions: [] as Array<{ id: string; label: string; cities: string[] }>,
-    zone: 'Île-de-France — Val-d\'Oise & Hauts-de-Seine',
-    bio: "Un renfort discret et efficace en cuisine : j'assiste chefs, particuliers et structures professionnelles selon vos besoins.",
-    pitches: {
-      assistance:
-        "Un renfort discret et efficace en cuisine : j'assiste chefs, particuliers et structures professionnelles selon vos besoins.",
-    } as { atelier?: string; assistance?: string },
-    badges: ['1 à 3 ans'],
-    certifications: [] as string[],
-    languages: ['FR'],
-    specialties: ['Préparations de base', 'Aide-cuisinier'],
-    available: true,
-    bookingLink: 'https://calendly.com/mvadems',
-    bookingLinks: {
-      assistance: 'https://calendly.com/mvadems',
-    } as { atelier?: string; assistance?: string },
-    services: { atelier: false, assistance: true },
-  },
-] as const
-
-// ─── Helpers pour les filtres ──────────────────────────────────────────────
-/**
- * Aplatit toutes les régions d'un chef (principale + extras) en une liste
- * uniforme [{ id, label, cities }]. Utilisé par les filtres et l'affichage.
- */
-export function getChefRegions(chef: (typeof CHEFS)[number]) {
-  return [
-    { id: chef.regionId, label: chef.region, cities: [...chef.cities] as string[] },
-    ...chef.extraRegions.map((r) => ({ ...r, cities: [...r.cities] })),
-  ]
-}
-
-/** Vrai si le chef intervient dans la région donnée (principale ou extra). */
-export function chefMatchesRegion(
-  chef: (typeof CHEFS)[number],
-  regionId: string,
-): boolean {
-  return getChefRegions(chef).some((r) => r.id === regionId)
-}
-
-/** Vrai si le chef intervient dans la ville donnée (toutes régions confondues). */
-export function chefMatchesCity(
-  chef: (typeof CHEFS)[number],
-  city: string,
-): boolean {
-  return getChefRegions(chef).some((r) => r.cities.includes(city))
-}
-
-/** Retourne les régions uniques disponibles parmi un ensemble de chefs. */
-export function getAvailableRegions(
-  chefs: readonly (typeof CHEFS)[number][] = CHEFS,
-) {
-  const map = new Map<string, string>()
-  chefs.forEach((c) => getChefRegions(c).forEach((r) => map.set(r.id, r.label)))
-  return Array.from(map, ([id, label]) => ({ id, label }))
-}
-
-/** Retourne les villes uniques (toutes régions ou filtrées par région). */
-export function getAvailableCities(
-  chefs: readonly (typeof CHEFS)[number][] = CHEFS,
-  regionId?: string,
-) {
-  const set = new Set<string>()
-  chefs.forEach((c) =>
-    getChefRegions(c).forEach((r) => {
-      if (regionId && r.id !== regionId) return
-      r.cities.forEach((city) => set.add(city))
-    }),
-  )
-  return Array.from(set).sort()
-}

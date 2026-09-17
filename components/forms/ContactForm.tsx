@@ -24,10 +24,8 @@ import { cn } from '@/lib/utils'
 
 const SUBJECTS = [
   { value: 'batch-cooking', label: 'Batch cooking' },
-  { value: 'assistance-culinaire', label: 'Assistance culinaire' },
-  { value: 'atelier-culinaire', label: 'Atelier culinaire' },
   { value: 'kossam', label: 'Kossam (produit)' },
-  { value: 'devenir-chef', label: 'Nous rejoindre' },
+  { value: 'koni', label: 'Marinade Köni (produit)' },
   { value: 'autre', label: 'Autre demande' },
 ] as const
 
