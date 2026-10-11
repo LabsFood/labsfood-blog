@@ -46,9 +46,14 @@ mentionnait 3006, corrige).
 
 ## Variables d'environnement
 
-Voir `.env.local.example` : uniquement les identifiants SMTP Brevo
-(`BREVO_SMTP_USER`, `BREVO_SMTP_PASS`, `BREVO_FROM_EMAIL`, `CONTACT_TO_EMAIL`). Pas
-de `NEXT_PUBLIC_API_URL` a ce jour — ce repo n'appelle pas `LF-BackEnd`.
+Voir `.env.local.example`.
+
+- `LF_API_URL` : adresse de `LF-BackEnd`. Le formulaire de contact lui transmet les
+  messages (`app/api/contact/route.ts` -> `POST /contact-messages`) ; ils arrivent
+  dans la console admin. Lue cote serveur au demarrage, pas a la compilation.
+- Identifiants SMTP Brevo (`BREVO_SMTP_USER`, `BREVO_SMTP_PASS`, `BREVO_FROM_EMAIL`,
+  `CONTACT_TO_EMAIL`) : encore utilises par le formulaire de candidature chef
+  (`app/api/chef/route.ts`), plus par le formulaire de contact.
 
 ## Qualite / hooks
 
