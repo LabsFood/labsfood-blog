@@ -17,9 +17,10 @@ import { SITE } from '@/lib/content'
    ouvertes — WhatsApp, le mail, Instagram — parce qu'une maison qui cuisine
    pour des gens ne peut pas se contenter de fermer.
 
-   Elle reprend l'univers du site : Fraunces en display sur le fond cream, le
-   navy et la touche orange. Rien d'inventé pour l'occasion : quelqu'un qui
-   revient dans trois semaines doit retrouver la même maison.
+   Elle reprend l'univers du site — Fraunces en display, le navy, la touche
+   orange — sur un fond blanc, sans dégradé ni halo : une page d'attente n'a
+   rien à mettre en scène. Rien d'inventé pour l'occasion non plus : quelqu'un
+   qui revient dans trois semaines doit retrouver la même maison.
 
    Pour la retirer : `MAINTENANCE` à `false` dans `middleware.ts`.
    ───────────────────────────────────────────────────────────────────────────── */
@@ -33,18 +34,8 @@ export const metadata: Metadata = {
 
 export default function BientotPage() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-cream px-6 py-20">
-      {/* Deux halos très doux : la page respire sans se mettre en avant. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-orange/10 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-48 -right-32 h-[36rem] w-[36rem] rounded-full bg-navy/5 blur-3xl"
-      />
-
-      <div className="relative flex w-full max-w-xl flex-col items-center text-center">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-6 py-20">
+      <div className="flex w-full max-w-xl flex-col items-center text-center">
         <Image
           src="/mainLogo.png"
           alt="Lab's Food"
