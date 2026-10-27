@@ -42,7 +42,7 @@ export default function ContactPage() {
             une simple curiosité ?
           </>
         }
-        lede="Service client 7j/7 — 24h/24 sur WhatsApp. Messages écrits uniquement pour une réponse rapide et précise."
+        lede="Service client 7j/7, 24h/24 sur WhatsApp. Messages écrits uniquement pour une réponse rapide et précise."
         image="/assets/photo-3.jpeg"
         imagePosition="center 80%"
       />
@@ -56,7 +56,7 @@ export default function ContactPage() {
               kicker="Canal privilégié"
               title="WhatsApp"
               body={WHATSAPP_NUMBER_DISPLAY}
-              note="Réponse 7j/7 — messages uniquement"
+              note="Réponse 7j/7, messages uniquement"
               href={whatsappLink("Bonjour Lab's Food, ")}
               ctaLabel="Discuter sur WhatsApp"
               variant="whatsapp"
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     Disponibilité
                   </div>
                   <div className="text-sm text-ink/65 mt-0.5">
-                    Service client 7j/7 — 24h/24 sur WhatsApp
+                    Service client 7j/7, 24h/24 sur WhatsApp
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function ContactPage() {
             {/* Réseaux sociaux */}
             <div className="mt-10">
               <p className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink/45 mb-4">
-                — Suivez-nous
+                Suivez-nous
               </p>
               <div className="flex items-center gap-3">
                 <SocialChip
@@ -182,14 +182,14 @@ export default function ContactPage() {
       {/* <section className="bg-navy text-cream py-16 md:py-20">
         <div className="container-wide text-center">
           <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid mb-4">
-            — Maison certifiée HACCP
+            Maison certifiée HACCP
           </p>
           <p
             className="font-display italic text-cream/85 max-w-3xl mx-auto text-balance"
             style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)' }}
           >
             « Chez Lab&apos;s Food, chaque message est lu, chaque demande
-            écoutée. La cuisine, comme un voyage — sans tracasserie de visa. »
+            écoutée. La cuisine, comme un voyage, sans tracasserie de visa. »
           </p>
         </div>
       </section> */}

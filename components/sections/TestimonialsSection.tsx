@@ -1,119 +1,90 @@
 'use client'
 
 import { useMemo } from 'react'
-import { Quote } from 'lucide-react'
 import { REVIEWS } from '@/lib/content'
+import { FOUNDER } from '@/lib/content'
+import { cn } from '@/lib/utils'
 
 /**
- * TÉMOIGNAGES — Mega carousel 3 colonnes scroll vertical
+ * AVIS CLIENTS — mur de messages en défilement vertical.
  *
- * - 3 colonnes côte à côte, chacune scroll verticalement vers le haut
- * - Vitesses désynchronisées (40s / 55s / 32s) pour un effet "flottant"
- * - Fades top + bottom (cream-soft → transparent) pour effet "infinite"
- * - Cards pastel rotatives (5 teintes) avec avatar coloré + quote + @author
- * - Hover : pause la colonne (group-hover:[animation-play-state:paused])
+ * Les avis arrivent par WhatsApp et sont publiés tels quels : le bloc est donc
+ * traité comme un mur de messages, pas comme des cartes marketing. Pas
+ * d'icône de citation, pas d'avatar coloré, pas de texte tronqué. Le seul
+ * accent de couleur est le nom du produit concerné, dans la teinte que la
+ * charte lui réserve déjà.
+ *
+ * Trois colonnes défilent vers le haut à des vitesses désynchronisées. Le
+ * survol ou le focus clavier met la colonne en pause ; si le visiteur a
+ * demandé moins d'animations, le mur se fige et se déplie en hauteur normale.
  */
 
-// Palette de teintes pastel rotatives pour les cards
-const TINTS = [
-  { bg: 'bg-[#E8F4FF]', avatar: 'bg-[#7BB3E8]' }, // bleu doux
-  { bg: 'bg-[#FFF1E8]', avatar: 'bg-[#E89B6F]' }, // pêche
-  { bg: 'bg-[#E8F8F0]', avatar: 'bg-[#6FBF8E]' }, // mint
-  { bg: 'bg-[#FFE8E8]', avatar: 'bg-[#E87B7B]' }, // rose corail
-  { bg: 'bg-[#F0EAFF]', avatar: 'bg-[#9B7BE8]' }, // lavande
-  { bg: 'bg-[#FFF8D6]', avatar: 'bg-[#D4B14C]' }, // jaune chaud
-] as const
+/** Teinte d'accent par famille d'avis, prise dans la charte. */
+const SOURCE = {
+  kossam: { label: 'Kossam', tone: 'text-mint-ink' },
+  batch: { label: 'Batch cooking', tone: 'text-navy-mid' },
+  service: { label: 'Nos plats', tone: 'text-navy-mid' },
+} as const
 
-const SOURCE_LABEL: Record<string, string> = {
-  kossam: 'Kossam',
-  batch: 'Batch cooking',
-  atelier: 'Atelier',
-  service: 'Batch cooking',
-}
+type Source = keyof typeof SOURCE
 
-// Distribue les avis sur 3 colonnes en alternant pour équilibrer
+/** Répartit les avis en colonnes en alternant, pour équilibrer les hauteurs. */
 function splitInColumns<T>(arr: readonly T[], cols: number): T[][] {
   const out: T[][] = Array.from({ length: cols }, () => [])
   arr.forEach((item, i) => out[i % cols].push(item))
   return out
 }
 
-type Source = 'kossam' | 'batch' | 'service' | 'atelier'
-
 type Props = {
   /** Si défini, n'affiche que les avis de cette source. */
   filterSource?: Source
-  /** Titre alternatif (sinon "Ce qu'ils en disent.") */
-  eyebrow?: string
   title?: React.ReactNode
   subtitle?: string
 }
 
-export function TestimonialsSection({
-  filterSource,
-  eyebrow,
-  title,
-  subtitle,
-}: Props = {}) {
+export function TestimonialsSection({ filterSource, title, subtitle }: Props = {}) {
   const reviews = useMemo(
     () => (filterSource ? REVIEWS.filter((r) => r.source === filterSource) : REVIEWS),
     [filterSource],
   )
   const columns = useMemo(() => splitInColumns(reviews, 3), [reviews])
-  return (
-    <section
-      id="avis"
-      className="relative bg-cream-soft py-24 md:py-32 lg:py-40 overflow-hidden"
-    >
-      {/* Halos déco diffus */}
-      {/* <div
-        aria-hidden
-        className="absolute -top-40 -left-40 size-[500px] bg-navy-mid/8 blur-3xl rounded-full pointer-events-none"
-      />
-      <div
-        aria-hidden
-        className="absolute -bottom-40 -right-40 size-[500px] bg-orange/10 blur-3xl rounded-full pointer-events-none"
-      /> */}
 
-      <div className="relative container-wide">
-        {/* ── En-tête (paramétrable via props) ── */}
-        <div className="flex items-end justify-between gap-6 flex-wrap mb-14 md:mb-20">
-          <div className="max-w-2xl">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-navy-mid inline-flex items-center gap-3 mb-5">
-              <span className="size-6 h-px bg-navy-mid" />
-              {eyebrow ?? '+150 gourmands régalés'}
+  return (
+    <section id="avis" className="bg-cream-deep py-24 md:py-32 lg:py-36">
+      <div className="container-wide">
+        {/* ── Titre ─────────────────────────────────────────────────────── */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-14 md:mb-16">
+          <h2
+            className="lg:col-span-7 font-display text-navy leading-[0.98] tracking-tight text-balance"
+            style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
+          >
+            {title ?? (
+              <>
+                Ils ont ouvert leur cuisine,{' '}
+                <span className="font-display italic text-orange-deep">
+                  ils racontent.
+                </span>
+              </>
+            )}
+          </h2>
+
+          <div className="lg:col-span-5 lg:pl-12 lg:border-l lg:border-navy/10">
+            <p className="text-ink/75 leading-relaxed max-w-[52ch]">
+              {subtitle ??
+                'Des messages reçus sur WhatsApp, publiés tels quels : leurs mots, leur ponctuation, leur enthousiasme.'}
             </p>
-            <h2
-              className="font-display text-navy leading-[0.98] tracking-tight text-balance"
-              style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
-            >
-              {title ?? (
-                <>
-                  Ce qu&apos;
-                  <em className="not-italic">
-                    <span className="font-display italic text-navy-mid">
-                      ils en disent.
-                    </span>
-                  </em>
-                </>
-              )}
-            </h2>
+            <p className="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/70 tabular-nums">
+              {reviews.length} avis publiés sur plus de{' '}
+              {FOUNDER.gourmandsServed} gourmands servis
+            </p>
           </div>
-          <p className="text-ink/65 text-sm md:text-base max-w-sm leading-relaxed">
-            {subtitle ??
-              'Avis recueillis les services les produits'}
-          </p>
         </div>
 
-        {/* ── 3 colonnes marquee vertical + fades intégrés au stage ── */}
-        <div
-          className="relative"
-          style={{ height: 'clamp(560px, 70vh, 720px)' }}
-        >
-          {/* Stage scrollant */}
-          <div className="grid h-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        {/* ── Le mur ────────────────────────────────────────────────────── */}
+        <div className="relative h-[clamp(580px,72vh,760px)] motion-reduce:h-auto">
+          <div className="grid h-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {columns.map((col, idx) => (
-              <Column
+              <Colonne
                 key={idx}
                 reviews={col}
                 speed={
@@ -123,30 +94,26 @@ export function TestimonialsSection({
                       ? 'animate-marquee-up'
                       : 'animate-marquee-up-fast'
                 }
-                offsetStart={idx * 4}
-                hideOnMobileIf={idx === 2 ? 'sm' : idx === 1 ? null : null}
+                /* Une seule colonne sur téléphone, deux en tablette, trois au
+                   delà : sinon les colonnes se partagent la hauteur du mur et
+                   chacune ne montre plus qu'un demi-avis. */
+                visibility={
+                  idx === 0 ? '' : idx === 1 ? 'hidden sm:block' : 'hidden lg:block'
+                }
               />
             ))}
           </div>
 
-          {/* Fades — absolus AU stage, donc toujours alignés sur ses bords */}
+          {/* Fondus haut et bas, alignés sur les bords du mur */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-28 lg:h-32 bg-gradient-to-b from-cream-soft via-cream-soft/90 to-transparent z-10"
+            className="pointer-events-none absolute inset-x-0 top-0 h-16 md:h-24 bg-gradient-to-b from-cream-deep to-transparent motion-reduce:hidden"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 bg-gradient-to-t from-cream-soft via-cream-soft/90 to-transparent z-10"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-20 md:h-28 bg-gradient-to-t from-cream-deep to-transparent motion-reduce:hidden"
           />
         </div>
-
-        {/* ── Compteur bas ── */}
-        {/* <div className="relative mt-12 text-center">
-          <p className="inline-flex items-center gap-3 font-mono text-[0.65rem] uppercase tracking-[0.3em] text-ink/45">
-            <span className="size-1.5 rounded-full bg-orange animate-pulse" />
-            {REVIEWS.length} avis affichés · +150 recueillis au total
-          </p>
-        </div> */}
       </div>
     </section>
   )
@@ -156,98 +123,86 @@ export function TestimonialsSection({
 
 type Review = (typeof REVIEWS)[number]
 
-function Column({
+function Colonne({
   reviews,
   speed,
-  offsetStart,
-  hideOnMobileIf,
+  visibility,
 }: {
   reviews: Review[]
   speed: string
-  offsetStart: number
-  hideOnMobileIf: 'sm' | null
+  visibility: string
 }) {
-  // Duplique la liste 2x : boucle seamless car animation translateY 0 → -50%
-  // = exactement 1 copie de la liste, donc la fin du cycle aligne visuellement
-  // avec le début (pas de jump).
-  const doubled = [...reviews, ...reviews]
-
   return (
     <div
-      className={`relative overflow-hidden group ${hideOnMobileIf === 'sm' ? 'hidden lg:block' : ''
-        }`}
+      className={cn(
+        'group relative overflow-hidden motion-reduce:overflow-visible',
+        visibility,
+      )}
     >
       <div
-        className={`flex flex-col gap-4 md:gap-5 ${speed} group-hover:[animation-play-state:paused]`}
+        className={cn(
+          'flex flex-col gap-4 md:gap-5',
+          speed,
+          'group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]',
+          'motion-reduce:animate-none',
+        )}
       >
-        {doubled.map((review, i) => {
-          const tint = TINTS[(i + offsetStart) % TINTS.length]
-          return <ReviewCard key={`${review.author}-${i}`} review={review} tint={tint} />
-        })}
+        {reviews.map((review, i) => (
+          <Slip key={`a-${review.author}-${i}`} review={review} />
+        ))}
+        {/* Second jeu : referme la boucle sans saut. Masqué aux lecteurs
+            d'écran pour ne pas leur lire deux fois les mêmes avis. */}
+        <div
+          aria-hidden
+          className="flex flex-col gap-4 md:gap-5 motion-reduce:hidden"
+        >
+          {reviews.map((review, i) => (
+            <Slip key={`b-${review.author}-${i}`} review={review} />
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
-function ReviewCard({
-  review,
-  tint,
-}: {
-  review: Review
-  tint: (typeof TINTS)[number]
-}) {
-  const initial = review.author.charAt(0).toUpperCase()
-  const sourceLabel = SOURCE_LABEL[review.source] ?? 'Avis'
-  const isLong = review.text.length > 110
+function Slip({ review }: { review: Review }) {
+  const source = SOURCE[review.source as Source] ?? SOURCE.service
+  /* Les avis courts sont des exclamations : ils respirent mieux en plus grand.
+     La taille suit la longueur du message, jamais sa provenance. */
+  const court = review.text.length < 90
 
   return (
-    <article
-      className={`group/card relative ${tint.bg} rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-500 border border-navy/[0.04]`}
-    >
-      {/* Quote icon + source tag */}
-      <div className="flex items-start justify-between mb-3">
-        <Quote className="size-4 text-navy/30" />
-        <span className="font-mono text-[0.5rem] uppercase tracking-[0.2em] px-2 py-0.5 rounded-full bg-cream/60 text-navy/60">
-          {sourceLabel}
-        </span>
-      </div>
-
-      {/* Texte avis */}
-      <p
-        className={`text-navy/85 leading-relaxed text-pretty ${isLong ? 'text-sm' : 'text-[0.95rem]'
-          }`}
-        style={
-          isLong
-            ? {
-              display: '-webkit-box',
-              WebkitLineClamp: 5,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-            }
-            : undefined
-        }
+    <figure className="rounded-2xl border border-navy/12 bg-cream-soft p-6 md:p-7 transition-colors duration-500 ease-expo hover:border-navy/30">
+      <blockquote
+        className={cn(
+          'text-navy/90 text-pretty',
+          court ? 'text-lg leading-snug' : 'text-[0.95rem] leading-relaxed',
+        )}
       >
         {review.text}
-      </p>
+      </blockquote>
 
-      {/* Auteur */}
-      <div className="flex items-center gap-2.5 mt-4 pt-3 border-t border-navy/[0.06]">
-        <div
-          className={`size-8 rounded-full ${tint.avatar} text-white grid place-items-center font-display text-xs font-bold shadow-sm`}
-        >
-          {initial}
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="text-xs font-medium text-navy truncate">
+      <figcaption className="mt-5 pt-4 border-t border-navy/10 flex items-baseline justify-between gap-4">
+        <div className="min-w-0">
+          <span className="block font-display text-base text-navy leading-tight truncate">
+            {review.author}
+          </span>
+          <span className="block font-mono text-[0.65rem] text-ink/75 mt-1 truncate">
             @{review.author.toLowerCase().replace(/[^a-z0-9]/g, '')}
-          </div>
-          {'city' in review && review.city && (
-            <div className="text-[0.6rem] text-navy/45 truncate">
-              {review.city}
-            </div>
-          )}
+            {'city' in review && review.city && (
+              <span className="text-ink/70"> · {review.city}</span>
+            )}
+          </span>
         </div>
-      </div>
-    </article>
+        <span
+          className={cn(
+            'shrink-0 font-mono text-[0.6rem] uppercase tracking-[0.18em]',
+            source.tone,
+          )}
+        >
+          {source.label}
+        </span>
+      </figcaption>
+    </figure>
   )
 }

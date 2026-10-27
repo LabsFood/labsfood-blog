@@ -1,160 +1,250 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { ArrowUpRight, MapPin, Truck } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { PageHero } from '@/components/ui/PageHero'
-import { COMING_SOON, PRODUCTS } from '@/lib/content'
+import { Reveal } from '@/components/ui/Reveal'
+import { COMING_SOON, KONI, KOSSAM } from '@/lib/content'
+import { whatsappLink } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Produits artisanaux',
   description:
-    "Découvrez le Kossam, notre boisson lactée fermentée. Et bientôt : Kossam Bissap, Luxury Kossam, ail noir, marinade verte BIO, cakes & cocktails.",
+    "Le Kossam, boisson lactée fermentée livrée sur la Côte d'Azur, et la marinade Köni expédiée dans toute l'Europe. Bientôt : Luxury Kossam, Kossam Bissap, ail noir.",
 }
 
 export default function ProduitsPage() {
-  const kossam = PRODUCTS[0]
-
   return (
     <>
       <PageHero
-        eyebrow="Nos produits"
         title={
           <>
             Le labo,{' '}
-            <em className="not-italic">
-              <span className="font-display italic text-white">
-                au quotidien.
-              </span>
-            </em>
+            <span className="font-display italic text-orange">
+              au quotidien.
+            </span>
           </>
         }
-        lede="Le Kossam est notre signature. D'autres créations artisanales sont en cours dans le labo, déjà disponibles à la pré-commande."
+        lede="Deux produits maison en vente aujourd'hui : le Kossam, notre signature fraîche, et la marinade Köni, qui voyage dans toute l'Europe. D'autres créations sont en préparation."
         image="/assets/koss.jpeg"
         imagePosition="center 40%"
+        size="lg"
       />
 
-      {/* Produit dispo */}
+      {/* ── En vente aujourd'hui ──────────────────────────────────────── */}
       <section className="bg-cream py-24 md:py-32">
         <div className="container-wide">
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-mint-ink inline-flex items-center gap-3 mb-10">
-            <span className="size-6 h-px bg-mint-ink" />
-            Disponibles dès aujourd&apos;hui
-          </p>
-          {/* <h2 className="display-md text-navy mt-4 mb-12">En stock dès aujourd&apos;hui</h2> */}
+          <h2 className="font-display text-3xl md:text-4xl text-navy pb-8 border-b border-navy/15">
+            En vente aujourd&apos;hui
+          </h2>
 
-          <div className="grid lg:grid-cols-3 gap-6">
-            <Link
-              href={`/produits/${kossam.slug}`}
-              className="group lg:col-span-2 relative block rounded-3xl overflow-hidden bg-navy min-h-[440px]"
-            >
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/assets/photo-1.jpeg"
-                className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-1000 ease-expo"
+          <div className="mt-12 grid lg:grid-cols-2 gap-8 lg:gap-10">
+            {/* Kossam */}
+            <Reveal>
+              <Link
+                href={`/produits/${KOSSAM.slug}`}
+                className="group block h-full rounded-3xl overflow-hidden bg-navy text-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-mid/60 focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
               >
-                <source src="/assets/kossam-main.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-mint-ink via-mint-ink/40 to-transparent" />
-              <div className="relative h-full flex flex-col justify-between p-8 md:p-12">
-                <div className="flex items-start justify-between">
-                  <span className="font-mono text-xs uppercase tracking-[0.25em] text-white">
-                    Produit · 01
-                  </span>
-                  <span className="size-12 rounded-full bg-cream text-navy grid place-items-center group-hover:scale-110 transition-transform">
-                    <ArrowUpRight className="size-5" />
-                  </span>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster="/assets/photo-1.jpeg"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-expo group-hover:scale-105"
+                  >
+                    <source src="/assets/kossam-main.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/25 to-transparent" />
                 </div>
-                <div>
-                  <h3 className="font-display text-5xl md:text-7xl text-cream">
-                    {kossam.name}
+
+                <div className="p-8 md:p-10">
+                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-mint">
+                    {KOSSAM.category}
+                  </p>
+                  <h3 className="mt-4 font-display text-4xl md:text-5xl text-cream leading-none">
+                    {KOSSAM.name}
                   </h3>
-                  <p className="mt-3 text-cream/75 max-w-md">{kossam.tagline}</p>
-                  <div className="flex flex-wrap gap-3 mt-6">
-                    {kossam.formats.map((f) => (
-                      <div
+                  <p className="mt-4 text-cream/75 leading-relaxed max-w-md">
+                    {KOSSAM.short}
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap gap-2.5">
+                    {KOSSAM.formats.map((f) => (
+                      <span
                         key={f.qty}
-                        className="px-4 py-2 rounded-full border border-cream/30 backdrop-blur-sm text-sm flex items-center gap-2"
+                        className="px-4 py-2 rounded-full border border-cream/25 text-sm text-cream/90 tabular-nums"
                       >
-                        <span className="font-mono text-xs text-white">
-                          {f.qty} bouteille{f.qty > 1 ? 's' : ''} · 1.5L
-                        </span>
-                        <span className="font-display text-base text-white">{f.price}</span>
-                      </div>
+                        {f.qty} × 1,5 L · {f.price}
+                      </span>
                     ))}
                   </div>
-                </div>
-              </div>
-            </Link>
 
-            {/* <div className="rounded-3xl bg-teal text-cream p-8 md:p-10 flex flex-col justify-between min-h-[440px]">
-              <div>
-                <h3 className="font-display text-3xl mt-4 text-white">Livraison</h3>
-                <p className="mt-3 text-cream/75 text-sm leading-relaxed">
-                  Le Kossam, c&apos;est uniquement{' '}
-                  <span>sur la Côte d&apos;Azur</span>.
-                  <br />
-                  <br />
-                  Les autres produits, on livre dans toute l&apos;Europe avec la Poste.
-                </p>
-              </div>
-              <div className="mt-8 pt-8 border-t border-cream/15">
-                <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
-                  Certifié
+                  <div className="mt-8 pt-6 border-t border-cream/15 flex items-center justify-between gap-4">
+                    <span className="flex items-center gap-2 text-xs text-cream/70">
+                      <MapPin className="size-3.5 text-mint shrink-0" />
+                      {KOSSAM.delivery}
+                    </span>
+                    <span className="size-11 rounded-full bg-cream text-navy grid place-items-center transition-transform duration-500 ease-expo group-hover:scale-110">
+                      <ArrowUpRight className="size-5" />
+                    </span>
+                  </div>
                 </div>
-                <div className="font-display text-2xl mt-1">HACCP</div>
-              </div>
-            </div> */}
+              </Link>
+            </Reveal>
+
+            {/* Köni */}
+            <Reveal delay={0.1}>
+              <Link
+                href={`/produits/${KONI.slug}`}
+                className="group block h-full rounded-3xl overflow-hidden bg-cream-deep text-navy border border-navy/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-mid/60 focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={KONI.image}
+                    alt="Marinade Köni de Lab's Food"
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    className="object-cover transition-transform duration-1000 ease-expo group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-8 md:p-10">
+                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
+                    {KONI.category}
+                  </p>
+                  <h3 className="mt-4 font-display text-4xl md:text-5xl text-navy leading-none">
+                    {KONI.name}
+                  </h3>
+                  <p className="mt-4 text-ink/75 leading-relaxed max-w-md">
+                    {KONI.short}
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap gap-2.5">
+                    <span className="px-4 py-2 rounded-full border border-navy/20 text-sm text-navy tabular-nums">
+                      Le pot · {KONI.price}
+                    </span>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-navy/15 flex items-center justify-between gap-4">
+                    <span className="flex items-center gap-2 text-xs text-ink/70">
+                      <Truck className="size-3.5 text-orange-deep shrink-0" />
+                      {KONI.delivery}
+                    </span>
+                    <span className="size-11 rounded-full bg-navy text-cream grid place-items-center transition-transform duration-500 ease-expo group-hover:scale-110">
+                      <ArrowUpRight className="size-5" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Coming soon grid */}
-      <section className="bg-teal text-cream py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grain opacity-[0.05]" />
+      {/* ── Livraison ─────────────────────────────────────────────────── */}
+      <section className="bg-cream-deep py-20 md:py-24">
+        <div className="container-wide grid md:grid-cols-12 gap-10 lg:gap-16">
+          <Reveal className="md:col-span-5">
+            <h2
+              className="font-display text-navy leading-[0.98] tracking-tight text-balance"
+              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+            >
+              Deux produits,{' '}
+              <span className="font-display italic text-orange-deep">
+                deux façons de vous les envoyer.
+              </span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.1} className="md:col-span-7">
+            <dl className="border-t border-navy/15">
+              <div className="py-7 border-b border-navy/15">
+                <dt className="font-display text-xl text-navy">
+                  Kossam : {KOSSAM.delivery}
+                </dt>
+                <dd className="mt-2 text-ink/70 leading-relaxed max-w-[62ch]">
+                  {KOSSAM.deliveryNote} Récupération sur place ou livraison,
+                  selon ce qui vous arrange.
+                </dd>
+              </div>
+              <div className="py-7 border-b border-navy/15">
+                <dt className="font-display text-xl text-navy">
+                  Köni : {KONI.delivery}
+                </dt>
+                <dd className="mt-2 text-ink/70 leading-relaxed max-w-[62ch]">
+                  {KONI.deliveryNote}
+                </dd>
+              </div>
+            </dl>
+
+            <a
+              href={whatsappLink("Bonjour Lab's Food, j'ai une question sur vos produits : ")}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-whatsapp text-white font-medium text-sm hover:bg-whatsapp-deep transition-colors duration-300 ease-expo"
+            >
+              <WhatsAppIcon className="size-4" />
+              Poser une question
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Bientôt ───────────────────────────────────────────────────── */}
+      <section className="relative bg-teal text-cream py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-grain opacity-[0.05] pointer-events-none" />
+
         <div className="container-wide relative">
-          <div className="flex items-end justify-between gap-6 mb-14 flex-wrap">
-            <div className="max-w-2xl">
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.35em] text-orange inline-flex items-center gap-3 mb-6">
-                <span className="size-6 h-px bg-orange" />
-                Chez Lab&apos;s Food
-              </p>
-              <h2
-                className="font-display text-cream leading-[0.98] tracking-tight text-balance"
-                style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
-              >
-                Les prochaines{' '}
-                <em className="not-italic">
-                  <span className="font-display italic text-orange">
-                    surprises
-                  </span>
-                </em>{' '}
-                qui sortent du labo.
-              </h2>
-            </div>
+          <div className="max-w-2xl">
+            <h2
+              className="font-display text-cream leading-[0.98] tracking-tight text-balance"
+              style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
+            >
+              Les prochaines{' '}
+              <span className="font-display italic text-orange-soft">
+                sorties du labo.
+              </span>
+            </h2>
+            <p className="mt-6 text-cream/75 leading-relaxed">
+              Elles ne sont pas encore en vente. Dites-nous laquelle vous
+              attendez et nous vous préviendrons en premier.
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <ol className="mt-14 border-t border-cream/20">
             {COMING_SOON.map((item, i) => (
-              <div
-                key={item.name}
-                className="group rounded-2xl bg-cream/5 border border-cream/10 backdrop-blur-sm p-8 hover:bg-cream/10 transition-all"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-cream/55">
-                    {String(i + 1).padStart(2, '0')}
+              <Reveal key={item.name} delay={i * 0.08}>
+                <li className="flex items-baseline justify-between gap-6 py-6 border-b border-cream/20">
+                  <div className="flex items-baseline gap-5 min-w-0">
+                    <span className="font-mono text-xs tabular-nums text-orange-soft shrink-0">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="font-display text-2xl md:text-3xl text-cream leading-tight">
+                      {item.name}
+                    </h3>
+                  </div>
+                  <span className="shrink-0 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cream/65">
+                    {item.category}
                   </span>
-                  <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-white border border-white px-2.5 py-1 rounded-full">
-                    Soon
-                  </span>
-                </div>
-                <h3 className="font-display text-2xl text-cream">{item.name}</h3>
-                <p className="mt-2 text-sm text-cream/55">{item.category}</p>
-              </div>
+                </li>
+              </Reveal>
             ))}
-          </div>
+          </ol>
+
+          <a
+            href={whatsappLink(
+              "Bonjour Lab's Food, je souhaite être prévenu·e des prochaines sorties.",
+            )}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-10 inline-flex items-center gap-2 px-7 py-4 rounded-full bg-cream text-navy font-medium text-sm hover:bg-orange hover:text-cream transition-colors duration-300 ease-expo"
+          >
+            <WhatsAppIcon className="size-4" />
+            Être prévenu·e en premier
+          </a>
         </div>
       </section>
     </>

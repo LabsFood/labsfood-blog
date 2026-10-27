@@ -1,7 +1,11 @@
 # Lab's Food — Site principal
 
 Site mère de Lab's Food : ateliers, batch cooking et produits artisanaux (Kossam).
-Le site batch cooking dédié reste séparé sur `labsfood.batchcooking.fr` (lien sortant).
+Le site batch cooking dédié (`batchcooking-web`) est un repo séparé. **Le lien
+sortant vers ce service n'est pas encore finalisé** : `BATCH_COOKING_URL`
+(`lib/utils.ts`) pointe aujourd'hui vers un Google Form provisoire, pas vers un
+sous-domaine `labsfood.*` réel — à corriger une fois la stratégie de sous-domaines
+tranchée (voir le plan de migration global).
 
 ## Stack
 
@@ -14,7 +18,7 @@ Le site batch cooking dédié reste séparé sur `labsfood.batchcooking.fr` (lie
 
 ```bash
 npm install
-npm run dev     # http://localhost:3006
+npm run dev     # http://localhost:3007 (voir "dev" dans package.json)
 ```
 
 ## Structure
@@ -44,15 +48,16 @@ lib/
 
 ## Hero de la home
 
-Trois variantes prêtes à comparer — décommenter celui à tester dans `app/page.tsx` :
-- **HeroA** — Cinématique vidéo plein écran (par défaut)
-- **HeroB** — Split asymétrique + encarts colorés
-- **HeroC** — Triptyque magazine (3 piliers)
+`app/page.tsx` utilise actuellement **HeroD** (plusieurs variantes historiques
+existent sous `components/sections/` — vérifier l'import en tête de fichier avant
+de se fier à un README, celui-ci dérive vite sur ce point précis).
 
-## TODO admin (phase 2)
+## État du projet
 
-Les fonctionnalités admin (CMS, gestion des soumissions, stats) sont volontairement
-mises de côté pour cette première version. À brancher plus tard.
-
-Les endpoints des deux formulaires (`ChefForm`, `ContactForm`) sont simulés et
-attendent une intégration côté serveur (API route, Resend, etc.).
+Les endpoints des deux formulaires (`ChefForm` → `app/api/chef`, `ContactForm` →
+`app/api/contact`) sont **réels**, pas simulés : ils envoient un email via Brevo SMTP
+(Nodemailer), mais **n'écrivent rien dans le backend `LF-BackEnd`** — aucune de ces
+soumissions n'est aujourd'hui persistée en base ni visible depuis l'admin dashboard.
+Les fonctionnalités admin (CMS, gestion des soumissions, stats) restent à brancher.
+Voir [AGENTS.md](./AGENTS.md) pour le détail (variables d'environnement, cible de
+déploiement).

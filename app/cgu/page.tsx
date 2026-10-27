@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { PageHero } from '@/components/ui/PageHero'
 
 export const metadata: Metadata = {
-  title: "CGU — Conditions Générales d'Utilisation",
+  title: "CGU · Conditions générales d'utilisation",
   description:
     "Conditions Générales d'Utilisation de la plateforme Lab's Food.",
 }
@@ -66,7 +66,7 @@ export default function CguPage() {
           </>
         }
         image='/assets/placehold.jpeg'
-        lede="Les règles d'usage de la plateforme Lab's Food — service de mise en relation entre professionnels et intervenants en cuisine."
+        lede="Les règles d'usage de la plateforme Lab's Food, service de mise en relation entre professionnels et intervenants en cuisine."
       />
 
       <section className="bg-cream py-20 md:py-28">

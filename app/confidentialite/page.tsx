@@ -3,7 +3,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { Eye, Lock } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: "Politique de Confidentialité — RGPD",
+  title: "Politique de confidentialité · RGPD",
   description:
     "Comment Lab's Food collecte, traite et protège vos données personnelles dans le respect du RGPD.",
 }
@@ -18,12 +18,12 @@ const SECTIONS = [
     blocks: [
       {
         kind: 'public' as const,
-        title: 'Données publiques — la « Vitrine »',
+        title: 'Données publiques : la « Vitrine »',
         text: "Prénom, photographie, département d'intervention, niveau d'expérience, statut, compétences professionnelles et lien de l'outil de planification de rendez-vous (type Calendly, Google Form…) ou contact.",
       },
       {
         kind: 'private' as const,
-        title: 'Données confidentielles — Administration interne',
+        title: 'Données confidentielles : administration interne',
         text: "Nom de famille, numéro de téléphone personnel et adresse e-mail.",
       },
     ],
@@ -56,7 +56,7 @@ const SECTIONS = [
     n: '05',
     title: 'Exercice des droits des utilisateurs',
     body: [
-      "Conformément à la réglementation européenne en vigueur (Règlement Général sur la Protection des Données — RGPD), tout utilisateur dispose d'un droit d'accès, de rectification, de portabilité, de limitation et d'effacement de ses données personnelles.",
+      "Conformément à la réglementation européenne en vigueur (Règlement Général sur la Protection des Données, RGPD), tout utilisateur dispose d'un droit d'accès, de rectification, de portabilité, de limitation et d'effacement de ses données personnelles.",
       "L'utilisateur peut à tout moment demander la modification ou le retrait immédiat de son profil public et de sa photographie en contactant l'administration de la plateforme via les coordonnées fournies sur le site.",
     ],
   },
@@ -78,7 +78,7 @@ export default function ConfidentialitePage() {
           </>
         }
         image='/assets/placehold.jpeg'
-        lede="Comment Lab's Food collecte, traite et protège vos données personnelles — dans le respect du RGPD européen."
+        lede="Comment Lab's Food collecte, traite et protège vos données personnelles, dans le respect du RGPD européen."
       />
 
       <section className="bg-cream py-20 md:py-28">

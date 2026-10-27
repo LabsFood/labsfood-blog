@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(Remove-Item \"c:\\\\Users\\\\AMIRTECH\\\\Documents\\\\projets\\\\PERSO\\\\labs-food-batch-cooking\\\\labs-food-main\\\\app\\\\produits\\\\kossam\\\\opengraph-image.tsx\")",
-      "Bash(npm run *)"
-    ]
-  }
-}

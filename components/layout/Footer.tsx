@@ -24,17 +24,17 @@ const LINKS = {
     { label: 'Contact', href: '/contact' },
   ],
   services: [
-    { label: 'Batch cooking', href: '/services/batch-cooking' },
-    { label: 'Assistance culinaire', href: '/services/assistance-culinaire' },
-    { label: 'Atelier culinaire', href: '/services/atelier-culinaire' },
-    { label: 'Tous les services', href: '/services' },
+    { label: 'Le batch cooking', href: '/services/batch-cooking' },
+    { label: 'Les formules', href: '/services/batch-cooking#formules' },
+    { label: 'Le crédit d’impôt', href: '/services/batch-cooking#credit-impot' },
+    { label: 'Menu du mois', href: '/menu' },
   ],
   produits: [
     { label: 'Kossam', href: '/produits/kossam' },
+    { label: 'Marinade Köni', href: '/produits/koni' },
     { label: 'Tous les produits', href: '/produits' },
-    { label: 'Bientôt — Luxury Kossam', href: '/produits' },
-    { label: 'Bientôt — Ail noir', href: '/produits' },
-    { label: 'Bientôt — Marinade Köni', href: '/produits' },
+    { label: 'Bientôt : Luxury Kossam', href: '/produits' },
+    { label: 'Bientôt : Ail noir', href: '/produits' },
   ],
   legal: [
     { label: 'Mentions légales', href: '/mentions-legales' },
@@ -113,7 +113,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-16 border-b border-cream/10">
           {/* Contact */}
           {/* Colonnes liens */}
-          <FooterColumn title="Services" className="lg:col-span-3">
+          <FooterColumn title="Batch cooking" className="lg:col-span-3">
             {LINKS.services.map((l) => (
               <FooterLink key={l.href + l.label} {...l} />
             ))}
@@ -131,7 +131,7 @@ export function Footer() {
           </FooterColumn>` */}
           <div className="lg:col-span-3">
             <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-6">
-              — Nous contacter
+              Nous contacter
             </p>
             <ul className="space-y-4">
               <li>
@@ -174,7 +174,7 @@ export function Footer() {
           </div>
           <div className=" md:col-span-3">
             <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-4">
-              — Suivez-nous
+              Suivez-nous
             </p>
             <div className="flex items-center gap-3">
               {SOCIAL.map(({ Icon, label, href }) => (
@@ -239,7 +239,7 @@ function FooterColumn({
   return (
     <div className={className}>
       <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-mint mb-6">
-        — {title}
+        {title}
       </p>
       <ul className="space-y-3">{children}</ul>
     </div>
