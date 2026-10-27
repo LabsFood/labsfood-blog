@@ -7,6 +7,7 @@ import { Header } from '@/components/layout/Header'
 import { SplashScreen } from '@/components/layout/SplashScreen'
 import { Footer } from '@/components/layout/Footer'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
+import { SiteChrome } from '@/components/layout/SiteChrome'
 // import { CookieConsent } from '@/components/ui/CookieConsent'
 
 // ── Fraunces — police display (fichiers locaux, variable font) ───────────────
@@ -126,11 +127,19 @@ export default function RootLayout({
       className={`${fraunces.variable} ${montserrat.variable} `}
     >
       <body className="bg-cream text-ink font-sans antialiased">
-        <SplashScreen />
-        {/* <AnnouncementBar /> */}
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        {/* `/bientot` s'affiche nue : voir SiteChrome. */}
+        <SiteChrome
+          header={
+            <>
+              <SplashScreen />
+              {/* <AnnouncementBar /> */}
+              <Header />
+            </>
+          }
+          footer={<Footer />}
+        >
+          {children}
+        </SiteChrome>
         {/* <CookieConsent /> */}
       </body>
     </html>
