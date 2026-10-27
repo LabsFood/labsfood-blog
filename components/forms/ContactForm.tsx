@@ -14,11 +14,17 @@ import {
   Tag,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import {
+  CONTACT_LIMITS,
+  validateContact,
+  type ContactErrors,
+} from '@/lib/contact-validation'
 
 /**
  * FORMULAIRE DE CONTACT — design épuré navy/orange.
  *
- * Poste vers /api/contact (nodemailer + OVH SMTP).
+ * Poste vers /api/contact, qui transmet à l'API Lab's Food : le message arrive
+ * dans la boîte de réception de la console admin.
  * Champs : nom, email, téléphone (optionnel), sujet, message (≥ 10 car.).
  */
 
@@ -35,6 +41,8 @@ type FieldState = {
   phone: string
   subject: string
   message: string
+  /** Champ piège : invisible, donc laissé vide par une personne. */
+  website: string
 }
 
 type Status =
@@ -49,24 +57,33 @@ const INITIAL: FieldState = {
   phone: '',
   subject: '',
   message: '',
+  website: '',
 }
 
 export function ContactForm() {
   const [fields, setFields] = useState<FieldState>(INITIAL)
   const [status, setStatus] = useState<Status>({ type: 'idle' })
+  const [errors, setErrors] = useState<ContactErrors>({})
 
   function update<K extends keyof FieldState>(key: K, value: FieldState[K]) {
     setFields((prev) => ({ ...prev, [key]: value }))
+    // L'erreur d'un champ disparaît dès qu'on le corrige.
+    setErrors((prev) => (key in prev ? { ...prev, [key]: undefined } : prev))
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    if (fields.message.trim().length < 10) {
+    const found = validateContact(fields)
+    setErrors(found)
+    const firstInvalid = (Object.keys(found) as (keyof ContactErrors)[])[0]
+    if (firstInvalid) {
       setStatus({
         type: 'error',
-        message: 'Votre message doit contenir au moins 10 caractères.',
+        message: 'Certains champs sont à corriger avant l’envoi.',
       })
+      // On amène la personne sur le premier champ en cause.
+      document.getElementById(firstInvalid)?.focus()
       return
     }
 
@@ -98,10 +115,27 @@ export function ContactForm() {
   }
 
   const isSubmitting = status.type === 'submitting'
-  const messageRemaining = Math.max(10 - fields.message.trim().length, 0)
+  const messageRemaining = Math.max(
+    CONTACT_LIMITS.messageMin - fields.message.trim().length,
+    0,
+  )
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-6">
+    <form onSubmit={onSubmit} noValidate className="flex flex-col gap-6">
+      {/* Champ piège anti-robot : hors écran, hors tabulation, ignoré des lecteurs d'écran. */}
+      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label>
+          Site web
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={fields.website}
+            onChange={(e) => update('website', e.target.value)}
+          />
+        </label>
+      </div>
       {/* ─── Status banner ─── */}
       <AnimatePresence mode="wait">
         {status.type === 'success' && (
@@ -148,6 +182,9 @@ export function ContactForm() {
           value={fields.name}
           onChange={(v) => update('name', v)}
           required
+          maxLength={CONTACT_LIMITS.nameMax}
+          autoComplete="name"
+          error={errors.name}
           placeholder="Ex. Marie Dupont"
         />
         <Field
@@ -158,6 +195,9 @@ export function ContactForm() {
           value={fields.email}
           onChange={(v) => update('email', v)}
           required
+          maxLength={CONTACT_LIMITS.emailMax}
+          autoComplete="email"
+          error={errors.email}
           placeholder="marie@exemple.fr"
         />
       </div>
@@ -171,6 +211,9 @@ export function ContactForm() {
           type="tel"
           value={fields.phone}
           onChange={(v) => update('phone', v)}
+          maxLength={CONTACT_LIMITS.phoneMax}
+          autoComplete="tel"
+          error={errors.phone}
           placeholder="+33 6 00 00 00 00"
           hint="Optionnel"
         />
@@ -212,11 +255,24 @@ export function ContactForm() {
           name="message"
           required
           rows={6}
+          maxLength={CONTACT_LIMITS.messageMax}
           value={fields.message}
           onChange={(e) => update('message', e.target.value)}
+          aria-invalid={errors.message ? true : undefined}
+          aria-describedby={errors.message ? 'message-error' : undefined}
           placeholder="Décrivez votre demande : nombre de personnes, date, lieu, contraintes alimentaires… plus c'est précis, mieux on vous répond."
-          className="w-full px-4 py-3.5 rounded-xl bg-cream-soft border border-navy/15 text-navy placeholder:text-ink/35 text-sm outline-none focus:border-orange focus:bg-cream transition-all resize-none"
+          className={cn(
+            'w-full px-4 py-3.5 rounded-xl bg-cream-soft border text-navy placeholder:text-ink/35 text-sm outline-none focus:bg-cream transition-all resize-none',
+            errors.message
+              ? 'border-orange-deep focus:border-orange-deep'
+              : 'border-navy/15 focus:border-orange',
+          )}
         />
+        {errors.message && (
+          <p id="message-error" role="alert" className="text-xs text-orange-deep">
+            {errors.message}
+          </p>
+        )}
       </div>
 
       {/* ─── Submit ─── */}
@@ -268,6 +324,9 @@ function Field({
   required,
   placeholder,
   hint,
+  error,
+  maxLength,
+  autoComplete,
 }: {
   id: string
   label: string
@@ -278,6 +337,10 @@ function Field({
   required?: boolean
   placeholder?: string
   hint?: string
+  /** Le message affiché sous le champ quand sa valeur ne convient pas. */
+  error?: string
+  maxLength?: number
+  autoComplete?: string
 }) {
   return (
     <label htmlFor={id} className="flex flex-col gap-2">
@@ -296,11 +359,25 @@ function Field({
         name={id}
         type={type}
         required={required}
+        maxLength={maxLength}
+        autoComplete={autoComplete}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="px-4 py-3 rounded-xl bg-cream-soft border border-navy/15 text-navy placeholder:text-ink/35 text-sm outline-none focus:border-orange focus:bg-cream transition-all"
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? `${id}-error` : undefined}
+        className={cn(
+          'px-4 py-3 rounded-xl bg-cream-soft border text-navy placeholder:text-ink/35 text-sm outline-none focus:bg-cream transition-all',
+          error
+            ? 'border-orange-deep focus:border-orange-deep'
+            : 'border-navy/15 focus:border-orange',
+        )}
       />
+      {error && (
+        <span id={`${id}-error`} role="alert" className="text-xs text-orange-deep">
+          {error}
+        </span>
+      )}
     </label>
   )
 }

@@ -1,0 +1,5 @@
+# Voir https://docs.github.com/articles/about-code-owners
+# S'applique une fois la protection de branche activee sur `main`/`develop`
+# avec "Require review from Code Owners".
+
+* @amirtechnoide @duval-constyl
