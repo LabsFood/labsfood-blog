@@ -30,10 +30,8 @@ import {
 
 const SUBJECTS = [
   { value: 'batch-cooking', label: 'Batch cooking' },
-  { value: 'assistance-culinaire', label: 'Assistance culinaire' },
-  { value: 'atelier-culinaire', label: 'Atelier culinaire' },
   { value: 'kossam', label: 'Kossam (produit)' },
-  { value: 'devenir-chef', label: 'Nous rejoindre' },
+  { value: 'koni', label: 'Marinade Köni (produit)' },
   { value: 'autre', label: 'Autre demande' },
 ] as const
 
@@ -152,7 +150,7 @@ export function ContactForm() {
             <div className="text-sm">
               <p className="font-medium">Message envoyé !</p>
               <p className="opacity-80 mt-1">
-                Merci, nous revenons vers vous très vite — généralement sous 24 h.
+                Merci, nous revenons vers vous très vite, généralement sous 24 h.
               </p>
             </div>
           </motion.div>
@@ -226,7 +224,7 @@ export function ContactForm() {
           value={fields.subject}
           onChange={(v) => update('subject', v)}
           options={SUBJECTS}
-          placeholder="— Sélectionner —"
+          placeholder="Sélectionner"
         />
       </div>
 

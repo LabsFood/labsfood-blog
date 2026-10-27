@@ -69,7 +69,7 @@ export function CtaFinalSection() {
               transition={{ duration: 0.9, delay: 0.2 }}
               className="mt-10 max-w-xl text-cream/80 text-lg leading-relaxed text-pretty"
             >
-              Notre service client est disponible 7j/7 — 24h/24 sur WhatsApp.
+              Notre service client est disponible 7j/7, 24h/24 sur WhatsApp.
               Messages écrits uniquement, pour une réponse rapide et précise.
             </motion.p>
 
@@ -138,7 +138,7 @@ export function CtaFinalSection() {
               </div>
 
               <div className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-navy-mid">
-                — Numéro Lab&apos;s Food
+                Numéro Lab&apos;s Food
               </div>
               <div className="font-display text-3xl md:text-4xl text-navy mt-3 tabular-nums">
                 {WHATSAPP_NUMBER_DISPLAY}
@@ -146,12 +146,11 @@ export function CtaFinalSection() {
 
               <div className="mt-8 space-y-3">
                 {[
-                  'Batch Cooking à domicile',
-                  'Assistance culinaire',
-                  'Cours de cuisine',
-                  'Vos pépites : Kossam, Ail noir, marinade, ...',
-                  'Rejoindre nos équipes',
-                  'Autres...'
+                  'Batch cooking à domicile',
+                  'Le menu du mois et vos propres recettes',
+                  'Le crédit d’impôt et l’avance immédiate',
+                  'Vos pépites : Kossam, marinade Köni',
+                  'Autres demandes',
                 ].map((t) => (
                   <div
                     key={t}

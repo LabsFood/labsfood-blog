@@ -22,10 +22,8 @@ const API_URL = (process.env.LF_API_URL ?? 'https://lf-api.labsfood.fr').replace
 // Le formulaire envoie une clé ; la console affiche le libellé.
 const SUBJECT_LABELS: Record<string, string> = {
   'batch-cooking': 'Batch cooking',
-  'assistance-culinaire': 'Assistance culinaire',
-  'atelier-culinaire': 'Atelier culinaire',
   kossam: 'Kossam (produit)',
-  'devenir-chef': 'Nous rejoindre',
+  koni: 'Marinade Köni (produit)',
   autre: 'Autre demande',
 }
 

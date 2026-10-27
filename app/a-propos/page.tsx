@@ -20,7 +20,7 @@ import { FOUNDER, TIMELINE } from '@/lib/content'
 import { whatsappLink } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: "À propos — Lab's Food, par Siyaptze",
+  title: "À propos · Lab's Food, par Siyaptze",
   description:
     "L'histoire de Lab's Food, plateforme dédiée au bien-être gourmand fondée par Siyaptze (Ivy). +150 gourmands régalés et fidélisés à ce jour.",
 }
@@ -34,7 +34,7 @@ const VALUES = [
   {
     icon: Sparkles,
     title: 'Émerveiller',
-    text: 'Chaque assiette doit arracher un sourire — comme celui de ma tante.',
+    text: 'Chaque assiette doit arracher un sourire, comme celui de ma tante.',
   },
   {
     icon: Heart,
@@ -79,7 +79,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-navy">
                 <Image
                   src="/assets/placehold.jpeg"
-                  alt="Siyaptze — Fondatrice de Lab's Food"
+                  alt="Siyaptze, fondatrice de Lab's Food"
                   fill
                   className="object-cover object-top"
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -410,14 +410,14 @@ export default function AboutPage() {
                 directement avec Ivy ?
               </h3>
               <p className="mt-4 text-ink/70 max-w-xl text-justify">
-                Que ce soit pour un atelier, un événement ou simplement
-                échanger.
+                Que ce soit pour une session de batch cooking, une commande
+                ou simplement échanger.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">
               <a
                 href={whatsappLink(
-                  "Bonjour Ivy, j'ai vu votre page À propos et j'aimerais en savoir plus — ",
+                  "Bonjour Ivy, j'ai vu votre page À propos et j'aimerais en savoir plus : ",
                 )}
                 target="_blank"
                 rel="noreferrer"

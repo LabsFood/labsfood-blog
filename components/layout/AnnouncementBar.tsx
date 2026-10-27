@@ -24,7 +24,7 @@ export function AnnouncementBar() {
       <div className="container-wide flex items-center justify-center gap-2 py-2.5 text-xs sm:text-sm font-medium">
         <span className="hidden sm:inline">🌿</span>
         <span>
-          Nouveau —{' '}
+          Nouveau :{' '}
           <Link href="/produits" className="underline underline-offset-2 hover:no-underline">
             Luxury Kossam & marinade verte BIO arrivent bientôt
           </Link>
