@@ -226,7 +226,6 @@ h1, h2, h3 {
 
 .related { padding: 56px 0 0; }
 
-.disclosure { display: inline-block; margin: 0; padding: 10px 14px; background: rgba(255, 255, 255, 0.7); border: 1px solid var(--line); border-radius: var(--r-control); font-size: 0.875rem; color: var(--ink-mid); }
 
 /* ── Pied de page ────────────────────────────────────────────────────── */
 .site-footer { margin-top: 80px; background: var(--navy); color: rgba(255, 255, 255, 0.78); padding: 40px 0; font-size: 0.9rem; }
