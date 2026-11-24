@@ -7,8 +7,8 @@ Astro 7 (Markdown via Sätteri) + Caddy, image Docker déployée sur Railway
 (`railway.toml`). L'ancien site mère Next.js est archivé dans `Archive_/` : ni construit,
 ni déployé, ne pas le modifier.
 
-Le blog est **édité par Labs Food et le dit partout** (pied de page, « Qui sommes-nous »,
-fin de chaque article). Ne jamais le présenter comme un site indépendant : pratique
+Le blog est **édité par Labs Food et le dit partout** (accueil, « Qui sommes-nous »,
+mentions légales, fin de chaque article). Ne jamais le présenter comme un site indépendant : pratique
 commerciale trompeuse (Code de la consommation L121-4).
 
 ## Écrire un guide

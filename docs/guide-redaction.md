@@ -3,7 +3,7 @@
 Lu par la tâche planifiée avant chaque article. Les règles légales ne se négocient pas.
 
 ## Règles légales (non négociables)
-- Le lien avec Labs Food est toujours dit : section finale « En pratique avec Labs Food » et pied de page. Jamais de ton de « site indépendant » (Code de la consommation L121-4).
+- Le lien avec Labs Food est toujours dit : section finale « En pratique avec Labs Food » et mention « Article édité par Labs Food » sous les sources. Jamais de ton de « site indépendant » (Code de la consommation L121-4).
 - Comparatifs : critères objectifs, vérifiables et datés, sources publiques citées pour chaque concurrent (prix, villes, avance immédiate). Pas de dénigrement (L122-1).
 - Jamais de faux avis, faux témoignage, faux chiffre client ou citation inventée.
 - Fiscal et URSSAF : chaque chiffre vient d'une source officielle (service-public.gouv.fr, impots.gouv.fr, economie.gouv.fr, urssaf.fr, bofip.impots.gouv.fr) vérifiée le jour de la rédaction. En cas de doute, ne pas donner le chiffre.

@@ -230,8 +230,6 @@ h1, h2, h3 {
 
 /* ── Pied de page ────────────────────────────────────────────────────── */
 .site-footer { margin-top: 80px; background: var(--navy); color: rgba(255, 255, 255, 0.78); padding: 40px 0; font-size: 0.9rem; }
-.site-footer p { max-width: 62ch; margin: 0 0 16px; }
-.site-footer strong { color: #fff; }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
 .site-footer a { display: inline-flex; align-items: center; min-height: 40px; color: #fff; }
 .site-footer a:hover { color: var(--amber-soft); }
