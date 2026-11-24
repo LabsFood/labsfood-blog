@@ -23,7 +23,7 @@
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.471.0",
     "next": "15.5.29",
-    "nodemailer": "^8.0.10",
+    "nodemailer": "^10.6.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hook-form": "^7.54.2",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.19.19",
-    "@types/nodemailer": "^8.0.0",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
@@ -50,5 +50,10 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
+  },
+  "overrides": {
+    "next": {
+      "postcss": "^8.5.23"
+    }
   }
 }
