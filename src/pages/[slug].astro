@@ -1,0 +1,177 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import GuideCard from '../components/GuideCard.astro';
+import { authors } from '../data/authors';
+import { categories } from '../data/categories';
+import { publishedGuides, relatedGuides, dateFr, type Guide } from '../lib/guides';
+import { readingMinutes } from '../lib/reading-time';
+import { frenchTypo } from '../lib/typo.mjs';
+import { MAIN, publisher } from '../data/organization';
+
+export async function getStaticPaths() {
+  const all = await publishedGuides();
+  return all.map((g) => ({ params: { slug: g.id }, props: { g, all } }));
+}
+
+interface Props {
+  g: Guide;
+  all: Guide[];
+}
+
+const { g, all } = Astro.props;
+const { Content, headings } = await render(g);
+const d = g.data;
+const author = authors[d.author];
+const minutes = readingMinutes(g.body);
+const related = relatedGuides(g, all);
+const toc = headings.filter((h) => h.depth === 2);
+const base = import.meta.env.BASE_URL;
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const site = Astro.site!.toString().replace(/\/$/, '');
+
+const jsonLd: Record<string, unknown>[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: d.title,
+    description: d.description,
+    datePublished: d.publishedAt.toISOString(),
+    dateModified: d.updatedAt.toISOString(),
+    author: { '@type': 'Organization', name: author.name, url: `${site}${base}qui-sommes-nous/` },
+    publisher,
+    mainEntityOfPage: url,
+    inLanguage: 'fr-FR',
+    timeRequired: `PT${minutes}M`,
+    articleSection: categories[d.category],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Guides', item: `${site}${base}` },
+      { '@type': 'ListItem', position: 2, name: d.title, item: url },
+    ],
+  },
+];
+if (d.faq.length) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: d.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
+---
+
+<Base title={d.seoTitle} description={d.description} type="article" jsonLd={jsonLd} progress>
+  <section class="hero">
+    <div class="container">
+      <nav aria-label="Fil d’Ariane">
+        <ol class="crumbs reveal">
+          <li><a href={base}>Guides</a></li>
+          <li>{categories[d.category]}</li>
+        </ol>
+      </nav>
+      <h1 class="reveal" style="--d: 40ms">{frenchTypo(d.title)}</h1>
+      <div class="byline reveal" style="--d: 80ms">
+        <span class="who">
+          <img src={`${base}${author.avatar}`} alt="" width="36" height="36" />
+          {author.name}
+        </span>
+        <span class="facts num">
+          <span>Mis à jour le <time datetime={d.updatedAt.toISOString()}>{dateFr.format(d.updatedAt)}</time></span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>{minutes}&nbsp;min de lecture</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="article-layout">
+      <article>
+        <div class="prose">
+          <Content />
+        </div>
+
+        <div class="end">
+          {
+            d.faq.length > 0 && (
+              <section class="panel faq" aria-labelledby="faq-title">
+                <h2 id="faq-title">Questions fréquentes</h2>
+                {d.faq.map((f) => (
+                  <details>
+                    <summary>{frenchTypo(f.q)}</summary>
+                    <p>{frenchTypo(f.a)}</p>
+                  </details>
+                ))}
+              </section>
+            )
+          }
+
+          <section class="panel author" aria-labelledby="author-title">
+            <img src={`${base}${author.avatar}`} alt="" width="56" height="56" />
+            <div>
+              <h2 id="author-title">{author.name}</h2>
+              <p class="role">{author.role}</p>
+              <p>{author.bio}</p>
+              <a href={`${base}qui-sommes-nous/`}>Comment nous écrivons ces guides</a>
+            </div>
+          </section>
+
+          <section class="panel sources" aria-labelledby="sources-title">
+            <h2 id="sources-title">Sources</h2>
+            <ul>
+              {d.sources.map((s) => (
+                <li><a href={s.url} rel="noopener">{s.label}</a></li>
+              ))}
+            </ul>
+            <p class="fine">
+              Article édité par Labs Food. Les montants sont donnés à titre indicatif ; votre situation fiscale peut
+              changer le résultat.
+            </p>
+          </section>
+        </div>
+      </article>
+
+      <aside class="aside" aria-label="Sommaire et réservation">
+        {
+          toc.length > 1 && (
+            <nav class="toc" aria-labelledby="toc-title">
+              <h2 id="toc-title">Dans ce guide</h2>
+              <ol>
+                {toc.map((h) => (
+                  <li><a href={`#${h.slug}`}>{frenchTypo(h.text)}</a></li>
+                ))}
+              </ol>
+            </nav>
+          )
+        }
+        <div class="cta-panel">
+          <h2>Un cuisinier chez vous cette semaine</h2>
+          <p>Prix affichés après crédit d’impôt, avance immédiate dès la première séance.</p>
+          <a class="button" href={`${MAIN}/?utm_source=blog&utm_medium=guides&utm_campaign=${g.id}`}>
+            Voir les cuisiniers <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    {
+      related.length > 0 && (
+        <section class="related" aria-labelledby="related-title">
+          <h2 class="section-title" id="related-title">À lire ensuite</h2>
+          <ul class="cards">
+            {related.map((r) => (
+              <li><GuideCard guide={r} /></li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</Base>

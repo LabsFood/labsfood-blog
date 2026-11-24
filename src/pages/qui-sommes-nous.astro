@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import { authors } from '../data/authors';
+
+const base = import.meta.env.BASE_URL;
+const a = authors.equipe;
+---
+
+<Base
+  title="Qui édite ces guides ? | Labs Food"
+  description="Les guides du batch cooking à domicile sont édités par Labs Food, service de cuisiniers à domicile agréé services à la personne. Voici comment nous écrivons."
+>
+  <section class="hero">
+    <div class="container">
+      <nav aria-label="Fil d’Ariane">
+        <ol class="crumbs reveal">
+          <li><a href={base}>Guides</a></li>
+          <li>Qui sommes-nous</li>
+        </ol>
+      </nav>
+      <h1 class="reveal" style="--d: 40ms">Qui édite ces guides ?</h1>
+      <p class="lead reveal" style="--d: 80ms">
+        Ces guides sont écrits et publiés par Labs Food. Nous le disons partout, y compris quand nous parlons de
+        nous ou de nos concurrents.
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="article-layout">
+      <article class="prose">
+        <p>
+          <strong>Labs Food</strong> est un service de batch cooking à domicile : un cuisinier indépendant vient chez
+          vous préparer les repas de la semaine, et vous profitez du crédit d’impôt de 50 % des services à la
+          personne. {a.bio}
+        </p>
+        <h2>Comment nous écrivons</h2>
+        <ul>
+          <li>Chaque chiffre fiscal renvoie à une source officielle (service-public.gouv.fr, impots.gouv.fr, URSSAF, BOFiP).</li>
+          <li>Chaque article affiche sa date de mise à jour, et nous le corrigeons quand la loi change.</li>
+          <li>Quand nous comparons des services, Labs Food compris, nous utilisons des critères publics et datés.</li>
+          <li>Nous ne publions ni faux avis, ni témoignages inventés.</li>
+        </ul>
+        <h2>Nous signaler une erreur</h2>
+        <p>
+          Une information datée ou inexacte ? Écrivez-nous à <a href="mailto:contact@labsfood.fr">contact@labsfood.fr</a>,
+          nous corrigeons et mettons la date à jour.
+        </p>
+      </article>
+    </div>
+  </div>
+</Base>

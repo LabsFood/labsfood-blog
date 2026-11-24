@@ -1,0 +1,13 @@
+node_modules
+.next
+.env*
+!.env.example
+!.env.local.example
+.vercel
+.DS_Store
+*.log
+tsconfig.tsbuildinfo
+
+# local editor/agent tooling (personal machine paths, never shared config)
+.claude/
+*.local.json

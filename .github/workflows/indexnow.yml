@@ -1,0 +1,43 @@
+# Après un déploiement en production (push sur main), signale à IndexNow les guides
+# ajoutés, modifiés ou supprimés. Ne bloque rien : la publication est déjà faite.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/content/guides/**']
+  workflow_dispatch:
+    inputs:
+      all:
+        description: Signaler tous les guides publiés
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Signaler les guides
+        env:
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ inputs.all }}
+        run: |
+          if [ "$ALL" = "true" ] || [ -z "$BEFORE" ]; then
+            node scripts/indexnow.mjs --all --wait
+          else
+            node scripts/indexnow.mjs --since "$BEFORE" --wait
+          fi
