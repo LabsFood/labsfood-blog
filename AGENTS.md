@@ -15,6 +15,9 @@ commerciale trompeuse (Code de la consommation L121-4).
 
 - Un fichier par article dans `src/content/guides/<slug>.md`. Le slug donne l'URL.
 - Règles de fond et légales : `docs/guide-redaction.md`. File de sujets : `docs/calendrier.md`.
+- Avant d'écrire : analyse de la page 1 pour la requête cible (plan et manques, jamais le
+  texte) et lecture des entretiens du thème (`docs/entretiens/`). Détail dans le guide de
+  rédaction.
 - Frontmatter validé au build (`src/content.config.ts`) : `seoTitle` ≤ 60 car.,
   `description` 120-160 car. **en texte brut** (le build échoue sur `#`, `**`, listes),
   `category` (`src/data/categories.ts`), `tags` (articles liés), `author`
@@ -92,3 +95,6 @@ npm run preview   # http://localhost:4321/guides/
 - Domaine cible : `blog.labsfood.fr` (CNAME Cloudflare vers Railway), `/` redirige vers
   `/guides/`.
 - Publier un article = fusionner sa PR. Jamais de fusion sans l'accord explicite de MajorD.
+- Indexation : après chaque push sur `main`, `.github/workflows/indexnow.yml` signale les
+  guides changés à IndexNow (Bing, Copilot ; clé dans `public/<clé>.txt`, servie à la racine
+  par Caddy). Google : sitemap `/guides/sitemap-index.xml` dans la Search Console.

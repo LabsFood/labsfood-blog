@@ -15,6 +15,12 @@
 		file_server
 	}
 
+	# Clé IndexNow (public/<clé>.txt), attendue à la racine du domaine.
+	@indexnow path_regexp ^/[a-f0-9]{32}\.txt$
+	handle @indexnow {
+		file_server
+	}
+
 	handle_path /guides/* {
 		@assets path /_astro/*
 		header @assets Cache-Control "public, max-age=31536000, immutable"

@@ -1,7 +1,8 @@
 # Calendrier éditorial : un guide tous les 4 jours
 
 La tâche planifiée prend le premier sujet au statut `à écrire`, rédige l'article, ouvre une PR
-et passe le sujet à `en relecture`. MajorD fusionne la PR : l'article est publié (déploiement Railway).
+et passe le sujet à `en relecture`. La « Requête cible » sert à l'analyse de la page 1 et au
+`seoTitle` (voir `docs/guide-redaction.md`). MajorD fusionne la PR : l'article est publié (déploiement Railway).
 
 | # | Slug | Sujet | Requête cible | Statut |
 |---|------|-------|---------------|--------|
