@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import GuideCard from '../components/GuideCard.astro';
+import { publishedGuides } from '../lib/guides';
+
+const guides = await publishedGuides();
+const site = Astro.site!.toString().replace(/\/$/, '');
+const base = import.meta.env.BASE_URL;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Les guides Labs Food',
+    url: `${site}${base}`,
+    inLanguage: 'fr-FR',
+    publisher: { '@type': 'Organization', name: 'Labs Food', url: 'https://www.labsfood.fr' },
+  },
+];
+---
+
+<Base
+  title="Guides batch cooking à domicile et crédit d’impôt | Labs Food"
+  description="Crédit d’impôt de 50 %, avance immédiate, prix et déroulé d’une séance : nos guides pratiques et sourcés sur le batch cooking à domicile."
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container">
+      <h1 class="reveal">Le batch cooking à domicile, expliqué chiffres à l’appui</h1>
+      <p class="lead reveal" style="--d: 40ms">
+        Combien ça coûte vraiment, comment payer moitié prix, comment se passe une séance : des réponses claires,
+        sourcées et datées.
+      </p>
+      <p class="disclosure reveal" style="--d: 80ms">
+        Guides édités par Labs Food. Sources officielles en bas de chaque article.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-top: 40px">
+    {guides.length === 0 && <p class="fine">Premiers guides en préparation.</p>}
+    <h2 class="sr-only">Tous les guides</h2>
+    <ul class="cards">
+      {
+        guides.map((g, i) => (
+          <li><GuideCard guide={g} featured={i === 0} /></li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

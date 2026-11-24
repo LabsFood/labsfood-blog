@@ -1,0 +1,40 @@
+{
+	admin off
+}
+
+# Port fixe : le domaine Railway cible le port 8080.
+:8080 {
+	encode zstd gzip
+	root * /srv
+
+	# Le site vit sous /guides/ ; la racine du sous-domaine y redirige.
+	redir / /guides/ 301
+	redir /guides /guides/ 301
+
+	handle /robots.txt {
+		file_server
+	}
+
+	handle_path /guides/* {
+		@assets path /_astro/*
+		header @assets Cache-Control "public, max-age=31536000, immutable"
+		try_files {path} {path}/index.html =404
+		file_server
+	}
+
+	handle {
+		error 404
+	}
+
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options DENY
+		-Server
+	}
+}
