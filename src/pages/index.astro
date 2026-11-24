@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import GuideCard from '../components/GuideCard.astro';
 import { publishedGuides } from '../lib/guides';
 import { frenchTypo } from '../lib/typo.mjs';
+import { publisher } from '../data/organization';
 
 const guides = await publishedGuides();
 const site = Astro.site!.toString().replace(/\/$/, '');
@@ -14,7 +15,7 @@ const jsonLd = [
     name: 'Les guides Labs Food',
     url: `${site}${base}`,
     inLanguage: 'fr-FR',
-    publisher: { '@type': 'Organization', name: 'Labs Food', url: 'https://www.labsfood.fr' },
+    publisher,
   },
 ];
 ---

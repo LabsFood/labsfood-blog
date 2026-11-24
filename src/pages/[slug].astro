@@ -7,6 +7,7 @@ import { categories } from '../data/categories';
 import { publishedGuides, relatedGuides, dateFr, type Guide } from '../lib/guides';
 import { readingMinutes } from '../lib/reading-time';
 import { frenchTypo } from '../lib/typo.mjs';
+import { MAIN, publisher } from '../data/organization';
 
 export async function getStaticPaths() {
   const all = await publishedGuides();
@@ -26,16 +27,9 @@ const minutes = readingMinutes(g.body);
 const related = relatedGuides(g, all);
 const toc = headings.filter((h) => h.depth === 2);
 const base = import.meta.env.BASE_URL;
-const MAIN = 'https://www.labsfood.fr';
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const site = Astro.site!.toString().replace(/\/$/, '');
 
-const publisher = {
-  '@type': 'Organization',
-  name: 'Labs Food',
-  url: MAIN,
-  logo: `${MAIN}/logo.png`,
-};
 const jsonLd: Record<string, unknown>[] = [
   {
     '@context': 'https://schema.org',
