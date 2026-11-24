@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Page introuvable | Les guides Labs Food"
+  description="Cette page n’existe pas ou a été déplacée. Retrouvez tous nos guides sur le batch cooking à domicile, le crédit d’impôt et l’avance immédiate."
+>
+  <section class="hero">
+    <div class="container">
+      <h1>Cette page n’existe pas</h1>
+      <p class="lead">Elle a peut-être été déplacée lors d’une mise à jour.</p>
+      <a class="button" href={import.meta.env.BASE_URL}>Voir tous les guides <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</Base>

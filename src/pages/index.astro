@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import GuideCard from '../components/GuideCard.astro';
+import { publishedGuides } from '../lib/guides';
+import { frenchTypo } from '../lib/typo.mjs';
+import { publisher } from '../data/organization';
+
+const guides = await publishedGuides();
+const site = Astro.site!.toString().replace(/\/$/, '');
+const base = import.meta.env.BASE_URL;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Les guides Labs Food',
+    url: `${site}${base}`,
+    inLanguage: 'fr-FR',
+    publisher,
+  },
+];
+---
+
+<Base
+  title="Le guide du batch cooking à domicile | Labs Food"
+  description="Organisation, conservation, prix, aides, choix d’un cuisinier : nos guides pratiques et sourcés pour réussir le batch cooking à domicile."
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container">
+      <h1 class="reveal">Le guide du batch cooking à domicile</h1>
+      <p class="lead reveal" style="--d: 40ms">
+        {frenchTypo('Organisation, conservation, prix, aides, choix d’un cuisinier : des réponses claires, sourcées et datées pour manger maison toute la semaine.')}
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-top: 40px">
+    {guides.length === 0 && <p class="fine">Premiers guides en préparation.</p>}
+    <h2 class="sr-only">Tous les guides</h2>
+    <ul class="cards">
+      {
+        guides.map((g, i) => (
+          <li><GuideCard guide={g} featured={i === 0} /></li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

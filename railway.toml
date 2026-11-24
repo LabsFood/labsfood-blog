@@ -1,4 +1,4 @@
-# LF-WebApp — Railway config-as-code
+# Les guides Labs Food — Railway config-as-code
 # https://docs.railway.com/reference/config-as-code
 
 [build]
@@ -6,5 +6,6 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
+healthcheckPath = "/guides/"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
