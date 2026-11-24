@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import GuideCard from '../components/GuideCard.astro';
 import { publishedGuides } from '../lib/guides';
+import { frenchTypo } from '../lib/typo.mjs';
 
 const guides = await publishedGuides();
 const site = Astro.site!.toString().replace(/\/$/, '');
@@ -27,8 +28,7 @@ const jsonLd = [
     <div class="container">
       <h1 class="reveal">Le batch cooking à domicile, expliqué chiffres à l’appui</h1>
       <p class="lead reveal" style="--d: 40ms">
-        Combien ça coûte vraiment, comment payer moitié prix, comment se passe une séance : des réponses claires,
-        sourcées et datées.
+        {frenchTypo('Combien ça coûte vraiment, comment payer moitié prix, comment se passe une séance : des réponses claires, sourcées et datées.')}
       </p>
       <p class="disclosure reveal" style="--d: 80ms">
         Guides édités par Labs Food. Sources officielles en bas de chaque article.

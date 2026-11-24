@@ -19,6 +19,6 @@ const base = import.meta.env.BASE_URL;
 <a class:list={['card', { featured }]} href={`${base}${guide.id}/`}>
   <span class="cat">{categories[d.category]}</span>
   <Heading>{frenchTypo(d.title)}</Heading>
-  <p>{d.description}</p>
+  <p>{frenchTypo(d.description)}</p>
   <span class="meta num">{readingMinutes(guide.body)}&nbsp;min de lecture</span>
 </a>
