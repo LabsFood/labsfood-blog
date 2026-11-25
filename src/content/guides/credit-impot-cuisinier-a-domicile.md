@@ -2,8 +2,8 @@
 title: "Crédit d’impôt de 50 % pour un cuisinier à domicile : qui y a droit et combien vous payez vraiment"
 seoTitle: "Cuisinier à domicile : le crédit d’impôt de 50 % expliqué"
 description: "Un cuisinier à domicile ouvre droit à 50 % de crédit d’impôt, jusqu’à 12 000 € de dépenses par an. Conditions, plafonds et exemples chiffrés."
-publishedAt: 2026-11-24
-updatedAt: 2026-11-24
+publishedAt: 2026-11-25
+updatedAt: 2026-11-25
 category: fiscalite
 tags: [credit-impot, avance-immediate, prix]
 sources:
@@ -20,7 +20,7 @@ faq:
     a: "Le temps passé par le cuisinier à faire les courses fait partie de la prestation. Le prix des ingrédients, lui, n’ouvre pas droit au crédit d’impôt."
   - q: "Dois-je attendre l’année suivante pour être remboursé ?"
     a: "Plus forcément. Avec l’avance immédiate de l’URSSAF, vous ne payez que la moitié du prix au moment de la prestation, l’URSSAF règle l’autre moitié."
-draft: true
+draft: false
 ---
 
 Faire venir un cuisinier chez soi pour préparer les repas de la semaine coûte souvent **deux fois moins cher qu’on ne le croit**. La raison : la préparation de repas à domicile fait partie des services à la personne, et ces services ouvrent droit à un crédit d’impôt de 50 %.
